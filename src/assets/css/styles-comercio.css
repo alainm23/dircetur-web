@@ -1,0 +1,143 @@
+.color-blanco{
+	color: #fff;
+}
+#titulo-dicertur{
+	font-family: Black 56px/67px Avenir;
+	font-weight: 700;
+}
+#fondo-azul-comercio{
+	background-color: #3E729A;
+	border: 1px solid #707070;
+	border-left: 0;
+}
+#subtitulo-delgado-comer{
+	font-family: Light 56px/53px Avenir;
+	font-weight: 300;
+}
+.subtitulos-grueso{
+	font-family: Black 56px/60px Avenir;
+	font-weight: 700;
+	letter-spacing: 0.95px;
+}
+.subtitulos-delgado{
+	font-family: Light 44px/45px Avenir;
+	font-weight: 300;
+	letter-spacing: 0.75px
+}
+.color-65{
+	color: #656565;
+}
+.texto-font{
+	font-family: Light 28px/36px Avenir;
+	font-weight: 300;
+}
+.color-fondo-azul{
+	background-color: #3E729A;
+}
+.btn-anchura{
+	color: #fff;
+	font-family: Heavy 22px/33px Avenir;
+	width: 100%;
+	height: 30px;
+	font-weight: 300;
+	border-radius: 12px;
+	border: 1px solid #707070;
+}
+.color-blanco-link:hover{
+	color: #3E729A;
+	background-color: #fff;
+}
+button:focus{
+	outline:0;
+}
+.color-05{
+	color: #505050;
+}
+.btn-requisitos{
+	box-shadow: 0px 3px 6px #00000029;
+	border-radius: 16px;
+	width: 97%;
+	color: #fff;
+	font-family: Medium 18px/27px Avenir;
+	height: 35px;
+	font-weight: 300;
+	font-size: 14px
+}
+.color-81{
+	color: #818181;
+}
+.btn-finanzas{
+	background-color: #fff;
+	color: #676767;
+	border: 1px solid #DBDBDB;
+	border-radius: 16px;
+	line-height: 1;
+	font-family: Heavy 22px/24px Avenir;
+	font-weight: 500;
+	box-shadow: 0px 3px 6px #00000029;
+	width: 95%;
+	height: 50px;
+}
+#fondo-rojo{
+	background-color: #EC494B;
+}
+.suntitulo-grueso-doc{
+	font-family: Black 56px/67px Avenir;
+	font-weight: 700;
+}
+.subtitulo-delgado-doc{
+	font-family: Light 44px/53px Avenir;
+	font-weight: 300;
+}
+.text-font-doc{
+	font-family: Book 22px/32px Avenir;
+	font-weight: 300;
+}
+.btn-doc{
+	border-radius: 7px;
+	color: #fff;
+	border: 1px solid #FFFFFF;
+}
+.btm-mesas{
+	background-color: #fff;
+	border: 1px solid #BABABA;
+	box-shadow: 0px 3px 6px #00000029;
+	font-family: Book 30px/56px Avenir;
+	color: #505050;
+	border-radius: 15px;
+}
+.titulo-contac{
+	font-family: Black 28px/35px Avenir;
+	font-weight: 700;
+}
+::placeholder {
+ color: #3C3C3C; 
+}
+#video-comercio{
+	height: 150%
+}
+@media(min-width: 1024px){
+   #video-comercio{
+	height: 100%
+   }	
+}
+.font-size-pequño{
+	font-size: 32px;
+}
+@media(min-width: 411px){
+	.font-size-pequño{
+	font-size: 2.5rem;
+   }
+}
+#btn-hover:hover{
+	background-color: #fff;
+	color: #EC494B;
+}
+.btn-hover-ingrear:hover{
+	background-color: #505050;
+	color: #fff
+}
+.btn-finanzas:hover{
+	background-color: #676767;
+	color: #fff;
+}

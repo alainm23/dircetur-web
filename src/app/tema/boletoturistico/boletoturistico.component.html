@@ -1,0 +1,202 @@
+<section class="titulo-phone">
+<div class="container-fluid px-0">
+    <div class="row m-0">
+        <div class="col-lg-4 order-3 order-lg-0">
+            <img [src]="imagenes?.boleto_turistico_img_1.img" height="100%" id="img-boleto">
+        </div>
+        <div class="col-lg-8 pr-lg-0 pt-lg-5 pb-5" id="color-azul-borde" style="position: relative;">
+            <div class="row m-0 pb-5">
+                <div class="col-12 mb-lg-4 pt-4 pl-lg-5 text-center text-lg-left">
+                        <h1 class="color-blanco" id="titulo-bole">{{etiquetas?.boleto_tursitico_titulo}}<span id="subtitulo-font"> {{etiquetas?.boleto_tursitico_subtitulo}}</span> </h1>
+                </div>
+                <div class="col-xl-9 pb-lg-5 mb-lg-5 pl-lg-5 text-center text-lg-left color-blanco texto-font" [innerHtml]="etiquetas?.boleto_turistico_descripcion">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 offset-0 offset-lg-6 mt-n5">
+                    <div class="row m-0">
+                        <div class="col-12 mb-md-3 mt-n4 text-center text-lg-left">
+                            <h3 class="color-blanco subtitulo-delgado">{{etiquetas?.boleto_turistico_cuanto}}</h3>
+                        </div>
+                        <div class="col-md-6 pr-lg-1 pb-2 pb-md-0">
+                            <div class="cajaselect" style="padding: 1px 0px; margin-top: 0px;">
+                                <span class="seleccionado" style="margin-top: 0px;">Seleccionar Boleto</span>
+                                    <ul class="listaselect" style="margin-top: 52px;">
+                                        <li *ngFor="let boleto of boletos" (click)="calcularBoleto (boleto?.id)">
+                                            {{boleto?.titulo}}
+                                        </li>
+                                    </ul>
+                                <span class="trianguloinf" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pl-xl-1">
+                            <div class="cajaselect" style="padding: 1px 0px; margin-top: 0px;">
+                                <span class="seleccionado" style="margin-top: 0px;" id="nacional">Seleccionar</span>
+                                    <ul class="listaselect" style="margin-top: 52px;">
+                                        <li (click)="MostrarPrecio ('nacional')">
+                                            Nacional
+                                        </li>
+                                        <li (click)="MostrarPrecio ('extranjero')">
+                                            Extranjero
+                                        </li>
+                                    </ul>
+                                <span class="trianguloinf" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center py-4">
+                            <p class="color-negro mb-0" id="costo-font">{{etiquetas?.boleto_turistico_costo_persona}} {{precio_mostrar}}</p>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>
+</section>
+<section class="py-4 pt-lg-5" id="color-rojo">
+<div class="container-fluid pt-lg-5">
+    <div class="row m-0 mt-lg-5">
+        <div class="col-md-4 col-xl-5 color-blanco text-center py-md-5">
+            <h2 class="subtitulo-grueso mb-0 mt-md-5 ml-lg-5">{{etiquetas?.boleto_turistico_donde_conseguir_titulo}}</h2>
+            <h3 class="subtitulo-delgado mb-0 ml-lg-5">{{etiquetas?.boleto_turistico_donde_conseguir_subtitulo}}</h3>
+            <img src="assets/imagenes/arrow.png" width="50%" class="rotar-img ml-xl-5">
+        </div>
+        <div class="col-md-8 col-xl-7 color-blanco pb-4">
+            <div class="row m-0">
+                <div class="col-md-6 ml-lg-n5 pb-5 pb-md-0">
+                    <p class="central-infor-font mb-0">{{etiquetas?.boleto_turistico_counter_central}}</p>
+                    <p class="direccion-font mb-0">{{etiquetas?.boleto_turistico_direccion}}</p>
+                    <img src="assets/imagenes/mapa.png" width="100%" height="70%" class="border-mapa">
+                    <p class="fecha-font">{{etiquetas?.boleto_turistico_horarios}}</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="central-infor-font mb-0">{{etiquetas?.boleto_turistico_infor_turistica}}</p>
+                    <p class="direccion-font mb-0">{{etiquetas?.boleto_turistico_direccion_infor}}</p>
+                    <img src="assets/imagenes/mapa.png" width="100%" height="70%" class="border-mapa">
+                    <p class="fecha-font">{{etiquetas?.boleto_turistico_horario_info}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container py-5">
+    <div class="row m-0">
+        <div class="col-12 text-center mb-4">
+            <h2 class="color-negro subtitulo-delgado">{{etiquetas?.boleto_turistico_condiones}}</h2>
+        </div>
+        <div [innerHtml]="etiquetas?.boleto_turistico_condiones_descripcion" class="col-xl-8 offset-xl-2 text-center color-negro texto-font mb-0">
+            
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="pt-5" id="fondo-section">
+<div class="container-fluid px-md-5">
+    <div class="row m-0">
+        <div class="col-12 text-center">
+            <h2 class="subtitulo-grueso mb-0" style="color: #656565">{{etiquetas?.boleto_parciales_titulos}}</h2>
+            <h3 class="subtitulo-delgado" style="color: #656565">{{etiquetas?.boleto_parciales_subtitulo}}</h3>
+        </div>
+        <div class="col-4 col-lg-2 offset-4 offset-lg-5">
+            <div style="width: 100%; height: 1px;background-color: #6b6464;"></div>
+        </div>
+        <div [innerHtml]="etiquetas?.boleto_parciales_descripcion" class="col-sm-8 offset-sm-2 color-negro text-center my-4 texto-font mb-0">
+           
+        </div>
+    </div>
+</div>
+</section>
+<section class="subir-boletos">
+    <div class="container-fluid px-md-5">
+        <div class="row m-0">
+            <div class="col-12 p-0">
+                <div class="row m-0">
+                    <div class="col-sm-4 px-1 mb-2" *ngFor="let boleto of boletos">
+                        <div class="card" style="width: 100%;">
+                            <div class="card-img-top img-boleto-new" [ngStyle]="{'background-image': 'url('+ boleto?.imagen +')'}">
+                        
+                            </div>
+                            <div class="card-body" style="height: auto;">
+                                    <h5 class="card-title color-boletos-titulos mb-1">{{boleto?.titulo}}</h5>
+                                <div class="px-0 color-texto-boleto mb-1" style="list-style-type:none; height: 6rem;" [innerHtml]="boleto?.detalle">
+                                    
+                                </div>
+                                <div class="row m-0" >
+                                    <div class="col-3 col-sm-4 col-md-4 col-lg-3 col-xl-2 px-0 bajar-igualar">
+                                        <p class="vigencia-font">Vigencia</p>
+                                    </div>
+                                    <div class="col-3 col-md-3 col-lg-2 px-1 bajar-igualar">
+                                        <p class="color-texto-boleto">{{boleto?.vigencia}}</p>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+<div class="container-fluid px-md-5">
+    <div class="row m-0">
+        <div class="col-12 mt-sm-5 text-center">
+            <h3 class="subtitulo-delgado my-4 my-sm-5">{{etiquetas?.boleto_arquelogico_incluidos}}</h3>
+        </div>
+
+    </div>
+    <div class="justify-content-md-center" id="ancho-100">
+        <div class="anchura-20 mb-2" *ngFor="let parque of parques_arqueologicos">
+            <div class="row m-0">
+                <div class="col-12 px-0 img-parques-arqueologicos-new" [ngStyle]="{'background-image': 'url('+ parque?.imagen +')'}">
+                    
+                </div>
+                <div class="col-12 text-center py-3" style="border: 1px solid #d9d9d9; height: 14rem;">
+                    <h6 class="titulo-incluidos">{{parque?.titulo}}</h6>
+                    <div class="color-negro texto-incluidos text-parque-arqueologico-alto" [innerHtml]="parque?.detalle">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="mt-5 pb-5" id="fondo-museo">
+<div class="container mb-5">
+    <div class="row m-0">
+        <div class="col-12 text-center my-5">
+            <h2 class="color-negro subtitulo-delgado">{{etiquetas?.boleto_museos_incluidos}}</h2>
+        </div>
+       
+    </div>
+</div>
+</section>
+
+<section class="subir-museo mb-5">
+    <div class="container">
+        <div class="row m-0">
+            <div class="col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2 px-0">
+                <div class="row m-0">
+                    <div class="col-12 col-sm-4 mb-2 px-0" *ngFor="let museo of museos">
+                        <div class="row m-0">
+                            <div class="col-12 px-0 img-museos-new" [ngStyle]="{'background-image': 'url('+ museo?.imagen +')'}">
+                    
+                            </div>
+                            <div class="col-12 text-center py-3" style="border: 1px solid #d9d9d9; background-color: #fff; height: 14rem;">
+                                <h6 class="titulo-incluidos">{{museo?.titulo}}</h6>
+                                <div class="color-negro texto-incluidos text-museo-alto" [innerHtml]="museo?.detalle">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

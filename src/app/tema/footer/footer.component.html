@@ -1,0 +1,77 @@
+<footer class="footer-fondo pt-5">
+    <div class="container pt-5">
+      <div class="row m-0">
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 offset-3 offset-md-3 offset-lg-0 pl-4">
+          <img [src]="imagenes?.home_imagen_titulo.img" width="100%" height="100%" (click)="gohome ()" style="cursor: pointer;">
+        </div>
+        <div class="col-12 mt-2">
+          <div class="row m-0">
+             <div class="col-12 col-lg-3 pl-1 pr-0 text-center text-lg-left py-1 py-lg-0">
+              <div class="row m-0">
+                <div class="col-12">
+                  <p class="titulo-footer">{{etiquetas?.footer_contacto}}</p>
+                </div>
+                <div class="col-12 color-letra-footer mt-0">
+                  <span><i class="fa fa-phone"></i>{{etiquetas?.footer_numero}}</span>
+                </div>
+                <div class="col-12 color-letra-footer">
+                  <span><i class="fa fa-map-marker"></i>{{etiquetas?.footer_direccion}}</span>
+                </div>
+                <div class="col-12 my-3 my-0">
+                  <img src="assets/imagenes/mapa.png" width="100%" height="105%">
+                </div>
+              </div>
+             </div>
+             <div class="col-12 col-lg-6 pl-xl-3 text-center text-lg-left py-0 py-lg-0">
+               <div class="row m-0">
+                 <div class="col-12 pl-xl-5">
+                   <p class="titulo-footer">{{etiquetas?.footer_vinculos}}</p>
+                 </div>
+                 <div class="col-md-6 pl-lg-3 pl-xl-5 pr-xl-2">
+                   <ul class="list-unstyled" style="color: #BCBCBC;">
+                     <li><a class="color-letra-footer" (click)="goSobreDIR ()" style="cursor: pointer;">{{etiquetas?.footer_menu_dircetur}}</a></li>
+                     <li><a class="color-letra-footer" (click)="goBoletoTuristico ()" style="cursor: pointer;">{{etiquetas?.footer_menu_servicios_turisticos}}</a></li>
+                     <li><a class="color-letra-footer" (click)="goTurismo ()" style="cursor: pointer;">{{etiquetas?.footer_menu_turismo}}</a></li>
+                     <li><a class="color-letra-footer" (click)="goComercioExterior ()" style="cursor: pointer;">{{etiquetas?.footer_menu_comercio}}</a></li>
+                     <li><a class="color-letra-footer" (click)="goArtesania ()" style="cursor: pointer;">{{etiquetas?.footer_menu_artesania}}</a></li>
+                     <li><a class="color-letra-footer" (click)="goBoletoTuristico ()" style="cursor: pointer;">{{etiquetas?.footer_menu_boleto}}</a></li>
+                     <li *ngFor="let categoria of Categorias">
+                       <a class="color-letra-footer" (click)="goBlogs (categoria.nombre,categoria.id)" style="cursor: pointer;">
+                         {{categoria.nombre}}
+                        </a>
+                      </li>
+                   </ul>
+                 </div>
+                 <div class="col-md-6 mt-0 pl-xl-2">
+                  <ul class="list-unstyled" style="color: #BCBCBC;">
+                     <li ><a class="color-letra-footer" (click)="goCircuitosTuristicos ()" style="cursor: pointer;">{{etiquetas?.footer_menu_rutas}}</a></li>
+                     <li ><a class="color-letra-footer" (click)="goCalendario ()" style="cursor: pointer;">{{etiquetas?.footer_menu_calendario}}</a></li>
+                     <li ><a class="color-letra-footer" (click)="goAppProveedor ()" style="cursor: pointer;">{{etiquetas?.footer_menu_ingreso}}</a></li>
+                     <!--li><a class="color-letra-footer" href="">Comunicacion</a></li-->
+                     <li ><a class="color-letra-footer" (click)="goTurismoSocial ()" style="cursor: pointer;">{{etiquetas?.footer_menu_viajes}}</a></li>
+                     <li ><a class="color-letra-footer" (click)="goContacto ()" style="cursor: pointer;">{{etiquetas?.footer_menu_contacto}}</a></li>
+                   </ul>
+                 </div>
+               </div>
+             </div>
+             <div class="col-12 col-lg-3 py-5 py-lg-0 text-center text-lg-left">
+               <p class="titulo-footer">{{etiquetas?.footer_redes}}</p>
+               <img class="mt-3" src="assets/imagenes/fb.jpg" width="100%" height="80%">
+               
+             </div>
+             <div class="col-12 col-lg-10 offset-lg-1 mt-5">
+              <div id="linea-footer"></div>
+               <div class="row m-0">
+                 <div class="col-12 col-md-4 col-lg-4 col-xl-3 pl-0 px-0 text-center text-md-left">
+                   <p style="font: Heavy 20px/27px Avenir;letter-spacing: 0;color: #959595;opacity: 1;font-weight: 700;">{{etiquetas?.footer_dicertur}}</p>
+                 </div>
+                 <div  class="col-12 col-md-5 col-lg-4 col-xl-3 offset-md-3 offset-lg-4 offset-xl-6 pl-0 pr-0 text-center text-md-right ">
+                   <p style="font: Heavy 19px/26px Avenir;letter-spacing: 0;color: #959595;opacity: 1;font-weight: 700;">{{etiquetas?.footer_desarrollado}}<span style="color: #BCBCBC"> PuntoPro</span></p>
+                 </div>
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</footer>

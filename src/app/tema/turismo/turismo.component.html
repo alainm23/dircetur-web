@@ -1,0 +1,430 @@
+
+<section class="titulo-phone">
+<div class="container-fluid px-0">
+    <div class="row m-0">
+    <div class="col-12 col-lg-4 px-0 order-2 order-lg-0">
+        <img [src]="imagenes?.turismo_img_1.img" width="100%" height="100%">
+    </div>
+    <div class="col-12 col-lg-8 fondo-azul color-blanco py-5 text-center text-lg-left">
+        <div class="row m-0">
+        <div class="col-lg-10 offset-lg-1 px-0 my-5">
+            <h1 class="titulo-subtitulo">{{etiquetas?.turismo_titulo}}<span id="turismo-font"> {{etiquetas?.turismo_subtitulo}}</span></h1>
+            <div class="texto-turismo my-3" [innerHtml]="etiquetas?.turismo_texto">
+
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container py-5">
+    <div class="row m-0">
+    <div class="col-12 text-center color-65">
+        <h2 class="subutitulo-general mb-0">{{etiquetas?.turismo_lineas_titulo}}</h2>
+        <h3 class="subtitulo-delgado mb-0">{{etiquetas?.turismo_lineas_subtitulo}}</h3>
+        <img src="assets/imagenes/flechader.jpg" width="20%">
+    </div>
+    <div class="col-lg-4 text-center px-5 my-5">
+        <img [src]="imagenes?.turismo_lineas_img_1.img" width="25%">
+        <h5 class="color-rojo-turismo subtitulo-rojo-turismo my-3">{{etiquetas?.turismo_lineas_servicio}}</h5>
+        <p class="color-2 my-2 texto-lineas-rubros">
+            {{etiquetas?.turismo_lineas_servicio_texto}}
+        </p>
+        <button class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">{{etiquetas?.turismo_lineas_servicio_btn}}</button>
+    </div>
+    <div class="col-lg-4 text-center px-5 my-5">
+        <img [src]="imagenes?.turismo_lineas_img_2.img" width="25%">
+        <h5 class="color-rojo-turismo subtitulo-rojo-turismo my-3">{{etiquetas?.turismo_lineas_promocion}}</h5>
+        <p class="color-2 my-2 texto-lineas-rubros">
+            {{etiquetas?.turismo_lineas_promocion_texto}}
+        </p>
+        <button class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">{{etiquetas?.turismo_lineas_promocion_btn}}</button>
+    </div>
+    <div class="col-lg-4 text-center px-5 my-5">
+        <img [src]="imagenes?.turismo_lineas_img_3.img" width="25%">
+        <h5 class="color-rojo-turismo subtitulo-rojo-turismo my-4">{{etiquetas?.turismo_lineas_desarrollo}}</h5>
+        <p class="color-2 my-2 texto-lineas-rubros">
+            {{etiquetas?.turismo_lineas_desarrollo_texto}}
+        </p>
+        <button class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">{{etiquetas?.turismo_lineas_desarrollo_btn}}</button>
+    </div>
+    </div>
+</div>
+</section>
+<section>
+<div class="container-fluid px-0">
+    <div class="row m-0">
+    <div class="col-lg-8 fondo-rojo px-0 py-5 pl-lg-5">
+    <div class="row m-0">
+        <div class="col-12 col-lg-9">
+            <div class="row">
+            <div class="col-sm-6 offset-sm-3 offset-lg-0 color-blanco text-center px-4">
+                <h2 class="subutitulo-general mb-0">{{etiquetas?.turismo_funciones_titulo}}</h2>
+                <h3 class="subtitulo-delgado mb-0">{{etiquetas?.turismo_funciones_subtitulo}}</h3>
+                <img src="assets/imagenes/arrow.png" width="100%" style="transform: rotate(-180deg);">
+            </div>
+            <div class="col-12 col-lg-10 color-blanco text-center text-lg-left">
+                <div class="texto-turismo my-4" [innerHtml]="etiquetas?.turismo_funciones_texto">
+                    
+                </div>
+                <button class="btn btn-funciones px-4 py-1 btn-fondo-letra-rojo">{{etiquetas?.turismo_funciones_btn}}</button>
+            </div>
+            </div>
+        </div>
+        <div class="col-3 px-0">
+            <img class="mt-n5 ml-lg-5 ml-xl-5" [src]="imagenes?.turismo_funciones_app_img.img" id="img-app-turi">
+        </div>
+    </div>
+    </div>
+    <div class="col-lg-4 py-3">
+    <div class="row m-0">
+        <div class="col-12 text-center">
+            <h2 class="color-65 mb-0" id="app-font">{{etiquetas?.turismo_app_titulo}}</h2>
+            <h3 class="color-65 mb-0" id="turi-font">{{etiquetas?.turismo_app_subtitulo}}</h3>
+            <img src="assets/imagenes/flechaizq.jpg" width="50%">
+        </div>
+        <div class="col-12 pl-lg-3 pl-xl-5 text-center text-lg-left">
+            <div class="color-2 ml-lg-5 my-2" [innerHtml]="etiquetas?.turismo_app_texto">
+               
+            </div>
+        </div>
+        <div class="col-12 col-lg-8 px-5 text-center offset-lg-3">
+            <h5 class="color-65 my-3" id="muy-font">{{etiquetas?.turismo_app_pronto}}</h5>
+        </div>
+        <div class="col-12 col-lg-8 px-5 text-center offset-lg-3">
+            <div class="row justify-content-md-center">
+            <div class="col-6 pr-1 pl-0">
+                <img class="img-app-turismo" [src]="imagenes?.turismo_app_1_img.img" width="100%">
+            </div>
+            <div class="col-6 pl-1 pr-0">
+                <img class="img-app-turismo" [src]="imagenes?.turismo_app_2_img.img" width="100%">
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container-fluid py-5">
+    <div class="row m-0">
+    <div class="col-12 text-center color-65 mb-5">
+        <h2 class="subutitulo-general mb-0">{{etiquetas?.turismo_rubros_titulo}}</h2>
+        <h3 class="subtitulo-delgado mb-0">{{etiquetas?.turismo_rubros_subtitulo}}</h3>
+        <img src="assets/imagenes/flechader.jpg" width="20%">
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 text-center mb-5 mb-md-3 mb-xl-0">
+        <div class="row m-0">
+        <div class="col-12">
+            <img class="" [src]="imagenes?.turismo_rubros_img_1.img" width="25%" height="77.17">
+        </div>
+        <div class="col-12">
+            <h5 class="color-rojo-turismo subtitulo-rojo-turismo my-3">{{etiquetas?.turismo_rubros_alojamiento}}</h5>
+            <h5 class="color-azul numero-font mb-0">4,094</h5>
+            <h6 class="subtitulo-deslgado-font">{{etiquetas?.turismo_rubros_alojamiento_subtitulo}}</h6>
+        </div>
+        <div class="col-12">
+            <div class="color-2 texto-lineas-rubros" [innerHtml]="etiquetas?.turismo_rubros_alojamiento_texto">
+                
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul" (click)="goAlojamiento ()">{{etiquetas?.turismo_rubros_btn}}</button>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 text-center mb-5 mb-md-3 mb-xl-0">
+        <div class="row m-0">
+        <div class="col-12">
+            <img [src]="imagenes?.turismo_rubros_img_2.img" width="25%" height="77.17">
+        </div>
+        <div class="col-12">
+            <h5 class="color-rojo-turismo subtitulo-rojo-turismo my-3">{{etiquetas?.turismo_rubros_restuarante}}</h5>
+            <h5 class="color-azul numero-font mb-0">3,684</h5>
+            <h6 class="subtitulo-deslgado-font">{{etiquetas?.turismo_rubros_restuarante_subtitulo}}</h6>
+        </div>
+        <div class="col-12">
+            <div class="color-2 texto-lineas-rubros" [innerHtml]="etiquetas?.turismo_rubros_restuarante_texto">
+                
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul" (click)="goRestaurante ()">{{etiquetas?.turismo_rubros_btn}}</button>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 text-center mb-5 mb-md-3 mb-xl-0">
+        <div class="row m-0">
+        <div class="col-12">
+            <img class="" [src]="imagenes?.turismo_rubros_img_3.img" width="25%" height="77.17">
+        </div>
+        <div class="col-12">
+            <h5 class="color-rojo-turismo subtitulo-rojo-turismo my-3">{{etiquetas?.turismo_rubros_agencia}}</h5>
+            <h5 class="color-azul numero-font mb-0">724</h5>
+            <h6 class="subtitulo-deslgado-font">{{etiquetas?.turismo_rubros_agencia_subtitulo}}</h6>
+        </div>
+        <div class="col-12">
+            <div class="color-2 texto-lineas-rubros" [innerHtml]="etiquetas?.turismo_rubros_agencia_texto">
+                
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul" (click)="goAgencia ()">{{etiquetas?.turismo_rubros_btn}}</button>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 text-center mb-5 mb-md-3 mb-xl-0">
+        <div class="row m-0">
+        <div class="col-12">
+            <img class="" [src]="imagenes?.turismo_rubros_img_4.img" width="25%" height="77.17">
+        </div>
+        <div class="col-12">
+            <h5 class="color-rojo-turismo subtitulo-rojo-turismo my-3">{{etiquetas?.turismo_rubros_guias}}</h5>
+            <h5 class="color-azul numero-font mb-0">7,233</h5>
+            <h6 class="subtitulo-deslgado-font">{{etiquetas?.turismo_rubros_guias_subtitulo}}</h6>
+        </div>
+        <div class="col-12">
+            <div class="color-2 texto-lineas-rubros" [innerHtml]="etiquetas?.turismo_rubros_guias_texto">
+
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul" (click)="goGuia ()">{{etiquetas?.turismo_rubros_btn}}</button>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container-fluid my-5 px-0 px-xl-5">
+    <div class="row m-0">
+    <div class="col-12  text-center color-65 mb-5">
+        <h2 class="subutitulo-general mb-0">{{etiquetas?.turismo_cusco_video_titulo}}</h2>
+        <h3 class="subtitulo-delgado mb-0">{{etiquetas?.turismo_cusco_video_subtitulo}}</h3>
+        <img src="assets/imagenes/flechader.jpg" width="20%">
+    </div>
+    <div class="col-lg-6 px-lg-1">
+        <div>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/bsdrcM4wBeQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
+        </div>
+    </div>
+    <div class="col-lg-6 px-lg-1">
+        <div>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/JwcDlT33eE0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container-fluid px-0 py-5">
+    <div class="row m-0">
+    <div class="col-12 col-lg-4 px-0 order-2 order-lg-0">
+        <img [src]="imagenes?.turismo_social_img.img" width="100%" height="100%">
+    </div>
+    <div class="col-12 col-lg-8 fondo-azul color-blanco py-5 px-sm-5">
+        <div class="row m-0">
+        <div class="col-lg-4 text-center mt-4">
+            <h2 class="subutitulo-general mb-0">{{etiquetas?.turismo_social_titulo}}</h2>
+            <h3 class="subtitulo-delgado">{{etiquetas?.turismo_social_subtitulo}}</h3>
+            <img src="assets/imagenes/arrow.png" width="70%" style="transform: rotate(-180deg);">
+        </div>
+        <div class="col-12 col-lg-10 text-center text-lg-left">
+            <div class="texto-turismo my-4" [innerHtml]="etiquetas?.turismo_social_texto">
+            
+            </div>
+            <button class="btn btn-funciones px-5 mt-2 py-1 btn-fondo-letra-azul">{{etiquetas?.turismo_social_btn}}</button>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section class="my-4">
+<div class="container-fluid">
+    <div class="row m-0">
+    <div class="col-12 text-center color-65">
+        <h2 class="mb-0 subutitulo-general">{{etiquetas?.turismo_cusco_titulo}}</h2>
+        <h3 class="subtitulo-delgado mb-0">{{etiquetas?.turismo_cusco_subtitulo}}</h3>
+        <img src="assets/imagenes/flechader.jpg" width="20%">
+    </div>
+    <div class="col-md-6 col-xl-3 color-azul text-center px-4 my-5">
+        <div class="row m-0">
+        <div class="col-12">
+            <h3 class="number-cusco-altura counter">0</h3>
+        </div>
+        <div class="col-12 px-5">
+            <p class="texto-turismo interliniado-numer">{{etiquetas?.turismo_cusco_prestadores}}</p>
+        </div>
+        </div>
+    </div>
+        <div class="col-md-6 col-xl-3 color-azul text-center px-4 my-5">
+        <div class="row m-0">
+        <div class="col-12">
+            <h3 class="number-cusco-altura counter">0</h3>
+        </div>
+        <div class="col-12 px-5">
+            <p class="texto-turismo interliniado-numer">{{etiquetas?.turismo_cusco_turistas}}</p>
+        </div>
+        </div>
+    </div>
+        <div class="col-md-6 col-xl-3 color-azul text-center px-4 my-5">
+        <div class="row m-0">
+        <div class="col-12">
+            <h3 class="number-cusco-altura counter">0</h3>
+        </div>
+        <div class="col-12 px-5">
+            <p class="texto-turismo interliniado-numer">{{etiquetas?.turismo_cusco_servicios}}</p>
+        </div>
+        </div>
+    </div>
+        <div class="col-md-6 col-xl-3 color-azul text-center px-4 my-5">
+        <div class="row m-0">
+        <div class="col-12">
+            <h3 class="number-cusco-altura counter">0</h3>
+        </div>
+        <div class="col-12 px-5">
+            <p class="texto-turismo interliniado-numer">{{etiquetas?.turismo_cusco_servicios_turisticos}}</p>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container-fluid px-0 py-5">
+    <div class="row m-0">
+    <div class="col-12 text-center px-0">
+        <h2 class="subutitulo-general mb-0 color-65">{{etiquetas?.turismo_imagenes_titulo}}</h2>
+        <h3 class="subtitulo-delgado mb-0 color-65">{{etiquetas?.turismo_imagenes_subtitulo}}</h3>
+        <img src="assets/imagenes/flechader.jpg" width="20%">
+        <div class="texto-turismo color-81" [innerHtml]="etiquetas?.turismo_imagenes_descripcion">
+            
+        </div>
+    </div>
+    <div class="col-12 px-0 my-1">
+        <div class="carousel-home">
+            <img src="assets/imagenes/carousel1.png" class="carousel-cell px-1" height="100%"  alt="carousel1">
+            <img src="assets/imagenes/carousel2.png" class="carousel-cell px-1" height="100%"  alt="carousel2">
+            <img src="assets/imagenes/carousel3.png" class="carousel-cell px-1" height="100%"  alt="carousel3">
+            <img src="assets/imagenes/carousel4.png" class="carousel-cell px-1" height="100%"  alt="carousel4">
+            <img src="assets/imagenes/carousel10.png" class="carousel-cell px-1" height="100%"  alt="carousel10">
+            <img src="assets/imagenes/carousel6.png" class="carousel-cell px-1" height="100%"  alt="carousel6">
+            <img src="assets/imagenes/carousel7.png" class="carousel-cell px-1" height="100%"  alt="carousel7">
+            <img src="assets/imagenes/carousel8.png" class="carousel-cell px-1" height="100%"  alt="carousel2">
+            <img src="assets/imagenes/carousel2.png" class="carousel-cell px-1" height="100%"  alt="carousel2">
+            <img src="assets/imagenes/carousel3.png" class="carousel-cell px-1" height="100%"  alt="carousel3">
+            <img src="assets/imagenes/carousel4.png" class="carousel-cell px-1" height="100%"  alt="carousel4">
+            <img src="assets/imagenes/carousel10.png" class="carousel-cell px-1" height="100%"  alt="carousel10">
+            <img src="assets/imagenes/carousel6.png" class="carousel-cell px-1" height="100%"  alt="carousel6">
+            <img src="assets/imagenes/carousel7.png" class="carousel-cell px-1" height="100%"  alt="carousel7">
+            <img src="assets/imagenes/carousel8.png" class="carousel-cell px-1" height="100%"  alt="carousel2">
+            <img src="assets/imagenes/carousel2.png" class="carousel-cell px-1" height="100%"  alt="carousel2">
+        </div>
+    </div>
+    <div class="col-12 px-0 my-1">
+        <div class="carousel-home">
+            <img src="assets/imagenes/carousel11.png" class="carousel-cell px-1" height="100%" alt="carousel1">
+            <img src="assets/imagenes/carousel8.png" class="carousel-cell px-1" height="100%" alt="carousel2">
+            <img src="assets/imagenes/carousel13.png" class="carousel-cell px-1" height="100%" alt="carousel3">
+            <img src="assets/imagenes/carousel14.png" class="carousel-cell px-1" height="100%" alt="carousel4">
+            <img src="assets/imagenes/carousel10.png" class="carousel-cell px-1" height="100%" alt="carousel10">
+            <img src="assets/imagenes/carousel6.png" class="carousel-cell px-1" height="100%" alt="carousel6">
+            <img src="assets/imagenes/carousel7.png" class="carousel-cell px-1" height="100%" alt="carousel7">
+            <img src="assets/imagenes/carousel1.png" class="carousel-cell px-1" height="100%" alt="carousel1">
+            <img src="assets/imagenes/carousel2.png" class="carousel-cell px-1" height="100%" alt="carousel2">
+            <img src="assets/imagenes/carousel3.png" class="carousel-cell px-1" height="100%" alt="carousel3">
+        </div>
+    </div>
+    <div class="col-12 px-0 my-1">
+        <div class="carousel-home">
+            <img src="assets/imagenes/carousel1.png" class="carousel-cell px-1" height="100%" alt="carousel1">
+            <img src="assets/imagenes/carousel2.png" class="carousel-cell px-1" height="100%" alt="carousel2">
+            <img src="assets/imagenes/carousel3.png" class="carousel-cell px-1" height="100%" alt="carousel3">
+            <img src="assets/imagenes/carousel4.png" class="carousel-cell px-1" height="100%" alt="carousel4">
+            <img src="assets/imagenes/carousel10.png" class="carousel-cell px-1" height="100%" alt="carousel10">
+            <img src="assets/imagenes/carousel6.png" class="carousel-cell px-1" height="100%" alt="carousel6">
+            <img src="assets/imagenes/carousel7.png" class="carousel-cell px-1" height="100%" alt="carousel7">
+            <img src="assets/imagenes/carousel8.png" class="carousel-cell px-1" height="100%" alt="carousel2">
+            <img src="assets/imagenes/carousel14.png" class="carousel-cell px-1" height="100%" alt="carousel4">
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container-fluid px-0">
+    <div class="row m-0">
+    <div class="col-12 col-lg-8 fondo-rojo color-blanco py-5 px-sm-5">
+        <div class="row m-0">
+        <div class="col-lg-6 col-xl-5 text-center mt-4">
+            <h2 class="subutitulo-general mb-0">{{etiquetas?.turismo_rural_comunitario_titulo}}</h2>
+            <h3 class="subtitulo-delgado">{{etiquetas?.turismo_rural_comunitario_subtitulo}}</h3>
+            <img src="assets/imagenes/arrow.png" width="70%" style="transform: rotate(-180deg);">
+        </div>
+        <div class="col-12 col-lg-10 text-center text-lg-left">
+            <div class="texto-turismo my-4" [innerHtml]="etiquetas?.turismo_rural_comunitario_texto">
+
+            </div>
+            <button class="btn btn-funciones px-5 mt-2 py-1 btn-fondo-letra-rojo">{{etiquetas?.turismo_rural_comunitario_btn}}</button>
+        </div>
+        </div>
+    </div>
+    <div class="col-lg-4 px-0">
+        <img [src]="imagenes?.turismo_rural_img.img" width="100%" height="100%">
+    </div>
+    </div>
+</div>
+</section>
+
+<section class="contac-fondo-exterior">
+<div class="container-fluid py-5" style="background-color: #00000070;">
+    <div class="row m-0">
+    <div class="col-sm-6 col-md-5 col-lg-4 offset-sm-3 offset-md-0 px-lg-5 text-center my-5">
+        <h2 class="color-blanco subutitulo-general mb-0">{{etiquetas?.turismo_contacto_titulo}}</h2>
+        <h3 class="color-blanco subtitulo-delgado mb-0">{{etiquetas?.turismo_contacto_subtitulo}}</h3>
+        <img src="assets/imagenes/arrow.png" width="100%" style="transform: rotate(-180deg);">
+    </div>
+    <div class="col-md-7 col-lg-6 offset-lg-1 my-5">
+        <div class="row m-0">
+        <div class="col-12 color-blanco text-center text-md-left">
+            <p class="mb-0 subutitulo-general">{{etiquetas?.turismo_ubicacion}}</p>
+            <div class="texto-turismo margin-p-texto" [innerHtml]="etiquetas?.turismo_ubicacion_1">
+
+            </div>
+        </div>
+        <div class="col-12 color-blanco text-center text-md-left">
+            <p class="mb-0 subutitulo-general">{{etiquetas?.turismo_telefono}}</p>
+            <p class="texto-turismo">{{etiquetas?.turismo_telefono_numero}}</p>
+        </div>
+        <div class="col-12 color-blanco text-center text-md-left">
+            <p class="mb-0 subutitulo-general mb-3">{{etiquetas?.turismo_escribir}}</p>
+        </div>
+        <div class="col-sm-6 pr-md-1 mb-2 mb-sm-0">
+            <input class="color-fondo px-3 py-2 anchura-inpu" type="text" [placeholder]="etiquetas?.turismo_contacto_nombre">
+        </div>
+        <div class="col-sm-6 pl-md-1">
+            <input class="color-fondo px-3 py-2 anchura-inpu"  type="text" [placeholder]="etiquetas?.turismo_contacto_correo">
+        </div>
+        <div class="col-12 mt-2 anchura-contac-input">
+            <textarea class=" color-fondo px-3 py-2" aria-label="With textarea" [placeholder]="etiquetas?.turismo_contacto_mensaje" style="width: 100%;height: 100%"></textarea>
+        </div>
+        <div class="col-12 mt-2">
+            <button class="btn py-2 fondo-rojo-contac">{{etiquetas?.turismo_contac_btn}}</button>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>

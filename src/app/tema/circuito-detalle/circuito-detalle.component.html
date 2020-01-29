@@ -1,0 +1,111 @@
+<section class="titulo-phone">
+<div class="container-fluid px-0">
+    <div class="row m-0">
+    <div class="col-12 col-xl-4 color-blanco fondo-azul px-sm-5 py-5 height-azul-slider">
+        <div class="row m-0">
+        <div class="col-12 text-center text-lg-left">
+            <h1 class="titulo-subtitulo-viaje">{{detalle?.nombre}}</h1>
+            <div class="texto-general mt-xl-3 interloineado text-descripcion-circuito" [innerHtml]="detalle?.descripcion">
+                
+            </div>
+        </div>
+        <div class="col-12 px-0 mt-sm-4">
+            <div class="row m-0">
+                <div class="col-4 col-sm-2 offset-sm-2 offset-lg-0 col-lg-3">
+                    <p class="altitu-texto weight-grueso letra-font">{{etiquetas?.circuito_detalle_donde}}</p>
+                </div>
+                <div class="col-8 col-sm-6 col-lg-9 px-0">
+                    <p class="altitu-texto weight-delgado interloineado">{{detalle?.donde}}</p>
+                </div>
+                <div class="col-4 col-sm-2 col-lg-3 offset-sm-2 offset-lg-0">
+                    <p class="altitu-texto weight-grueso letra-font">{{etiquetas?.circuito_detalle_altitud}}</p>
+                </div>
+                <div class="col-8 col-sm-6 col-lg-9 px-0">
+                    <p class="altitu-texto weight-delgado">{{detalle?.altitud}}</p>
+                </div>
+                <div class="col-4 col-sm-2 col-lg-3 offset-sm-2 offset-lg-0">
+                    <p class="altitu-texto weight-grueso letra-font">{{etiquetas?.circuito_detalle_tags}}</p>
+                </div>
+                <div class="col-8 col-sm-6 col-lg-9 px-0">
+                    <div class="row m-0">
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Naturaleza</p>
+                        </div>
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Caminata</p>
+                        </div>
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Apicultura</p>
+                        </div>
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Ceramica</p>
+                        </div>
+                        <div class="col-6 col-sm-5 px-0">
+                        <p class="altitu-texto  mb-0">Crianza de cuy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-xl-8 px-0">
+        <div id="amazingslider-wrapper-1" style="display:block; position:relative; width: 100%;">
+            <div id="amazingslider-1" style="display:block; position:relative; margin:0 auto;">
+                <ul class="amazingslider-slides" style="display:none;">
+                    <li *ngFor="let slide of slider_imgs">
+                        <img [src]="slide.url" />
+                    </li>
+                </ul>
+                <ul class="amazingslider-thumbnails" style="display:none;">
+                    <li *ngFor="let slide of slider_imgs">
+                        <img [src]="slide.url" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section id="fondo-detalle">
+<div class="container-fluid py-5">
+    <div class="row m-0">
+    <div class="col-lg-4 px-3 py-3 altura-bajar">
+        <div class="row m-0">
+        <div class="col-12">
+            <h2 class="subtitulo-intenerario">{{etiquetas?.circuito_detalle_incluye}}</h2>
+            <div class="texto-general color-81" [innerHtml]="detalle?.incluye">
+                    
+            </div>
+        </div>
+        <div class="col-12 mt-3">
+            <h2 class="subtitulo-intenerario">{{etiquetas?.circuito_detalle_no_incluye}}</h2>
+            <div class="texto-general color-81" [innerHtml]="detalle?.no_incluye">
+                
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-lg-8 mt-5 mt-xl-0">
+        <h2 class="subtitulo-intenerario" style="color: #3E729A">{{etiquetas?.circuito_detalle_itenerario}}</h2>
+        <div class="row m-0">
+            <div class="col-12 px-0 my-2" *ngFor="let dia of dias">
+                <h4 class="texto-general color-81">{{dia.data.nombre}}</h4>
+                <div class="accordion-container mt-3">
+                    <div *ngFor="let actividad of dia.data.actividades">
+                        <button href="#" class="accordion-titulo py-2 px-4 my-2 text-capitalize text-left">{{actividad.nombre}}<span class="toggle-icon mt-n1"></span></button>
+                        <div class="accordion-content py-3 px-4">
+                            <p>
+                                {{actividad.detalle}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>

@@ -1,0 +1,95 @@
+#fondo-contac{
+	background-image: url('../../../assets/imagenes/fondo-contac.png');
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover;
+	height: 50rem;
+}
+@media (max-width: 767px){
+	#fondo-contac{
+		height: 15rem;
+	}
+}
+.color-blanco{
+	color: #fff;
+}
+#titulo-contac{
+	font: Black 56px/60px Avenir;
+	font-weight: 700;
+}
+#subtitulo-contac{
+	font: Light 44px/45px Avenir;
+	font-weight: 300;
+}
+.escri-ubi-lla-font{
+	font: Light 28px/36px Avenir;
+	font-weight: 300;
+	line-height: 1;
+}
+.color-fondo-contac{
+	background-color:#E0E0E0;
+	font: Light 24px/33px Avenir;
+	color: #3C3C3C;
+	width: 100%;
+	border:0;
+	border-radius: 0;
+}
+::placeholder{
+	color: #3C3C3C;
+}
+#anchura-mensaje{
+	height: 214px;
+}
+.btn-contac{
+	background-color: #EC494B;
+	font-family: Light 24px/33px Avenir;
+	color: #fff;
+	width: 100%;
+	border-radius: 0;
+	font-weight: 300;
+}
+.btn-contac:hover{
+	background-color: #fff;
+	color: #EC494B;
+	font-weight: 600;
+	border: 1px solid #3C3C3C;
+}
+.direc-cel-font{
+	font: Light 28px/36px Avenir;
+	font-weight: 300;
+}
+#volter-img{
+	transform: rotate(-180deg);
+}
+.subtitulo-general{
+	font-family: Black 28px/35px Avenir;
+	font-weight: 700;
+	font-size: 1.25rem;
+}
+.color-65{
+	color: #505050;
+}
+.btn-cuadrado{
+	background: #3E729A;
+	box-shadow: 0px 6px 15px #0000006C;
+	width: 93%;
+    height: 6rem;
+    font-family: Black 28px/26px Avenir;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-radius: 0;
+    line-height: 1;
+}
+.btn-cuadrado:hover{
+	color: #fff;
+}
+.btn-cuadrado:focus{
+	background: #EC494B;
+}
+.btn-cuadrado-activo{
+	background: #EC494B;
+}
+#textarea{
+	height: 12.5rem;
+}

@@ -1,0 +1,252 @@
+.fondo-azul-cartilla{
+	background-color: #3E729A;
+	border: 1px solid #707070;
+	height: 27rem; 
+	left: 0;
+}
+@media(min-width: 568px){
+	.fondo-azul-cartilla{
+        height:33rem;
+    }
+}
+@media(min-width: 640px){
+	.fondo-azul-cartilla{
+        height:33rem;
+    }
+}
+@media(min-width: 768px){
+	.fondo-azul-cartilla{
+        height:35rem;
+    }
+}
+@media(min-width: 812px){
+	.fondo-azul-cartilla{
+        height:35rem;
+    }
+}
+@media(min-width: 1024px){
+	.fondo-azul-cartilla{
+        height:50rem;
+    }
+}
+@media(min-width: 1200px){
+	.fondo-azul-cartilla{
+
+        height:42rem;
+    }
+}
+
+
+.color-blanco-cartilla{
+	color: #fff;
+}
+.titulo-cartilla{
+	font-family: Black 54px/68px Avenir;
+	font-weight: 700;
+	font-size: 2rem;
+}
+.cantidad-subtitulo{
+	font-family: Black 50px/82px Avenir;
+    letter-spacing: 0.85px;
+    font-weight: 700;
+}
+.autorizados-cartilla{
+	font-family: Light 20px/27px Avenir;
+	font-weight: 300;
+}
+.color-65-cartilla{
+	color: #505050;
+}
+.color-81-cartilla{
+	color: #818181;
+}
+.subtitulo-descripcion{
+	font-family: Black 28px/36px Avenir;
+	font-weight: 700;
+	font-size: 1.25rem;
+}
+.texto-cartilla{
+	font-family: Light 28px/36px Avenir;
+	font-weight: 300;
+}
+.buscardor-cartilla{
+	width: 100%;
+	border-radius: 7px;
+	background-color: #fff;
+	box-shadow: 0px 6px 15px #0000004E;
+}
+.border-rigth-icon{
+	border-right: 1px solid #BABABA;
+}
+.search-box{
+	border-left: 1px solid #0000004E;
+	border-top: 0;
+	border-right: 0;
+	border-bottom: 0;
+	width: 70%;
+	font-family: Book 22px/30px Avenir;
+	color: #BABABA;
+	font-size: 0.875rem;
+}
+@media (min-width: 568px){
+	.search-box{
+		width: 85%
+	}
+}
+@media (min-width: 768px){
+	.search-box{
+		width: 87%
+	}
+}
+@media (min-width: 1024px){
+	.search-box{
+		width: 84%
+	}
+}
+@media (min-width: 1200px){
+	.search-box{
+		width: 88%
+	}
+}
+@media (min-width: 1300px){
+	.search-box{
+		width: 89%;
+	}
+}
+.search-box:focus{
+	outline:none;
+}
+::placeholder{
+	color: #BABABA;
+}
+.accordion {
+  font-family: Black 24px/32px Avenir;
+  background-color: #fff;
+  cursor: pointer;
+  width: 50%;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  color: #3E729A;
+  font-weight: 700;
+  border-bottom: 1px solid #0000004E;
+  border-radius: 0;
+}
+
+.active, .accordion:hover {
+  background-color: #3E729A; 
+  color: #fff;
+  border: 1px solid #707070;
+}
+
+.panel {
+  display: none;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0px 6px 20px #00000064;
+  background: #FFFFFF;
+}
+.color-rojo{
+	color: #EC494B;
+}
+.number-text{
+	font-weight: 700;
+}
+.color-azul-list-contac{
+	font: Medium 22px/32px Avenir;
+    letter-spacing: 0;
+    color: #3E729A;
+    font-weight: 500;
+}
+.color-list-contac-titulo{
+	font: Light 22px/32px Avenir;
+    letter-spacing: 0;
+    color: #7E7E7E;
+    opacity: 1;
+}
+.border-list-cartilla{
+	border-bottom: 1px solid #BABABA;
+}
+.descripcion-tabla{
+	font-family: Medium 20px/32px Avenir;
+	font-weight: 300;
+	line-height: 1.2;
+	font-size:14.5px;
+}
+.altura-tabla{
+	height: 8rem;
+}
+@media (min-width: 568px){
+	.altura-tabla{
+	height: 7rem;
+    }
+}
+@media (min-width: 768px){
+	.altura-tabla{
+	height: 8rem;
+    }
+}
+@media (min-width: 1024px){
+	.altura-tabla{
+	height: 7rem;
+    }
+}
+@media (min-width: 1200px){
+	.altura-tabla{
+	height: 7rem;
+    }
+}
+@media (min-width: 1300px){
+	.altura-tabla{
+	height: 5rem;
+    }
+}
+.requisitos-font{
+	font: Book 22px/58px Avenir;
+    letter-spacing: 0;
+    color: #464646;
+    text-transform: capitalize;
+}
+.btn-requisitos{
+	background: #3E729A;
+	border-radius: 15px;
+	font-family: Heavy 18px/33px Avenir;
+	color: #fff;
+}
+.columnas-5{
+	    margin-top: 3%;
+        -moz-column-gap: 0px;
+        -webkit-column-gap: 0px;
+        column-gap: 0px;
+        column-count: 2;
+        justify-content: center;
+}
+@media(min-width: 568px){
+	.columnas-5{
+		column-count: 5;
+		justify-content: start;
+	}
+}
+.btn-hopedaje{
+	font: Black 28px/36px Avenir;
+    letter-spacing: 0;
+    color: #3E729A;
+    background-color: #fff;
+    font-size: 1.25rem;
+    width: 100%;
+    font-weight: 300;
+}
+.btn-hopedaje:focus{
+	border-bottom: 1px solid #3E729A;
+	font-weight: 700;
+	border-radius: 0;
+}
+.btn-hopedaje:hover{
+	 color: #3E729A;
+}
+.btn-casillas:hover{
+	color: #3E729A;
+	background-color: #fff;
+	border: 1px solid #0000004E;
+}

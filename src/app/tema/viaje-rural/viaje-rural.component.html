@@ -1,0 +1,115 @@
+<section>
+<div class="container-fluid px-0 mt-5 mt-lg-0">
+    <div class="row m-0">
+    <div class="col-12 col-xl-4 color-blanco fondo-azul px-sm-5 py-5 height-azul-slider">
+        <div class="row m-0">
+        <div class="col-12 text-center text-lg-left">
+            <h1 class="titulo-subtitulo-viaje">{{detalle.nombre}}</h1>
+            <p class="texto-general mt-xl-3 interloineado text-descripcion-viaje">
+                {{detalle.descripcion}}   
+            </p>
+        </div>
+        <div class="col-12 px-0 mt-sm-4">
+            <div class="row m-0">
+                <div class="col-4 col-sm-2 offset-sm-2 offset-lg-0 col-lg-3">
+                    <p class="altitu-texto weight-grueso letra-font">{{etiquetas?.viaje_rural_donde}}</p>
+                </div>
+                <div class="col-8 col-sm-6 col-lg-9 px-0">
+                    <p class="altitu-texto weight-delgado interloineado">{{detalle.donde}}</p>
+                </div>
+                <div class="col-4 col-sm-2 col-lg-3 offset-sm-2 offset-lg-0">
+                    <p class="altitu-texto weight-grueso letra-font">{{etiquetas?.viaje_rural_altitud}}</p>
+                </div>
+                <div class="col-8 col-sm-6 col-lg-9 px-0">
+                    <p class="altitu-texto weight-delgado">{{detalle.altitud}}</p>
+                </div>
+                <div class="col-4 col-sm-2 col-lg-3 offset-sm-2 offset-lg-0">
+                    <p class="altitu-texto weight-grueso letra-font">{{etiquetas?.viaje_rural_tags}}</p>
+                </div>
+                <div class="col-8 col-sm-6 col-lg-9 px-0">
+                    <div class="row m-0">
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Naturaleza</p>
+                        </div>
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Caminata</p>
+                        </div>
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Apicultura</p>
+                        </div>
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Ceramica</p>
+                        </div>
+                        <div class="col-6 col-sm-5 px-0">
+                        <p class="altitu-texto  mb-0">Crianza de cuy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-xl-8 px-0">
+        <div id="amazingslider-wrapper-1" style="display:block;position:relative;width: 100%;">
+        <div id="amazingslider-1" style="display:block;position:relative;margin:0 auto;">
+            <ul class="amazingslider-slides" style="display:none;">
+                <li *ngFor="let slide of slider_imgs">
+                    <img [src]="slide.url" />
+                </li>
+            </ul>
+            <ul class="amazingslider-thumbnails" style="display:none;">
+                <li *ngFor="let slide of slider_imgs">
+                    <img [src]="slide.url" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section id="fondo-detalle" class="mt-5 mt-xl-0">
+    <div class="container py-5 mt-md-5 mt-lg-0">
+        <div class="row m-0 mt-md-5 mt-lg-0">
+        <div class="col-12 text-center">
+            <p class="texto-general interloineado">
+                {{detalle.itinerario}}
+            </p>
+        </div>
+        </div>
+    </div>
+</section>
+
+<section>
+<div class="container-fluid px-0">
+    <div class="row m-0">
+    <div class="col-md-4 col-lg-3 fondo-rojo color-blanco px-md-5 text-center text-lg-left">
+        <h5 class="subtitulo-incluye-no mt-5">{{etiquetas?.viaje_rural_incluye}}</h5>
+        <div class="list-unstyled texto-general mt-4 mb-5">
+            {{detalle.incluye}}  
+        </div>       
+    </div>
+    <div class="col-md-4 col-lg-6 px-md-5 text-center text-lg-left">
+        <h5 class="subtitulo-incluye-no color-05 mt-5">{{etiquetas?.viaje_rural_distancia}}</h5>
+        <div class="mt-4 mb-5">
+            {{detalle.distancia}}
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-3 fondo-azul color-blanco px-md-5 text-center text-lg-left">
+        <h5 class="subtitulo-incluye-no mt-5">{{etiquetas?.viaje_rural_informes}}</h5>
+        <div class="texto-general mt-4">
+            {{detalle.informes_reserva}}
+        </div>
+        <div class="mb-5">
+            <p class="texto-general mb-0 mt-4">{{etiquetas?.viaje_rural_telefono}}</p>
+            <p class="tele-cor-web-font">{{detalle.telefono}}</p>
+            <p class="texto-general mb-0 mt-4">{{etiquetas?.viaje_rural_email}}</p>
+            <p class="tele-cor-web-font">{{detalle.email}}</p>
+            <p class="texto-general mb-0 mt-4">{{etiquetas?.viaje_rural_pagina}}</p>
+            <a class="tele-cor-web-font" [href]="detalle.pagina_web" target="_blank" style="color: white; text-transform: none;">{{detalle.pagina_web}}</a>
+        </div>
+    </div>
+    </div>
+</div>
+</section>

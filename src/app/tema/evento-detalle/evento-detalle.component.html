@@ -1,0 +1,122 @@
+<section class="titulo-phone">
+<div class="container-fluid px-0">
+    <div class="row m-0" style="background-color: #3E729A;">
+    <div class="col-sm-5 px-0 order-2 order-sm-0 img-evento-detalle" [ngStyle]="{'background-image': 'url('+ detalle?.imagen +')'}">
+        
+    </div>
+    <div class="col-sm-7 px-5 pt-xl-5 text-center text-sm-left fondo-azul-cal mt-5 mt-sm-0">
+        <h1 class=" mt-md-3 mt-lg-5 mt-xl-5 pt-sm-5 pl-lg-3 titulo-cal">{{etiquetas?.evento_detalle_titutlo}}<span class="subtitulo-cal"> {{etiquetas?.evento_detalle_subtitulo}}</span> </h1>
+    </div>
+    </div>
+</div>
+</section>
+<section>
+<div class="container-fluid my-5 px-0 px-md-3 px-lg-5">
+    <div class="row m-0">
+    <div class="col-12 col-sm-6 col-lg-5 px-lg-5 text-center text-sm-left">
+        <div class="row m-0">
+        <div class="col-12">
+            <h2 class="subtitulo-art mb-0">{{ get_value (detalle, 'titulo') }}</h2>
+            <!--p class="cal-subtitulo-detalle mt-2 mb-0">{{ detalle?.categoria.name }}</p-->
+        </div>
+        <div class="col-12 mt-4">
+            <div class="col-12 px-2 py-1 my-1">
+            <div class="row m-0">
+            <div class="col-3 text-center color-letra-blanco px-0 alturacol">
+                <div class="azul-fondo pt-2 pt-lg-3 pt-xl-2 ml-sm-n2" style="box-shadow: 0px 3px 6px #0000004B;">
+                <p class="numero-mes-font mb-0">{{ ObtenerDia(detalle?.fecha) }}</p>
+                <p class="letra-mes-font mt-n3">{{ ObtenerMesEnLetra(detalle?.fecha) }}</p>
+                </div>
+            </div>
+            <div class="col-9 alturacol px-2">
+                <div class="row m-0">
+                    <div class="col-12 px-0 px-sm-2 pb-3">
+                    <div class="row m-0">
+                        <div class="col-12 p-0 mb-1">
+                        <span class="cal-subtitulo-detalle"><small><img src="assets/imagenes/icono-img1.png"> {{ detalle?.distrito.nombre }}, {{ detalle?.provincia.nombre }}</small> </span>
+                        </div>
+                        <div class="col-12 px-0 my-1 mb-1">
+                        <span class="cal-subtitulo-detalle"><small><img src="assets/imagenes/icono-img2.png"> {{ get_value (detalle.tipo, 'nombre') }}</small> </span>
+                        </div>
+                        <div class="col-12 px-0 my-1 mb-1">
+                        <span class="cal-subtitulo-detalle"><small><img class="ml-n1" src="assets/imagenes/icono-img3.png">{{ get_value (detalle, 'hora') }}</small> </span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        </div>
+        </div>
+        <div class="col-12 mt-4">
+            <button class="btn btn-detalle-cal py-2" (click)="goCalendario ()">{{etiquetas?.evento_detalle_btn_calendaro}}</button>
+        </div>
+        <div class="col-12 mt-5">
+            <h2 class="subtitulo-art mb-0">{{etiquetas?.evento_detalle_proximos}}</h2>
+        </div>
+        <div class="col-12 mt-4">
+            <div class="row m-0">
+            <div class="col-12 px-0 px-sm-1 py-1 my-1 animacion1 animacion" *ngFor="let evento of Eventos; let i=index" >
+                <div class="row m-0" *ngIf="i<3">
+                <div class="col-3 text-center color-letra-blanco px-0 alturacol" style="position: absolute;z-index: 1000;">
+                    <div [className]="evento.color=='azul' ? 'azul-fondo pt-2 pt-lg-3 pt-xl-2 ml-sm-n2' : 'rojo-calendario pt-2 pt-lg-3 pt-xl-2 ml-sm-n2'" style="box-shadow: 0px 3px 6px #0000004B;">
+                    <p class="numero-mes-font mb-0">{{ ObtenerDia(evento.datageneral.fecha) }}</p>
+                    <p class="letra-mes-font mt-n3">{{ ObtenerMesEnLetra(evento.datageneral.fecha) }}</p>
+                    </div>
+                </div>
+                <div class="col-9 ocultar alturacol px-3" style="background: #FFFFFF;box-shadow: 0px 3px 6px #0000004B;">
+                    <div class="row m-0">
+                    <div class="col-12 pt-2 pt-xl-2 px-0 px-sm-2 text-left">
+                        <p class="cal-titulo-font mb-0 text-titulo-calendario">{{ titleCaseWord(get_value (evento.datageneral, 'titulo')) }}</p>
+                        <p class="cal-subtitulo-font mb-2">{{ evento.datageneral.tipo.name }}</p>
+                    </div>
+                    <div class="col-12 px-0 px-sm-2 pb-3 text-left">
+                        <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img1.png"> {{ evento.datageneral.provincia.nombre }}</small> </span>
+                    </div>
+                    </div>
+                </div> 
+                <div class="col-9 mostar px-0 alturacol" style="background: #FFFFFF;box-shadow: 0px 3px 6px #0000004B;">
+                    <div class="row m-0">
+                    <div class="col-4 px-0 alturacol">
+                        <img [src]="evento.datageneral.imagen" width="100%" height="100%">
+                    </div>
+                    <div class="col-8 px-0 alturacol">
+                        <div class="row m-0"  >
+                        <div class="col-12 pt-2 text-left">
+                            <p class="cal-titulo-font mb-0 text-titulo-calendario">{{ titleCaseWord (get_value (evento.datageneral, 'titulo')) }}</p>
+                            <p class="cal-subtitulo-font mb-">{{ evento.datageneral.tipo.nombre }}</p>
+                        </div>
+                        <div class="col-12 text-left pb-2">
+                            <!--span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img1.png"> {{ evento.datageneral.provincia.nombre }}</small> </span-->
+                            <a class="calendario-link-font" style="cursor: pointer;" (click)="verDetalleEvento(get_value (evento.datageneral, 'titulo'), evento.data.id)">{{etiquetas?.evento_detalle_calendario_link}}</a>
+                        </div>
+                        </div>
+                    </div> 
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-7 px-0 mt-2 mt-sm-0">
+        <div class="row m-0">
+        <div class="col-12 text-center text-sm-left mb-0 texto-detalle-cal" [innerHtml]="get_value (detalle, 'detalle')">
+            
+        </div>
+        <div class="col-12 my-sm-3">
+            <div class="row m-0">
+                <div *ngFor="let image of detalle.imagenes" class="col-12 col-sm-6 px-1 my-2 my-sm-0">
+                    <img [src]="image.url" width="100%">
+                </div>
+            </div>
+        </div>
+        <!--div class="col-12 text-center text-sm-left">
+            <p class="texto-detalle-cal">Formular, proponer, ejecutar, evaluar y controlar las políticas en materia de desarrollo de la artesanía, en concordancia con la política general del gobierno, los planes sectoriales y las políticas de desarrollo regional. Planificar concertadamente y ejecutar el desarrollo de la actividad artesanal de la región, mediante el aprovechamiento de las potencialidades regionales. Fomentar, desarrollar y ejecutar proyectos, programas u otros mecanismos para promover la competitividad y productividad de la actividad artesanal en la región, con la participación de entidades públicas y privadas. Fomentar y promover la organización y formalización de los productores artesanales y el fortalecimiento gremial en la región.</p>
+        </div-->
+        </div>
+    </div>
+    </div>
+</div>
+</section>

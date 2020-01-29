@@ -1,0 +1,66 @@
+<section class="titulo-phone">
+<div class="container-fluid px-0 mb-5">
+    <div class="row m-0">
+    <div class="col-md-5 col-lg-4 color-blanco py-5 text-center" id="fondo-contac">
+        <h1 class="mb-0" id="titulo-contac">{{etiquetas?.contacto_titulo}}</h1>
+        <h2 class="mb-0" id="subtitulo-contac">{{etiquetas?.contacto_subtitulo}}</h2>
+        <img src="assets/imagenes/arrow.png" width="70%" id="volter-img">
+    </div>
+    <div class="col-md-7 col-lg-8 px-md-5 py-5">
+        <div class="row m-0">
+        <div class="col-12 px-0 text-center text-md-left">
+            <h2 class="subtitulo-general color-65">{{etiquetas?.contacto_preguntas_frecuentes}}</h2>
+        </div>
+        <div class="col-12 px-0 mt-3">
+            <div class="row m-0 justify-content-center justify-content-md-start">
+                <div class="col-6 col-sm-3 col-md-4 col-lg-3 col-xl-2 px-0 mb-2" *ngFor="let categoria of Categorias">
+                    <button [className]="idcat==categoria.id ? 'btn btn-cuadrado btn-cuadrado-activo' : 'btn btn-cuadrado'" (click)="TraerFaqs (categoria.id)">{{categoria.nombre}}</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 px-0 mt-3">
+            <div class="accordion-container mt-3">
+                <div *ngFor="let faq of Faqs">
+                    <button class="accordion-titulo py-2 px-4 my-2 text-capitalize text-left">{{faq.data.pregunta}}<span class="toggle-icon mt-n1"></span></button>
+                    <div class="accordion-content py-3 px-4">
+                        <p>
+                            {{faq.data.respuesta}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 px-0 mt-5">
+            <div class="row m-0">
+            <div class="col-12 px-0 mb-3 text-center text-md-left">
+                <h2 class="subtitulo-general">{{etiquetas?.contacto_escribirno}}</h2>
+            </div>
+            <div class="col-12 col-sm-6 pl-0 pr-0 pr-sm-1 mb-2 mb-sm-0">
+                <input class="color-fondo-contac py-3 px-3" type="text" name="" [placeholder]="etiquetas?.contacto_nombre">
+            </div>
+            <div class="col-12 col-sm-6 pr-0 pl-0 pl-sm-1">
+                <input class="color-fondo-contac py-3 px-3" type="text" name="" [placeholder]="etiquetas?.contacto_correo">
+            </div>
+            <div class="col-12 px-0 mt-2">
+                <textarea class="px-3 color-fondo-contac py-3" id="textarea" aria-label="With textarea" [placeholder]="etiquetas?.contacto_mensaje" ></textarea>
+            </div>
+            <div class="col-12 px-0 mb-3">
+                <button class="btn btn-contac">{{etiquetas?.contacto_btn}}</button>
+            </div>
+            <div class="col-12 col-sm-6 px-0 text-center text-sm-left">
+                <h2 class="subtitulo-general color-65 mb-0">{{etiquetas?.contacto_ubicanos}}</h2>
+                <div class="escri-ubi-lla-font color-65" [innerHtml]="etiquetas?.contacto_direccion">
+
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 px-2 px-lg-0 text-center text-sm-left">
+                <h2 class="subtitulo-general color-65 mb-0">{{etiquetas?.contacto_llamanos}}</h2>
+                <p class="escri-ubi-lla-font color-65">{{etiquetas?.contacto_numeros}}</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>  
+    </div>
+</div>
+</section>

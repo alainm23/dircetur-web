@@ -1,0 +1,86 @@
+<section class="titulo-phone">
+<div class="container-fluid px-0">
+  <div class="row m-0">
+    <div class="col-12 col-md-6 col-lg-3 order-2 order-md-0 px-0">
+      <img [src]="imagenes?.circuitos_turisticos_img_1.img" width="100%">
+    </div>
+    <div class="col-12 col-md-6 col-lg-9 color-blanco px-lg-5 pt-5" id="fondo-titulo">
+      <div class="row m-0">
+        <div class="col-12 col-lg-9 py-4 px-0 px-xl-5 text-center text-lg-left">
+          <h1 class="mb-4" id="titulo-turismo">{{etiquetas?.circuitos_turisticos_titulo}}<span id="subtitulo-rural"> {{etiquetas?.circuitos_turisticos_subtitulo}}</span></h1>
+          <div [innerHtml]="etiquetas?.circuitos_turisticos_descripcion">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="mt-5">
+<div class="container-fluid px-sm-5 mb-5">
+  <div class="row m-0">
+    <div class="col-12 mb-5 text-center">
+        <h2 id="subtitulo-circuitos">{{etiquetas?.circuitos_turisticos_circuito_aprobado}}</h2>
+    </div>
+    <div class="col-12 px-0">
+      <div class="row m-0">
+        <div class="col-12 col-sm-6 col-lg-3 col-xl-3 px-0 mb-4" *ngFor="let viaje of Viajes">
+          <div class="row m-0">
+            <div class="col-12 px-0 img-circuitos-turisticos" [ngStyle]="{'background-image': 'url('+ viaje?.imagen +')'}">
+              
+            </div>
+            <div class="col-12 px-0 sombra">
+            <div class="row m-0">
+              <div class="col-12 px-2 text-center">
+                <h3 class="color-01 titulo-disponibles mt-3 text-titulo-circuito">{{viaje.nombre}}</h3>
+              </div>
+              <div class="col-12 px-4 my-3">
+                <div class="row m-0 justify-content-center">
+                  <div class="col-6 col-sm-4 px-1 py-1" *ngFor="let tag of viaje.tags">
+                    <div class="color-rojo-social text-center px-1">
+                    <p>{{ tag.nombre }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 px-4 mt-sm-4 mt-lg-4 mt-xl-4">
+                <div class="row m-0">
+                  <div class="col-12 px-0">
+                    <div class="row m-0">
+                      <div class="col-2 col-lg-3 col-xl-2 color-01 pl-0 pr-4 donde-altitud-font">
+                        <p class="mb-0">Donde</p>
+                      </div>
+                      <div class="col-10 col-lg-9 col-xl-10 color-02 px-0 texto-chiquito">
+                        <p class="mb-1">{{viaje.donde}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 px-0">
+                      <div class="row m-0">
+                        <div class="col-2 col-lg-3 col-xl-2 color-01 pl-0 pr-4 donde-altitud-font">
+                          <p>Altitud</p>
+                        </div>
+                        <div class="col-10 col-lg-9 col-xl-10 color-02 px-0 texto-chiquito">
+                          <p>{{viaje.altitud}}</p>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div style="height: 135px;" class="col-12 text-center color-02 text-grande text-resumen-circuito mb-2" [innerHtml]="viaje.descripcion">
+                  
+              </div>
+              <div class="col-12 text-center mt-3 mb-3">
+                    <button class="btn colot-btn-ruta py-0" (click)="goCircuitoDetalle (viaje.nombre,viaje.id)">{{etiquetas?.circuitos_turisticos_circuito_btn_explorar}}</button>
+              </div>
+            </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

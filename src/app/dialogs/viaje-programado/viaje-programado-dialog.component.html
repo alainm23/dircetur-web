@@ -1,0 +1,95 @@
+<div *ngIf="parte_dialogo==1" >
+<h2 mat-dialog-title>
+  <div class="row">
+    <div class="col-11">
+      Términos y Condiciones
+    </div>
+    <div class="col-1">
+      <p style="color: black; cursor: pointer; font-size: 24px;" (click)="close ()" >X</p>
+    </div>
+  </div>
+</h2>
+  <div style="overflow: hidden;">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius tristique sapien, eu pharetra mauris tincidunt a. Fusce sed sodales erat, eget tincidunt nibh. Ut augue eros, fringilla ut ipsum nec, tristique malesuada elit. Proin elit dolor, ornare euismod feugiat at, viverra eu eros. Quisque a porttitor ipsum. Ut lacinia dictum pulvinar. Morbi laoreet vehicula elementum. Aliquam hendrerit lacus a tellus aliquet eleifend.
+        <br><br>
+        Praesent pharetra, mauris eu consectetur posuere, eros lectus volutpat neque, non faucibus risus mauris eget erat. Cras congue sapien at magna aliquet varius. Ut eleifend elit quis metus vestibulum faucibus. Sed suscipit fermentum molestie. Proin molestie velit sit amet eros luctus fringilla. Pellentesque leo lectus, fermentum eu purus vestibulum, elementum semper magna. Etiam leo lectus, luctus id iaculis a, cursus id mauris. Praesent ultricies at mi ac scelerisque. Ut tempus eleifend mi, eget posuere dui convallis non. Etiam auctor orci quis vestibulum euismod.
+        <br><br>
+        Quisque euismod sagittis posuere. Proin maximus sagittis ante non semper. Maecenas laoreet dictum turpis in imperdiet. In mauris lectus, faucibus nec metus eu, scelerisque dapibus orci. Quisque vitae maximus arcu, in ullamcorper lectus. Vivamus in lectus ac nulla scelerisque commodo quis lacinia ex. Cras elit lorem, porttitor ut pulvinar et, rhoncus imperdiet sem. Etiam et sapien id nunc tempor interdum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque dictum risus ornare felis tempus pharetra id eget quam. Cras rhoncus felis aliquam, pellentesque sapien eu, scelerisque sem. Aenean tristique rutrum enim in eleifend. Vestibulum sit amet augue vehicula, lacinia nisi eget, ornare dolor. Ut a neque convallis, auctor ipsum vel, dignissim velit.
+    </p> 
+    <label for="AceptoTC">
+        <input type="checkbox" (click)="AceptoTC ()" [value]="estado_termino">&nbsp; Acepto los Términos y Condiciones.
+    </label>
+    <div class="row">
+      <div class="col-12 text-right">
+        <button class="btn btn-success color-blanco texto-ruta-turi px-4 btn-radius my-3" (click)="ValidarBoton ()" [disabled]="estado_boton">Registrarme</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div *ngIf="parte_dialogo==2">
+  <h2 mat-dialog-title>
+    <div class="row">
+      <div class="col-11">
+        Registrate en el Viaje
+      </div>
+      <div class="col-1">
+        <p style="color: black; cursor: pointer; font-size: 24px;" (click)="close ()" >X</p>
+      </div>
+    </div>
+  </h2>
+  <mat-dialog-content style="overflow: hidden;">
+    <form [formGroup]="formreg">
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <label class="mb-0 pb-0 letra-label">
+            Nombres y Apellidos
+          </label>
+          <input style="width: 100%;" class="py-2 px-2 mb-3" nbInput fullWidth type="text" formControlName="nombre_completo">
+           
+          <label class="mb-0 pb-0 letra-label">
+            Correo
+          </label>
+          <input style="width: 100%;" class="py-2 px-2 mb-3" nbInput fullWidth type="email"  formControlName="correo">
+          
+          <label class="mb-0 pb-0 letra-label">
+            Teléfono
+          </label>
+          <input style="width: 100%;" class="py-2 px-2 mb-3" nbInput fullWidth type="number" formControlName="telefono">
+        </div>
+        <div class="col-12 col-lg-6">
+          <label class="mb-0 pb-0 letra-label">
+            Fecha de Nacimiento
+          </label>
+          <input style="width: 100%;" class="py-2 px-2 mb-3" nbInput fullWidth type="date" formControlName="fecha_nacimiento">
+         
+          <label class="mb-0 pb-0 letra-label">
+            Género
+          </label>
+          <select style="width: 100%;" class="py-2 px-2 mb-3" fullWidth formControlName="genero">
+              <option value="Masculino" selected>
+                  Masculino
+              </option>
+              <option value="Femenino">
+                  Femenino
+              </option>
+              <option value="Omitir">
+                  Omitir
+              </option>
+          </select>
+         
+          <label class="mb-0 pb-0 letra-label">
+            Ocupación
+          </label>
+          <input style="width: 100%;" class="py-2 px-2 mb-3" nbInput fullWidth type="text" formControlName="ocupacion">
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-12 text-right">
+        <button class="btn btn-success color-blanco texto-ruta-turi px-4 btn-radius my-3" [disabled]="!formreg.valid" (click)="registrarViaje ()">Registrarme</button>
+      </div>
+    </div>
+  </mat-dialog-content>
+</div>

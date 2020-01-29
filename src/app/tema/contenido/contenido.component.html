@@ -1,0 +1,112 @@
+<section class="py-5 titulo-phone" id="fondo-axul">
+<div class="container py-3">
+    <div class="row m-0">
+    <div class="col-12 text-center mb-4">
+        <h1 class="color-blanco" id="titulo-sobre">{{etiquetas?.sobre_nosotros_titulo}} <span id="sutitulo-dir">{{etiquetas?.sobre_nosotros_subtitulo}}</span></h1>
+    </div>
+    <div class="col-12 col-xl-10 offset-xl-1 text-center px-3 color-blanco" [innerHtml]="etiquetas?.sobre_nosotros_descripcion">
+        
+    </div>
+    </div>
+</div>
+</section>
+  
+<section style="position: relative;">
+<div class="container-fluid py-5">
+    <div class="row m-0">
+    <div class="col-12 text-center mb-5">
+        <h2 class="subtitulo-sobre colo-negro mb-0">{{etiquetas?.sobre_nosotros_para_quien_titulo}}</h2>
+        <h3 class="subtitulo-sobre-weight colo-negro">{{etiquetas?.sobre_nosotros_dicertur_subtitulo}}</h3>
+    </div>
+    <div class="col-12 col-md-7 offset-md-1">
+        <div class="row m-0">
+        <div class="col-12">
+            <h4 class="titulo-parquien-font colo-negro">{{etiquetas?.sobre_nosotros_turista_titulo}}</h4>
+            <div class="texto-subtitulo-font color-texto" [innerHtml]="etiquetas?.sobre_nosotros_turista_texto">
+                
+            </div>
+        </div>
+        <div class="col-12">
+            <h4 class="titulo-parquien-font colo-negro">{{etiquetas?.sobre_nosotros_proveedor_turistico_titulo}}</h4>
+            <div class="texto-subtitulo-font color-texto" [innerHtml]="etiquetas?.sobre_nosotros_proveedor_turistico_texto">
+            
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-4 mt-md-5 mt-lg-0">
+        <img [src]="imagenes?.sobre_nosotros_img_1.img" width="100%" id="img-para">
+    </div>
+    </div>
+</div>
+</section>
+
+<section class="py-5 py-xl-3" id="fondo-rojo">
+<div class="container-fluid pr-lg-0 pb-xl-4">
+    <div class="row m-0">
+    <div class="col-md-8 col-lg-8 pl-xl-0 py-xl-5 mt-xl-5 offset-lg-1 order-2 order-md-0" id="col-nuestro-padding">
+        <div class="color-blanco texto-subtitulo-font mt-xl-1" [innerHtml]="etiquetas?.sobre_nosotros_nuestro_euipo_texto">
+            
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-3 text-center px-md-5 py-lg-4 ml-lg-n5 mb-4 mb-md-0" id="bajar-nuestro">
+        <h2 class="subtitulo-sobre color-blanco mb-0">{{etiquetas?.sobre_nosotros_nuestro_euipo_titulo}}</h2>
+        <h3 class="subtitulo-sobre-weight color-blanco mb-3">{{etiquetas?.sobre_nosotros_nuestro_euipo_subtitulo}}</h3>
+        <img src="assets/imagenes/arrow.png" width="100%">
+    </div>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container py-5">
+    <div class="row m-0">
+        <div class="col-12 text-center">
+            <h2 class="subtitulo-sobre colo-negro mb-0">{{etiquetas?.sobre_nosotros_funciones_principales_titulo}}</h2>
+            <h3 class="subtitulo-sobre-weight colo-negro">{{etiquetas?.sobre_nosotros_funciones_principales_subtitulo}}</h3>
+        </div>
+        <div class="col-2 offset-5 px-0 px-xl-5 mb-5">
+            <div class="line-sobre"></div>
+        </div>
+        <div class="col-12" *ngFor="let funcion of Funciones; let i=index">
+            <div class="accordion-container">
+                <button class="accordion-titulo py-2 px-4 text-capitalize open text-left">{{funcion.funcion}}<span class="toggle-icon mt-n1"></span></button>
+                <div [className]="i==0 ? 'accordion-content py-3 px-4 accordeon-desplegado' : 'accordion-content py-3 px-4'">
+                    <p>
+                        {{funcion.descripcion}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container mb-5">
+    <div class="row m-0">
+    <div class="col-12 text-center">
+        <h2 class="subtitulo-sobre colo-negro mb-0">{{etiquetas?.sobre_nosotros_funciones_principales_titulo_1}}</h2>
+        <h3 class="subtitulo-sobre-weight colo-negro">{{etiquetas?.sobre_nosotros_funciones_principales_subtitulo_1}}</h3>
+    </div>
+    <div class="col-2 offset-5 px-0 px-xl-5 mb-5">
+        <div class="line-sobre"></div>
+    </div>
+    <div class="col-12 col-lg-8 offset-lg-2 p-0">
+    <div class="row m-0">
+        <div class="col-12 col-sm-4 px-sm-1 text-center" *ngFor="let junta of Juntas_Directivas">
+            <div class="row m-0">
+                <div class="col-12 p-0">
+                    <img [src]="junta.avatar" width="100%">
+                </div>
+                <div class="col-12 funciones-font p-0 px-xl-4 py-3">
+                    <p class="mb-0">{{junta.nombre}}</p>
+                    <p class="">{{junta.cargo}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+</section>

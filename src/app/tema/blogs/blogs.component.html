@@ -1,0 +1,65 @@
+<section>
+<div class="container-fluid px-0">
+    <div class="row m-0">
+    <div class="col-sm-5 px-0">
+        <img [src]="imagenes?.turismo_blog_img_1.img" width="100%">
+    </div>
+    <div class="col-sm-7 px-sm-5 pt-xl-5 text-center text-sm-left" id="fondo-azul">
+        <h1 class=" mt-md-3 mt-lg-5 mt-xl-5 pt-sm-5 pl-lg-3" id="titulo-turismo">{{etiquetas?.turismo_blog_titulo}}<span id="subtitulo-font"> {{etiquetas?.turismo_blog_subtitulo}}</span> </h1>
+    </div>
+    </div>
+</div>
+</section>
+
+<section class="mt-5 mb-5">
+<div class="container px-4">
+    <div class="row">
+    <div class="col-6 col-md-2 col-xl-2 px-1 offset-md-1 offset-lg-2 mb-5">
+        <button [className]="id=='todos' ? 'active-btn btn-blog px-0 py-2' : 'btn-blog px-0 py-2'" class="btn-blog px-0 py-2" (click)="goBlogs (Todos_los_blogs,Todos_los_blogs)">Todos</button>
+    </div>
+    <div class="col-6 col-md-2 col-xl-2 px-1 mb-5" *ngFor="let categoria of Categorias">
+        <button  [className]="id==categoria.id ? 'active-btn btn-blog px-0 py-2' : 'btn-blog px-0 py-2'" (click)="goBlogs (categoria.nombre,categoria.id)">{{categoria.nombre}}</button>
+    </div>
+    <div class="col-12 px-0 mb-3" style="box-shadow: 0px 3px 6px #00000029;" *ngFor="let blog of Blogs">
+        <div *ngIf="todos==false" class="row m-0">
+            <div class="col-12 col-lg-2 col-xl-2 px-0 img-blog-list" [ngStyle]="{'background-image': 'url('+ blog?.datageneral.imagen +')'}">
+            </div>
+            <div class="col-12 col-lg-10 col-xl-10 px-md-3 px-lg-5 pt-4 pt-sm-3 pt-md-3 pt-lg-4 pt-xl-4 border-todo">
+                <h5 class="titulo-todo">{{ ValidarIdioma (blog,'titulo_') }}</h5>
+                <p class="texto-todo">{{ ValidarIdioma (blog,'resumen_') }}</p>
+                <div class="row m-0">
+                <div class="col-7 col-sm-6 col-md-5 col-lg-6 px-0">
+                    <p class="publicado-fecha-font">{{etiquetas?.publicado_blog}}: {{blog.datageneral.autor}}</p>
+                </div>
+                <div class="col-5 col-sm-3 col-md-3 col-lg-3 px-0 text-center text-md-left">
+                    <p class="publicado-fecha-font">{{etiquetas?.fecha_blog}}: {{ formatoFecha1(blog.datageneral.fecha_creado) }}</p>
+                </div>
+                <div class="col-12 col-sm-3 col-md-3 px-0 col-lg-3 text-center text-md-right pb-4 pb-sm-0">
+                    <a class="link-todo" (click)="BlogDetalle(blog.datageneral, blog.datageneral.id)" style="cursor: pointer;">{{etiquetas?.blog_link_leer}}</a>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="todos==true" class="row m-0">
+            <div class="col-12 col-lg-2 col-xl-2 px-0 img-blog-list" [ngStyle]="{'background-image': 'url('+ blog?.imagen +')'}">
+            </div>
+            <div class="col-12 col-lg-10 col-xl-10 px-md-3 px-lg-5 pt-4 pt-sm-3 pt-md-3 pt-lg-4 pt-xl-4 border-todo">
+                <h5 class="titulo-todo">{{ ValidarIdioma (blog,'titulo_') }}</h5>
+                <p class="texto-todo">{{ ValidarIdioma (blog,'resumen_') }}</p>
+                <div class="row m-0">
+                <div class="col-7 col-sm-6 col-md-5 col-lg-6 px-0">
+                    <p class="publicado-fecha-font">{{etiquetas?.publicado_blog}}: {{blog.autor}}</p>
+                </div>
+                <div class="col-5 col-sm-3 col-md-3 col-lg-3 px-0 text-center text-md-left">
+                    <p class="publicado-fecha-font">{{etiquetas?.fecha_blog}}: {{ formatoFecha1(blog.fecha_creado) }}</p>
+                </div>
+                <div class="col-12 col-sm-3 col-md-3 px-0 col-lg-3 text-center text-md-right pb-4 pb-sm-0">
+                    <a class="link-todo" (click)="BlogDetalle(blog, blog.id)" style="cursor: pointer;">{{etiquetas?.blog_link_leer}}</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>

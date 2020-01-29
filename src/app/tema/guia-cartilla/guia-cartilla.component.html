@@ -1,0 +1,184 @@
+<section class="mt-5 mt-lg-0 titulo-phone">
+<div class="container-fluid px-0">
+    <div class="row m-0">
+    <div class="col-12 col-lg-4 px-0 fondo-azul-cartilla text-center color-blanco-cartilla py-5 sticky-top">
+        <div class="row m-0 my-lg-5">
+        <div class="col-12 mt-5 mt-md-4 mt-lg-5">
+            <img src="assets/imagenes/restaurante.svg" width="30%">
+        </div>
+        <div class="col-12 mt-4">
+            <h1 class="titulo-cartilla">Guias de turismo</h1>
+        </div>
+        <div class="col-12  mt-4">
+            <h2 class="cantidad-subtitulo mb-0">7,233</h2>
+            <p class="autorizados-cartilla"><small>Guias en habilitados</small></p>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-8 pt-5 px-lg-5 mb-5">
+        <div class="row m-0">
+        <div class="col-12">
+            <h3 class="subtitulo-descripcion color-65-cartilla">Quién es una guía de turismo autorizado</h3>
+        </div>
+        <div class="col-12 mt-4">
+            <p class="color-65-cartilla texto-cartilla">La persona natural acreditada con el título de Guía Oficial de Turismo otorgado a nombre de la Nación, por institutos superiores y centros de formación superior oficialmente reconocidos, después de haber cursado y aprobado estudios por un lapso mínimo de seis semestres académicos. Licenciado en Turismo: La persona natural que ostenta el título de Licenciado en Turismo expedido por las universidades del país, o revalidado conforme a ley, si el título hubiera sido otorgado por una universidad extranjera, inscrito en el Colegio de Licenciados en Turismo.</p>
+        </div>
+        <div class="col-12 mt-4">
+            <div class="buscardor-cartilla px-3 py-2">
+            <span>
+            <i class="fa fa-search color-letra-menu px-2" id="icono-btn"></i>
+            <input type="text" name="focus" required class="search-box px-3" placeholder="Indaga sobre un proveedor turistico" />
+            <i class="fa fa-question-circle color-letra-menu btn" data-toggle="tooltip" data-placement="bottom" title="Busca tus proveedores turiscos y comprueba si son formales"></i>
+            </span>
+        </div>
+        </div>
+        <div class="col-12 mt-4">
+        <h5 class="color-81-cartilla texto-cartilla">Resultados de búsqueda</h5>
+        </div> 
+
+        <div class="col-12 mt-3">
+          <div *ngFor="let item of items">
+            <div *ngIf="item.tipo === 'guia'">
+              <button (click)="visible_toggled (item)" class="btn py-1 px-2 px-sm-3 px-md-5 px-lg-3 px-xl-5">{{ item.nombre }}</button>
+              
+              <div class="panel px-5 px-sm-3 px-md-5 px-lg-3 px-xl-5 py-4 mb-4">
+                  <div class="row m-0">
+                  <!--<div class="col-12 px-0">
+                      <p class="mb-0 texto-cartilla color-81-cartilla"><span class="pr-2 color-rojo number-text">42</span>Mesas</p>
+                      <p class="texto-cartilla color-81-cartilla"><span class="pr-2 color-rojo number-text">164</span>Sillas</p>
+                  </div>-->
+                  <div class="col-12 px-0 pb-2 border-list-cartilla">
+                      <div class="row m-0">
+                      <div class="col-12 col-sm-6 px-0">
+                          <ul class="list-unstyled mb-0">
+                              <li><span class="color-list-contac-titulo mr-1">Teléfono:</span><a class="color-azul-list-contac" href="">084 746289</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">E-Mail:</span><a class="color-azul-list-contac" href="">Info@hotelazo.com</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Página Web:</span><a class="color-azul-list-contac" href="">www.hotelazo.com</a></li>
+                          </ul>
+                      </div>
+                      <div class="col-sm-6 px-0">
+                          <ul class="list-unstyled mb-0">
+                              <li><span class="color-list-contac-titulo mr-1">Repre. Legal:</span><a class="color-azul-list-contac" href="">Eric Cantona</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Correo:</span><a class="color-azul-list-contac" href="">e.cantona@hotelazo.com</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Teléfono:</span><a class="color-azul-list-contac" href="">084 878659</a></li>
+                          </ul>
+                      </div>
+                      </div>
+                  </div>
+                  <div class="col-12 px-0 pb-2 my-3 border-list-cartilla">
+                      <div class="row m-0">
+                      <div class="col-sm-6 px-0">
+                          <ul class="list-unstyled mb-0">
+                              <li><span class="color-list-contac-titulo mr-1">Calificación:</span><a class="color-azul-list-contac" href="">Calificación</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Categoría:</span><a class="color-azul-list-contac" href="">4 estrellas</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Nro. Certificado:</span><a class="color-azul-list-contac" href="">1234556 - ABX</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Fecha de Expedición:</span><a class="color-azul-list-contac" href="">01.06.2007</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Última fiscalización:</span><a class="color-azul-list-contac" href="">06.09.2018</a></li>
+                          </ul>
+                      </div>
+                      <div class="col-sm-6 px-0">
+                          <ul class="list-unstyled mb-0">
+                              <li><span class="color-list-contac-titulo mr-1">Razon social:</span><a class="color-azul-list-contac" href="">Este es un nombre juridico de un hotel S.A.C</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">RUC:</span><a class="color-azul-list-contac" href="">20808776576</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Dirección:</span><a class="color-azul-list-contac" href="">Avenida hotelazo grande j-8, Urb. Santa con nombre largo, San Jeronimo, Cusco</a></li>
+                          </ul>
+                      </div>
+                      <!-- <div class="col-12 text-right my-4">
+                          <a class="color-azul-list-contac" href="">Ver en mapa ></a>
+                      </div> -->
+                      </div>
+                  </div>
+                  <!-- <div class="col-12 px-0">
+                      <h3 class="subtitulo-descripcion color-65-cartilla">Sanciones</h3>
+                  </div> -->
+                  <!-- <div class="col-12 px-0 mt-4">
+                      <div class="row m-0">
+                      <div class="col-6 col-sm-2 px-0">
+                          <div class="row m-0">
+                          <div class="col-12 px-0 border-list-cartilla pb-1">
+                              <p class="color-azul-list-contac mb-0">Fecha</p>
+                          </div>
+                          <div class="col-12 px-0 border-list-cartilla altura-tabla">
+                              <p class="color-65-cartilla descripcion-tabla">01.09.2011</p>
+                          </div>
+                          <div class="col-12 px-0 altura-tabla">
+                              <p class="color-65-cartilla descripcion-tabla">01.09.2011</p>
+                          </div>
+                          </div>
+                      </div>
+                      <div class="col-6 col-sm-2 px-0">
+                          <div class="row m-0">
+                          <div class="col-12 px-0 border-list-cartilla">
+                              <p class="color-azul-list-contac mb-0 pb-1">Estado</p>
+                          </div>
+                          <div class="col-12 px-0 border-list-cartilla altura-tabla ">
+                              <p class="color-65-cartilla descripcion-tabla">Resuelto</p>
+                          </div>
+                          <div class="col-12 px-0 altura-tabla">
+                              <p class="color-65-cartilla descripcion-tabla">Pendiente</p>
+                          </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-8 px-0">
+                          <div class="row m-0">
+                          <div class="col-12 px-0 border-list-cartilla pb-1">
+                              <p class="color-azul-list-contac mb-0 ">Descripcion</p>
+                          </div>
+                          <div class="col-12 px-0 border-list-cartilla altura-tabla">
+                              <p class="color-65-cartilla descripcion-tabla">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
+                          </div>
+                          <div class="col-12 px-0 altura-tabla">
+                              <p class="color-65-cartilla descripcion-tabla">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
+                          </div>
+                          </div>
+                      </div>
+                      </div>
+                  </div> -->
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-12 mt-5">
+            <h3 class="subtitulo-descripcion color-65-cartilla">Requisitos</h3>
+        </div> -->
+        <div class="col-12 px-sm-5 mt-4">
+        <!-- <div class="row m-0">
+            <div class="col-10">
+            <p class="requisitos-font">Restaurante – Declaración Jurada.</p>
+            </div>
+            <div class="col-2">
+            <button class="btn btn-requisitos py-0 btn-casillas">Ver</button>
+            </div>
+            <div class="col-10">
+            <p class="requisitos-font">Requisitos Para La Iinscripción De Un Restaurante.</p>
+            </div>
+            <div class="col-2">
+            <button class="btn btn-requisitos py-0 btn-casillas">Ver</button>
+            </div>
+            <div class="col-10">
+            <p class="requisitos-font">Formato De Categorización De Restaurante.</p>
+            </div>
+            <div class="col-2">
+            <button class="btn btn-requisitos py-0 btn-casillas">Ver</button>
+            </div>
+            <div class="col-10">
+            <p class="requisitos-font">Restaurante De 3 Tenedores – Declaración Jurada.</p>
+            </div>
+            <div class="col-2">
+            <button class="btn btn-requisitos py-0 btn-casillas">Ver</button>
+            </div>
+            <div class="col-10">
+            <p class="requisitos-font">Restaurante De 3 Tenedores – Requisitos.</p>
+            </div>
+            <div class="col-2">
+            <button class="btn btn-requisitos py-0 btn-casillas">Ver</button>
+            </div>
+        </div> -->
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+</section>

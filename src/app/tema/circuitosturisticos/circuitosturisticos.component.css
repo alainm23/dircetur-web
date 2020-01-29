@@ -1,0 +1,143 @@
+.color-blanco{
+	color: #fff;
+	opacity: 1;
+}
+#fondo-titulo{
+	background-color: #3E729A;
+	border: 1px solid #707070;
+	border-left: 0;
+}
+#titulo-turismo{
+	font: Black 56px/67px Avenir;
+	font-weight: 700;
+}
+#subtitulo-rural{
+	font: Light 56px/53px Avenir;
+	font-weight: 300;
+}
+#rutas-font{
+	font: Light 44px/45px Avenir;
+	color: #656565;
+	font-weight: 300;
+}
+#inputGroupSelect01{
+	border: 1px solid #9D9D9D;
+    border-radius: 16px;
+}
+.color-01{
+	color: #505050;
+	opacity: 1;
+}
+.color-02{
+	color: #818181;
+    opacity: 1;
+}
+.titulo-disponibles{
+	font: Black 28px/35px Avenir;
+	font-weight: 700;
+	font-size: 20px;
+}
+@media (min-width: 1024px){
+	.titulo-disponibles{
+	font-size: 15px;
+   }
+}
+@media (min-width: 1200px){
+	.titulo-disponibles{
+	font-size: 20px;
+   }
+}
+.color-rojo{
+	background-color: #EC494B;
+	border-radius: 15px;
+	font: Medium 16px/33px Avenir;
+	color: #fff;
+	font-weight: 300;
+	font-size: 10.5px;
+	height: 16px;
+	width: 100%;
+}
+.color-rojo-social{
+	background-color: #EC494B;
+	border-radius: 15px;
+	font: Medium 16px/33px Avenir;
+	color: #fff;
+	font-weight: 300;
+	font-size: 10.5px;
+	height: 16px;
+	width: 100%;
+}
+.btn-rojo{
+	background-color: #fff;
+	font-family:Medium 16px/33px Avenir;
+	font-weight: 700;
+	border-radius: 10px;
+	border:0;
+	color: #505050;
+	font-size: 17px;
+}
+.btn-rojo:focus{
+	background-color: #EC494B; 
+	color: #fff;
+}
+button:focus {outline:0;}
+.donde-altitud-font{
+	font: Medium 18px/35px Avenir;
+	font-size: 300;
+	font-size: 13px;
+}
+.texto-chiquito{
+	font: Light 16px/21px Avenir;
+	font-weight: 300;
+	font-size: 13px;
+}
+.text-grande{
+	font: Light 20px/26px Avenir;
+	font-weight: 300;
+	font-size: 15px;
+}
+.colot-btn-ruta{
+	background-color: #3E729A;
+	border: 1px solid #707070;
+	color: #fff;
+	font-weight: 300;
+	border-radius: 15px;
+	width: 100px;
+    height: 28px;
+}
+.sombra{
+	box-shadow: 0px 1px 2px #0000004B;
+	height: 100%;
+}
+.cuadrado-central{
+	margin-top: 3%;
+    -moz-column-gap: 0px;
+    -webkit-column-gap: 0px;
+    column-gap: 0px;
+    column-count: 3;
+}
+#subtitulo-circuitos{
+	font: Light 44px/45px Avenir;
+    letter-spacing: 0.75px;
+    color: #656565;
+    font-weight: 300;
+    font-size: 30px;
+}
+.text-resumen-circuito{
+	display: -webkit-box;
+	-webkit-line-clamp: 6;
+	-webkit-box-orient: vertical;
+	overflow: hidden;/*si no se declara añade los ... pero muestra todo el texto*/
+}
+.text-titulo-circuito{
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;/*si no se declara añade los ... pero muestra todo el texto*/
+}
+.img-circuitos-turisticos{
+	background-size: cover; 
+	width: 100%; 
+	height: 200px;
+	/* background: no-repeat center center;*/
+}

@@ -1,0 +1,278 @@
+<ngx-spinner
+        bdOpacity = 0.4
+        bdColor = "#333"
+        size = "medium"
+        color = "#fff"
+        type = "square-spin"
+        [fullScreen] = "true">
+        <p style="color: white" > Verificando... </p>
+        </ngx-spinner>
+<section>
+<div class="container-fluid px-0 mt-5 mt-lg-0">
+    <div class="row m-0">
+    <div class="col-12 col-xl-4 color-blanco fondo-azul px-sm-5 py-5 height-azul-slider">
+        <div class="row m-0">
+        <div class="col-12 text-center text-lg-left">
+            <h1 class="titulo-subtitulo-viaje">{{detalle?.nombre}}</h1>
+            <p class="texto-general mt-xl-3 interloineado text-descripcion-viaje">
+                {{detalle?.descripcion}}
+            </p>
+        </div>
+        <div class="col-12 px-0 mt-sm-4">
+            <div class="row m-0">
+                <div class="col-4 col-sm-2 offset-sm-2 offset-lg-0 col-lg-3">
+                    <p class="altitu-texto weight-grueso letra-font">{{etiquetas?.viaje_programador_donde}}</p>
+                </div>
+                <div class="col-8 col-sm-6 col-lg-9 px-0">
+                    <p class="altitu-texto weight-delgado interloineado">
+                        {{detalle?.donde}}
+                    </p>
+                </div>
+                <div class="col-4 col-sm-2 col-lg-3 offset-sm-2 offset-lg-0">
+                    <p class="altitu-texto weight-grueso letra-font">{{etiquetas?.viaje_programador_altitud}}</p>
+                </div>
+                <div class="col-8 col-sm-6 col-lg-9 px-0">
+                    <p class="altitu-texto weight-delgado">
+                        {{detalle?.altitud}}
+                    </p>
+                </div>
+                <div class="col-4 col-sm-2 col-lg-3 offset-sm-2 offset-lg-0">
+                    <p class="altitu-texto weight-grueso letra-font">{{etiquetas?.viaje_programador_tags}}</p>
+                </div>
+                <div class="col-8 col-sm-6 col-lg-9 px-0">
+                    <div class="row m-0">
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Naturaleza</p>
+                        </div>
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Caminata</p>
+                        </div>
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Apicultura</p>
+                        </div>
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Ceramica</p>
+                        </div>
+                        <div class="col-6 col-sm-5 px-0">
+                        <p class="altitu-texto  mb-0">Crianza de cuy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-xl-8 px-0">
+        <div id="amazingslider-wrapper-1" style="display:block;position:relative;width: 100%;">
+        <div id="amazingslider-1" style="display:block;position:relative;margin:0 auto;">
+            <ul class="amazingslider-slides" style="display:none;">
+                <li *ngFor="let slide of detalle.imagenes">
+                    <img [src]="slide?.url" />
+                </li>
+            </ul>
+            <ul class="amazingslider-thumbnails" style="display:none;">
+                <li *ngFor="let slide of detalle.imagenes">
+                    <img [src]="slide?.url" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section id="fondo-detalle">
+<div class="container-fluid pl-0 pr-0 pr-md-3 py-5">
+    <div class="row m-0">
+    <div class="col-12 col-md-8 col-lg-9 px-0 mt-5 mt-xl-0">
+        <div class="row m-0">
+        <div class="col-12 px-sm-5 text-center text-md-left">
+            <h2 class="subtitulo-intenerario">{{etiquetas?.viaje_programador_itenerario}}</h2>
+            <p class="color-81 texto-general my-4">
+                {{detalle?.itinerario}}
+            </p>
+        </div>
+        <div class="col-12 col-lg-6 fondo-rojo color-blanco text-center px-3 px-sm-5 py-5 my-lg-5">
+            <h2 class="titulo-subtitulo-viaje mb-0">{{etiquetas?.viaje_programador_proteccion_titulo}}</h2>
+            <h3 class="subtitulo-turi-ruta">{{etiquetas?.viaje_programador_proteccion_subtitulo}}</h3>
+            <p class="texto-ruta-turi mt-5 px-3">
+                {{detalle?.proteccion_turista}}    
+            </p>
+        </div>
+        <div class="col-12 col-lg-6 fondo-azul color-blanco px-3 px-sm-5 py-5 my-lg-5 text-center text-lg-left" >
+            <h2 class="titulo-subtitulo-viaje mb-0">{{etiquetas?.viaje_programador_dificultad_titulo}}</h2>
+            <h3 class="subtitulo-turi-ruta">{{etiquetas?.viaje_programador_dificultad_subtitulo}}</h3>
+            <p class="texto-ruta-turi mt-5">
+                {{detalle?.dificultad_ruta}}
+            </p>
+        </div>
+        <div class="col-12 px-sm-5 mt-5 mt-lg-0 list-unstyled texto-general color-81 mb-0">
+            <h2 class="color-05 titulo-subtitulo-viaje text-center text-md-left">{{etiquetas?.viaje_programador_restricciones}}</h2>
+            {{detalle?.restricciones_requisitos}}
+        </div>
+        <div class="col-12 px-sm-5 my-3 list-unstyled texto-general color-81 mb-0">
+            <h2 class="color-05 titulo-subtitulo-viaje text-center text-md-left">{{etiquetas?.viaje_programador_incluye}}</h2>
+            {{detalle?.incluye}}
+        </div>
+        <div class="col-12 px-sm-5 my-3 list-unstyled texto-general color-81 mb-0">
+            <h2 class="color-05 titulo-subtitulo-viaje text-center text-md-left">{{etiquetas?.viaje_programador_no_incluye}}</h2>
+            {{detalle?.no_incluye}}
+        </div>
+        <div class="col-12 px-sm-5 my-3">
+            <h2 class="color-05 titulo-subtitulo-viaje text-center text-md-left">{{etiquetas?.viaje_programador_preguntas_frecuentes}}</h2>
+            <div class="accordion-container mt-3">
+                <div *ngFor="let pregunta of detalle.preguntas">
+                    <button class="accordion-titulo py-2 px-4 my-2 text-capitalize text-left">{{pregunta?.pregunta}}<span class="toggle-icon mt-n1"></span></button>
+                    <div class="accordion-content py-3 px-4">
+                        <p>
+                            {{pregunta?.respuesta}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3 text-center px-5 px-md-3 py-5 cuadro-derecha mt-md-5 mt-xl-0 sticky-top" style="background-color: #fff;">
+      
+        <div *ngIf="salida==null else contenido_registro">
+            <p class="px-3" style="font-size: 12px;">
+                <strong class="color-05 my-3" id="verificar-text" style="font-size: 16px;">
+                    Estimado Usuario
+                </strong>
+                <br><br>
+                Por el momento no tenemos salidas programadas para este viaje. 
+                <br><br>
+                El ultimo viaje programado por DIRCETUR fue el {{ FormatFechaMensaje (info_principal?.ultimo_viaje_fecha_salida) }} con un total de {{ info_principal?.ultimo_viaje_nro_incritos }} viajeros.
+                <br><br>
+                Si deseas participar en este tipo de viajes, no te olvides de visitar constantemente la sección de Turismo Social en nuestro portal Web.
+                <br><br>
+                Nota: Este servicio es exclusivo para Cusqueños.
+            </p>
+        </div>
+        <ng-template #contenido_registro> 
+            <div *ngIf="salida.tipo_registro==0">
+                <div *ngIf="estado_form_validar==3">
+                    <h5 class="color-05 my-3" id="verificar-text">
+                        Estimado Ciudado
+                    </h5>
+                    <p class="px-3 msg-alerta" *ngIf="msj_alerta_estado">
+                        <strong style="font-weight: bold; font-size: 16px;">
+                            {{nombre_completo_user_ip}} <br>
+                        </strong>
+                        {{msj_alerta}}
+                    </p>
+                </div>
+                <div *ngIf="estado_form_validar==1">
+                    <div *ngIf="fecha_actual<=FormatFecha(salida.fecha_limite)">
+                        <h5 class="  my-3" id="verificar-text">
+                            Ingresar Ubigeo<i class="ml-n1 fa fa-question-circle btn color-05" style="cursor: pointer;" (click)="verUbigeo ()"></i>
+                        </h5>
+                        <form [formGroup]="form_ubigeo">
+                            <input class="py-2 my-3 text-center" nbInput id="input-number" type="number" placeholder="Código Ubigeo" formControlName="ubigeo">
+                        </form>
+
+                        <div class="mt-n1" *ngIf="form_ubigeo.get ('ubigeo').errors && form_ubigeo.get ('ubigeo').dirty" style="color:red; font-size: 12px;">
+                            <p class="px-3" *ngIf="form_ubigeo.get ('ubigeo').hasError ('required')">
+                                El código es Requerido
+                            </p>
+                            <p class="px-3" *ngIf="form_ubigeo.get ('ubigeo').hasError ('pattern')">
+                                El código no cumple el formato de un Ubigeo deben ser (6 Dígitos).
+                            </p>
+                        </div>
+                        
+                        <p class="px-3" style="color : grey; font-size: 12px;">
+                            <strong class="color-05" style="font-size: 14px;">¿Porque debo ingresar el código de Ubigeo?</strong> <br><br>
+                            Porque gracias a este código, podemos verificar si eres un ciudadano cusqueño, o cual es un requisito para poder acceder a este servicio.
+                        </p>
+                        <p class="px-3 msg-alerta" *ngIf="msj_alerta_estado">
+                            {{msj_alerta}}
+                        </p>
+                        <button class="btn fondo-azul color-blanco texto-ruta-turi px-4 btn-radius my-3" [disabled]="!form_ubigeo.valid" (click)="validarUbigeo ()">Validar</button>
+                    </div>
+                    <div *ngIf="fecha_actual>FormatFecha(salida.fecha_limite)">
+                        <div class="px-3 msg-alerta">
+                            <strong class="color-05 my-3" id="verificar-text" style="font-size: 16px;">
+                                Estimado Usuario
+                            </strong>
+                            <br><br>
+                            Ya la salida alcanzo su fecha limite de inscripción el dia {{FormatFechaMensaje(salida?.fecha_limite)}}
+                        </div>
+                    </div>
+                    
+                </div>
+                <div *ngIf="estado_form_validar==2">
+                    <h5 class="color-05 my-3" id="verificar-text">
+                        {{etiquetas?.viaje_programador_verifique}}
+                    </h5>
+                    <form [formGroup]="form">
+                        <input class="py-2 my-3 text-center" nbInput id="input-number" type="number" [placeholder]="etiquetas?.viaje_programador_ingrese_dni" formControlName="dni">
+                    </form>
+                    <div class="mt-n1 msg-alerta" *ngIf="form.get ('dni').errors && form.get ('dni').dirty">
+                        <p class="px-3" *ngIf="form.get ('dni').hasError ('required')">
+                            El DNI es Requerido
+                        </p>
+                        <p class="px-3" *ngIf="form.get ('dni').hasError ('pattern')">
+                            El DNI no cumple el formato deben ser de (8 Dígitos).
+                        </p>
+                    </div>
+                    <h5 class="subtitulo-intenerario color-05 mt-2">{{etiquetas?.viaje_programador_salidas}}</h5>
+                    <div class="text-center" style="color: #3E729A">
+                        <div *ngIf="salida?.estado==0 || salida?.estado==1 || salida?.ultimo_viaje_nro_pendientes<=10" [id]="salida?.id" class="salidas" style="cursor: pointer;">
+                            {{ObtenerDia(salida?.fecha_salida)}}
+                            <span class="px-1">
+                                -
+                            </span>
+                            {{FormatFecha(salida?.fecha_salida)}}
+                            <i class="fa fa-angle-right">
+                            </i>
+                        </div>
+                        <br>
+                        La fecha limite para registrarse es hasta el dia {{ FormatFechaMensaje(salida?.fecha_limite) }}.
+                        <br>
+                        <p *ngIf="salida?.estado==1" style="color: black; font-size: 12px;">
+                            Usted entrara en la lista de cola de esta Salida.
+                        </p>
+                        
+                        <p class="px-3 msg-alerta" *ngIf="msj_alerta_estado">
+                            <strong *ngIf="user_sancionado_estado" style="font-weight: bold; font-size: 16px;">
+                                {{nombre_completo_user_ip}} <br>
+                            </strong>
+                            {{msj_alerta}}
+                        </p>
+                    </div>
+                    <button class="btn fondo-azul color-blanco texto-ruta-turi px-4 btn-radius my-3" [disabled]="!form.valid" (click)="validarDni ()">{{etiquetas?.viaje_programador_verificar}}</button>
+                </div>
+            </div>
+            <div *ngIf="salida.tipo_registro==1">
+                <div class="px-3" style="font-size: 12px;">
+                    <strong class="color-05 my-3" id="verificar-text" style="font-size: 16px;">
+                        Estimado Usuario
+                    </strong>
+                    <br><br>
+                        Para participar en este Viaje Programado debe dirigirse a la Oficina de DIRCETUR BLABLABLALBABLABLABLA.
+                    <h5 class="subtitulo-intenerario color-05 mt-2">
+                        {{etiquetas?.viaje_programador_salidas}}
+                    </h5>
+                    <div class="text-center" style="color: #3E729A">
+                        <div *ngIf="salida?.estado==0 || salida?.estado==1" [id]="salida?.id" class="salidas" style="cursor: pointer;">
+                            {{ObtenerDia(salida?.fecha_salida)}}
+                            <span class="px-1">
+                                -
+                            </span>
+                            {{FormatFecha(salida?.fecha_salida)}}
+                            <i class="fa fa-angle-right">
+                            </i>
+                        </div>
+                    </div>
+                    <br><br>
+                    Nota: Este servicio es exclusivo para Cusqueños.
+                </div>
+            </div>
+        </ng-template>
+        
+    </div>
+    </div>
+</div>
+</section>

@@ -1,0 +1,192 @@
+.fondo-azul{
+	background-color: #3E729A;
+}
+.fondo-rojo{
+	background-color:  #EC494B;
+}
+.color-blanco{
+	color: #fff;
+}
+.color-65{
+	color: #656565;
+}
+.color-rojo{
+	color: #EC494B;
+}
+.color-rojo-turismo{
+	color: #EC494B;
+}
+.color-2{
+	color: #2C2C2C;
+}
+.color-81{
+	color: #818181;
+}
+.titulo-subtitulo{
+	font-family: Black 56px/67px Avenir;
+	font-weight: 700;
+}
+#turismo-font{
+	font: Light 56px/53px Avenir;
+	font-weight: 300;
+}
+.texto-turismo{
+	font-family: Light 28px/36px Avenir;
+	font-weight: 300;
+}
+.subutitulo-general{
+	font-family:Black 56px/60px Avenir;
+	font-weight: 700;
+	letter-spacing: 0.95px;
+}
+.subtitulo-delgado{
+	font: Light 44px/45px Avenir;
+    letter-spacing: 0.75px;
+    font-weight: 300;
+}
+.subtitulo-rojo{
+	font-family: Black 28px/35px Avenir;
+	font-weight: 700;
+}
+.subtitulo-rojo-turismo{
+	font-family: Black 28px/35px Avenir;
+	font-weight: 700;
+}
+.btn-lineas{
+	border: 1px solid #BABABA;
+    border-radius: 20px;
+    font-family: Book 21px/39px Avenir;
+}
+.texto-lineas-rubros{
+	font-family:Book 22px/32px Avenir;
+	font-weight: 300;
+	width:100%;
+    height:6.25rem;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: normal;
+}
+.color-azul{
+	color: #3E729A;
+}
+/*.fa-turismo{
+	font-size: 3rem;
+}*/
+.btn-funciones{
+	font-family: Book 21px/39px Avenir;
+	border-radius: 12px;
+	color: #fff;
+	border: 1px solid #fff;
+}
+#img-app-turi{
+	top: 0;
+	width: 100%;
+	height: 135%;
+	position: absolute;
+	display: none;
+}
+@media (min-width: 1024px){
+	#img-app-turi{
+	top: 0;
+	width: 130%;
+	height: 132%;
+	position: absolute;
+	display: block;
+   }
+}
+@media (min-width: 1200px){
+	#img-app-turi{
+	top: 0;
+	width: 140%;
+	height: 133%;
+	position: absolute;
+   }
+}
+@media (min-width: 1300px){
+	#img-app-turi{
+	top: 0;
+	width: 145%;
+	height: 135%;
+	position: absolute;
+   }
+}
+#app-font{
+	font-family: Black 56px/67px Avenir;
+	font-weight: 700;
+}
+#turi-font{
+	font-family: Light 44px/53px Avenir;
+	font-weight: 300;
+}
+#muy-font{
+	font-family:Black 28px/35px Avenir;
+	font-weight: 700
+}
+.numero-font{
+	font-size: 2rem;
+	font-weight: 700;
+}
+.subtitulo-deslgado-font{
+	font-family: Light 24px/33px Avenir;
+	color: #8B8B8B;
+	font-weight: 300;
+}
+.number-cusco-altura{
+	font-size: 4rem;
+	font-family: Regular 117px/82px Bebas Neue;
+	letter-spacing: 1px;
+	font-weight: 700;
+}
+.interliniado-numer{
+	line-height: 1.2;
+}
+.btn-fondo-letra-azul:hover{
+	background-color: #fff;
+	color: #3E729A;
+}
+.btn-fondo-letra-rojo:hover{
+	background-color: #fff;
+	color: #EC494B;
+}
+.img-app-turismo{
+	height: 2rem;
+	filter: opacity(0);
+    -webkit-filter: opacity(0.2);
+	background-color: #fff;
+}
+/*.app-fondo-img::after {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  z-index:-1;
+}*/
+/*#app-1{
+	background-image: url(../imagenes/app1.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+}
+#app-2{
+	background-image: url(../imagenes/app2.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+}*/
+.carousel-home {
+  background: #EEE;
+}
+
+.carousel-home img {
+  display: block;
+  height: 200px;
+}
+
+@media screen and ( min-width: 768px ) {
+  .carousel-home img {
+    height: 180px;
+  }
+}

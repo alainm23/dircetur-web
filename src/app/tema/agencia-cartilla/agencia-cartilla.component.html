@@ -1,0 +1,230 @@
+<section class="mt-5 mt-lg-0 titulo-phone">
+<div class="container-fluid px-0 ">
+    <div class="row m-0">
+    <div class="col-12 col-lg-4 px-0 fondo-azul-cartilla text-center color-blanco-cartilla py-5 sticky-top">
+        <div class="row m-0 my-lg-5">
+        <div class="col-12 mt-5 mt-md-4 mt-lg-3">
+            <img class="" src="assets/imagenes/agencia.svg" width="30%">
+        </div>
+        <div class="col-12 mt-4">
+            <h1 class="titulo-cartilla">Agencias de turismo</h1>
+        </div>
+        <div class="col-12 mt-4">
+            <h2 class="cantidad-subtitulo mb-0">724</h2>
+            <p class="autorizados-cartilla"><small>Agencias en supervisadas</small></p>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-8 pt-5 px-lg-5 mb-5">
+        <div class="row m-0">
+        <div class="col-12">
+            <h3 class="subtitulo-descripcion color-65-cartilla">Que es una agencia de turismo autorizada</h3>
+        </div>
+        <div class="col-12 mt-4">
+            <p class="color-65-cartilla texto-cartilla">Persona natural o jurídica que se dedica al ejercicio de actividades de organización, mediación, coordinación, promoción, asesoría y venta de servicios turísticos, de acuerdo a su clasificación, pudiendo utilizar medios propios o contratados para la prestación de los mismos.</p>
+        </div>
+        <div class="col-12 mt-4">
+            <div class="buscardor-cartilla px-3 py-2">
+            <span>
+            <i class="fa fa-search color-letra-menu px-2" id="icono-btn"></i>
+            <input [(ngModel)]="search_term" (ngModelChange)="search_changed ()" type="text" name="focus" required class="search-box px-3" placeholder="Indaga sobre un proveedor turistico" />
+            <i class="fa fa-question-circle color-letra-menu btn" data-toggle="tooltip" data-placement="bottom" title="Busca tus proveedores turiscos y comprueba si son formales"></i>
+            </span>
+            </div>
+        </div>
+        <div class="col-12 mt-4">
+        <h5 class="color-81-cartilla texto-cartilla">Resultados de búsqueda</h5>
+        </div>
+        
+        <div class="col-12 mt-3">
+          <div *ngFor="let item of items">
+            <div *ngIf="item.tipo === 'agencia'">
+              <button (click)="visible_toggled (item)" class="btn py-1 px-2 px-sm-3 px-md-5 px-lg-3 px-xl-5">{{ item.nombre_comercial }}</button>
+      
+              <div *ngIf="item.visible" class="panel px-5 px-sm-3 px-md-5 px-lg-3 px-xl-5 py-4 mb-4">
+                  <div class="row m-0">
+                  <!--<div class="col-12 px-0">
+                      <p class="mb-0 texto-cartilla color-81-cartilla"><span class="pr-2 color-rojo number-text">42</span>Mesas</p>
+                      <p class="texto-cartilla color-81-cartilla"><span class="pr-2 color-rojo number-text">164</span>Sillas</p>
+                  </div>-->
+                  <div class="col-12 px-0 pb-2 border-list-cartilla">
+                      <div class="row m-0">
+                      <div class="col-12 col-sm-6 px-0">
+                          <ul class="list-unstyled mb-0">
+                              <li><span class="color-list-contac-titulo mr-1">Teléfono:</span><a class="color-azul-list-contac" href="">{{ item?.telefono }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">E-Mail:</span><a class="color-azul-list-contac" href="">{{ item?.correo }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Página Web:</span><a class="color-azul-list-contac" href="">{{ item?.pagina_web }}</a></li>
+                          </ul>
+                      </div>
+                      <div class="col-sm-6 px-0">
+                          <ul class="list-unstyled mb-0">
+                              <li><span class="color-list-contac-titulo mr-1">Repre. Legal:</span><a class="color-azul-list-contac" href="">{{ item?.representante_nombre }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Correo:</span><a class="color-azul-list-contac" href="">{{ item?.representante_correo }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Teléfono:</span><a class="color-azul-list-contac" href="">{{ item?.representante_telefono }}</a></li>
+                          </ul>
+                      </div>
+                      </div>
+                  </div>
+                  <div class="col-12 px-0 pb-2 my-3 border-list-cartilla">
+                      <div class="row m-0">
+                      <div class="col-sm-6 px-0">
+                          <ul class="list-unstyled mb-0">
+                              <li><span class="color-list-contac-titulo mr-1">Clasificacion:</span><a class="color-azul-list-contac" href="">{{ item?.clasificacion_nombre }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Modalidad turismo:</span>
+                                <ul>
+                                  <li style="list-style-type: disc;" *ngFor="let item of item.modalidades">
+                                    {{ item.nombre }}
+                                  </li>
+                                </ul>
+                              </li>
+
+                              <li><span class="color-list-contac-titulo mr-1">Tipo de turismo:</span>
+                                <ul>
+                                  <li style="list-style-type: disc;" *ngFor="let item of item.tipos">
+                                    {{ item.nombre }}
+                                  </li>
+                                </ul>
+                              </li>
+
+                              <li><span class="color-list-contac-titulo mr-1">Nro. Certificado:</span><a class="color-azul-list-contac" href="">{{ item?.numero_certificado }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Fecha de Expedición:</span><a class="color-azul-list-contac" href="">{{ getDate (item?.fecha_exp) }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Última fiscalización:</span><a class="color-azul-list-contac" href="">{{ getDate (item?.fecha_ins) }}</a></li>
+                              <li class="mt-4"><span class="color-list-contac-titulo mr-1">Servicio com:</span><a class="color-azul-list-contac" href="">{{ item?.servicios_complementarios }}</a></li>
+                          </ul>
+                      </div>
+                      <div class="col-sm-6 px-0">
+                          <ul class="list-unstyled mb-0">
+                              <li><span class="color-list-contac-titulo mr-1">Razon social:</span><a class="color-azul-list-contac" href="">{{ item?.razon_social }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">RUC:</span><a class="color-azul-list-contac" href="">{{ item?.ruc }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Dirección:</span><a class="color-azul-list-contac" href="">{{ item?.direccion }}</a></li>
+                          </ul>
+                      </div>
+                      <!--div class="col-12 text-right my-4">
+                          <a class="color-azul-list-contac" href="">Ver en mapa ></a>
+                      </!--div-->
+                      </div>
+                  </div>
+                  <!-- <div class="col-12 px-0">
+                      <h3 class="subtitulo-descripcion color-65-cartilla">Sanciones</h3>
+                  </div> -->
+                  <div class="col-12 px-0 mt-4">
+                      <div class="row m-0">
+                      <div class="col-6 col-sm-2 px-0">
+                          <div class="row m-0">
+                          <div class="col-12 px-0 border-list-cartilla pb-1">
+                              <p class="color-azul-list-contac mb-0">Fecha</p>
+                          </div>
+                          <div class="col-12 px-0 border-list-cartilla altura-tabla">
+                              <p class="color-65-cartilla descripcion-tabla">01.09.2011</p>
+                          </div>
+                          <div class="col-12 px-0 altura-tabla">
+                              <p class="color-65-cartilla descripcion-tabla">01.09.2011</p>
+                          </div>
+                          </div>
+                      </div>
+                      <div class="col-6 col-sm-2 px-0">
+                          <div class="row m-0">
+                          <div class="col-12 px-0 border-list-cartilla">
+                              <p class="color-azul-list-contac mb-0 pb-1">Estado</p>
+                          </div>
+                          <div class="col-12 px-0 border-list-cartilla altura-tabla ">
+                              <p class="color-65-cartilla descripcion-tabla">Resuelto</p>
+                          </div>
+                          <div class="col-12 px-0 altura-tabla">
+                              <p class="color-65-cartilla descripcion-tabla">Pendiente</p>
+                          </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-8 px-0">
+                          <div class="row m-0">
+                          <div class="col-12 px-0 border-list-cartilla pb-1">
+                              <p class="color-azul-list-contac mb-0 ">Descripcion</p>
+                          </div>
+                          <div class="col-12 px-0 border-list-cartilla altura-tabla">
+                              <p class="color-65-cartilla descripcion-tabla">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
+                          </div>
+                          <div class="col-12 px-0 altura-tabla">
+                              <p class="color-65-cartilla descripcion-tabla">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
+                          </div>
+                          </div>
+                      </div>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-12 mt-5">
+          <h3 class="subtitulo-descripcion color-65-cartilla">Requisitos</h3>
+        </div> -->
+        <div class="col-12 px-0 px-sm-5 mt-4">
+        <!-- <div class="row m-0">
+          <div class="col-12">
+              <div class="row m-0 p-0">
+                  <div class="col-9 col-lg-10 px-1 px-lg-0">
+                      <p class="requisitos-font">Restaurante – Declaración Jurada.</p>
+                  </div>
+                  <div class="col-3 col-lg-2 px-1 px-lg-0">
+                      <button class="btn btn-requisitos py-0 btn-casillas">Ver</button>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12">
+              <div class="row m-0 p-0">
+                  <div class="col-9 col-lg-10 px-1 px-lg-0">
+                      <p class="requisitos-font">Restaurante – Declaración Jurada.</p>
+                  </div>
+                  <div class="col-3 col-lg-2 px-1 px-lg-0">
+                      <button class="btn btn-requisitos py-0 btn-casillas">Ver</button>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12">
+              <div class="row m-0 p-0">
+                  <div class="col-9 col-lg-10 px-1 px-lg-0">
+                      <p class="requisitos-font">Restaurante – Declaración Jurada.</p>
+                  </div>
+                  <div class="col-3 col-lg-2 px-1 px-lg-0">
+                      <button class="btn btn-requisitos py-0 btn-casillas">Ver</button>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12">
+              <div class="row m-0 p-0">
+                  <div class="col-9 col-lg-10 px-1 px-lg-0">
+                      <p class="requisitos-font">Restaurante – Declaración Jurada.</p>
+                  </div>
+                  <div class="col-3 col-lg-2 px-1 px-lg-0">
+                      <button class="btn btn-requisitos py-0 btn-casillas">Ver</button>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12">
+              <div class="row m-0 p-0">
+                  <div class="col-9 col-lg-10 px-1 px-lg-0">
+                      <p class="requisitos-font">Restaurante – Declaración Jurada.</p>
+                  </div>
+                  <div class="col-3 col-lg-2 px-1 px-lg-0">
+                      <button class="btn btn-requisitos py-0 btn-casillas">Ver</button>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12">
+              <div class="row m-0 p-0">
+                  <div class="col-9 col-lg-10 px-1 px-lg-0">
+                      <p class="requisitos-font">Restaurante – Declaración Jurada.</p>
+                  </div>
+                  <div class="col-3 col-lg-2 px-1 px-lg-0">
+                      <button class="btn btn-requisitos py-0 btn-casillas">Ver</button>
+                  </div>
+              </div>
+          </div>
+        </div> -->
+        </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>

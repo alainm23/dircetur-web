@@ -1,0 +1,92 @@
+<section>
+    <nav class="navbar navbar-expand-lg navbar-light  py-0 pl-0 pl-md-3 pl-lg-4 pl-xl-5 pr-0 pr-md-3 pr-lg-0" style="box-shadow: 0px 3px 6px #00000029;">
+      <div class="row m-0" style="width: 100%">
+        <div class="col-lg-2 px-xl-0 py-1 py-xl-2 d-flex d-lg-inline">
+          <a class="navbar-brand ml-xl-4" (click)="gohome ()" style="cursor: pointer;">
+            <img class="ml-xl-4 anchura-logo-menu" [src]="imagenes?.home_imagen_titulo.img">
+          </a>
+          <button class="navbar-toggler btn-menu-cuadrado py-0 mt-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="height: 2.5rem" (click)="activarMenuinterno ()">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+         <div class="col-12 col-lg-10 col-xl-10 px-0">
+            <div class="collapse navbar-collapse  justify-content-end mostrar-menu px-3 py-3 py-lg-0" id="navcol-1" style="height: 100%">
+              <ul class="nav navbar-nav ocultar-menu dercha-list-externa-menu ml-lg-0 ml-xl-4" >
+                <li class="nav-item" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{etiquetas?.header_dicertur}}</a>
+                  <div class="dropdown-menu pt-0 bajar-submenu-interior desplique-dicertur-exterior" aria-labelledby="dropdownMenu2">
+                    <div class="color-axul-menu"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goSobreDIR ()">{{etiquetas?.header_sobre}}</a>
+                    <div class="color-megro-menu ml-4"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goTransparenciaInst ()">{{etiquetas?.header_transparencia}}</a>
+                    <div class="color-megro-menu ml-4"></div>
+                    <a class="dropdown-item despliagable-font my-1" href="http://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13895#.XXwtq5MzaYU" target="_blank">{{etiquetas?.header_portal}}</a>
+                  </div>
+                </li>
+                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{etiquetas?.header_servicio}}</a>
+                  <div class="dropdown-menu pt-0 desplaigable-servicios-exterior bajar-submenu-interior" aria-labelledby="dropdownMenu2">
+                    <div class="color-axul-menu"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goBoletoTuristico ()">{{etiquetas?.header_boleto}}</a>
+                    <div class="color-megro-menu ml-4"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goTurismoSocial ()">{{etiquetas?.header_turismo_social}}</a>
+                    <div class="color-megro-menu ml-4"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goCircuitosTuristicos ()">{{etiquetas?.header_circuito}}</a>
+                    <div class="color-megro-menu ml-4"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goTurismoRural ()">{{etiquetas?.header_turismo_rural}}</a>
+                  </div>
+                </li>
+                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{etiquetas?.header_lineas}}</a>
+                  <div class="dropdown-menu pt-0 desplaigable-lineas-exterio bajar-submenu-interior" aria-labelledby="dropdownMenu2">
+                    <div class="color-axul-menu"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goTurismo ()">{{etiquetas?.header_turismo}}</a>
+                    <div class="color-megro-menu ml-4"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goComercioExterior ()">{{etiquetas?.header_comercio}}</a>
+                    <div class="color-megro-menu ml-4"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goArtesania ()">{{etiquetas?.header_artesania}}</a>
+                  </div>
+                </li>
+                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{etiquetas?.header_comunicaciones}}</a>
+                  <div class="dropdown-menu pt-0 desplaigable-comunicacion-exterio bajar-submenu-interior" aria-labelledby="dropdownMenu2">
+                    <div class="color-axul-menu"></div>
+                    <div *ngFor="let categoria of Categorias; let i=index; let longitud=count">
+                      <a class="dropdown-item despliagable-font my-1" (click)="goBlogs (categoria.nombre,categoria.id)">{{categoria.nombre}}</a>
+                      <div *ngIf="i<longitud-1" class="color-megro-menu ml-4"></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" (click)="goContacto ()" style="cursor: pointer;">{{etiquetas?.header_contacto}}</a></li>
+                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#"id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{etiquetas?.header_ingresar}}</a>
+                  <div class="dropdown-menu pt-0 desplaigable-ingresar-exterio bajar-submenu-interior" aria-labelledby="dropdownMenu2">
+                    <div class="color-axul-menu"></div>
+                    <a class="dropdown-item despliagable-font my-1" href="">{{etiquetas?.header_proveedores}}</a>
+                    <div class="color-megro-menu ml-4"></div>
+                    <a class="dropdown-item despliagable-font my-1" href="">{{etiquetas?.header_municipales}}</a>
+                  </div>
+                </li>
+                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#"id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ this.utils.ElIdioma }}</a>
+                  <div class="dropdown-menu pt-0 desplaigable-idioma-exterio bajar-submenu-interior" aria-labelledby="dropdownMenu2">
+                    <div class="color-axul-menu"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="changeIdioma ('es')" style="cursor: pointer;">Español</a>
+                    <div class="color-megro-menu ml-4"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="changeIdioma ('en')"  style="cursor: pointer;">Ingles</a>
+                  </div>
+                </li>
+                <li class="nav-item py-2 padding-0 ml-lg-2 ml-xl-4" role="presentation">
+                  <input class="mt-1  color-letra-menu-exterio" type="text" name="focus" required class="search-box" placeholder="Busca contenidos en la web…" id="buscador-exterior" style="display: none;" />
+                    <i class="fa fa-search color-letra-menu-exterio px-3" id="icono-btn-interiores" style="border-left: 1px solid #8B8B8B;" ></i>
+                </li>
+              </ul>
+            </div>
+        </div>
+         <!--<div class="col-xl-3 ocultar-img-menu px-0">
+            <div class="row m-0">
+                 <div class="col-6 my-4">
+                         <img src="assets/imagenes/logocusco.png" width="100%">
+                 </div>
+                 <div class="col-6  my-4 pr-0">
+                   <img src="assets/imagenes/logoportal.png" width="100%">
+                 </div>
+             </div>
+          </div>-->
+      </div>
+      </nav>
+  </section>

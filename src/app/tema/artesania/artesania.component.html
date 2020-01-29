@@ -1,0 +1,481 @@
+
+<section class="titulo-phone">
+<div class="container-fluid px-0">
+    <div class="row m-0">
+    <div class="col-lg-4 px-0 order-2 order-lg-0">
+        <img [src]="imagenes?.artesania_img_1.img" width="100%" height="100%">
+    </div>
+    <div class="col-12 col-lg-8 fondo-azul-artesania px-0 px-sm-5 py-5 text-center text-lg-left">
+        <div class="row m-0">
+        <div class="col-12 col-lg-10 color-blanco-artesania py-5 py-lg-0">
+            <h1 class="titulo-artesania mt-5">{{etiquetas?.artsenia_titulo}}<span class="subtitulo-artesania"> {{etiquetas?.artsenia_subtitulo}}</span></h1>
+            <div class="texto-artesania mt-4" [innerHtml]="etiquetas?.artsenia_texto">
+
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+<section>
+<div class="container-fluid py-5 mb-5 mt-3">
+    <div class="row m-0">
+    <div class="col-12 text-center color-65-artesania">
+        <h2 class="mb-0 subtitulo-general">{{etiquetas?.artsenia_inscribirno_titulo}}</h2>
+        <h3 class="subtitulo-pequeño-general">{{etiquetas?.artsenia_inscribirno_subtitulo}}</h3>
+    </div>
+    <div class="col-12 color-81-artesania mt-5">
+        <div class="row m-0">
+        <div class="col-sm-4 col-lg-2 text-center mb-3 mb-lg-0">
+            <div class="w-100 px-2">
+            <img class="img-in-altura mb-2" [src]="imagenes?.artesania_inscribirno_img_1.img">
+            <h5 class="subtitulo-incribir mb-0"><small>{{etiquetas?.artesnia_proteccion}}</small></h5>
+            </div>
+        </div>
+        <div class="col-sm-4 col-lg-2 text-center mb-3 mb-lg-0">
+            <div class="w-100 px-2">
+            <img class="img-in-altura mb-2" [src]="imagenes?.artesania_inscribirno_img_2.img">
+            <h5 class="subtitulo-incribir mb-0"><small>{{etiquetas?.artesnia_capacitaciones}}</small></h5>
+            </div>
+        </div>
+        <div class="col-sm-4 col-lg-2 text-center mb-3 mb-lg-0">
+            <div class="w-100 px-2">
+            <img class="img-in-altura mb-2" [src]="imagenes?.artesania_inscribirno_img_3.img">
+            <h5 class="subtitulo-incribir mb-0"><small>{{etiquetas?.artesania_forma}}</small></h5>
+            </div>
+        </div>
+        <div class="col-sm-4 col-lg-2 text-center mb-3 mb-lg-0">
+            <div class="w-100 px-2">
+            <img class="img-in-altura mb-2" [src]="imagenes?.artesania_inscribirno_img_4.img">
+            <h5 class="subtitulo-incribir mb-0"><small>{{etiquetas?.artesania_accede}}</small></h5>
+            </div>
+        </div>
+        <div class="col-sm-4 col-lg-2 text-center mb-3 mb-lg-0">
+            <div class="w-100 px-2">
+            <img class="img-in-altura mb-2" [src]="imagenes?.artesania_inscribirno_img_5.img">
+            <h5 class="subtitulo-incribir mb-0"><small>{{etiquetas?.artesania_reconocimiento}}</small></h5>
+            </div>
+        </div>
+        <div class="col-sm-4 col-lg-2 text-center mb-3 mb-lg-0">
+            <div class="w-100 px-2">
+                <img class="img-in-altura mb-2" [src]="imagenes?.artesania_inscribirno_img_6.img">
+                <h5 class="subtitulo-incribir mb-0"><small>{{etiquetas?.artesania_informacion}}</small></h5>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container-fluid">
+    <div class="row m-0">
+    <div class="col-12 color-65-artesania text-center">
+        <h2 class="subtitulo-general mb-0">{{etiquetas?.artesania_servicio_titulo}}</h2>
+        <h3 class="subtitulo-pequeño-general">{{etiquetas?.artesania_servicio_subtitulo}}</h3>
+    </div>
+    <div class="col-12 text-center my-5">
+        <div class="row m-0">
+        <div class="col-sm-6 col-md-4 mb-4">
+            <h6><small class="subtitulo-azul-artesania color-zul-artesania">{{etiquetas?.artesania_curso_titulo}}</small></h6>
+            <div class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania" [innerHtml]="etiquetas?.artesania_curso_texto">
+                
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 mb-4">
+            <h6><small class="subtitulo-azul-artesania color-zul-artesania">{{etiquetas?.artesania_pasantia}}</small></h6>
+            <div class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania" [innerHtml]="etiquetas?.artesania_pasantia_texto">
+               
+            </div>
+        </div>
+            <div class="col-sm-6 col-md-4 mb-4">
+            <h6><small class="subtitulo-azul-artesania color-zul-artesania">{{etiquetas?.artesania_promocion}}</small></h6>
+            <div class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania" [innerHtml]="etiquetas?.artesania_promocion_texto">
+                
+            </div>
+            </div>
+            <div class="col-sm-6 col-md-4 mb-4">
+            <h6><small class="subtitulo-azul-artesania color-zul-artesania">{{etiquetas?.artesania_concursos}}</small></h6>
+            <div class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania" [innerHtml]="etiquetas?.artesania_concursos_texto">
+                
+            </div>
+            </div>
+            <div class="col-sm-6 col-md-4 mb-4">
+            <h6><small class="subtitulo-azul-artesania color-zul-artesania">{{etiquetas?.artesania_expociones}}</small></h6>
+            <div class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania" [innerHtml]="etiquetas?.artesania_expociones_texto">
+                
+            </div>
+            </div>
+            <div class="col-sm-6 col-md-4 mb-4">
+            <h6><small class="subtitulo-azul-artesania color-zul-artesania">{{etiquetas?.artesania_ferias}}</small></h6>
+            <div class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania" [innerHtml]="etiquetas?.artesania_ferias_texto">
+                
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container-fluid px-0">
+    <div class="row m-0">
+    <div class="col-12 col-lg-4 px-0 order-2 order-lg-0">
+        <img src="assets/imagenes/requisito.png" width="100%" height="100%">
+    </div>
+    <div class="col-12 col-lg-8 fondo-EF-artesania px-sm-5 pt-5">
+        <div class="row m-0">
+        <div class="col-12 px-0">
+            <h4 class="color-65-artesania subtitulo-pequeño-general" style="font-weight: 400">{{etiquetas?.artesania_como_inscribo}}</h4>
+            <div class="color-65-artesania texto-artesania mt-4" [innerHtml]="etiquetas?.artesania_como_inscribo_texto">
+                
+            </div>
+        </div>
+        <div class="col-12 px-0 color-65-artesania">
+            <h6><small class="ins-re-artesania">{{etiquetas?.artesania_donde_inscribo}}</small></h6>
+            <div [innerHtml]="etiquetas?.artesania_donde_inscribo_texto">
+
+            </div>
+        </div>
+        <div class="col-12 px-0">
+            <h6><small class="ins-re-artesania color-65-artesania">{{etiquetas?.artesania_requisto}}</small></h6>
+            <div class="row m-0">
+            <div class="col-md-4 px-0">
+                <button class="btn btn-requesitos-artesania px-0">
+                    Empresas artesanales
+                </button>
+            </div>
+            <div class="col-md-4 px-0">
+                <button class="btn btn-requesitos-artesania px-0">
+                    Personas Naturales
+                </button>
+            </div>
+            <div class="col-md-4 px-0">
+                <button class="btn btn-requesitos-artesania px-0">
+                    Asociaciones de Artesanos
+                </button>
+            </div>
+            </div>
+        </div>
+        <div class="col-12 color-65-artesania mt-2">
+            <ul>
+            <li>FORMATO DE REGISTRO NACIONAL DEL ARTESANO (Declaración Jurada)</li>
+            <li>Fotocopia DNI ampliada</li>
+            </ul>
+        </div>
+        <div class="col-12 px-0 text-center text-lg-right my-4">
+            <a class="btn btn-descargar-artesania py-1 text-center px-4" href="#" role="button">{{etiquetas?.artesania_inscribo_descargar}}</a>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container-fluid px-lg-5 py-4 py-sm-5 my-sm-5">
+    <div class="row m-0">
+    <div class="col-sm-6 col-lg-7 pl-lg-5 pr-lg-0 order-2 order-sm-0 text-center text-sm-left">
+        <div class="texto-artesania color-81-artesania" [innerHtml]="etiquetas?.artesania_registro_nacional_texto">
+        </div>
+        <a class="btn btn-ingresar-artesania py-1 text-center px-4" href="#" role="button">{{etiquetas?.artesania_registro_nacional_btn}}</a>
+    </div>
+    <div class="col-sm-6 col-lg-4 color-65-artesania pr-lg-5 text-center mb-4 mb-sm-0">
+        <h2 class="subtitulo-general mb-0">{{etiquetas?.artesania_registro_nacional_titulo}}</h2>
+        <h3 class="subtitulo-pequeño-general mb-0">{{etiquetas?.artesania_registro_nacional_subtitulo}}</h3>
+        <img src="assets/imagenes/flechaizq.jpg" width="60%">
+    </div>
+    </div>
+</div>
+</section>
+
+<section id="fondo-lineas">
+<div class="container-fluid px-1 px-sm-5 py-5" id="fondo-negro">
+    <div class="row m-0">
+    <div class="col-lg-6 color-blanco-artesania pl-lg-5 mt-lg-5">
+    <div class="row m-0">
+        <div class="col-lg-5 text-center">
+        <h2 class="subtitulo-general mb-0">{{etiquetas?.artesania_lineas_titulo}}</h2>
+        <h3 class="subtitulo-pequeño-general mb-0">{{etiquetas?.artesania_lineas_subtitulo}}</h3>
+        <img src="assets/imagenes/arrow.png" width="100%">
+        </div>
+        <div class="col-12">
+        <div class="texto-artesania mt-4 mb-5" [innerHtml]="etiquetas?.artesania_lineas_texto">
+            
+        </div>
+        </div>
+    </div>
+    </div> 
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container-fluid px-0">
+    <div class="row m-0">
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo1.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo2.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo3.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo4.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo5.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo6.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo7.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo8.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo9.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo10.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo11.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo12.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo13.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo14.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo15.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 px-0" style="height: 196px">
+        <div class="position-relative color-blanco-artesania" style="height: 100%">
+        <img src="assets/imagenes/catalogo16.png" width="100%" height="100%">
+        <p class="text-uppercase text-center subtitulos-catalogos px-lg-5 mb-4">Trabajos en cuero y pieles</p>
+        </div>
+    </div>
+    <div class="col-12" style="background-color: #EC494B">
+        <div class="row m-0">
+        <div class="col-sm-6 col-lg-4 offset-sm-3 offset-lg-4">
+            <a class="btn py-0 text-center btn-ver-catalogo py-3 mb-3 mb-sm-5 mt-n2" href="#" role="button">{{etiquetas?.artesania_catalogo_btn}}</a>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section id="calendario">
+<div class="container-fluid my-3 my-lg-5">
+    <div class="row m-0">
+    <div class="col-12 px-0 my-3">
+        <div class="row m-0">
+        <div class="col-2 col-sm-2 offset-sm-2 text-md-right">
+            <img (click)="CambiarMes (1,Fecha_formato_completo)" class="mt-lg-2 anchura-icono-cal" style="cursor: pointer;" src="assets/imagenes/icono-derecha.png">
+        </div>
+        <div class="col-8 col-sm-4 text-center text-lg-left text-xl-center">
+            <h2 id="subtitulo-mes" class="text-capitalize" style="font-weight: bold;">{{ Mes_actual }}<span id="subtitulo-ano" style="font-weight: normal;"> {{ Ano_actual }}</span></h2>
+        </div>
+        <div class="col-2 col-sm-2 text-right text-md-left">
+            <img (click)="CambiarMes (2,Fecha_formato_completo)" class="mt-lg-2 anchura-icono-cal" style="cursor: pointer;" src="assets/imagenes/icono-izquierda.png">
+        </div>
+        </div>
+    </div>
+    <div class="col-12 px-0 my-3">
+        <div class="row m-0 justify-content-md-center">
+            <div class="col-4 col-sm-2 col-md-2 col-lg-2 px-0 text-center my-1">
+                <div class="pretty p-default p-round">
+                    <input type="checkbox" (click)="filtrarCalendario (Todos_los_eventos)" [checked]="Estado" />
+                    <div class="state">
+                        <label>Todo</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 col-lg-2 px-0 text-center my-1" *ngFor="let tipo of Tipos">
+                <div class="pretty p-default p-round">
+                    <input type="checkbox" [checked]="tipo.checked" (click)="filtrarCalendario (tipo.nombre)" />
+                    <div class="state">
+                        <label>{{tipo.nombre}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 px-0 my-3">
+        <div class="row m-0">
+        <div class="col-12 col-md-6 col-lg-4 px-0 px-sm-1 py-1 my-1 animacion1 animacion" *ngFor="let evento of Eventos">
+        <div class="row m-0">
+            <div class="col-3 text-center color-letra-blanco px-0 alturacol" style="position: absolute;z-index: 1000;">
+                <div [className]="evento.color=='azul' ? 'azul-fondo pt-2 pt-lg-3 pt-xl-2 ml-sm-n2' : 'rojo-calendario pt-2 pt-lg-3 pt-xl-2 ml-sm-n2'" style="box-shadow: 0px 3px 6px #0000004B;">
+                <p class="numero-mes-font mb-0">{{ ObtenerDia(evento.datageneral.fecha) }}</p>
+                <p class="letra-mes-font mt-n3">{{ ObtenerMesEnLetra(evento.datageneral.fecha) }}</p>
+                </div>
+            </div>
+            <div class="col-9 ocultar alturacol px-3" style="background: #FFFFFF; box-shadow: 0px 3px 6px #0000004B;">
+                <div class="row m-0">
+                    <div class="col-12 pt-2 pt-xl-2 px-0 px-sm-2 text-left">
+                    <p class="cal-titulo-font mb-0 text-titulo-calendario">{{titleCaseWord(evento.datageneral.titulo)}}</p>
+                    <p class="cal-subtitulo-font mb-2">{{ evento.datageneral.tipo.name }}</p>
+                    </div>
+                    <div class="col-12 px-0 px-sm-2 pb-3">
+                        <div class="row m-0">
+                            <div class="col-6 p-0 text-left" style="border-right: 1px solid #A0A0A0">
+                                <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img1.png"> {{ evento.datageneral.provincia.nombre }}</small> </span>
+                            </div>
+                            <!--div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 px-0" style="border-right: 1px solid #A0A0A0">
+                                <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img2.png"> {{ evento.datageneral.tipo.name }}</small> </span>
+                            </div-->
+                            <div class="col-6 px-0">
+                                <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img3.png"> {{ evento.datageneral.hora }}</small> </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-9 mostar alturacol px-0" style="background: #FFFFFF; box-shadow: 0px 3px 6px #0000004B;">
+                <div class="row m-0">
+                    <div class="col-4 px-0 alturacol">
+                    <img [src]="evento.datageneral.imagen" width="100%" height="100%">
+                    </div>
+                    <div class="col-8 px-0 alturacol">
+                        <div class="row m-0"  >
+                            <div class="col-12 pt-2 text-left">
+                            <p class="cal-titulo-font mb-0 caracteres-titulo text-titulo-calendario">{{titleCaseWord(evento.datageneral.titulo)}}</p>
+                            <p class="cal-subtitulo-font mb-">{{ evento.datageneral.tipo.name }}</p>
+                            </div>
+                            <div class="col-12 text-right pb-2">
+                            <a class="calendario-link-font" style="cursor: pointer;" (click)="verDetalleEvento(evento.datageneral.titulo,evento.data.id)">Ver mas ></a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container-fluid px-0">
+    <div class="row m-0">
+    <div class="col-sm-6 col-md-7 col-lg-8 ancho-col-artesania align-items-center ancho-col-artesania px-sm-5 py-5 py-sm-4 py-md-5 order-2 order-sm-0" style="background-color: #F8F8F8">
+        <div class="row m-0">
+        <div class="col-lg-9 py-md-4 py-lg-5 my-md-0 my-lg-5">
+            <div class="texto-artesania color-81-artesania" [innerHtml]="etiquetas?.artesania_asociaciones_texto">
+                
+            </div>
+            <a class="btn btn-ingresar-artesania py-1 text-center px-4" href="#" role="button">{{etiquetas?.artesania_asociaciones_link}}</a>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-5 col-lg-4 fondo-azul-artesania color-blanco-artesania  ancho-col-artesania text-center px-4 py-5">
+            <h2 class="subtitulo-general mt-5">{{etiquetas?.artesania_asociaciones_titulo}}</h2>
+            <h3 class="subtitulo-pequeño-general">{{etiquetas?.artesania_asociaciones_subtitulo}}</h3>
+            <img class="mb-5" src="assets/imagenes/arrow.png" width="100%">     
+    </div>
+    </div>
+</div>
+</section>
+
+<section class="contac-fondo-exterior">
+<div class="container-fluid py-5" style="background-color: #00000070">
+    <div class="row m-0">
+    <div class="col-sm-6 col-md-5 col-lg-4 offset-sm-3 offset-md-0 px-lg-5 text-center my-5 color-blanco-artesania">
+        <h2 class="color-blanco subutitulo-general mb-0">{{etiquetas?.artesania_contac_titulo}}</h2>
+        <h3 class="color-blanco subtitulo-delgado mb-0">{{etiquetas?.artesania_contac_subtitulo}}</h3>
+        <img src="assets/imagenes/arrow.png" width="100%" style="transform: rotate(-180deg);">
+    </div>
+    <div class="col-md-7 col-lg-6 offset-lg-1 my-5">
+        <div class="row m-0">
+        <div class="col-12 color-blanco text-center text-md-left color-blanco-artesania">
+            <p class="mb-0 subutitulo-general">{{etiquetas?.artesania_contac_ubicacion}}</p>
+            <div class="texto-turismo margin-p-texto" [innerHtml]="etiquetas?.artesania_contac_direccion">
+                
+            </div>
+        </div>
+        <div class="col-12 color-blanco text-center text-md-left color-blanco-artesania">
+            <p class="mb-0 subutitulo-general">{{etiquetas?.artesania_contac_llamanos}}</p>
+            <p class="texto-turismo">{{etiquetas?.artesania_contac_numero}}</p>
+        </div>
+        <div class="col-12 color-blanco text-center text-md-left color-blanco-artesania">
+            <p class="mb-0 subutitulo-general mb-3">{{etiquetas?.artesania_contac_escribenos}}</p>
+        </div>
+        <div class="col-sm-6 pr-md-1 mb-2 mb-sm-0">
+            <input class="color-fondo px-3 py-2 anchura-inpu" type="text" [placeholder]="etiquetas?.artesania_contacto_nombre">
+        </div>
+        <div class="col-sm-6 pl-md-1">
+            <input class="color-fondo px-3 py-2 anchura-inpu"  type="text" [placeholder]="etiquetas?.artesania_contacto_correo">
+        </div>
+        <div class="col-12 mt-2 anchura-contac-input">
+            <textarea class=" color-fondo px-3 py-2" aria-label="With textarea" [placeholder]="etiquetas?.artesania_contacto_mensaje" style="width: 100%;height: 100%"></textarea>
+        </div>
+        <div class="col-12 mt-2">
+            <button class="btn py-2 fondo-rojo-contac">{{etiquetas?.artesania_contac_btn}}</button>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+      

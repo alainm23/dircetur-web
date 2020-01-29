@@ -1,0 +1,76 @@
+.fondo-azul-cal{
+	background-color: #3E729A;
+}
+.titulo-cal{
+	font: Black 56px/67px Avenir;
+   letter-spacing: 0;
+   color: #FFFFFF;
+   text-transform: capitalize;
+}
+.subtitulo-cal{
+	font: Light 56px/53px Avenir;
+   letter-spacing: 0;
+   font-weight: 300;
+}
+#subtitulo-mes{
+	font: Black 56px/60px Avenir;
+    letter-spacing: 0.95px;
+    color: #656565;
+    font-weight: 700;
+    font-size: 3rem;
+}
+@media(max-width: 1023px){
+	#subtitulo-mes{
+		font-size: 2rem;
+	}
+
+}
+#subtitulo-ano{
+	font-family:Light 56px/53px Avenir;
+    letter-spacing: 0;
+    color: #505050;
+    font-weight: 400;
+}
+.subtitulo-art{
+  font: Light 44px/45px Avenir;
+  letter-spacing: 0.75px;
+  color: #656565;
+  opacity: 1;
+  font-weight: 400;
+}
+.cal-subtitulo-detalle{
+    font: Light 24px/33px Avenir;
+    letter-spacing: 0;
+    color: #A0A0A0;
+    opacity: 1;
+    font-weight: 300;
+}
+.btn-detalle-cal{
+  font-family:Black 28px/35px Avenir;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  opacity: 1;  
+  background: #EC494B;
+  box-shadow: 0px 3px 6px #00000067;
+  border: 1px solid #707070;
+  border-radius: 22px;
+  width: 100%;
+  font-weight: 600;
+}
+.btn-detalle-cal:hover{
+  color: #EC494B;
+  background-color: #FFFFFF;
+}
+.texto-detalle-cal{
+  font: Light 28px/36px Avenir;
+  letter-spacing: 0;
+  color: #818181;
+  opacity: 1;
+  font-weight: 300;
+}
+.anchura-icono-cal{
+  width: 17px;
+  height: 46px;
+  color: #707070;
+}
+

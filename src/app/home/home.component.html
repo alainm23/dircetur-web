@@ -1,0 +1,639 @@
+<section>
+    <nav class="navbar navbar-light navbar-expand-lg  py-xl-3" style="background-color: #FFFFFF; position: relative; box-shadow: 0px 3px 6px #00000029;">
+   <div class="container-fluid justify-content-end justify-content-lg-start">
+      <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+       <div class="collapse navbar-collapse"
+           id="navcol-1">
+           <div class="row m-0" style="width: 100%">
+             <div class="col-xl-8 pl-xl-5 pr-xl-0 py-xl-2">
+               <ul class="nav navbar-nav ocultar-menu dercha-list-menu  mt-xl-1" >
+               <li class="nav-item ml-lg-n5 ml-xl-n5">
+                  <a class="nav-link color-letra-menu" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{etiquetas?.home_menu_dircetur}}
+                  </a>
+                  <div style="width: 13rem;" class="dropdown-menu pt-0 ml-lg-n3 ml-xl-n3 bajar-submenu ml-3" aria-labelledby="navbarDropdown">
+                    <div class="color-axul-menu"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goSobreDIR ()">{{ etiquetas?.home_menu_sobre }}</a>
+                    <div class="color-megro-menu ml-4"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goTransparenciaInst ()">{{etiquetas?.home_menu_transparencia}}</a>
+                    <div class="color-megro-menu ml-4"></div>
+                    <a class="dropdown-item despliagable-font my-1" href="http://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13895#.XXwtq5MzaYU" target="_blank">{{etiquetas?.home_menu_portal}}</a>
+                  </div>
+                </li>
+               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdownstMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{etiquetas?.home_menu_servico}}</a>
+                 <div style="width: 13rem;" class="dropdown-menu pt-0 bajar-submenu" aria-labelledby="dropdownstMenu2" id="desplaigable-servicios">
+                   <div class="color-axul-menu"></div>
+                   <a class="dropdown-item despliagable-font my-1" (click)="goBoletoTuristico ()">{{etiquetas?.home_menu_boleto}}</a>
+                   <div class="color-megro-menu ml-4"></div>
+                   <a class="dropdown-item despliagable-font my-1" (click)="goTurismoSocial ()">{{etiquetas?.home_menu_turismo_social}}</a>
+                   <div class="color-megro-menu ml-4"></div>
+                   <a class="dropdown-item despliagable-font my-1" (click)="goCircuitosTuristicos ()">{{etiquetas?.home_menu_circuito}}</a>
+                   <div class="color-megro-menu ml-4"></div>
+                   <a class="dropdown-item despliagable-font my-1" (click)="goTurismoRural ()">{{etiquetas?.home_menu_turismo_rural}}</a>
+                 </div>
+               </li>
+               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdownldMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{etiquetas?.home_menu_linea}}</a>
+                  <div style="width: 13rem;" class="dropdown-menu pt-0 bajar-submenu" aria-labelledby="dropdownldMenu2" id="desplaigable-lineas">
+                   <div class="color-axul-menu"></div>
+                   <a class="dropdown-item despliagable-font my-1" (click)="goTurismo ()">{{etiquetas?.home_menu_turismo}}</a>
+                   <div class="color-megro-menu ml-4"></div>
+                   <a class="dropdown-item despliagable-font my-1" (click)="goComercioExterior ()">{{etiquetas?.home_menu_comercio}}</a>
+                   <div class="color-megro-menu ml-4"></div>
+                   <a class="dropdown-item despliagable-font my-1" (click)="goArtesania ()">{{etiquetas?.home_menu_artesania}}</a>
+                 </div>
+               </li>
+               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdowncMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{etiquetas?.home_menu_comunicacion}}</a>
+                 <div style="width: 13rem;" class="dropdown-menu pt-0 bajar-submenu" aria-labelledby="dropdowncMenu2" id="desplaigable-comunicacion">
+                   <div class="color-axul-menu"></div>
+                   <div *ngFor="let categoria of Categorias; let i=index; let longitud=count">
+                    <a class="dropdown-item despliagable-font my-1" (click)="goBlogs (categoria.nombre,categoria.id)">{{categoria.nombre}}</a>
+                    <div *ngIf="i<longitud-1" class="color-megro-menu ml-4"></div>
+                   </div>
+                 </div>
+               </li>
+               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" (click)="goContacto ()" style="cursor: pointer;">{{etiquetas?.home_menu_contacto}}</a></li>
+               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdowniMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{etiquetas?.home_menu_ingresar}}</a>
+                 <div style="width: 13rem;" class="dropdown-menu pt-0 bajar-submenu" aria-labelledby="dropdowniMenu2" id="desplaigable-ingresar">
+                   <div class="color-axul-menu"></div>
+                   <a class="dropdown-item despliagable-font my-1" href="">{{etiquetas?.home_menu_proveedores}}</a>
+                   <div class="color-megro-menu ml-4"></div>
+                   <a class="dropdown-item despliagable-font my-1" href="">{{etiquetas?.home_menu_municipalidades}}</a>
+                 </div>
+               </li>
+               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdownidiomaMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ idioma }}</a>
+                <div style="width: 13rem;" class="dropdown-menu pt-0 bajar-submenu" aria-labelledby="dropdownidiomaMenu2" id="desplegable-idioma">
+                  <div class="color-axul-menu"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="changeIdioma ('es')" style="cursor: pointer;">Español</a>
+                  <div class="color-megro-menu ml-4"></div>
+                    <a class="dropdown-item despliagable-font my-1" (click)="changeIdioma ('en')"  style="cursor: pointer;">Ingles</a>
+                </div>
+               </li>
+               <li class="nav-item py-2 padding-0 ml-lg-4 ml-xl-0" role="presentation">
+                 <input class="mt-1  color-letra-menu" type="text" name="focus" required class="search-box" placeholder="Busca contenidos en la web…" id="largo-buscador" style="display: none;" />
+                   <i class="fa fa-search color-letra-menu px-3" id="icono-btn-home" style="border-left: 1px solid #8B8B8B;" ></i>
+               </li>
+               </ul>
+             </div>
+             <div class="col-xl-4 pr-5 ocultar-img-menu">
+             <div class="row m-0">
+               <div class="col-6 mt-2">
+                  <img src="assets/imagenes/logo-horizontal.png" width="90%">
+               </div>
+               <div class="col-6 mt-2">
+                  <img src="assets/imagenes/logoportal.png" width="70%">
+               </div>
+             </div>
+           </div>
+           </div>
+       </div>
+   </div>
+</nav>
+</section>
+<section style="position: relative;">
+<div id="imagen-prueba" class="loading-img" style="width: 100%;">
+  <img id="imagen-prueba2" src="/assets/imagenes/fondo-video.jpg" class="img-loader loading-img">
+</div>
+ <div class="loading" id="video-prueba" style="width: 100%;">
+    <div id="player">
+    </div>
+    <div id="home-banner-box" class="home-banner">
+        <div class="video-background">
+         
+        </div>
+    </div>
+ </div>
+  <div class="container-fluid p-0" id="subir">
+      <div class="row m-0">
+          <div class="col-12 col-sm-6 col-md-6 pr-0 pl-0 text-center text-sm-left">
+            <div id="fondo-rojo-home">
+               <div class="container">
+                   <div class="row">
+                   <div class="col-4 col-md-6 col-xl-5 offset-4 offset-sm-0 mt-1">
+                       <img [src]="imagenes?.home_imagen_titulo.img" width="100%" id="logoblanco">
+                       <img src="assets/imagenes/logomenu.png" width="100%" id="logonegro">
+                   </div>
+                   <div class="col-12" id="bajar-titulo">
+                       <h1 class="color-letra-blanco mb-0" id="titulo-altura">{{etiquetas?.home_titulo}}</h1>
+                   </div>
+                   <div class="col-12 col-sm-10 col-xl-8">
+                       <p class="color-letra-blanco mb-0" id="texto-altura">{{etiquetas?.home_subtitulo}}</p>
+                   </div>
+
+                   <div class="col-12 mt-sm-5 py-2 px-3" id="sombra-buscador">
+                     <div class="py-2 px-2" id="col-buscardor">
+                       <div class="row m-0">
+                        <div class="col-1 px-0 text-center">
+                          <i class="fa fa-search color-letra-menu" id="icono-btn-home"></i>
+                        </div>
+                        <div class="col-10 px-0">
+                          <input [(ngModel)]="search_term" (ngModelChange)="search_changed ()" type="text" name="focus" required class="search-box px-2" [placeholder]="etiquetas?.home_buscador_placeholder" id="col-buscardor-largo" />
+                        </div>
+                        <div class="col-1 px-0 text-center">
+                          <i class="fa fa-question-circle color-letra-menu btn" placement="top" [ngbTooltip]="etiquetas?.home_buscador_placeholder" container="body"></i>
+                        </div>
+
+                        <li *ngIf="busqueda_items.length > 0" style="list-style-type:none;margin-top: 1rem;">
+                          <ul *ngFor="let item of busqueda_items" (click)="ver_busqueda (item)">
+                            {{ item.nombre_comercial }}
+                          </ul>
+                        </li>
+                      </div>
+                     </div>
+                   </div>
+               </div>
+               </div>
+            </div>
+          </div>
+        <div class="col-10 col-sm-3 col-md-3 col-xl-2 offset-1 offset-sm-9 offset-md-3 offset-xl-4 p-0" id="bajar-logos">
+             <div style="background-color: #ffffffad">
+               <div class="row m-0">
+                  <div class="col-6 col-md-6 px-2 py-3">
+                      <img src="assets/imagenes/logocusco.png" width="100%">
+                  </div>
+                  <div class="col-6 col-md-6 px-2 py-3">
+                      <img src="assets/imagenes/logoportal.png" width="100%">
+                  </div>
+              </div>  
+             </div>
+          </div>
+      </div>
+  </div>
+</section>
+<section class="my-lg-5">
+<div class="container p-0 py-5">
+   <div class="row m-0">
+       <div class="col-sm-4 pl-0 text-center py-5 py-lg-4 mt-sm-5 mt-md-0">
+           <div class="row m-0">
+               <div class="col-12">
+                   <h2 class="mb-0 subtitulo-font">{{etiquetas?.home_que_es}}</h2>
+                   <h3 class="mb-0 subtitulo-2-font">{{etiquetas?.home_dicertur}}</h3>
+               </div>
+               <div class="col-12 my-3">
+                 <img src="assets/imagenes/flechader.jpg" width="100%">
+               </div>
+               <div class="col-12">
+                   <p class="mb-0 sobre-font">{{etiquetas?.home_sobre_nosotros}}</p>
+               </div>
+           </div>
+       </div>
+       <div class="col-sm-8" [innerHtml]="etiquetas?.home_parrafo_detalle_01">
+           
+       </div>
+   </div>
+</div>
+</section>
+<section class="mb-5">
+   <div class="container-fluid px-sm-5">
+      <div class="row m-0">
+        <div class="col-12 text-center">
+            <h2 id="subtitulo-noticia-font">{{etiquetas?.home_noticias}}<span class="ml-1" id="suntitulo-dicertur-font">{{etiquetas?.home_dicertur_1}}</span></h2>
+        </div>
+        <div class="col-sm-6 col-xl-3 mt-5 px-0" *ngFor="let blog of Blogs; let i=index">
+            <div class="row m-0" *ngIf="i<4">
+                <div class="col-12 px-0 img-blog-home" data-aos="flip-left"  data-aos-offset="300" data-aos-easing="ease-in-sine" [ngStyle]="{'background-image': 'url('+ blog?.datageneral.imagen +')'}">
+                    
+                </div>
+                <div class="col-12 mt-2 pl-xl-0 mb-0">
+                    <h3 class="noticias-font mb-0 text-noticia-tituto">{{ ValidarIdioma (blog.datageneral,'titulo_') }}</h3>
+                </div>
+                <div class="col-12 px-0 px-lg-3 px-xl-0">
+                    <div class="row m-0">
+                        <div class="col-6 col-md-2 pl-lg-0  pr-lg-0 ">
+                            <p class="mb-1"><small class="fecha-eventos-font">{{blog.datageneral.categoria.nombre}}</small></p>
+                        </div>
+                        <div class="col-6 col-md-3 col-xl-3 pl-xl-2 pr-lg-0">
+                            <p class="mb-1"><small class="fecha-eventos-font">{{ formatoFecha1(blog.datageneral.fecha_creado) }}</small></p>
+                        </div>
+                        <div class="col-12 col-md-7 col-xl-5 pl-lg-0 pl-xl-2 pr-0">
+                            <p class="mb-2 mb-sm-0">
+                              <small class="fecha-eventos-font text-autor-noticias mt-md-1">
+                                {{ blog.datageneral.autor }}
+                              </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 pr-md-4 pl-xl-0 textoeventos-font text-justify text-md-left text-noticia-alto">
+                  {{ ValidarIdioma (blog.datageneral,'resumen_') }}
+                </div>
+                <div class="col-12 px-xl-0 my-3">
+                    <a class="btn btn-leer-altura" (click)="BlogDetalle(blog.datageneral,blog.datageneral.id)" style="cursor: pointer; color: #FFFFFF;">{{etiquetas?.home_noticias_link_leer}}</a>
+                </div>
+            </div>
+        </div>
+      
+      </div> 
+   </div>
+</section>
+<section class="mt-5" style="position: relative">
+   <div class="container-fluid px-0 mt-5">
+      <div class="row m-0">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 order-2 order-lg-0 px-0 animacion mt-lg-3">
+              <div class="row m-0">
+                  <div class="col-12 px-0">
+                      <img [src]="imagenes?.home_lineas_turismo_img.img" width="100%" class="animacion-img">
+                  </div>
+                  <div class="col-10 offset-2 px-0 mt-n5 text-center animacion-derecha">
+                      <div class="linea-backgraund mt-n4 py-2">
+                          <h3 class="linea-font">{{etiquetas?.home_lineas_turismo}}</h3>
+                      </div>
+                  </div>
+                    <div class="row m-0 animacion-linea">
+                     <div class="col-12 text-center mb-5 mb-md-3 mb-lg-3 mb-xl-5">
+                      <h3 class="animacion-titulo-font">{{etiquetas?.home_lineas_turismo_1}}</h3>
+                  </div>
+                  <div [innerHtml]="etiquetas?.home_lineas_turismo_texto" class="col-12 col-lg-12  text-center px-xl-5 animacion-texto-font">
+                     
+                  </div>
+                  <div class="col-6 offset-3 mt-xl-2">
+                      <button class="btn btn-line-backgraound" (click)="goTurismo ()">{{etiquetas?.home_lineas_turismo_btn}}</button>
+                  </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 order-3 order-lg-0 px-0 animacion mt-lg-3">
+              <div class="row m-0">
+                  <div class="col-12 px-0">
+                      <img [src]="imagenes?.home_lineas_comercioexterior_img.img" width="100%" class="animacion-img">
+                  </div>
+                  <div class="col-10 offset-2 px-0 mt-n5 text-center animacion-derecha">
+                      <div class="linea-backgraund mt-n4 py-2">
+                          <h3 class="linea-font">{{etiquetas?.home_lineas_comercioexterior}}</h3>
+                      </div>
+                  </div>
+                   <div class="row m-0 animacion-linea">
+                     <div class="col-12 text-center mb-5 mb-md-3 mb-lg-3 mb-xl-5">
+                      <h3 class="animacion-titulo-font">{{etiquetas?.home_lineas_comercioexterior_1}}</h3>
+                  </div>
+                  <div [innerHtml]="etiquetas?.home_lineas_comercioexterior_texto" class="col-12 col-lg-12 animacion-texto-font text-center px-xl-5">
+                      
+                  </div>
+                  <div class="col-6 offset-3 mt-xl-2">
+                      <button class="btn btn-line-backgraound" (click)="goComercioExterior ()">{{etiquetas?.home_lineas_comercioexterior_btn}}</button>
+                  </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 order-4 order-lg-0 px-0 animacion mt-lg-3">
+              <div class="row m-0">
+                  <div class="col-12 px-0">
+                      <img [src]="imagenes?.home_lineas_artesania_img.img" width="100%" class="animacion-img">
+                  </div>
+                  <div class="col-10 offset-2 px-0 mt-n5 text-center">
+                      <div class="linea-backgraund mt-n4 py-2 animacion-derecha">
+                          <h3 class="linea-font">{{etiquetas?.home_lineas_artesania}}</h3>
+                      </div>
+                  </div>
+                   <div class="row m-0 animacion-linea">
+                     <div class="col-12 text-center mb-5 mb-md-3 mb-lg-3 mb-xl-5">
+                      <h3 class="animacion-titulo-font">{{etiquetas?.home_lineas_artesania}}</h3>
+                  </div>
+                  <div [innerHtml]="etiquetas?.home_lineas_artesania_texto" class="col-12 col-lg-12 animacion-texto-font text-center px-xl-5">
+                    
+                  </div>
+                  <div class="col-6 offset-3 mt-xl-2">
+                      <button class="btn btn-line-backgraound" (click)="goArtesania ()">{{etiquetas?.home_lineas_artesania_btn}}</button>
+                  </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12 col-lg-3  px-4 text-center py-4">
+           <div class="row m-0">
+               <div class="col-12" id="bajar-linea">
+                   <h2 class="mb-0 subtitulo-font" >{{etiquetas?.home_lineas_titulo}}</h2>
+                   <h3 class="mb-0 subtitulo-2-font">{{etiquetas?.home_lineas_subtitulo}}</h3>
+               </div>
+               <div class="col-12 my-3">
+                  <img src="assets/imagenes/flechaizq.jpg" width="100%">
+               </div>
+               <div class="col-12 mt-1">
+                   <p class="mb-0 sobre-font" id="hacemos-fontsize">{{etiquetas?.home_lineas_que_hacemos}}</p>
+               </div>
+           </div>
+       </div>
+      </div>
+   </div>
+</section>
+<section>
+   <div class="container-fluid px-0">
+      <div class="row m-0">
+        <div class="col-12 col-sm-6 order-2 order-lg-0 col-lg-3 px-0 text-center mt-sm-n5 mt-lg-0">
+          <div class="espacios-cuadros rojo-fondo">
+              <div class="row m-0">
+                  <div class="col-12 px-0">
+                      <h3 class="pro-ser-font mb-0">{{etiquetas?.home_proteccion}}</h3>
+                      <p class="tur-agre-font">{{etiquetas?.home_para_el_turista}}</p>
+                  </div>
+                  <div [innerHtml]="etiquetas?.home_proteccion_turista_texto" class="col-12 px-0 mt-3 text-pro-ser-font">
+                    
+                  </div>
+              </div>
+          </div>
+       </div>
+       <div class="col-12 col-lg-6 px-0 py-0">
+          <div class="row m-0">
+              <div class="col-12 col-sm-6 col-xl-5 order-2 order-sm-0 px-0 py-0 ml-lg-n5 ml-xl-0 ocultar-img-home">
+                  <img class="ml-xl-n5 mt-n4" id="altira-app" [src]="imagenes?.home_app_img.img">
+              </div>
+              <div class="col-12 col-sm-6 col-xl-7 px-0 py-0 ml-xl-n3">
+                 <div class="row m-0">
+                      <div class="col-xl-8 px-0 pt-md-5 pt-lg-3 pt-xl-5 ml-xl-n4 text-center text-lg-left">
+                        <div class="row m-0">
+                         <div class="col-12 mt-5 mt-xl-0 mt-lg-0">
+                           <h2 class="mb-0 subtitulo-font" >{{etiquetas?.home_descarga_titulo}}</h2>
+                           <h3 class="mb-0 subtitulo-2-font">{{etiquetas?.home_descarga_dicertur}}</h3>
+                         </div>
+                         <div class="col-12  ml-lg-n5 mt-3 mt-xl-1 mb-4">
+                          <img class="" src="assets/imagenes/flechaizq.jpg" width="100%">
+                         </div>
+                         </div>
+                        </div>
+                        <div [innerHtml]="etiquetas?.home_descarga_texto" class="col-12 ml-xl-n4 mb-4 text-center text-sm-left" id="descripcion-font">
+                          
+                        </div>
+                        <p style="color: #3E729A;font-weight: 700;text-align: center;">{{etiquetas?.home_descarga_pronto}}</p>
+                        <!--<div class="col-md-6 col-xl-3 pr-1 ml-xl-n4">
+                            <img src="assets/imagenes/app1.png" width="100%">
+                        </div>
+                        <div class="col-md-6 col-xl-3 pl-1">
+                            <img src="assets/imagenes/app2.png" width="100%">
+                        </div>-->
+                 </div>
+              </div>
+          </div>
+       </div>
+        <div class="col-12 col-sm-6 col-lg-3 order-2 order-lg-0 px-0 text-center mt-sm-n5 mt-lg-0">
+           <div class="espacios-cuadros" id="azul-fondo">
+               <div class="row m-0">
+                   <div class="col-12 px-0">
+                       <h3 class="pro-ser-font mb-0">{{etiquetas?.home_servico}}</h3>
+                       <p class="tur-agre-font">{{etiquetas?.home_para_egremiado}}</p>
+                   </div>
+                   <div [innerHtml]="etiquetas?.home_servicio_texto" class="col-12 px-0 mt-3 text-pro-ser-font">
+                       
+                   </div>
+               </div>
+           </div>
+       </div>
+      </div>
+   </div>
+</section>
+<section class="" id="fondo-tiket">
+   <div class="container-fluid p-0 py-5 px-0  px-lg-3 px-xl-5" id="fluid-fondo-negro" >
+     <div class="row m-0">
+         <div class="col-sm-6 col-lg-8 col-xl-7 mt-xl-1 order-2 order-sm-0 my-2 my-sm-0">
+           <img class="mt-xl-4" src="assets/imagenes/boleto-2.png" id="boleto-anchura">
+         </div>
+         <div class="col-sm-6 col-lg-4 col-xl-5 p-0  my-sm-5 py-sm-5">
+             <div class="rojo-fondo p-3 p-lg-3 p-xl-5 my-sm-5">
+                 <div class="row m-0">
+                     <div class="col-12 text-center text-lg-left">
+                         <h3 class="color-letra-blanco" id="boleto-font">{{etiquetas?.home_boleto_titulo}}<span class="ml-1" id="turistico-font">{{etiquetas?.home_boleto_subtitulo}}</span></h3>
+                     </div>
+                     <div [innerHtml]="etiquetas?.home_boleto_texto" class="col-12 color-letra-blanco texto-boleta-font">
+                         
+                     </div>
+                     <div [innerHtml]="etiquetas?.home_boleto_preguntas" class="col-12 color-letra-blanco p-0 texto-boleta-font">
+                        
+                     </div>
+                     <div class="col-12 col-sm-7 col-lg-7 col-xl-6 offset-sm-5 offset-lg-5 offset-xl-6 text-right text-sm-left">
+                         <a class="color-letra-blanco color-blanco-hover" style="cursor: pointer; color: #FFFFFF;" (click)="goBoletoTuristico ()" id="respuesta-font">{{etiquetas?.home_boleto_link_respuesta}}</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+   </div>
+</section>
+<section>
+   <div class="container-fluid p-0">
+       <div class="row m-0">
+           <div class="col-sm-6 col-lg-4 col-xl-3 p-0">
+               <div class="rojo-fondo text-center px-2" id="borde-rojo">
+                   <div class="row m-0">
+                       <div class="col-12">
+                           <h3 class="color-letra-blanco" id="rutas-font-home">{{etiquetas?.home_rutas_titulo}}<span class="ml-1" id="sugeridas-font-home">{{etiquetas?.home_rutas_subtitulo}}</span></h3>
+                       </div>
+                       <div [innerHtml]="etiquetas?.home_rutas_texto" class="col-12 mt-2 color-letra-blanco" id="texto-sugeridas-font">
+                           
+                       </div>
+                       <div class="col-12 mt-4 mb-3">
+                           <a class="color-letra-blanco" href="" id="ver-rutas-font">{{etiquetas?.home_rutas_link_todas}}</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="col-sm-6 col-lg-4 col-xl-3 p-0 animacion-ruta border-imagen" *ngFor="let ruta of Rutas">
+             <div class="row m-0">
+                 <div class="col-12 p-0 img-rutas-home" [ngStyle]="{'background-image': 'url('+ ruta?.imagen +')'}">
+                     
+                 </div>
+                 <div class="col-12 p-0 py-2 ocultar-ruta p-0" style="background-color: #FFFFFF;">
+                     <div class="row m-0">
+                       <div class="col-8 p-0 py-2">
+                         <div class="row m-0">
+                           <div class="col-12 text-left p-0 px-2">
+                             <h4 class="ruta-titulo-font mb-0 caracteres-titulo-rutas">{{ get_value (ruta, 'nombre') }}</h4>
+                           </div>
+                           <!-- <div class="col-12 text-left p-0 px-2" *ngFor="let tag of ruta.tags">
+                              <p class="ruta-texto-font color-ruta-rui">
+                                <small>{{ tag.nombre }}</small>
+                              </p>
+                           </div> -->
+                           <div class="col-12 text-left p-0 px-2">
+                             <p class="ruta-texto-font color-cantidad">{{ get_value (ruta, 'donde') }}</p>
+                           </div>
+                         </div>
+                       </div>
+                       <div class="col-4 p-0">
+                         <a class="btn btn-explorar-ruta py-5 color-blanco-hover" style="cursor: pointer; color: #FFFFFF;" (click)="verCircuitoTourDetalle (ruta.nombre,ruta.id)">{{etiquetas?.home_rutas_link_explorar}}</a>
+                       </div>
+                     </div>
+                 </div>
+             </div>
+           </div>
+       </div>
+   </div>
+</section>
+<section>
+   <div class="container-fluid px-0 px-sm-5 py-3 py-sm-5 mt-xl-5">
+       <div class="row m-0">
+           <div class="col-lg-12 col-xl-4 p-0">
+               <div class="rojo-fondo px-2 px-sm-5 px-lg-2 px-xl-3 py-2 py-sm-5 text-center text-xl-left" id="rojo-anchura">
+                   <div class="row m-0">
+                       <div class="col-12">
+                           <h3 class="color-letra-blanco tamaño-calendario" id="calendario-font">{{etiquetas?.home_calendario_titulo}}<span class="ml-1" id="cal-turistico-font">{{etiquetas?.home_calendario_subtitulo}}</span></h3>
+                       </div>
+                       <div [innerHtml]="etiquetas?.home_calendario_texto" class="col-xl-9 mb-xl-5 pr-0 pb-xl-0 color-letra-blanco" id="cal-texto-font">
+                        
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="col-12 col-lg-12 col-xl-8 px-2 px-sm-0 mt-5 ml-xl-n0">
+               <div class="row m-0">
+                   <div class="col-12 px-5 ml-xl-5 mb-4 mb-xl-0 text-center text-xl-left">
+                       <h3 class="fecha-font-home mb-3 ml-xl-4" id="mes-font-home">{{titleCaseWord(Mes_actual)}}<span id="ano-font-home"> {{Ano_actual}}</span></h3>
+                   </div>
+                   <div class="col-12 col-md-6 col-lg-6 px-0 px-sm-1 py-1 animacion1 animacion" *ngFor="let evento of Eventos; let i=index" (click)="verDetalleEvento(get_value (evento.datageneral, 'titulo'), evento.data.id)">
+                       <div class="row m-0" *ngIf="i<8">
+                          <div class="col-3 text-center color-letra-blanco px-0 alturacol" style="position: absolute;z-index: 1000;">
+                            <div [className]="evento.color=='azul' ? 'azul-fondo pt-2 pt-lg-3 pt-xl-2 ml-sm-n2' : 'rojo-calendario pt-2 pt-lg-3 pt-xl-2 ml-sm-n2'" style="box-shadow: 0px 3px 6px #0000004B;">
+                              <p class="numero-mes-font mb-0">{{ ObtenerDia(evento.datageneral.fecha) }}</p>
+                              <p class="letra-mes-font mt-n3">{{ ObtenerMesEnLetra(evento.datageneral.fecha) }}</p>
+                            </div>
+                          </div>
+                          <div class="col-9 ocultar alturacol px-3" style="background: #FFFFFF;box-shadow: 0px 3px 6px #0000004B;">
+                             <div class="row m-0">
+                                <div class="col-12 pt-2 pt-xl-2 px-0 px-sm-2 text-left">
+                                  <p class="cal-titulo-font mb-0 text-titulo-calendario" >{{ titleCaseWord(get_value (evento.datageneral, 'titulo')) }}</p>
+                                  <p class="cal-subtitulo-font mb-2">{{ evento.datageneral.tipo.name }}</p>
+                                </div>
+                                <div class="col-12 px-0 px-sm-2 pb-3">
+                                  <div class="row m-0">
+                                    <div class="col-6 p-0 text-left" style="border-right: 1px solid #A0A0A0">
+                                      <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img1.png"> {{ evento.datageneral.provincia.nombre }}</small> </span>
+                                    </div>
+                                    <!--div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 px-0" style="border-right: 1px solid #A0A0A0">
+                                      <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img2.png"> {{ evento.datageneral.tipo.name }}</small> </span>
+                                    </div-->
+                                    <div class="col-6 px-0">
+                                      <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img3.png"> {{ get_value (evento.datageneral, 'hora') }}</small> </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          </div> 
+                          <div class="col-9 mostar px-0 alturacol">
+                            <div class="row m-0">
+                              <div class="col-4 px-0 alturacol">
+                               <img [src]="evento?.datageneral.imagen" width="100%" height="100%">
+                              </div>
+                              <div class="col-8 px-0" style="background: #FFFFFF;box-shadow: 0px 3px 6px #0000004B;">
+                              <div class="row m-0 alturacol">
+                                <div class="col-12 pt-2 text-left px-1">
+                                  <p class="cal-titulo-font mb-0 text-titulo-calendario" >{{ titleCaseWord(get_value (evento.datageneral, 'titulo')) }}</p>
+                                  <p class="cal-subtitulo-font mb-">{{ evento.datageneral.tipo.nombre }}</p>
+                                </div>
+                                <div class="col-12 text-right pb-2 px-1">
+                                  <a class="calendario-link-font" style="cursor: pointer;" (click)="verDetalleEvento(get_value (evento.datageneral, 'titulo'), evento.data.id)" placement="top" [ngbTooltip]="evento.datageneral.titulo" container="body">
+                                    {{ etiquetas?.home_calendario_link_ver_mas }}
+                                  </a>
+                                </div>
+                              </div>
+                          </div> 
+                            </div>
+                          </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="col-12 text-center mt-3 mt-sm-5">
+             <a class="link-ver-negro" (click)="goCalendario ()" style="cursor: pointer;">{{etiquetas?.home_calendario_link_completo}}</a>
+           </div>
+       </div>
+   </div>
+</section>
+<section>
+ <div class="container-fluid p-0">
+   <div class="row m-0">
+     <div class="col-sm-6 px-0 py-5" id="verde-fondo-turismo">
+       <div class="row m-0">
+         <div class="col-lg-7 offset-lg-3">
+           <h3 class="color-letra-blanco titulo-turismo-font mb-0">{{etiquetas?.home_turismo_titulo}}</h3>
+           <h4 class="color-letra-blanco subtitulo-tur-rural-font">{{etiquetas?.home_turismo_social_titulo}}</h4>
+           <div class="color-letra-blanco text-tur-rural-font mt-4" [innerHtml]="etiquetas?.home_turismo_social_texto"></div>
+           <button class="btn btn-tour-rural-altura mt-4" id="hover-btn-social" (click)="goTurismoSocial ()">{{etiquetas?.home_turismo_social_btn}}</button>
+         </div>
+       </div>
+     </div>
+     <div class="col-sm-6 px-0 text-right py-5" id="azul-fondo-turismo">
+       <div class="row m-0">
+         <div class="col-lg-7 offset-lg-2">
+           <h3 class="color-letra-blanco titulo-turismo-font mb-0">{{etiquetas?.home_turismo_1}}</h3>
+           <h4 class="color-letra-blanco subtitulo-tur-rural-font">{{etiquetas?.home_turismo_rural}}</h4>
+           <div class="color-letra-blanco text-tur-rural-font mt-4" [innerHtml]="etiquetas?.home_turismo_rural_texto"></div>
+           <button class="btn btn-tour-rural-altura mt-4" id="hover-btn-rural" (click)="goTurismoRural ()">{{etiquetas?.home_turismo_rural_btn}}</button>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</section>
+<section class="pt-5"  id="section-color-fondo">
+ <div class="container ">
+   <div class="row m-0">
+     <div class="col-12 text-center p-0 mb-5 mb-sm-0">
+        <h2 class="titulo-dire-pro-font">{{etiquetas?.home_direcciones}}<span class="subtitulo-re-es-font"> {{etiquetas?.home_especiales}}</span></h2>
+     </div>
+     
+     <div class="col-12 logo-container">
+       <div class="row m-0">
+          <div class="col-6 col-sm-4 col-lg-1 mt-sm-5 mb-5 mb-sm-3 my-lg-5 altura-img">
+            <img [src]="imagenes?.home_especiales_enclace_img_1.img" width="100%" >
+          </div>
+          <div class="col-6 col-sm-4 col-lg-1 mt-3 mt-sm-5 mb-0 mb-sm-3 my-lg-5 altura-img">
+            <img class="mt-sm-3 mt-lg-2" [src]="imagenes?.home_especiales_enclace_img_2.img" width="100%" >
+          </div>
+          <div class="col-6 col-sm-4 col-lg-1 mt-3 mt-sm-5 mb-5 mb-sm-3 my-lg-5 altura-img">
+            <img class="mt-sm-3 mt-lg-2" [src]="imagenes?.home_especiales_enclace_img_3.img" width="100%" >
+          </div>
+          <div class="col-6 col-sm-4 col-lg-1 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img">
+            <img [src]="imagenes?.home_especiales_enclace_img_4.img" width="100%" >
+          </div>
+          <div class="col-6 col-sm-4 col-lg-1 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img">
+            <img class="mt-sm-3 mt-lg-2" [src]="imagenes?.home_especiales_enclace_img_5.img" width="100%" >
+          </div>
+          <div class="col-6 col-sm-4 col-lg-1 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img">
+            <img class="mt-lg-2" [src]="imagenes?.home_especiales_enclace_img_6.img" width="100%" >
+          </div>
+          <div class="col-6 col-sm-4 col-lg-3 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img">
+            <img [src]="imagenes?.home_especiales_enclace_img_7.img" width="100%" >
+          </div>
+          <div class="col-6 col-sm-4 col-lg-3 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img">
+            <img [src]="imagenes?.home_especiales_enclace_img_8.img" width="100%" >
+          </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</section>
+<section class="mt-5">
+  <div class="container pt-5 mb-5">
+    <div class="row m-0">
+      <div class="col-12 text-center pb-5">
+        <h2 class="titulo-dire-pro-font">{{etiquetas?.home_proyecto}}<span class="subtitulo-re-es-font"> {{etiquetas?.home_proyecto_especiales}}</span></h2>
+      </div>
+      <div class="col-12 col-lg-4 py-5 py-lg-0">
+        <div class="row m-0">
+          <div class="col-6 text-center offset-3">
+            <img [src]="imagenes?.home_proyecto_img_1.img" width="100%">
+          </div>
+          <div class="col-12 text-center mt-4 texto-proyecto-font" [innerHtml]="etiquetas?.home_proyecto_plan_texto">
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 py-5 py-lg-0">
+        <div class="row m-0">
+          <div class="col-6 text-center offset-3">
+            <img [src]="imagenes?.home_proyecto_img_2.img" width="30%">
+          </div>
+          <div class="col-12 text-center mt-4 texto-proyecto-font" [innerHtml]="etiquetas?.home_proyecto_ima_texto">
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 py-5 py-lg-0">
+        <div class="row m-0">
+          <div class="col-6 text-center offset-3">
+            <img [src]="imagenes?.home_proyecto_img_3.img" width="100%">
+          </div>
+          <div class="col-12 text-center mt-4 texto-proyecto-font" [innerHtml]="etiquetas?.home_proyecto_pesc_texto">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
