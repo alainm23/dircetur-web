@@ -91,4 +91,18 @@ button:focus {outline:0;}
 		height: 300px;
 		/*background: no-repeat center center;*/
 	}
- }
+}
+.spacio_titulo
+{
+	display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.espacio_descripcion_blog
+{
+	display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

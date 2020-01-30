@@ -6,6 +6,12 @@
 #fondo-rojo{
 	background-color: #EC494B;
 }
+@media(min-width: 1920px)
+{
+	#fondo-rojo{
+		margin-top: 180px;
+	}
+}
 .color-blanco{
 	color: #fff;
 	opacity: 1;

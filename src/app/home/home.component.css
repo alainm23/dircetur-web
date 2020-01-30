@@ -15,6 +15,11 @@
       margin-top: -56.7%;
     }
   }
+  @media (min-width: 1280px){
+    #subir{
+    margin-top: -62%;
+  }
+}
   @media (min-width: 1300px){
       #subir{
       margin-top: -56.6%;
@@ -102,13 +107,20 @@
       padding-bottom: 40%;
       padding-left: 95px;
       padding-right: 95px;
-      padding-top: 21%;
+      padding-top: 31.1%;
     }  
   }
   @media (min-width: 1300px){
     #fondo-rojo-home{
       padding-bottom: 40.5%;
       padding-top: 22%;
+      margin-top: -5px;
+    }  
+  }
+  @media (min-width: 1920px){
+    #fondo-rojo-home{
+        padding-bottom: 38%;
+        padding-top: 35%;
     }  
   }
   #titulo-altura{
@@ -301,26 +313,11 @@
       opacity: 1;
   }
   .espacios-cuadros{
-      padding-top: 13%;
-      padding-bottom: 7.5%;
-      padding-left: 15%;
-      padding-right: 15%;
-  }
-  @media(min-width: 1200px){
-      .espacios-cuadros{
-      padding-top: 13%;
-      padding-bottom: 13.8%;
-      padding-left: 15%;
-      padding-right: 15%;
-   }
-  }
-  @media(min-width: 1300px){
-      .espacios-cuadros{
-      padding-top: 26%;
-      padding-bottom: 26%;
-      padding-left: 10%;
-      padding-right: 15%;
-   }
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding-left: 50px;
+      padding-right: 50px;;
   }
   .ocultar-animacion{
       display: none;
@@ -346,16 +343,6 @@
   @media (min-width: 1024px){
       #fondo-tiket{
           margin-top: 0px;
-      }
-  }
-  @media (min-width: 1200px){
-      #fondo-tiket{
-          margin-top: -32px;
-      }
-  }
-  @media (min-width: 1300px){
-      #fondo-tiket{
-          margin-top: -15px;
       }
   }
   #fluid-fondo-negro{
@@ -396,62 +383,9 @@
       border-bottom: 3px solid #fff;
       border-left: 3px solid #fff;
       border-right: 3px solid #fff;
-      padding-top: 2rem;
-      padding-bottom: 1.5rem;
-  }
-  @media (min-width: 667px){
-      #borde-rojo{
-          padding-bottom: 2rem;
-          padding-top: 2.5rem;
-      }
-  }
-  @media (min-width: 731px){
-      #borde-rojo{
-          padding-bottom: 5rem;
-          padding-top: 3.3rem;
-      }
-  }
-  @media (min-width: 768px){
-      #borde-rojo{
-          padding-bottom: 5rem;
-          padding-top: 4.8rem;
-      }
-  }
-  @media (min-width: 812px){
-      #borde-rojo{
-          padding-bottom: 6rem;
-          padding-top: 7rem;
-      }
-  }
-  @media (min-width: 823px){
-      #borde-rojo{
-          padding-bottom: 6rem;
-          padding-top: 7rem;
-      }
-  }
-  @media (min-width: 854px){
-      #borde-rojo{
-          padding-bottom: 7rem;
-          padding-top: 7.1rem;
-      }
-  }
-  @media (min-width: 1024px){
-      #borde-rojo{
-          padding-bottom: 1rem;
-          padding-top: 4rem;
-      }
-  }
-  @media (min-width: 1200px){
-      #borde-rojo{
-          padding-top: 3rem;
-          padding-bottom: 1.8rem;
-      }
-  }
-  @media (min-width: 1300px){
-      #borde-rojo{
-          padding-top: 3rem;
-          padding-bottom: 1.8rem;
-      }
+      height: 100%;
+      display: inline-flex;
+      align-items: center;
   }
   .ruta-titulo-font{
       font: Black 20px/35px Avenir;
@@ -619,15 +553,20 @@
   }
   @media (min-width: 1200px){
   #altira-app{
-      height: 102%;
+      height: 109.6%;
       width: 120%
   }
   }
   @media (min-width: 1300px){
   #altira-app{
-      height: 106%;
+      height: 109%;
   }
   }
+  @media (min-width: 1920px){
+    #altira-app{
+        height: 107%;
+    }
+    }
   /*diseño del buscardor*/
   #btn-icono{
       background-color: #fff;
@@ -802,6 +741,8 @@
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;/*si no se declara añade los ... pero muestra todo el texto*/
+    height: 135px;
+    font-size: 13px;
 }
 .text-titulo-calendario{
     display: -webkit-box;
@@ -953,13 +894,15 @@ overflow: hidden;/*si no se declara añade los ... pero muestra todo el texto*/
     .loading-img {
         position: absolute;
         width: 100%;
-        height: 780px;
+        height: 1080px;
         opacity: 1;
+        object-fit: cover;
        
       }
       .img-loader {
         width: 100%;
-        height: 780px;
+        height: 1080px;
+        object-fit: cover;
     }
   }
 .video-background {
@@ -973,7 +916,8 @@ overflow: hidden;/*si no se declara añade los ... pero muestra todo el texto*/
   transform: translateY(-50%);
   -webkit-transition: 2s opacity ease;
   transition: 2s opacity ease;
-  opacity: 1; }
+  opacity: 1;
+ }
 
 .video-foreground,
 .video-background iframe {

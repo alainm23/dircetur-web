@@ -110,6 +110,15 @@
 	position: absolute;
    }
 }
+@media (min-width: 1920px){
+	#img-app-turi{
+	top: 0;
+	width: 125%;
+	height: 141%;
+	position: absolute;
+	left: 30px;
+   }
+}
 #app-font{
 	font-family: Black 56px/67px Avenir;
 	font-weight: 700;
