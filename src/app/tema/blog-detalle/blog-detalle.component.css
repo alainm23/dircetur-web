@@ -85,7 +85,6 @@ button:focus {outline:0;}
 @media(max-width: 760px){
 	.img-blog-detalle{
 		height: 200px;
-		margin-bottom: 3rem;
 		/*background: no-repeat center center;*/
 	}
  }
