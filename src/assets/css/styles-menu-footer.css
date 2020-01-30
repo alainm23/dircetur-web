@@ -1007,7 +1007,7 @@
 }
 @media (min-width: 768px){
     .ocultar-ruta{
-    transform: translate3d(0,300%,0);
+    transform: translate3d(0,273%,0);
    }
 }
 @media (min-width: 812px){
@@ -1048,7 +1048,7 @@
 @media (min-width: 411px){
     .animacion-ruta:hover .ocultar-ruta{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,220%,0);
+    transform: translate3d(0,169%,0);
   }
 }
  @media (min-width: 480px){
@@ -1066,25 +1066,25 @@
 @media (min-width: 640px){
     .animacion-ruta:hover .ocultar-ruta{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,160%,0);
+    transform: translate3d(0,170%,0);
   }
 }
 @media (min-width: 731px){
     .animacion-ruta:hover .ocultar-ruta{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,200%,0);
+    transform: translate3d(0,170%,0);
   }
 }
 @media (min-width: 768px){
     .animacion-ruta:hover .ocultar-ruta{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,200%,0);
+    transform: translate3d(0,169%,0);
   }
 }
 @media (min-width: 823px){
     .animacion-ruta:hover .ocultar-ruta{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,230%,0);
+    transform: translate3d(0,170%,0);
   }
 }
 @media (min-width: 854px){
