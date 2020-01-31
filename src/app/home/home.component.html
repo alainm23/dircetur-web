@@ -160,79 +160,78 @@
       </div>
   </div>
 </section>
+
 <section class="my-lg-5">
-<div class="container p-0 py-5">
-   <div class="row m-0">
-       <div class="col-sm-4 pl-0 text-center py-5 py-lg-4 mt-sm-5 mt-md-0">
-           <div class="row m-0">
-               <div class="col-12">
-                   <h2 class="mb-0 subtitulo-font">{{etiquetas?.home_que_es}}</h2>
-                   <h3 class="mb-0 subtitulo-2-font">{{etiquetas?.home_dicertur}}</h3>
-               </div>
-               <div class="col-12 my-3">
-                 <img src="assets/imagenes/flechader.jpg" width="100%">
-               </div>
-               <div class="col-12">
-                   <p class="mb-0 sobre-font">{{etiquetas?.home_sobre_nosotros}}</p>
-               </div>
-           </div>
-       </div>
-       <div class="col-sm-8" [innerHtml]="etiquetas?.home_parrafo_detalle_01">
-           
-       </div>
-   </div>
-</div>
-</section>
-<section class="mb-5">
-   <div class="container-fluid px-sm-5">
-      <div class="row m-0">
-        <div class="col-12 text-center">
-            <h2 id="subtitulo-noticia-font">{{etiquetas?.home_noticias}}<span class="ml-1" id="suntitulo-dicertur-font">{{etiquetas?.home_dicertur_1}}</span></h2>
-        </div>
-        <div class="col-sm-6 col-xl-3 mt-5 px-0" *ngFor="let blog of Blogs; let i=index">
-            <div class="row m-0" *ngIf="i<4">
-                <div *ngIf="blog?.imagen==''" class="col-12 px-0 img-blog-home" data-aos="flip-left"  data-aos-offset="300" data-aos-easing="ease-in-sine" [ngStyle]="{'background-image': 'url('+ url_img_blog +')'}">
-                    
+  <div class="container p-0 py-5">
+    <div class="row m-0">
+        <div class="col-sm-4 pl-0 text-center py-5 py-lg-4 mt-sm-5 mt-md-0">
+            <div class="row m-0">
+                <div class="col-12">
+                    <h2 class="mb-0 subtitulo-font">{{etiquetas?.home_que_es}}</h2>
+                    <h3 class="mb-0 subtitulo-2-font">{{etiquetas?.home_dicertur}}</h3>
                 </div>
-                <div *ngIf="blog?.imagen!=''" class="col-12 px-0 img-blog-home" data-aos="flip-left"  data-aos-offset="300" data-aos-easing="ease-in-sine" [ngStyle]="{'background-image': 'url('+ blog?.imagen +')'}">
-                    
+                <div class="col-12 my-3">
+                  <img src="assets/imagenes/flechader.jpg" width="100%">
                 </div>
-                <div class="col-12 mt-2 pl-xl-0 mb-0">
-                    <h3 class="noticias-font mb-0 text-noticia-tituto" [title]="ValidarIdioma (blog,'titulo_')">{{ ValidarIdioma (blog,'titulo_') }}</h3>
-                <div class="col-12 mt-2 pl-xl-2 mb-0">
-                    <h3 class="noticias-font mb-0 text-noticia-tituto">{{ ValidarIdioma (blog.datageneral,'titulo_') }}</h3>
-                </div>
-                <div class="col-12 px-0 px-lg-3 px-xl-2">
-                    <div class="row m-0">
-                        <div class="col-6 col-md-2 pl-lg-0  pr-lg-0 ">
-                            <p class="mb-1"><small class="fecha-eventos-font">{{blog.categoria.nombre}}</small></p>
-                        </div>
-                        <div class="col-6 col-md-3 col-xl-3 pl-xl-2 pr-lg-0">
-                            <p class="mb-1"><small class="fecha-eventos-font">{{ formatoFecha1(blog.fecha_creado) }}</small></p>
-                        </div>
-                        <div class="col-12 col-md-7 col-xl-5 pl-lg-0 pl-xl-2 pr-0">
-                            <p class="mb-2 mb-sm-0">
-                              <small class="fecha-eventos-font text-autor-noticias mt-md-1">
-                                {{ blog.autor }}
-                              </small>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 pr-md-4 pl-xl-0 textoeventos-font text-justify text-md-left text-noticia-alto">
-                  {{ ValidarIdioma (blog,'resumen_') }}
-                <div class="col-12 pr-md-4 pl-xl-2 textoeventos-font text-justify text-md-left text-noticia-alto mt-1">
-                  {{ ValidarIdioma (blog.datageneral,'resumen_') }}
-                </div>
-                <div class="col-12 px-xl-0 my-3">
-                    <a class="btn btn-leer-altura" (click)="BlogDetalle(blog,blog.id)" style="cursor: pointer; color: #FFFFFF;">{{etiquetas?.home_noticias_link_leer}}</a>
+                <div class="col-12">
+                    <p class="mb-0 sobre-font">{{etiquetas?.home_sobre_nosotros}}</p>
                 </div>
             </div>
         </div>
-      
-      </div> 
-   </div>
+        <div class="col-sm-8" [innerHtml]="etiquetas?.home_parrafo_detalle_01">
+            
+        </div>
+    </div>
+  </div>
 </section>
+
+<section class="mb-5">
+  <div class="container-fluid px-sm-5">
+     <div class="row m-0">
+       <div class="col-12 text-center">
+           <h2 id="subtitulo-noticia-font">{{etiquetas?.home_noticias}}<span class="ml-1" id="suntitulo-dicertur-font">{{etiquetas?.home_dicertur_1}}</span></h2>
+       </div>
+       <div class="col-sm-6 col-xl-3 mt-5 px-0" *ngFor="let blog of Blogs; let i=index">
+           <div class="row m-0" *ngIf="i<4">
+              <div *ngIf="blog?.imagen==''" class="col-12 px-0 img-blog-home" data-aos="flip-left"  data-aos-offset="300" data-aos-easing="ease-in-sine" [ngStyle]="{'background-image': 'url('+ url_img_blog +')'}">
+                    
+              </div>
+              <div *ngIf="blog?.imagen!=''" class="col-12 px-0 img-blog-home" data-aos="flip-left"  data-aos-offset="300" data-aos-easing="ease-in-sine" [ngStyle]="{'background-image': 'url('+ blog?.imagen +')'}">
+                  
+              </div>
+               <div class="col-12 mt-2 pl-xl-2 mb-0">
+                   <h3 class="noticias-font mb-0 text-noticia-tituto" [title]="ValidarIdioma (blog,'titulo_')">{{ ValidarIdioma (blog,'titulo_') }}</h3>
+               </div>
+               <div class="col-12 px-0 px-lg-3 px-xl-2">
+                   <div class="row m-0">
+                       <div class="col-6 col-md-2 pl-lg-0  pr-lg-0 ">
+                           <p class="mb-1"><small class="fecha-eventos-font">{{blog.categoria.nombre}}</small></p>
+                       </div>
+                       <div class="col-6 col-md-3 col-xl-3 pl-xl-2 pr-lg-0">
+                           <p class="mb-1"><small class="fecha-eventos-font">{{ formatoFecha1(blog.fecha_creado) }}</small></p>
+                       </div>
+                       <div class="col-12 col-md-7 col-xl-5 pl-lg-0 pl-xl-2 pr-0">
+                           <p class="mb-2 mb-sm-0">
+                             <small class="fecha-eventos-font text-autor-noticias mt-md-1">
+                               {{ blog.autor }}
+                             </small>
+                           </p>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-12 pr-md-4 pl-xl-2 textoeventos-font text-justify text-md-left text-noticia-alto mt-1">
+                 {{ ValidarIdioma (blog,'resumen_') }}
+               </div>
+               <div class="col-12 px-xl-0 my-3">
+                   <a class="btn btn-leer-altura" (click)="BlogDetalle(blog,blog.id)" style="cursor: pointer; color: #FFFFFF;">{{etiquetas?.home_noticias_link_leer}}</a>
+               </div>
+           </div>
+       </div>
+     
+     </div> 
+  </div>
+</section>
+
 <section class="mt-5" style="position: relative">
    <div class="container-fluid px-0 mt-5">
       <div class="row m-0">
@@ -322,6 +321,7 @@
       </div>
    </div>
 </section>
+
 <section>
    <div class="container-fluid px-0">
       <div class="row m-0">
@@ -386,6 +386,7 @@
       </div>
    </div>
 </section>
+
 <section class="" id="fondo-tiket">
    <div class="container-fluid p-0 py-5 px-0  px-lg-3 px-xl-5" id="fluid-fondo-negro" >
      <div class="row m-0">
@@ -413,6 +414,7 @@
      </div>
    </div>
 </section>
+
 <section>
    <div class="container-fluid p-0">
        <div class="row m-0">
@@ -496,116 +498,97 @@
        </div>
    </div>
 </section>
+
 <section>
-   <div class="container-fluid px-0 px-sm-5 py-3 py-sm-5 mt-xl-5">
-       <div class="row m-0">
-           <div class="col-lg-12 col-xl-4 p-0">
-               <div class="rojo-fondo px-2 px-sm-5 px-lg-2 px-xl-3 py-2 py-sm-5 text-center text-xl-left" id="rojo-anchura">
-                   <div class="row m-0">
-                       <div class="col-12">
-                           <h3 class="color-letra-blanco tamaño-calendario" id="calendario-font">{{etiquetas?.home_calendario_titulo}}<span class="ml-1" id="cal-turistico-font">{{etiquetas?.home_calendario_subtitulo}}</span></h3>
-                       </div>
-                       <div [innerHtml]="etiquetas?.home_calendario_texto" class="col-xl-9 mb-xl-5 pr-0 pb-xl-0 color-letra-blanco" id="cal-texto-font">
-                        
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <div class="col-12 col-lg-12 col-xl-8 px-2 px-sm-0 mt-5 ml-xl-n0">
-               <div class="row m-0">
-                   <div class="col-12 px-5 ml-xl-5 mb-4 mb-xl-0 text-center text-xl-left">
-                       <h3 class="fecha-font-home mb-3 ml-xl-4" id="mes-font-home">{{titleCaseWord(Mes_actual)}}<span id="ano-font-home"> {{Ano_actual}}</span></h3>
-                   </div>
-                   <div class="col-12" *ngIf="Eventos.length>0;else mensaje_eventos">
-                     <div class="row">
-                    <div class="col-12 col-md-6 col-lg-6 px-0 px-sm-1 py-1 animacion1 animacion" *ngFor="let evento of Eventos; let i=index" (click)="verDetalleEvento(get_value (evento.datageneral, 'titulo'), evento.data.id)">
-                      <div class="row m-0" *ngIf="i<8">
-                         <div class="col-3 text-center color-letra-blanco px-0 alturacol" style="position: absolute;z-index: 1000;">
-                           <div [className]="evento.color=='azul' ? 'azul-fondo pt-2 pt-lg-3 pt-xl-2 ml-sm-n2' : 'rojo-calendario pt-2 pt-lg-3 pt-xl-2 ml-sm-n2'" style="box-shadow: 0px 3px 6px #0000004B;">
-                             <p class="numero-mes-font mb-0">{{ ObtenerDia(evento.datageneral.fecha) }}</p>
-                             <p class="letra-mes-font mt-n3">{{ ObtenerMesEnLetra(evento.datageneral.fecha) }}</p>
-                           </div>
-                         </div>
-                         <div class="col-9 ocultar alturacol px-3" style="background: #FFFFFF;box-shadow: 0px 3px 6px #0000004B;">
-                            <div class="row m-0">
-                               <div class="col-12 pt-2 pt-xl-2 px-0 px-sm-2 text-left">
-                                 <p class="cal-titulo-font mb-0 text-titulo-calendario" [title]="get_value (evento.datageneral, 'titulo')">{{ get_value (evento.datageneral, 'titulo') }}</p>
-                                 <p class="cal-subtitulo-font mb-2">{{ evento.datageneral.tipo.name }}</p>
-                               </div>
-                               <div class="col-12 px-0 px-sm-2 pb-3">
-                                 <div class="row m-0">
-                                   <div class="col-6 p-0 text-left" style="border-right: 1px solid #A0A0A0">
-                                     <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img1.png"> {{ evento.datageneral.provincia.nombre }}</small> </span>
-                                   </div>
-                                   <!--div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 px-0" style="border-right: 1px solid #A0A0A0">
-                                     <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img2.png"> {{ evento.datageneral.tipo.name }}</small> </span>
-                                   </div-->
-                                   <div class="col-6 px-0">
-                                     <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img3.png"> {{ get_value (evento.datageneral, 'hora') }}</small> </span>
-                                   </div>
-                                 </div>
-                               </div>
-                             </div>
-                         </div> 
-                         <div class="col-9 mostar px-0 alturacol">
-                           <div class="row m-0">
-                             <div class="col-4 px-0 alturacol">
-                              <img [src]="evento?.datageneral.imagen" onError="this.src='/assets/imagenes/fondo-evento.jpg'" width="100%" height="100%">
-                             </div>
-                             <div class="col-8 px-0" style="background: #FFFFFF;box-shadow: 0px 3px 6px #0000004B;">
-                             <div class="row m-0 alturacol">
-                               <div class="col-12 pt-2 text-left px-1">
-                                 <p class="cal-titulo-font mb-0 text-titulo-calendario" [title]="get_value (evento.datageneral, 'titulo')">{{ get_value (evento.datageneral, 'titulo') }}</p>
-                                 <p class="cal-subtitulo-font mb-">{{ evento.datageneral.tipo.nombre }}</p>
-                               </div>
-                               <div class="col-12 text-right pb-2 px-1">
-                                 <a class="calendario-link-font" style="cursor: pointer;" (click)="verDetalleEvento(get_value (evento.datageneral, 'titulo'), evento.data.id)" placement="top" [ngbTooltip]="evento.datageneral.titulo" container="body">
-                                   {{ etiquetas?.home_calendario_link_ver_mas }}
-                                 </a>
-                               </div>
-                             </div>
-                         </div> 
-                           </div>
-                         </div>
+  <div class="container-fluid px-0 px-sm-5 py-3 py-sm-5 mt-xl-5">
+    <div class="row m-0">
+      <div class="col-lg-12 col-xl-4 p-0">
+        <div class="rojo-fondo px-2 px-sm-5 px-lg-2 px-xl-3 py-2 py-sm-5 text-center text-xl-left" id="rojo-anchura">
+          <div class="row m-0">
+            <div class="col-12">
+              <h3 class="color-letra-blanco tamaño-calendario" id="calendario-font">{{etiquetas?.home_calendario_titulo}}<span class="ml-1" id="cal-turistico-font">{{etiquetas?.home_calendario_subtitulo}}</span></h3>
+            </div>
+            <div [innerHtml]="etiquetas?.home_calendario_texto" class="col-xl-9 mb-xl-5 pr-0 pb-xl-0 color-letra-blanco" id="cal-texto-font">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-12 col-xl-8 px-2 px-sm-0 mt-5 ml-xl-n0">
+        <div class="row m-0">
+          <div class="col-12 px-5 ml-xl-5 mb-4 mb-xl-0 text-center text-xl-left">
+            <h3 class="fecha-font-home mb-3 ml-xl-4" id="mes-font-home">{{titleCaseWord(Mes_actual)}}<span id="ano-font-home"> {{Ano_actual}}</span></h3>
+          </div>
+          <div class="col-12" *ngIf="Eventos.length>0;else mensaje_eventos">
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-6 px-0 px-sm-1 py-1 animacion1 animacion" *ngFor="let evento of Eventos; let i=index" (click)="verDetalleEvento(get_value (evento, 'titulo'), evento.data.id)">
+                <div class="row m-0" *ngIf="i<8">
+                    <div class="col-3 text-center color-letra-blanco px-0 alturacol" style="position: absolute;z-index: 1000;">
+                      <div [className]="evento.color=='azul' ? 'azul-fondo pt-2 pt-lg-3 pt-xl-2 ml-sm-n2' : 'rojo-calendario pt-2 pt-lg-3 pt-xl-2 ml-sm-n2'" style="box-shadow: 0px 3px 6px #0000004B;">
+                        <p class="numero-mes-font mb-0">{{ ObtenerDia(evento.fecha) }}</p>
+                        <p class="letra-mes-font mt-n3">{{ ObtenerMesEnLetra(evento.fecha) }}</p>
                       </div>
                     </div>
-                  </div>
-                  </div>
-                  <ng-template #mensaje_eventos>
-                    <div class="row m-0 ml-5">
-                      <p class="mb-0" style="color: black;">
-                        Sin eventos programados. 
-                      </p>
-                    </div>
-                  </ng-template>
-                              <div class="col-4 px-0 alturacol">
-                               <img [src]="evento?.datageneral.imagen" width="100%" height="100%" style="object-fit: cover;">
+                    <div class="col-9 ocultar alturacol px-3" style="background: #FFFFFF;box-shadow: 0px 3px 6px #0000004B;">
+                      <div class="row m-0">
+                          <div class="col-12 pt-2 pt-xl-2 px-0 px-sm-2 text-left">
+                            <p class="cal-titulo-font mb-0 text-titulo-calendario" [title]="get_value (evento, 'titulo')">{{ get_value (evento, 'titulo') }}</p>
+                            <p class="cal-subtitulo-font mb-2">{{ evento.tipo.name }}</p>
+                          </div>
+                          <div class="col-12 px-0 px-sm-2 pb-3">
+                            <div class="row m-0">
+                              <div class="col-6 p-0 text-left" style="border-right: 1px solid #A0A0A0">
+                                <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img1.png"> {{ evento.provincia.nombre }}</small> </span>
                               </div>
-                              <div class="col-8 px-0" style="background: #FFFFFF;box-shadow: 0px 3px 6px #0000004B;">
-                              <div class="row m-0 alturacol">
-                                <div class="col-12 pt-2 text-left px-1">
-                                  <p class="cal-titulo-font mb-0 text-titulo-calendario" >{{ titleCaseWord(get_value (evento.datageneral, 'titulo')) }}</p>
-                                  <p class="cal-subtitulo-font mb-">{{ evento.datageneral.tipo.nombre }}</p>
-                                </div>
-                                <div class="col-12 text-right pb-2 px-1">
-                                  <a class="calendario-link-font" style="cursor: pointer;" (click)="verDetalleEvento(get_value (evento.datageneral, 'titulo'), evento.data.id)" placement="top" [ngbTooltip]="evento.datageneral.titulo" container="body">
-                                    {{ etiquetas?.home_calendario_link_ver_mas }}
-                                  </a>
-                                </div>
+                              <!--div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 px-0" style="border-right: 1px solid #A0A0A0">
+                                <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img2.png"> {{ evento.datageneral.tipo.name }}</small> </span>
+                              </div-->
+                              <div class="col-6 px-0">
+                                <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img3.png"> {{ get_value (evento, 'hora') }}</small> </span>
                               </div>
-                          </div> 
                             </div>
                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <div class="col-12 text-center mt-3 mt-sm-5">
-             <a class="link-ver-negro" (click)="goCalendario ()" style="cursor: pointer;">{{etiquetas?.home_calendario_link_completo}}</a>
-           </div>
-       </div>
-   </div>
+                        </div>
+                    </div> 
+                    <div class="col-9 mostar px-0 alturacol">
+                      <div class="row m-0">
+                        <div class="col-4 px-0 alturacol">
+                          <img [src]="evento?.imagen" onError="this.src='/assets/imagenes/fondo-evento.jpg'" width="100%" height="100%" style="object-fit: cover;">
+                        </div>
+                        <div class="col-8 px-0" style="background: #FFFFFF;box-shadow: 0px 3px 6px #0000004B;">
+                          <div class="row m-0 alturacol">
+                            <div class="col-12 pt-2 text-left px-1">
+                                <p class="cal-titulo-font mb-0 text-titulo-calendario" [title]="get_value (evento, 'titulo')">{{ get_value (evento, 'titulo') }}</p>
+                                <p class="cal-subtitulo-font mb-">{{ evento.tipo.nombre }}</p>
+                            </div>
+                            <div class="col-12 text-right pb-2 px-1">
+                              <a class="calendario-link-font" style="cursor: pointer;" (click)="verDetalleEvento(get_value (evento, 'titulo'), evento.data.id)" placement="top" [ngbTooltip]="evento.titulo" container="body">
+                                {{ etiquetas?.home_calendario_link_ver_mas }}
+                              </a>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+          </div>
+          <ng-template #mensaje_eventos>
+              <div class="row m-0 ml-5">
+                <p class="mb-0" style="color: black;">
+                  Sin eventos programados. 
+                </p>
+              </div>
+          </ng-template>
+        </div>
+      </div>
+      <div class="col-12 text-center mt-3 mt-sm-5">
+        <a class="link-ver-negro" (click)="goCalendario ()" style="cursor: pointer;">{{etiquetas?.home_calendario_link_completo}}</a>
+      </div>
+    </div>
+  </div>
 </section>
+
 <section>
  <div class="container-fluid p-0">
    <div class="row m-0">
@@ -632,6 +615,7 @@
    </div>
  </div>
 </section>
+
 <section class="pt-5"  id="section-color-fondo">
  <div class="container ">
    <div class="row m-0">
@@ -670,6 +654,7 @@
    </div>
  </div>
 </section>
+
 <section class="mt-5">
   <div class="container pt-5 mb-5">
     <div class="row m-0">
