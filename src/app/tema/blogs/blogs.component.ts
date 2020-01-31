@@ -13,6 +13,8 @@ import { UtilsService } from '../../services/utils.service';
 })
 export class BlogsComponent implements OnInit {
 Blogs:any;
+/* URL Imagen Default en caso de ser DIV */
+url_img_blog:any="/assets/imagenes/fondo-blog.jpg";
 Categorias:any;
 Todos_los_blogs:string='todos';
 todos:boolean=false;

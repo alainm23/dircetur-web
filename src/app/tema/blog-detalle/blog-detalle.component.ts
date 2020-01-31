@@ -14,6 +14,8 @@ import { UtilsService } from '../../services/utils.service';
 })
 export class BlogDetalleComponent implements OnInit {
 detalle:any;
+/* URL Imagen Default en caso de ser DIV */
+url_img_blog:any="/assets/imagenes/fondo-blog.jpg";
 sus: any;
 sus2: any;
 etiquetas: any;

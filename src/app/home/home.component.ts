@@ -27,12 +27,15 @@ export class HomeComponent implements OnInit {
   Blogs:any[];
   Categorias:any;
   Rutas:any;
-  Eventos:any[];
+  Eventos:any[]=[];
   Ancho_video:any;
   Alto_video:any;
   etiquetas:any;
   imagenes:any;
   idioma: string;
+  /* URL Imagen Default en caso de ser DIV */
+  url_img_blog:any="/assets/imagenes/fondo-blog.jpg";
+  url_img_ruta:any="/assets/imagenes/fondo-blog.jpg";
   /* video */
   YT: any;
   video: any;
@@ -102,8 +105,15 @@ export class HomeComponent implements OnInit {
       this.initalgolia ();
 
       this.sus2=this.db.getCatBlogHome().subscribe ((res:any)=>{
-        this.db.getBlogporCat(res.home_categoria_seleccionado).subscribe((res: any [])=>{
-          this.Blogs=res;
+        this.db.getBlogporCat(res.home_categoria_seleccionado_1).subscribe((res1: any [])=>{
+          this.Blogs=res1;
+          this.db.getBlogporCat(res.home_categoria_seleccionado_2).subscribe((res2: any [])=>{
+            this.Blogs = this.Blogs.concat (res2);
+            console.log('Estos son mis blogs',this.Blogs);
+            this.Blogs = this.Blogs.sort ((a: any, b: any) => {
+              return +new Date(b.fecha_creado) - +new Date(a.fecha_creado);
+            });
+          });
         });
       });
 
@@ -221,7 +231,9 @@ export class HomeComponent implements OnInit {
         this.Alto_video=760;
       }else if (screen.width>1399){
         this.Ancho_video=screen.width;
-        this.Alto_video=780;
+        let calcular_alto=this.Ancho_video*40.63;
+        let calcular_alto2=calcular_alto/100;
+        this.Alto_video=calcular_alto2+300;
       }
       this.video = 'Mnjpd9qXwdI' //video id
       this.YT = window['YT'];
@@ -255,16 +267,25 @@ export class HomeComponent implements OnInit {
             var imagenSrc = document.getElementById('imagen-prueba2');
             if(e && e.data === 1){
                 if(videoHolder && videoHolder.id) {
-                    imagenSrc.classList.remove('loading-img');
-                    imagenSrc.classList.add('loading');
+                   // imagenSrc.classList.remove('loading-img');
+                   // imagenSrc.classList.add('loading');
+                   
+                   imagenSrc.style.zIndex = '-99999';
+                   imagenView.style.zIndex = '-99999';
+                   videoHolder.classList.remove('loading'); 
+
+                   /*
                   setTimeout(() => {
-                    imagenView.classList.remove('loading-img');
+                    //imagenView.classList.remove('loading-img');
+                    imagenView.style.zIndex = '-99999';
+
                     videoHolder.classList.remove('loading'); 
-                  }, 4*1000);
+                  }, 4000);*/
                   
                 }
             }else if(e && e.data === 0){
               e.target.playVideo();
+              
             }
           },
           onError: function(e) {

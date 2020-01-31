@@ -1,7 +1,10 @@
 <section class="titulo-phone">
   <div class="container-fluid px-0">
     <div class="row m-0" style="background-color: #3E729A;">
-      <div class="col-sm-5 px-0 img-blog-detalle" [ngStyle]="{'background-image': 'url('+ detalle?.imagen +')'}">
+      <div *ngIf="detalle?.imagen!=''" class="col-sm-5 px-0 img-blog-detalle" [ngStyle]="{'background-image': 'url('+ detalle?.imagen +')'}">
+        
+      </div>
+      <div *ngIf="detalle?.imagen==''" class="col-sm-5 px-0 img-blog-detalle" [ngStyle]="{'background-image': 'url('+ url_img_blog +')'}">
         
       </div>
       <div class="col-sm-7 px-sm-5 pt-1 pt-lg-5 pt-xl-5 text-center text-sm-left pb-5 pb-sm-5 pb-lg-0" id="fondo-azul">

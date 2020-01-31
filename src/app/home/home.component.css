@@ -953,13 +953,15 @@ overflow: hidden;/*si no se declara añade los ... pero muestra todo el texto*/
     .loading-img {
         position: absolute;
         width: 100%;
-        height: 780px;
+        height: 1080px;
         opacity: 1;
+        object-fit: cover;
        
       }
       .img-loader {
         width: 100%;
-        height: 780px;
+        height: 1080px;
+        object-fit: cover;
     }
   }
 .video-background {
@@ -973,7 +975,8 @@ overflow: hidden;/*si no se declara añade los ... pero muestra todo el texto*/
   transform: translateY(-50%);
   -webkit-transition: 2s opacity ease;
   transition: 2s opacity ease;
-  opacity: 1; }
+  opacity: 1;
+ }
 
 .video-foreground,
 .video-background iframe {

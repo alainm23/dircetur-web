@@ -21,6 +21,9 @@ export class CalendarioComponent implements OnInit {
   Estado:boolean=true;
   Todos_los_eventos:string='todos';
   Tipo_nombre:any='todos';
+  // Estado para los botones o flechas < >
+  estado1:boolean=false;
+  estado2:boolean=false;
   constructor(
     public db:DatabaseService,
     public route: Router,
@@ -28,6 +31,21 @@ export class CalendarioComponent implements OnInit {
   ) { }
   ngOnInit() {
     window.scrollTo(0, 0);
+
+    if(parseInt(this.Fecha_actual)==1)
+    {
+      this.estado1=false;
+      this.estado2=true;
+    }
+    else if (parseInt(this.Fecha_actual)==12) {
+      this.estado1=true;
+      this.estado2=false;
+    }
+    else
+    {
+      this.estado1=true;
+      this.estado2=true;
+    }
 
     this.TraerEventos(this.Fecha_actual);
 
@@ -40,20 +58,43 @@ export class CalendarioComponent implements OnInit {
   CambiarMes(direccion:number,fecha:any){
     console.log('sentido de la flecha:',direccion,'fecha old:',fecha);
     let fecha_actual_num:any;
+    let validar:any=moment(fecha).format('MM');
+   
     if(direccion==1)
     {
-      fecha_actual_num=moment(fecha).subtract(1, 'months');
+      if(parseInt(validar)>1)
+      {
+        fecha_actual_num=moment(fecha).subtract(1, 'months');
+        this.estado1=true;
+        this.estado2=true;
+        if(parseInt(validar)-1==1)
+        {
+          this.estado1=false;
+        }
+      }
     }
     else
     {
-      fecha_actual_num=moment(fecha).add(1, 'months');
+      if(parseInt(validar)<12)
+      {
+        fecha_actual_num=moment(fecha).add(1, 'months');
+        this.estado1=true;
+        this.estado2=true;
+        if(parseInt(validar)+1==12)
+        {
+          this.estado2=false;
+        }
+      }
     }
    
-    console.log('mes new',fecha_actual_num);
-    this.TraerEventos(moment(fecha_actual_num).format('MM'));
-    this.Mes_actual=moment(fecha_actual_num).format('MMMM');
-    this.Mes_actual_numero=moment(fecha_actual_num).format('MM');
-    this.Fecha_formato_completo=fecha_actual_num;
+    if(this.estado1==true || this.estado2==true)
+    {
+      console.log('mes new',fecha_actual_num);
+      this.TraerEventos(moment(fecha_actual_num).format('MM'));
+      this.Mes_actual=moment(fecha_actual_num).format('MMMM');
+      this.Mes_actual_numero=moment(fecha_actual_num).format('MM');
+      this.Fecha_formato_completo=fecha_actual_num;
+    }
   }
 
   TraerEventos(fecha:string) 
@@ -137,7 +178,7 @@ export class CalendarioComponent implements OnInit {
     {
       this.Eventos = this.Eventos_back;
       this.Eventos = this.Eventos.filter ((i: any) => {
-        return i.datageneral.tipo.name==name_tipo;
+        return i.datageneral.tipo.nombre==name_tipo;
       });
     }
     
