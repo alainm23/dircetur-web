@@ -150,14 +150,20 @@ export class HomeComponent implements OnInit {
             if(estado=="inicial"){
             $('#largo-buscador').css({'position':'absolute','z-index':'1000','padding-left':'5.5%'});
             $('#largo-buscador').show(500);
-            if($(window).width()>=1024 && $(window).width()<=1280){
-                  $('#largo-buscador').css({'transform': 'translate3d(-100%,0,0)'});
+            if($(window).width()>=1024){
+                  $('#largo-buscador').css({'transform': 'translate3d(-103%,0,0)'});
             }
+            if($(window).width()>=1200){
+              $('#largo-buscador').css({'transform': 'translate3d(-101%,0,0)'});
+        }
             if($(window).width()>=1300){
                   $('#largo-buscador').css({'transform': 'translate3d(-100%,0,0)'});
             }
             if($(window).width()<1024){
                   $('#largo-buscador').css({'transform': 'translate3d(12%,0,0)'});
+            }
+            if($(window).width()>=1920){
+              $('#largo-buscador').css({'transform': 'translate3d(-101%,0,0)'});
             }
             $('#largo-buscador').css({'transition': 'transform 0.80s;'});
             $('#largo-buscador').css({'background-color':'#f0f0f0'});

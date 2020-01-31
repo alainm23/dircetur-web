@@ -154,6 +154,15 @@ ul.SelectProductos li:last-child {
 	margin-top: 14rem;
    }
 }
+@media (min-width: 1920px){
+	#img-boleto{
+	width: 135%;
+    position: absolute;
+    z-index: 1000;
+    margin-top: 10rem;
+    height: 125%;
+   }
+}
 #color-azul-borde{
 	background-color: #3E729A;
 	border: 1px solid #707070;
@@ -419,6 +428,9 @@ box-shadow: 0px 19px 15px -8px rgba(217,217,217,1);
 	height: 480vh;
 	margin-bottom: 0px;
 }
+.subir-museo {
+	margin-top: -2600px;
+}
 @media (min-width: 360px){
 	#fondo-museo{
 		height: 370vh;
@@ -438,7 +450,29 @@ box-shadow: 0px 19px 15px -8px rgba(217,217,217,1);
 		margin-top: -1350px;
 	}
 	.subir-museo {
-		margin-top: -2311px;
+		margin-top: -1876px;
+	}
+}
+@media (min-width: 375px) and (min-height: 667px){
+	#fondo-museo{
+		height: 300vh;
+	}
+	.subir-boletos {
+		margin-top: -1350px;
+	}
+	.subir-museo {
+		margin-top: -1876px;
+	}
+}
+@media (min-width: 375px) and (min-height: 812px){
+	#fondo-museo{
+		height: 300vh;
+	}
+	.subir-boletos {
+		margin-top: -1350px;
+	}
+	.subir-museo {
+		margin-top: -2320px;
 	}
 }
 @media (min-width: 411px) {
@@ -449,7 +483,29 @@ box-shadow: 0px 19px 15px -8px rgba(217,217,217,1);
 		margin-top: -1361px;
 	}
 	.subir-museo {
-		margin-top: -2339px;
+		margin-top: -2686px;
+	}
+}
+@media (min-width: 411px) and (min-height: 731px) {
+	#fondo-museo {
+		height: 340vh;
+	}
+	.subir-boletos {
+		margin-top: -1361px;
+	}
+	.subir-museo {
+		margin-top: -2370px;
+	}
+}
+@media (min-width: 411px) and (min-height: 823px) {
+	#fondo-museo {
+		height: 340vh;
+	}
+	.subir-boletos {
+		margin-top: -1361px;
+	}
+	.subir-museo {
+		margin-top: -2686px;
 	}
 }
 @media (min-width: 480px) {
@@ -566,10 +622,10 @@ box-shadow: 0px 19px 15px -8px rgba(217,217,217,1);
 	   margin-bottom: 300px;
 	}
 	.subir-boletos {
-		margin-top: -320px;
+		margin-top: -89px;
 	}
 	.subir-museo {
-		margin-top: -800px;
+		margin-top: -531px;
 	}
 }
 @media (min-width: 1200px){
@@ -577,10 +633,10 @@ box-shadow: 0px 19px 15px -8px rgba(217,217,217,1);
 		height: 95vh;
 	}
 	.subir-boletos {
-		margin-top: -360px;
+		margin-top: -449px;
 	}
 	.subir-museo {
-		margin-top: -800px;
+		margin-top: -915px;
 	}
 }
 @media (min-width: 1300px){
@@ -589,6 +645,17 @@ box-shadow: 0px 19px 15px -8px rgba(217,217,217,1);
 	}
 	.subir-boletos {
 		margin-top: -380px;
+	}
+	.subir-museo {
+		margin-top: -800px;
+	}
+}
+@media (min-width: 1920px){
+	#fondo-museo{
+		height: 64vh;
+	}
+	.subir-boletos {
+		margin-top: -780px;
 	}
 	.subir-museo {
 		margin-top: -800px;

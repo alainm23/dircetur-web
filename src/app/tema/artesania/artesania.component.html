@@ -331,8 +331,8 @@
         <div class="col-2 col-sm-2 offset-sm-2 text-md-right">
             <img (click)="CambiarMes (1,Fecha_formato_completo)" class="mt-lg-2 anchura-icono-cal" style="cursor: pointer;" src="assets/imagenes/icono-derecha.png">
         </div>
-        <div class="col-8 col-sm-4 text-center text-lg-left text-xl-center">
-            <h2 id="subtitulo-mes" class="text-capitalize" style="font-weight: bold;">{{ Mes_actual }}<span id="subtitulo-ano" style="font-weight: normal;"> {{ Ano_actual }}</span></h2>
+        <div class="col-8 col-sm-4 text-center text-lg-left text-xl-center mt-lg-2" style="align-self: center;">
+            <h2 id="subtitulo-mes" class="text-capitalize text-center mb-0" style="font-weight: bold;">{{ Mes_actual }}<span id="subtitulo-ano" style="font-weight: normal;"> {{ Ano_actual }}</span></h2>
         </div>
         <div class="col-2 col-sm-2 text-right text-md-left">
             <img (click)="CambiarMes (2,Fecha_formato_completo)" class="mt-lg-2 anchura-icono-cal" style="cursor: pointer;" src="assets/imagenes/icono-izquierda.png">
@@ -340,8 +340,8 @@
         </div>
     </div>
     <div class="col-12 px-0 my-3">
-        <div class="row m-0 justify-content-md-center">
-            <div class="col-4 col-sm-2 col-md-2 col-lg-2 px-0 text-center my-1">
+        <div class="row m-0 justify-content-center">
+            <div class="col-6 col-sm-3 col-md-4 col-lg-3 px-0 text-center my-1">
                 <div class="pretty p-default p-round">
                     <input type="checkbox" (click)="filtrarCalendario (Todos_los_eventos)" [checked]="Estado" />
                     <div class="state">
@@ -349,7 +349,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 col-sm-3 col-md-2 col-lg-2 px-0 text-center my-1" *ngFor="let tipo of Tipos">
+            <div class="col-6 col-sm-4 col-md-4 col-lg-3 px-0 text-center my-1" *ngFor="let tipo of Tipos">
                 <div class="pretty p-default p-round">
                     <input type="checkbox" [checked]="tipo.checked" (click)="filtrarCalendario (tipo.nombre)" />
                     <div class="state">

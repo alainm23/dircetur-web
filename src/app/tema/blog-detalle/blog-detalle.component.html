@@ -2,33 +2,32 @@
   <div class="container-fluid px-0">
     <div class="row m-0" style="background-color: #3E729A;">
       <div *ngIf="detalle?.imagen!=''" class="col-sm-5 px-0 img-blog-detalle" [ngStyle]="{'background-image': 'url('+ detalle?.imagen +')'}">
-        
       </div>
       <div *ngIf="detalle?.imagen==''" class="col-sm-5 px-0 img-blog-detalle" [ngStyle]="{'background-image': 'url('+ url_img_blog +')'}">
-        
+      <div class="col-sm-4 col-lg-5 col-xl-4 px-0 img-blog-detalle" [ngStyle]="{'background-image': 'url('+ detalle?.imagen +')'}">   
       </div>
-      <div class="col-sm-7 px-sm-5 pt-1 pt-lg-5 pt-xl-5 text-center text-sm-left pb-5 pb-sm-5 pb-lg-0" id="fondo-azul">
+      <div class="col-sm-8 col-lg-7 col-xl-8 px-sm-5 pt-1 pt-lg-5 pt-xl-5 text-center text-sm-left pb-2 pb-sm-5 pb-lg-0" id="fondo-azul">
         <h1 class=" mt-md-3 mt-lg-5 mt-xl-5 pt-sm-5 pl-lg-3" id="titulo-turismo-detalle">{{etiquetas?.blog_detalle_titulo}}<span id="subtitulo-font"> {{etiquetas?.blog_detalle_subtitulo}}</span> </h1>
       </div>
     </div>
   </div>
 </section>
 <section>
-  <div class="container my-5">
+  <div class="container-fluid my-5">
     <div class="row m-0">
-      <div class="col-12 col-lg-5 px-5 text-center text-lg-left">
+      <div class="col-12 col-lg-5 col-xl-4 px-1 px-sm-5 text-center text-lg-left">
         <h2 class="subtitulo-art-detalle">{{ ValidarIdioma (detalle,'titulo_') }}</h2>
         <p class="public-fecha-text mt-4 mb-0">{{etiquetas?.publicado_por}}: {{detalle?.autor}}</p>
         <p class="public-fecha-text">{{etiquetas?.fecha}}: {{ formatoFecha1(detalle?.fecha_creado) }}</p>
       </div>
-      <div class="col-12 col-lg-7 px-0">
+      <div class="col-12 col-lg-7 col-xl-8 px-0">
         <div class="row m-0">
           <div [innerHtml]="ValidarIdioma (detalle, 'detalle_')" class="col-12 text-center text-md-left mb-0 texto-todo">
           </div>
-          <div class="col-12 my-3">
+          <div class="col-12 my-3 pl-0 ">
             <div class="row m-0">
               <div class="col-12 col-sm-6 px-1" *ngFor="let img of detalle?.imagenes">
-                <img [src]="img.url" width="100%">
+                <img [src]="img.url" width="100%" class="mb-3 mx-2">
               </div>
             </div>
           </div>
