@@ -203,7 +203,8 @@ export class DatabaseService {
   }
 
   getBlogporCat (id: string) {
-    const collection = this.afs.collection ("Blog_Categorias").doc (id).collection ('Blogs');
+    return  this.afs.collection ("Blogs", ref => ref.where('categoria.id', '==' , id)).valueChanges();
+    /*const collection = this.afs.collection ("Blog_Categorias").doc (id).collection ('Blogs');
                                                                                                                                                                                                                                     
     return collection.snapshotChanges ().pipe (map (refReferencias => {
       if (refReferencias.length > 0) {
@@ -219,7 +220,7 @@ export class DatabaseService {
       } else {
         return of([]);
       }
-    });
+    });*/
   }
 
   getPaginaWebEtiquetas (doc: string) {

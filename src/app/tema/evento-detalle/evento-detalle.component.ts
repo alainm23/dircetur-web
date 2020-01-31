@@ -12,6 +12,8 @@ import { UtilsService } from '../../services/utils.service';
 })
 export class EventoDetalleComponent implements OnInit {
   detalle:any;
+  /* URL Imagen Default en caso de ser DIV */
+  url_img_evento:any="/assets/imagenes/fondo-evento.jpg";
   Eventos:any[];
   Fecha_del_evento:any='vacio';
   sus: any;

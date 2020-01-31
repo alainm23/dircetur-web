@@ -1,8 +1,10 @@
 <section class="titulo-phone">
   <div class="container-fluid px-0">
     <div class="row m-0" style="background-color: #3E729A;">
-      <div class="col-sm-4 col-lg-5 col-xl-4 px-0 img-blog-detalle" [ngStyle]="{'background-image': 'url('+ detalle?.imagen +')'}">
-        
+      <div *ngIf="detalle?.imagen!=''" class="col-sm-5 px-0 img-blog-detalle" [ngStyle]="{'background-image': 'url('+ detalle?.imagen +')'}">
+      </div>
+      <div *ngIf="detalle?.imagen==''" class="col-sm-5 px-0 img-blog-detalle" [ngStyle]="{'background-image': 'url('+ url_img_blog +')'}">
+      <div class="col-sm-4 col-lg-5 col-xl-4 px-0 img-blog-detalle" [ngStyle]="{'background-image': 'url('+ detalle?.imagen +')'}">   
       </div>
       <div class="col-sm-8 col-lg-7 col-xl-8 px-sm-5 pt-1 pt-lg-5 pt-xl-5 text-center text-sm-left pb-2 pb-sm-5 pb-lg-0" id="fondo-azul">
         <h1 class=" mt-md-3 mt-lg-5 mt-xl-5 pt-sm-5 pl-lg-3" id="titulo-turismo-detalle">{{etiquetas?.blog_detalle_titulo}}<span id="subtitulo-font"> {{etiquetas?.blog_detalle_subtitulo}}</span> </h1>
