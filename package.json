@@ -31,7 +31,7 @@
     "flickity-imagesloaded": "^2.0.0",
     "hammerjs": "^2.0.8",
     "instantsearch.js": "^4.0.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "ngx-flickity": "0.0.9",
     "ngx-spinner": "^8.0.3",
