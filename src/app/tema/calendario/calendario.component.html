@@ -48,7 +48,7 @@
       </div>
       <div class="col-12 px-0 my-3">
         <div class="row m-0">
-          <div class="col-12" *ngIf="Eventos.length>0; else mensaje_evento">
+          <div class="col-12" *ngIf="Eventos.length > 0; else mensaje_evento">
             <div class="row m-0">
               <div class="col-12 col-md-6 col-lg-4 px-0 px-sm-1 py-1 my-1 animacion1 animacion" *ngFor="let evento of Eventos" (click)="verDetalleEvento(get_value (evento.datageneral, 'titulo'), evento.data.id)">
                 <div class="row m-0">
@@ -62,15 +62,15 @@
                     <div class="row m-0">
                       <div class="col-12 pt-2 pt-xl-2 px-0 px-sm-2 text-left">
                         <p class="cal-titulo-font mb-0 text-titulo-calendario" [title]="get_value (evento.datageneral, 'titulo')">{{ get_value (evento.datageneral, 'titulo') }}</p>
-                        <p class="cal-subtitulo-font mb-2">{{ evento.datageneral.tipo.name }}</p>
+                        <p class="cal-subtitulo-font mb-2">{{ evento.datageneral.tipo.nombre }}</p>
                       </div>
                       <div class="col-12 px-0 px-sm-2 pb-3">
                         <div class="row m-0">
                           <div class="col-6 p-0 text-left" style="border-right: 1px solid #A0A0A0">
-                            <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img1.png"> {{ evento.datageneral.provincia.nombre }}</small> </span>
+                            <span class="cal-subtitulo-font"><small><img style="padding-bottom: 3px;" src="assets/imagenes/icono-img1.png"> {{ evento.datageneral.provincia.nombre }}</small> </span>
                           </div>
                           <div class="col-6 px-0">
-                            <span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img3.png"> {{ get_value (evento.datageneral, 'hora') }}</small> </span>
+                            <span class="cal-subtitulo-font"><small><img style="padding-bottom: 3px;" src="assets/imagenes/icono-img3.png"> {{ get_value (evento.datageneral, 'hora') }}</small> </span>
                           </div>
                         </div>
                       </div>

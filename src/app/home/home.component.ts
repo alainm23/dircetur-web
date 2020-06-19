@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
       window['onYouTubeIframeAPIReady'] = () => this.createPlayer();
     }
-    
+
     initalgolia () {
       this.client = algoliasearch (environment.algolia.appId, environment.algolia.apiKey, { protocol: 'https:' });
       this.algolia_index = this.client.initIndex(environment.algolia.indexName);
@@ -84,12 +84,14 @@ export class HomeComponent implements OnInit {
     }
 
     search_changed () {
+      console.log (this.search_term);
       if (this.search_term != "") {
         this.algolia_index.search({
           query: this.search_term
           //attributesToRetrieve: ['primary_text', 'secondary_text', 'id', 'type', "avatar"]
         }).then((data: any)=>{
-          this.busqueda_items = [];  
+          console.log (data);
+          this.busqueda_items = [];
           if (data.hits.length > 0) {
             this.busqueda_items = data.hits;
           }
@@ -109,7 +111,7 @@ export class HomeComponent implements OnInit {
           this.Blogs=res1;
           this.db.getBlogporCat(res.home_categoria_seleccionado_2).subscribe((res2: any [])=>{
             this.Blogs = this.Blogs.concat (res2);
-            console.log('Estos son mis blogs',this.Blogs);
+            //console.log('Estos son mis blogs',this.Blogs);
             this.Blogs = this.Blogs.sort ((a: any, b: any) => {
               return +new Date(b.fecha_creado) - +new Date(a.fecha_creado);
             });
@@ -120,11 +122,11 @@ export class HomeComponent implements OnInit {
       this.sus3=this.db.get7RutasSugeridas().subscribe(res=>{
         this.Rutas=res;
 
-        console.log (res);
+        // console.log (res);
       });
-  
+
       this.TraerEventos();
-      
+
       this.TraerCategoriasBlogs();
 
       /* Idioma */
@@ -142,7 +144,7 @@ export class HomeComponent implements OnInit {
       this.sus4=this.db.getPaginaWebEtiquetas ('home').subscribe ((res) => {
         this.imagenes = res;
       });
-    
+
       /* Para que funcione el menu */
       var estado="inicial";
       $( document ).ready(function() {
@@ -175,7 +177,7 @@ export class HomeComponent implements OnInit {
             $('#icono-btn-home').addClass('fa-times');
             $('#icono-btn-home').css({'margin-top':'10px'});
             $('.navbar').css({'box-shadow': '0px 3px 6px #00000029;'});
-      
+
             estado="click";
             }else{
             $('.navbar').css({'background-color':'#ffffff'});
@@ -190,14 +192,14 @@ export class HomeComponent implements OnInit {
             estado="inicial";
             }
       });
-      
+
       });
 
     };
 
     changeIdioma (valor:string) {
-      console.log (valor);
-      
+      // console.log (valor);
+
       this.idioma = valor;
       localStorage.setItem ("idioma", valor);
       moment.locale (valor);
@@ -206,7 +208,7 @@ export class HomeComponent implements OnInit {
         this.etiquetas = res;
       });
     }
-    
+
     createPlayer () {
       if(screen.width>=360 && screen.width<375){
         this.Ancho_video=screen.width;
@@ -252,7 +254,7 @@ export class HomeComponent implements OnInit {
             autoplay: 1,        // Auto-play the video on load
             enablejsapi: 1,
             autohide: 1,
-            disablekb: 1, 
+            disablekb: 1,
             controls: 0,        // Hide pause/play buttons in player
             showinfo: 0,        // Hide the video title
             modestbranding: 1,  // Hide the Youtube Logo
@@ -260,7 +262,7 @@ export class HomeComponent implements OnInit {
             fs: 0,              // Hide the full screen button
             rel: 0,
         },
-        
+
         events: {
           onReady: function(e) {
               e.target.mute();
@@ -275,27 +277,27 @@ export class HomeComponent implements OnInit {
                 if(videoHolder && videoHolder.id) {
                    // imagenSrc.classList.remove('loading-img');
                    // imagenSrc.classList.add('loading');
-                   
+
                    imagenSrc.style.zIndex = '-99999';
                    imagenView.style.zIndex = '-99999';
-                   videoHolder.classList.remove('loading'); 
+                   videoHolder.classList.remove('loading');
 
                    /*
                   setTimeout(() => {
                     //imagenView.classList.remove('loading-img');
                     imagenView.style.zIndex = '-99999';
 
-                    videoHolder.classList.remove('loading'); 
+                    videoHolder.classList.remove('loading');
                   }, 4000);*/
-                  
+
                 }
             }else if(e && e.data === 0){
               e.target.playVideo();
-              
+
             }
           },
           onError: function(e) {
-          console.log('Detalle del error del video de Youtube:', e);
+          // console.log('Detalle del error del video de Youtube:', e);
         }
         }
       });
@@ -318,7 +320,7 @@ export class HomeComponent implements OnInit {
       this.route.navigate (["/sobre-nosotros"]);
     }else{
       this.route.navigate (["/about-us"]);
-    } 
+    }
   }
 
   goTransparenciaInst () {
@@ -327,7 +329,7 @@ export class HomeComponent implements OnInit {
 
   formatoFecha1(fecha:string)
   {
-    return moment(fecha).format('L');
+    return moment(fecha.substring (0, 10)).format('L');
   }
 
   goCalendario () {
@@ -337,15 +339,15 @@ export class HomeComponent implements OnInit {
   goCircuitosTuristicos () {
     this.route.navigate (["/circuitos-turisticos"]);
   }
-  
+
   goBoletoTuristico () {
     this.route.navigate (["/boleto-turistico"]);
   }
-  
+
   goTurismoRural () {
     this.route.navigate (["/turismo-rural-comunitario"]);
   }
-  
+
   goTurismoSocial () {
     this.route.navigate (["/turismo-social"]);
   }
@@ -361,7 +363,7 @@ export class HomeComponent implements OnInit {
     {
       slug = dato ['titulo_' + this.utils.ElIdioma];
     }
-     
+
     this.route.navigate (["/blog-detalle/"+this.slugifyPipe.transform (slug)+"/"+id]);
   }
 
@@ -378,7 +380,7 @@ export class HomeComponent implements OnInit {
   goTurismo () {
     this.route.navigate (["/turismo"]);
   }
-  
+
   goComercioExterior () {
     this.route.navigate (["/comercio-exterior"]);
   }
@@ -390,19 +392,19 @@ export class HomeComponent implements OnInit {
   goBlogs (slug:string,id:string) {
     this.route.navigate (["/blogs/"+this.slugifyPipe.transform(slug)+"/"+id]);
   }
-  
+
   goContacto () {
     this.route.navigate (["/contacto"]);
   }
- 
-  ObtenerDia(fecha:string)
+
+  ObtenerDia (fecha:string)
   {
-    return moment(fecha).format('DD');
+    return moment(fecha.substring (0, 10)).format('DD');
   }
 
   ObtenerMesEnLetra(fecha:string)
   {
-    return moment(fecha).format('MMM');
+    return moment(fecha.substring (0, 10)).format('MMM');
   }
 
   /* Esta funciona sirve para traer el idioma correspondiente en las etiquetas de las colecciones generadas por el administrador */
@@ -411,23 +413,24 @@ export class HomeComponent implements OnInit {
     {
       return dato [campo+'es'];
     }
-    
+
     return dato [campo + this.utils.ElIdioma];
-  
+
   }
 
-  TraerEventos() 
+  TraerEventos()
   {
-    
+
     this.sus5=this.db.getEventospormes(moment().format('MM')).subscribe((data: any [])=>{
-    
+
       /*let respuesta=data.filter ((i: any) => {
         return new Date(i.datageneral.fecha).getTime() >= new Date().getTime();
       });*/
- 
+
       this.Eventos = data.sort ((a: any, b: any) => {
         return +new Date(a.datageneral.fecha) - +new Date(b.datageneral.fecha);
       });
+
       let i=1;
       this.Eventos.forEach(evento => {
         //Asignar el color azul y rojo a cada evento
@@ -437,7 +440,7 @@ export class HomeComponent implements OnInit {
         }
         else
         {
-          evento.color='rojo'; 
+          evento.color='rojo';
           if(i==4)
           {
             i=0;
@@ -445,6 +448,8 @@ export class HomeComponent implements OnInit {
         }
         i++;
       });
+
+      console.log ('Eventos', this.Eventos);
     })
 
   }
@@ -484,11 +489,12 @@ export class HomeComponent implements OnInit {
   }
 
   get_value (item: any, val: string) {
-    let returned = item [val + '_' + this.db.idioma ()];
+    let returned = item [val + '_' + localStorage.getItem ('idioma')];
+
     if (returned === null || returned === undefined) {
       returned = item [val + '_es'];
     }
-    
+
     if (returned === null || returned === undefined) {
       returned = item [val];
     }

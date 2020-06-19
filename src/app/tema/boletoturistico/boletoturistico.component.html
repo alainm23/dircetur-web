@@ -117,12 +117,11 @@
                     <div class="col-sm-4 px-1 mb-2" *ngFor="let boleto of boletos">
                         <div class="card" style="width: 100%;">
                             <div class="card-img-top img-boleto-new" [ngStyle]="{'background-image': 'url('+ boleto?.imagen +')'}">
-                        
                             </div>
                             <div class="card-body" style="height: auto;">
                                     <h5 class="card-title color-boletos-titulos mb-1">{{boleto?.titulo}}</h5>
-                                <div class="px-0 color-texto-boleto mb-1" style="list-style-type:none; height: 6rem;" [innerHtml]="boleto?.detalle">
-                                    
+                                <div class="px-0 color-texto-boleto mb-1" style="list-style-type:none; height: 6rem;">
+                                    <p>{{ boleto?.detalle }}</p>
                                 </div>
                                 <div class="row m-0" >
                                     <div class="col-3 col-sm-4 col-md-4 col-lg-3 col-xl-2 px-0 bajar-igualar">
@@ -131,7 +130,7 @@
                                     <div class="col-3 col-md-3 col-lg-2 px-1 bajar-igualar">
                                         <p class="color-texto-boleto">{{boleto?.vigencia}}</p>
                                     </div>
-                                </div>  
+                                </div>
                             </div>
                         </div>
                     </div>

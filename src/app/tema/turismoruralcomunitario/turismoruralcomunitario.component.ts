@@ -81,8 +81,9 @@ imagenes: any;
   }
 
   TodoslosTourRural () {
-    this.sus3=this.db.getallTurismoRural().subscribe(res=>{
+    this.sus3=this.db.getallTurismoRural ().subscribe(res=>{
       this.Viajes=res;
+      console.log (res);
     });
   }
 
@@ -104,4 +105,21 @@ imagenes: any;
     }
   }
 
+  get_value (item: any, val: string) {
+    let returned = item [val + '_' + localStorage.getItem ('idioma')];
+
+    if (returned === null || returned === undefined) {
+      returned = item [val + '_es'];
+    }
+
+    if (returned === null || returned === undefined) {
+      returned = item [val];
+    }
+
+    if (returned === null || returned === undefined) {
+      returned = '';
+    }
+
+    return returned;
+  }
 }

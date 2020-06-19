@@ -59,7 +59,7 @@ export class CalendarioComponent implements OnInit {
     console.log('sentido de la flecha:',direccion,'fecha old:',fecha);
     let fecha_actual_num:any;
     let validar:any=moment(fecha).format('MM');
-   
+  
     if(direccion==1)
     {
       if(parseInt(validar)>1)
@@ -86,7 +86,7 @@ export class CalendarioComponent implements OnInit {
         }
       }
     }
-   
+
     if(this.estado1==true || this.estado2==true)
     {
       console.log('mes new',fecha_actual_num);
@@ -100,11 +100,12 @@ export class CalendarioComponent implements OnInit {
   TraerEventos(fecha:string) 
   {
     this.db.getEventospormes(fecha).subscribe((data: any [])=>{
-    
+      console.log (data);
+
      /* let respuesta=data.filter ((i: any) => {
         return new Date(i.datageneral.fecha).getTime() >= new Date().getTime();
       });*/
- 
+
       this.Eventos = data.sort ((a: any, b: any) => {
         return +new Date(a.datageneral.fecha) - +new Date(b.datageneral.fecha);
       });
@@ -125,7 +126,7 @@ export class CalendarioComponent implements OnInit {
         }
         i++;
       });
-      
+
       this.Eventos_back = this.Eventos;
       console.log('listado de eventos del mes actual:', this.Eventos);
     })
@@ -133,12 +134,12 @@ export class CalendarioComponent implements OnInit {
 
   ObtenerDia(fecha:string)
   {
-    return moment(fecha).format('DD');
+    return moment (fecha.substring (0, 10)).format('DD');
   }
 
   ObtenerMesEnLetra(fecha:string)
   {
-    return moment(fecha).format('MMM');
+    return moment (fecha.substring (0, 10)).format('MMM');
   }
 
   verDetalleEvento(slug:string,id:string)
@@ -157,7 +158,7 @@ export class CalendarioComponent implements OnInit {
     this.Tipo_nombre = name_tipo;
     this.Estado=false;
     this.Tipos.forEach((tipo:any) => {
-        
+
       if (tipo.nombre==name_tipo)
       {
         tipo.checked=true;

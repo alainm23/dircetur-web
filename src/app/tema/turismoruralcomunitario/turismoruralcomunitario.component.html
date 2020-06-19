@@ -45,26 +45,15 @@
                     <div class="col-12 px-0 sombra">
                         <div class="row m-0">
                             <div class="col-12 px-2 text-center">
-                            <h3 class="color-01 titulo-disponibles mt-3 text-titulo-viajes">{{viaje.nombre}}</h3>
+                            <h3 class="color-01 titulo-disponibles mt-3 text-titulo-viajes">{{ get_value (viaje, 'nombre') }}</h3>
                             </div>
                             <div class="col-12 px-4 my-3">
                             <div class="row m-0 justify-content-center">
-                                <div class="col-6 col-sm-4 px-1 py-1">
-                                    <div class="color-rojo-social text-center px-1">
-                                        <p>Alimentacion</p>
-                                    </div>
+                            <div class="col-6 col-sm-4 px-1 py-1" *ngFor="let tag of viaje.tags">
+                                <div class="color-rojo-social text-center px-1">
+                                    <p>{{ tag.nombre }}</p>
                                 </div>
-                                <div class="col-6 col-sm-4 px-1 py-1">
-                                    <div class="color-rojo-social text-center px-1">
-                                        <p>Ceramica</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-sm-4 px-1 py-1">
-                                    <div class="color-rojo-social text-center px-1">
-                                        <p>Crianza de cuy</p>
-                                    </div>
-                                </div>
-                                
+                            </div>                                
                             </div>
                             </div>
                             <div class="col-12 px-4 mt-sm-4 mt-lg-4 mt-xl-4">
@@ -75,7 +64,7 @@
                                         <p class="mb-0">Donde</p>
                                         </div>
                                         <div class="col-10 col-lg-9 col-xl-10 color-02 px-0 texto-chiquito">
-                                        <p class="mb-1">{{viaje.donde}}</p>
+                                        <p class="mb-1">{{ get_value (viaje, 'donde') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -85,17 +74,17 @@
                                             <p>Altitud</p>
                                         </div>
                                         <div class="col-10 col-lg-9 col-xl-10 color-02 px-0 texto-chiquito">
-                                            <p>{{viaje.altitud}}</p>
+                                            <p>{{ get_value (viaje, 'altitud') }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             </div>
-                            <div style="height: 135px;" class="col-12 text-center color-02 text-grande text-resumen-viajes mb-2" [innerHtml]="viaje.descripcion">
+                            <div style="height: 135px;" class="col-12 text-center color-02 text-grande text-resumen-viajes mb-2" [innerHtml]="get_value (viaje, 'descripcion')">
                                
                             </div>
                             <div class="col-12 text-center mt-3 mb-3">
-                                <button class="btn colot-btn-ruta py-0" (click)="goTurismoRural (viaje.nombre,viaje.id)">{{etiquetas?.turismo_rural_comunita_rutas_btn}}</button>
+                                <button class="btn colot-btn-ruta py-0" (click)="goTurismoRural (get_value (viaje, 'descripcion'), viaje.id)">{{etiquetas?.turismo_rural_comunita_rutas_btn}}</button>
                             </div>
                         </div>
                     </div>

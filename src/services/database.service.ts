@@ -12,11 +12,11 @@ import * as moment from 'moment';
   providedIn: 'root'
 })
 export class DatabaseService {
-  
+
   constructor(private afs: AngularFirestore) { }
 
-  idioma () {
-    return localStorage.getItem ("idioma");
+  idioma (): string {
+    return localStorage.getItem ('idioma');
   }
 
   getallblogs () {
@@ -176,7 +176,7 @@ export class DatabaseService {
 
   getEventospormes (mes: string) {
     const collection = this.afs.collection ("Eventos_Fechas").doc (mes).collection ('Eventos');
-                                                                                                                                                                                                                                    
+
     return collection.snapshotChanges ().pipe (map (refReferencias => {
       if (refReferencias.length > 0) {
         return refReferencias.map (refReferencia => {
@@ -405,5 +405,12 @@ export class DatabaseService {
 
   getGuiaById (id: string) {
     return this.afs.collection ('Guias').doc (id).valueChanges ();
+  }
+
+  // Transparencia Institucional
+  updateTransparenciaCategoria (data: any) {
+    return this.afs.collection ('TransparenciaCategorias').doc (data.id).update ({
+      nombre: data.nombre
+    });
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { UtilsService } from '../../services/utils.service';
 import { DatabaseService } from '../../../services/database.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 @Component({
   selector: 'app-transparenciainstitucional',
   templateUrl: './transparenciainstitucional.component.html',
@@ -12,8 +13,13 @@ export class TransparenciainstitucionalComponent implements OnInit {
   sus2: any;
   etiquetas: any;
   imagenes: any;
+
+  categorias: any [] = [];
+  categoria_seleccionado: any;
+  items: any [] = [];
   constructor(
     public db:DatabaseService,
+    private afs: AngularFirestore,
     private utils:UtilsService
   ) {
     utils.idioma.subscribe((nextValue) => {
@@ -39,7 +45,7 @@ export class TransparenciainstitucionalComponent implements OnInit {
     this.sus2=this.db.getPaginaWebEtiquetas ('transparencia_institucional').subscribe ((res) => {
       this.imagenes = res;
     });
-
+    
     $(document).ready(function() {
       function clickcaja(e) {
         var lista = $(this).find("ul"),
@@ -67,7 +73,53 @@ export class TransparenciainstitucionalComponent implements OnInit {
       }
     $(".cajaselect").click(clickcaja);
     $(".cajaselect").on("click", "li", clickli);
-    }); 
+    });
+
+    this.afs.collection ('TransparenciaCategorias').valueChanges ().subscribe ((res: any []) => {
+      this.categorias = res;
+      console.log (res);  
+
+      if (res.length > 0) {
+        this.traer_medios (res [0]);
+      }
+    });
+  }
+
+  traer_medios (item: any) {
+    this.categoria_seleccionado = item;
+    this.afs.collection ('Transparencia_Medios', ref => ref.where ('categoria.id', '==', item.id)).valueChanges ().subscribe ((res: any []) => {
+      this.items = res;
+      console.log (res);
+    });
+  }
+
+  traer_subcategorias (item: any) {
+    console.log (item);
+    this.categoria_seleccionado = item;
+    this.afs.collection ('TransparenciaCategorias').doc (item.id).collection ('Subcategorias').valueChanges ().subscribe ((res: any []) => {
+      this.items = res;
+      
+      $(document).ready(function() {
+        $(".accordion-titulo").click(function(e){
+          e.preventDefault();
+          var contenido=$(this).next(".accordion-content");
+          if(contenido.css("display")=="none"){ //open    
+            contenido.slideDown(0);     
+            $(this).addClass("open");
+          }
+          else{ //close   
+            contenido.slideUp(0);
+            $(this).removeClass("open");  
+          }
+          });
+      });
+
+      this.items.forEach ((i: any) => {
+        this.afs.collection ('Transparencia_Medios', ref => ref.where ('sub_categoria.id', '==', i.id)).valueChanges ().subscribe ((medios: any []) => {
+          i.medios = medios;
+        });
+      });
+    });
   }
 
   ngOnDestroy(){
@@ -80,4 +132,9 @@ export class TransparenciainstitucionalComponent implements OnInit {
     }
   }
 
+  ver (item: any) {
+    console.log (item);
+    var win = window.open (item.url, '_blank');
+    win.focus ();
+  }
 }
