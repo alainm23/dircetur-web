@@ -88,7 +88,7 @@
 @media (min-width: 1024px){
 	#img-app-turi{
 	top: 0;
-	width: 130%;
+	width: 165%;
 	height: 132%;
 	position: absolute;
 	display: block;
@@ -97,7 +97,7 @@
 @media (min-width: 1200px){
 	#img-app-turi{
 	top: 0;
-	width: 140%;
+	width: 150%;
 	height: 133%;
 	position: absolute;
    }
@@ -198,4 +198,13 @@
   .carousel-home img {
     height: 180px;
   }
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] { -moz-appearance:textfield; }
+textarea {
+	resize: none;
 }

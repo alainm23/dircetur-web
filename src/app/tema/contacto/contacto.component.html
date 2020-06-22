@@ -31,32 +31,35 @@
             </div>
         </div>
         <div class="col-12 px-0 mt-5">
-            <div class="row m-0">
-            <div class="col-12 px-0 mb-3 text-center text-md-left">
-                <h2 class="subtitulo-general">{{etiquetas?.contacto_escribirno}}</h2>
-            </div>
-            <div class="col-12 col-sm-6 pl-0 pr-0 pr-sm-1 mb-2 mb-sm-0">
-                <input class="color-fondo-contac py-3 px-3" type="text" name="" [placeholder]="etiquetas?.contacto_nombre">
-            </div>
-            <div class="col-12 col-sm-6 pr-0 pl-0 pl-sm-1">
-                <input class="color-fondo-contac py-3 px-3" type="text" name="" [placeholder]="etiquetas?.contacto_correo">
-            </div>
-            <div class="col-12 px-0 mt-2">
-                <textarea class="px-3 color-fondo-contac py-3" id="textarea" aria-label="With textarea" [placeholder]="etiquetas?.contacto_mensaje" ></textarea>
-            </div>
-            <div class="col-12 px-0 mb-3">
-                <button class="btn btn-contac">{{etiquetas?.contacto_btn}}</button>
-            </div>
-            <div class="col-12 col-sm-6 px-0 text-center text-sm-left">
-                <h2 class="subtitulo-general color-65 mb-0">{{etiquetas?.contacto_ubicanos}}</h2>
-                <div class="escri-ubi-lla-font color-65" [innerHtml]="etiquetas?.contacto_direccion">
-
+            <div class="row m-0 justify-content-center">
+                <div class="col-12 px-0 mb-3 text-center text-md-left">
+                    <h2 class="subtitulo-general">{{etiquetas?.contacto_escribirno}}</h2>
                 </div>
-            </div>
-            <div class="col-12 col-sm-6 px-2 px-lg-0 text-center text-sm-left">
-                <h2 class="subtitulo-general color-65 mb-0">{{etiquetas?.contacto_llamanos}}</h2>
-                <p class="escri-ubi-lla-font color-65">{{etiquetas?.contacto_numeros}}</p>
-            </div>
+                <div class="col-12 col-sm-6 pl-0 pr-0 pr-sm-1 mb-2 mb-sm-0">
+                    <input class="color-fondo-contac py-3 px-3" type="text" name="" [placeholder]="etiquetas?.contacto_nombre">
+                </div>
+                <div class="col-12 col-sm-6 pr-0 pl-0 pl-sm-1 mb-2 mb-sm-0">
+                    <input class="color-fondo-contac py-3 px-3" type="text" name="" [placeholder]="etiquetas?.contacto_correo">
+                </div>
+                <div class="col-12 col-sm-6 pr-0 pl-0 pl-sm-1 mt-sm-2">
+                    <input class="color-fondo-contac py-3 px-3" type="number" name="" [placeholder]="etiquetas?.contacto_correo">
+                </div>
+                <div class="col-12 px-0 mt-2">
+                    <textarea class="px-3 color-fondo-contac py-3" id="textarea" aria-label="With textarea" [placeholder]="etiquetas?.contacto_mensaje" ></textarea>
+                </div>
+                <div class="col-12 px-0 mb-3">
+                    <button class="btn btn-contac">{{etiquetas?.contacto_btn}}</button>
+                </div>
+                <div class="col-12 col-sm-6 px-0 text-center text-sm-left">
+                    <h2 class="subtitulo-general color-65 mb-0">{{etiquetas?.contacto_ubicanos}}</h2>
+                    <div class="escri-ubi-lla-font color-65" [innerHtml]="etiquetas?.contacto_direccion">
+
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 px-2 px-lg-0 text-center text-sm-left">
+                    <h2 class="subtitulo-general color-65 mb-0">{{etiquetas?.contacto_llamanos}}</h2>
+                    <p class="escri-ubi-lla-font color-65">{{etiquetas?.contacto_numeros}}</p>
+                </div>
             </div>
         </div>
         </div>

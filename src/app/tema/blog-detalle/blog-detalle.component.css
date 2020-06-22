@@ -33,7 +33,8 @@
 	font: Light 28px/36px Avenir;
     font-weight: 300;
     color: #818181;
-    opacity: 1;
+	opacity: 1;
+	font-size: 14px;
 }
 .publicado-fecha-font{
 	font: Light 28px/36px Avenir;
@@ -64,12 +65,14 @@
     color: #656565;
     opacity: 1;
     font-weight: 300;
-    line-height: 1;
+	line-height: 1;
+	font-size: 20px;
 }
 .public-fecha-text{
 	font: Light 24px/33px Avenir;
    letter-spacing: 0;
    color: #8B8B8B;
+   font-size: 14px;
 }
 .active-btn:focus{
 	background-color: #3E729A;

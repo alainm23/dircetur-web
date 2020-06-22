@@ -74,13 +74,13 @@
                </li>
                </ul>
              </div>
-             <div class="col-xl-4 pr-5 ocultar-img-menu">
-             <div class="row m-0">
-               <div class="col-6 mt-2">
-                  <img src="assets/imagenes/logo-horizontal.png" width="90%">
+             <div class="col-xl-4 pr-3 ocultar-img-menu">
+             <div class="row m-0 justify-content-end align-items-center">
+               <div class="col-4 mt-2">
+                  <img src="assets/imagenes/logo-horizontal.png" width="100%">
                </div>
-               <div class="col-6 mt-2">
-                  <img src="assets/imagenes/logoportal.png" width="70%">
+               <div class="col-4 mt-2 pr-0">
+                  <img src="assets/imagenes/logoportal.png" width="100%">
                </div>
              </div>
            </div>
@@ -122,7 +122,7 @@
 
                    <div class="col-12 mt-sm-5 py-2 px-3" id="sombra-buscador">
                      <div class="py-2 px-2" id="col-buscardor">
-                       <div class="row m-0">
+                       <div class="row m-0 align-items-center">
                         <div class="col-1 px-0 text-center">
                           <i class="fa fa-search color-letra-menu" id="icono-btn-home"></i>
                         </div>
@@ -165,12 +165,12 @@
   <div class="container p-0 py-5">
     <div class="row m-0">
         <div class="col-sm-4 pl-0 text-center py-5 py-lg-4 mt-sm-5 mt-md-0">
-            <div class="row m-0">
+            <div class="row m-0 justify-content-center">
                 <div class="col-12">
                     <h2 class="mb-0 subtitulo-font">{{etiquetas?.home_que_es}}</h2>
                     <h3 class="mb-0 subtitulo-2-font">{{etiquetas?.home_dicertur}}</h3>
                 </div>
-                <div class="col-12 my-3">
+                <div class="col-8 col-sm-12 my-3">
                   <img src="assets/imagenes/flechader.jpg" width="100%">
                 </div>
                 <div class="col-12">
@@ -305,12 +305,12 @@
               </div>
           </div>
           <div class="col-12 col-lg-3  px-4 text-center py-4">
-           <div class="row m-0">
+           <div class="row m-0 justify-content-center">
                <div class="col-12" id="bajar-linea">
                    <h2 class="mb-0 subtitulo-font" >{{etiquetas?.home_lineas_titulo}}</h2>
                    <h3 class="mb-0 subtitulo-2-font">{{etiquetas?.home_lineas_subtitulo}}</h3>
                </div>
-               <div class="col-12 my-3">
+               <div class="col-8 col-sm-5 col-lg-12 my-3">
                   <img src="assets/imagenes/flechaizq.jpg" width="100%">
                </div>
                <div class="col-12 mt-1">
@@ -346,14 +346,14 @@
               <div class="col-12 col-sm-6 col-xl-7 px-0 py-0 ml-xl-n3">
                  <div class="row m-0">
                       <div class="col-xl-8 px-0 pt-md-5 pt-lg-3 pt-xl-5 ml-xl-n4 text-center text-lg-left">
-                        <div class="row m-0">
-                         <div class="col-12 mt-5 mt-xl-0 mt-lg-0">
-                           <h2 class="mb-0 subtitulo-font" >{{etiquetas?.home_descarga_titulo}}</h2>
-                           <h3 class="mb-0 subtitulo-2-font">{{etiquetas?.home_descarga_dicertur}}</h3>
-                         </div>
-                         <div class="col-12  ml-lg-n5 mt-3 mt-xl-1 mb-4">
-                          <img class="" src="assets/imagenes/flechaizq.jpg" width="100%">
-                         </div>
+                        <div class="row m-0 justify-content-center">
+                          <div class="col-12 mt-5 mt-xl-0 mt-lg-0">
+                            <h2 class="mb-0 subtitulo-font" >{{etiquetas?.home_descarga_titulo}}</h2>
+                            <h3 class="mb-0 subtitulo-2-font">{{etiquetas?.home_descarga_dicertur}}</h3>
+                          </div>
+                          <div class="col-8 col-lg-12  ml-lg-n5 mt-3 mt-xl-1 mb-4">
+                            <img class="" src="assets/imagenes/flechaizq.jpg" width="100%">
+                          </div>
                          </div>
                         </div>
                         <div [innerHtml]="etiquetas?.home_descarga_texto" class="col-12 ml-xl-n4 mb-4 text-center text-sm-left" id="descripcion-font">
@@ -457,13 +457,13 @@
                                </div>
                              </div>
                            </div>
-                           <div class="col-12 text-left p-0 px-2 mt-3">
+                           <div class="col-12 text-left p-0 px-2 mt-0">
                              <p class="ruta-texto-font color-cantidad mb-0">{{ get_value (ruta, 'donde') }}</p>
                            </div>
                          </div>
                        </div>
                        <div class="col-4 p-0">
-                         <a class="btn btn-explorar-ruta py-5 color-blanco-hover" style="cursor: pointer; color: #FFFFFF;" (click)="verCircuitoTourDetalle (ruta.nombre,ruta.id)">{{etiquetas?.home_rutas_link_explorar}}</a>
+                         <a class="btn btn-explorar-ruta py-4 color-blanco-hover" style="cursor: pointer; color: #FFFFFF;" (click)="verCircuitoTourDetalle (ruta.nombre,ruta.id)">{{etiquetas?.home_rutas_link_explorar}}</a>
                        </div>
                      </div>
                  </div>

@@ -138,10 +138,32 @@
 	font-weight: 700;
 }
 .ancho-col-artesania{
-	height: 21rem;
+	height: 18rem;
 }
 .subutitulo-general{
 	font-family:Black 56px/60px Avenir;
 	font-weight: 700;
 	letter-spacing: 0.95px;
 }
+@media (min-width: 640px )
+{
+	.ancho-col-artesania{
+		height: 23rem;
+	}
+}
+@media (min-width: 768px )
+{
+	.ancho-col-artesania{
+		height: 21rem;
+	}
+}
+textarea {
+	resize: none;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }

@@ -27,23 +27,27 @@
 	color: #505050;
     opacity: 1;
     font-family: Black 37px/65px Avenir;
-    font-weight: 700;
+	font-weight: 700;
+	font-size: 16px;
 }
 .texto-todo{
 	font: Light 28px/36px Avenir;
     font-weight: 300;
     color: #818181;
-    opacity: 1;
+	opacity: 1;
+	font-size: 14px;
 }
 .publicado-fecha-font{
 	font: Light 28px/36px Avenir;
-	color: #dfdfdf;
+	color: #8c8888;
 	font-weight: 300;
+	font-size: 14px;
 }
 .link-todo{
 	font-family: Black 37px/65px Avenir;
 	color: #545454;
 	font-weight: 700;
+	font-size: 14px;
 }
 .border-todo{
 	border-top: 1px solid #dfdfdf;

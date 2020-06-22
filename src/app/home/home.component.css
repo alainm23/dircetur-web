@@ -398,6 +398,10 @@
       font: Roman 17px/35px Avenir;
       letter-spacing: 0;
       font-weight: 400;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
   }
   .color-ruta-rui{
       color: #505050;
@@ -705,9 +709,12 @@
   .caracteres-titulo-rutas{
       width: 100%;
       height: 35px;
-      text-overflow: ellipsis; 
       white-space: nowrap; 
-      overflow:hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-size: 14px;
   }
   .img-blog-home{
       background-size: cover; 
@@ -739,10 +746,10 @@
 }
 .text-noticia-alto{
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;/*si no se declara añade los ... pero muestra todo el texto*/
-    height: 115px;
+    height: 80px;
     font-size: 13px;
 }
 .text-titulo-calendario{

@@ -146,7 +146,7 @@
 }
 @media(min-width: 1300px){
 	#largo-buscador{
-		width: 85%;
+		width: 73%;
 	}
 }
 @media(min-width: 1920px){
@@ -691,7 +691,15 @@
   font-family: Light 24px/33px Avenir;
   font-weight: 300;
   border-radius: 0;
+  border: 1px solid transparent;
 }
+.fondo-rojo-contac:hover
+{
+  border: 1px solid #EC494B;
+  background-color: #fff;
+  color: #EC494B;
+}
+
 /*animaciones para toda la pagina*/
 .animacion{
     float: left;
@@ -882,7 +890,7 @@
 @media (min-width: 1200px){
  .animacion:hover .animacion-linea{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,7%,0);
+    transform: translate3d(0,12%,0);
   }
 }
 @media (min-width: 1300px){
@@ -988,16 +996,16 @@
     -webkit-transition: -webkit-transform 0.20s;
     transition: transform 0.20s;
     -webkit-transform: translate3d(0,100%,0);
-    transform: translate3d(0,300%,0);
+    transform: translate3d(0,410%,0);
 }
 @media (min-width: 411px){
     .ocultar-ruta{
-    transform: translate3d(0,385%,0);
+    transform: translate3d(0,410%,0);
    }
 }
 @media (min-width: 480px){
     .ocultar-ruta{
-    transform: translate3d(0,380%,0);
+    transform: translate3d(0,410%,0);
    }
 }
 @media (min-width: 568px){
@@ -1007,54 +1015,48 @@
 }
 @media (min-width: 768px){
     .ocultar-ruta{
-    transform: translate3d(0,273%,0);
+    transform: translate3d(0,410%,0);
    }
 }
 @media (min-width: 812px){
     .ocultar-ruta{
-    transform: translate3d(0,340%,0);
+    transform: translate3d(0,410%,0);
    }
 }
 @media (min-width: 823px){
     .ocultar-ruta{
-    transform: translate3d(0,340%,0);
+    transform: translate3d(0,410%,0);
    }
 }
 @media (min-width: 854px){
     .ocultar-ruta{
-    transform: translate3d(0,333%,0);
+    transform: translate3d(0,410%,0);
    }
 }
 @media (min-width: 1024px){
     .ocultar-ruta{
-    transform: translate3d(0,290%,0);
+    transform: translate3d(0,410%,0);
    }
 }
 @media (min-width: 1300px){
     .ocultar-ruta{
-    transform: translate3d(0,270%,0);
+    transform: translate3d(0,410%,0);
    }
 }
 .animacion-ruta:hover .ocultar-ruta{
     -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,170%,0);
-  }
-  @media (min-width: 360px){
-    .animacion:hover .ocultar-ruta{
-    -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,190%,0);
-  }
+    transform: translate3d(0,315%,0);
 }
 @media (min-width: 411px){
     .animacion-ruta:hover .ocultar-ruta{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,169%,0);
+    transform: translate3d(0,310%,0);
   }
 }
  @media (min-width: 480px){
     .animacion-ruta:hover .ocultar-ruta{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,270%,0);
+    transform: translate3d(0,310%,0);
   }
 }
 @media (min-width: 568px){
@@ -1066,37 +1068,43 @@
 @media (min-width: 640px){
     .animacion-ruta:hover .ocultar-ruta{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,170%,0);
+    transform: translate3d(0,310%,0);
   }
 }
 @media (min-width: 731px){
     .animacion-ruta:hover .ocultar-ruta{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,170%,0);
+    transform: translate3d(0,310%,0);
   }
+}
+@media (min-width: 736px){
+  .animacion-ruta:hover .ocultar-ruta{
+  -webkit-transform: translate3d(0,-100,0);
+  transform: translate3d(0,310%,0);
+}
 }
 @media (min-width: 768px){
     .animacion-ruta:hover .ocultar-ruta{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,169%,0);
+    transform: translate3d(0,315%,0);
   }
 }
 @media (min-width: 823px){
     .animacion-ruta:hover .ocultar-ruta{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,170%,0);
+    transform: translate3d(0,315%,0);
   }
 }
 @media (min-width: 854px){
     .animacion-ruta:hover .ocultar-ruta{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,240%,0);
+    transform: translate3d(0,320%,0);
   }
 }
 @media (min-width: 1024px){
     .animacion-ruta:hover .ocultar-ruta{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,170%,0);
+    transform: translate3d(0,315%,0);
   }
 }
 .animacion:hover .img-mes{

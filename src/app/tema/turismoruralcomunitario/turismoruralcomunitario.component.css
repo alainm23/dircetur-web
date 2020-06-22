@@ -216,3 +216,19 @@ ul.SelectProductos li:last-child {
 	height: 200px;
 	/* background: no-repeat center center;*/
 }
+.donde_linea1
+{
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	height: 40px;
+}
+.altitud_linea
+{
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	height: 55px;
+}

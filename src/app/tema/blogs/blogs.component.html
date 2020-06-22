@@ -21,7 +21,7 @@
         <button  [className]="id==categoria.id ? 'active-btn btn-blog px-0 py-2' : 'btn-blog px-0 py-2'" (click)="goBlogs (categoria.nombre,categoria.id)">{{categoria.nombre}}</button>
       </div>
       <div class="col-12" *ngIf="Blogs.length>0;else mensaje_blogs">
-          <div class="col-12 px-0 mb-3" style="box-shadow: 0px 3px 6px #00000029;" *ngFor="let blog of Blogs">
+          <div class="col-12 px-0 mb-2" style="box-shadow: 0px 3px 6px #00000029;" *ngFor="let blog of Blogs">
             <div class="row m-0">
               <div *ngIf="blog?.imagen==''" class="col-12 col-lg-2 col-xl-2 px-0 img-blog-list" [ngStyle]="{'background-image': 'url('+ url_img_blog +')'}">
               </div>

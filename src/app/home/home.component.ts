@@ -159,7 +159,7 @@ export class HomeComponent implements OnInit {
               $('#largo-buscador').css({'transform': 'translate3d(-101%,0,0)'});
         }
             if($(window).width()>=1300){
-                  $('#largo-buscador').css({'transform': 'translate3d(-100%,0,0)'});
+                  $('#largo-buscador').css({'transform': 'translate3d(-101%,0,0)'});
             }
             if($(window).width()<1024){
                   $('#largo-buscador').css({'transform': 'translate3d(12%,0,0)'});

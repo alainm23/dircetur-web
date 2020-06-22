@@ -141,3 +141,11 @@ button:focus {outline:0;}
 	height: 200px;
 	/* background: no-repeat center center;*/
 }
+.detalla_cantidad
+{
+	display: -webkit-box;
+	-webkit-line-clamp: 11;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	height: 215px;
+}

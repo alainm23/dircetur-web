@@ -92,6 +92,17 @@ ul.listaselect {
     top: 6px;
     width: 100%;
     border-radius: 5px;
+    height: 200px;
+    overflow-y: scroll;
+}
+ul.listaselect::-webkit-scrollbar
+{
+    width: 5px;     /* Tamaño del scroll en vertical */
+    height: 5px;
+}
+ul.listaselect::-webkit-scrollbar-thumb {
+    background: #8B8B8B;
+    border-radius: 4px;
 }
 ul.listaselect li {
     border-bottom: 1px solid #efefef;
@@ -105,6 +116,7 @@ ul.listaselect li {
 ul.listaselect li{
     color: #8B8B8B;
     text-decoration: none;
+    font-size: 14px;
 }
 ul.listaselect li:hover {
     color: #8B8B8B;
@@ -120,6 +132,7 @@ ul.SelectProductos li:last-child {
     font-weight: 400;
     line-height: 3;
     text-indent: 10px;
+    font-size: 14px;
 }
 .trianguloinf {
     border-left: 9px solid rgba(0, 0, 0, 0);
@@ -127,8 +140,8 @@ ul.SelectProductos li:last-child {
     border-top: 8px solid #818181;
     height: 0;
     position: absolute;
-    right: 20px;
-    top: 25px;
+    right: 10px;
+    top: 17px;
     width: 0;
 }
 .triangulosup {
@@ -137,7 +150,7 @@ ul.SelectProductos li:last-child {
     border-right: 9px solid rgba(0, 0, 0, 0);
     height: 0;
     position: absolute;
-    right: 20px;
-    top: 25px;
+    right: 10px;
+    top: 17px;
     width: 0;
 }
