@@ -60,7 +60,7 @@ ipAddress_actual:any;
     public http: HttpClient,
     public fb: FormBuilder,
     private spinner: NgxSpinnerService
-  ) { 
+  ) {
     utils.idioma.subscribe((nextValue) => {
       /* subscribirme */
       this.sus=this.db.getPaginaWebEtiquetas ('viaje_programador_' + nextValue).subscribe ((res) => {
@@ -72,7 +72,7 @@ ipAddress_actual:any;
       console.log('Info Ip Usuario=', data);
       this.ipAddress_actual = data.ip;
       console.log('Esta es la ip de su red=', this.ipAddress_actual);
-      
+
 
       this.validar_ip = this.db.getIpUsuario(String(this.ipAddress_actual)).subscribe((consulta:any)=>{
         console.log("informacion consulta ip usuario=",consulta);
@@ -93,9 +93,9 @@ ipAddress_actual:any;
         }
       });
 
-      
+
     });
-    
+
   }
 
   init() {
@@ -107,7 +107,7 @@ ipAddress_actual:any;
   }
 
   ngOnInit() {
-  
+
   window.scrollTo(0, 0);
 
   /* Formularios */
@@ -118,7 +118,7 @@ ipAddress_actual:any;
   this.form_ubigeo = this.fb.group ({
     ubigeo: ['', [Validators.required, Validators.pattern('^[0-9]{5}$')]],
   });
-  
+
   /* Idioma */
 
   this.utils.ElIdioma = localStorage.getItem("idioma");
@@ -138,7 +138,7 @@ ipAddress_actual:any;
   /* Capturamos el id */
   this.activatedRoute.params.subscribe( params =>{
     this.id_viaje_programado=params['id'];
-  
+
     this.sus3=this.db.getViajeProgramadoByKey(params['id']).subscribe((info:any)=>{
       this.info_principal=info;
 
@@ -151,21 +151,21 @@ ipAddress_actual:any;
       $(".accordion-titulo").click(function(e){
         e.preventDefault();
         var contenido=$(this).next(".accordion-content");
-        if(contenido.css("display")=="none"){ //open    
-          contenido.slideDown(0);     
+        if(contenido.css("display")=="none"){ //open
+          contenido.slideDown(0);
           $(this).addClass("open");
         }
-        else{ //close   
+        else{ //close
           contenido.slideUp(0);
-          $(this).removeClass("open");  
+          $(this).removeClass("open");
         }
         });
     });
     this.init();
     console.log('Este es el detalle del viaje programado:',this.detalle);
     });
-  
-  this.sus5=this.db.getViajeProgramadoSalidas(params['id']).subscribe( (data:any) => 
+
+  this.sus5=this.db.getViajeProgramadoSalidas(params['id']).subscribe( (data:any) =>
     {
       this.salida=data[0];
       this.id_salida=data[0].id;
@@ -197,7 +197,7 @@ ipAddress_actual:any;
     }
     else
     {
-      
+
       if (this.info_principal.tipo.nombre=="Soy de la ciudad")
       {
         let segundo_grupo:number=Number(ubigeo.substring(2, 3));
@@ -222,7 +222,7 @@ ipAddress_actual:any;
             this.spinner.hide();
           }, 2000);
         }
-      } 
+      }
       else if (this.info_principal.tipo.nombre=="Soy comunitario")
       {
         let segundo_grupo:number=Number(ubigeo.substring(2, 3));
@@ -252,17 +252,17 @@ ipAddress_actual:any;
   }
 
   verUbigeo () {
-    
+
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.height = '500px';
     dialogConfig.width = '600px';
-    
+
     this.dialog.open(ImagenUbigeoComponent, dialogConfig);
 
   }
-  
+
   async validarDni () {
     /** spinner starts on init */
     this.spinner.show();
@@ -278,8 +278,8 @@ ipAddress_actual:any;
       this.msj_alerta_estado=false;
       this.user_sancionado_estado=false;
       this.ultimo_dni=String(dni);
-      console.log("Este es el Dni=",dni);  
-    
+      console.log("Este es el Dni=",dni);
+
       /* Validacion 1= Validamos si tenemos registrado el usuario */
       const usuario: any = await this.db.getUsuarioViajeProgramado (this.ultimo_dni).pipe (first ()).toPromise ();
       if(usuario!=null || usuario!=undefined)
@@ -320,12 +320,12 @@ ipAddress_actual:any;
               this.spinner.hide();
             }, 2000);
           }
-          else 
+          else
           {
             /* Paso la validacion */
 
             /* Validacion 4= Tambien tenemos que validar que ya no este registrado en este viaje programado */
-                              
+
             const validar: any = await this.db.getValidViajeUsuarioViajeProgramado (this.ultimo_dni, this.id_viaje_programado).pipe (first ()).toPromise ();
 
             if(validar==null || validar==undefined)
@@ -333,17 +333,17 @@ ipAddress_actual:any;
               if (this.id_salida!=null || this.id_salida!=undefined)
               {
                 /* Validacion 5= Que no este registrado en esta salida */
-                
+
                 const validacion_ultima: any = await this.db.getValidViajeProgramadoSalidaViajero (this.id_viaje_programado, this.id_salida, this.ultimo_dni).pipe (first ()).toPromise ();
-                
+
                 if (validacion_ultima==null || validacion_ultima==undefined)
                 {
                   /* Paso la validacion */
                   this.permiso=false;
-                
+
                   console.log('Usted puede registrarse en el viaje programado.');
                   //this.toastr.success('Usted puede registrarse en el viaje programado.', 'Estimado Ciudadano');
-  
+
                   const dialogConfig = new MatDialogConfig();
                   dialogConfig.disableClose = true;
                   dialogConfig.autoFocus = true;
@@ -358,10 +358,10 @@ ipAddress_actual:any;
                       nombre_completo: usuario.nombre_completo
                   };
                   this.dialog.open(ViajeProgramadoDialogComponent, dialogConfig);
-  
+
                   this.form_ubigeo.reset ();
                   this.form.reset ();
-  
+
                   setTimeout(() => {
                     /** spinner ends after 2 seconds */
                     this.spinner.hide();
@@ -372,7 +372,7 @@ ipAddress_actual:any;
                   /* No paso la validacion */
                   this.permiso=false;
                   console.log('Usted ya esta registrado en este Viaje Programado.');
-                  
+
                   this.user_sancionado_estado=true;
                   this.nombre_completo_user_ip=usuario.nombre_completo;
                   this.msj_alerta_estado=true;
@@ -382,7 +382,7 @@ ipAddress_actual:any;
                     this.spinner.hide();
                   }, 2000);
                 }
-                
+
               }
               else
               {
@@ -413,14 +413,14 @@ ipAddress_actual:any;
           }
         }
       }
-      else 
+      else
       {
         /* El usuario no se encuentra registrado puede registrarse*/
 
         if (this.id_salida!=null || this.id_salida!=undefined)
         {
           this.permiso=false;
-          
+
           console.log('Usted puede registrarse en el viaje programado.');
           //this.toastr.success('Usted puede registrarse en el viaje programado.', 'Estimado Ciudadano');
 
@@ -465,7 +465,7 @@ ipAddress_actual:any;
   ObtenerDia (fecha:any) {
     return moment(fecha).format('dddd');
   }
-  
+
   FormatFecha (fecha:any) {
     return moment(fecha).format('L');
   }
@@ -498,7 +498,7 @@ ipAddress_actual:any;
     if (this.validar_ip !== null && this.validar_ip !== undefined) {
       this.validar_ip.unsubscribe ();
     }
-    
+
   }
 
 }

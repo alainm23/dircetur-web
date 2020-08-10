@@ -15,6 +15,10 @@ export class DatabaseService {
 
   constructor(private afs: AngularFirestore) { }
 
+  createId () {
+    return this.afs.createId ();
+  }
+
   idioma (): string {
     return localStorage.getItem ('idioma');
   }
@@ -52,7 +56,7 @@ export class DatabaseService {
   getDetalleViajeProgramado (id_viaje:string) {
     return this.afs.collection ('Viajes_Programados').doc (id_viaje).collection ('Detalle').doc ('Detalle').valueChanges ();
   }
-  
+
   getallTurismoRural () {
     return this.afs.collection ('Turismo_Rural').valueChanges ();
   }
@@ -83,7 +87,7 @@ export class DatabaseService {
       }
     });*/
   }
-  
+
   /*getViajeProgramadoValidarViajero (dni_viajero:string,id_viaje: string) {
     return this.afs.collection ("usuarios_viajes_programados").doc (dni_viajero).collection ('Viajes_Inscritos').doc (id_viaje).valueChanges ();
   }*/
@@ -95,7 +99,7 @@ export class DatabaseService {
   get7RutasSugeridas () {
     return this.afs.collection ('Circuitos_Turisticos', res => res.limit(7)).valueChanges ();
   }
-  
+
   getallCircuitosTuristicos () {
     return this.afs.collection ('Circuitos_Turisticos').valueChanges ();
   }
@@ -127,7 +131,7 @@ export class DatabaseService {
   getCircuitoTourByKey (id: string) {
     return this.afs.collection ("Circuitos_Turisticos").doc (id).valueChanges ();
   }
-  
+
   getCircuitoTourDias (id: string) {
     const collection = this.afs.collection ("Circuitos_Turisticos").doc (id).collection ('Dias');
     return collection.snapshotChanges ().pipe (map (refReferencias => {
@@ -153,10 +157,10 @@ export class DatabaseService {
   getEventosArtesaniaByKey (id: string) {
     return this.afs.collection ("Eventos_Artesania").doc (id).valueChanges ();
   }
-  
+
   getEventosArtesaniapormes (mes: string) {
     const collection = this.afs.collection ("Eventos_Artesania_Fechas").doc (mes).collection ('Eventos');
-                                                                                                                                                                                                                                    
+
     return collection.snapshotChanges ().pipe (map (refReferencias => {
       if (refReferencias.length > 0) {
         return refReferencias.map (refReferencia => {
@@ -205,7 +209,7 @@ export class DatabaseService {
   getBlogporCat (id: string) {
     return  this.afs.collection ("Blogs", ref => ref.where('categoria.id', '==' , id)).valueChanges();
     /*const collection = this.afs.collection ("Blog_Categorias").doc (id).collection ('Blogs');
-                                                                                                                                                                                                                                    
+
     return collection.snapshotChanges ().pipe (map (refReferencias => {
       if (refReferencias.length > 0) {
         return refReferencias.map (refReferencia => {
@@ -271,15 +275,15 @@ export class DatabaseService {
 
     const step_01 = this.afs.collection ('Usuarios_Viajes_Programados').doc (data.dni).ref;
     batch.set (step_01, data);
-    
-    const step_02 = this.afs.collection ('Usuarios_Viajes_Programados').doc (data.dni).collection ('Viajes_Inscritos').doc (viaje.id).ref;    
+
+    const step_02 = this.afs.collection ('Usuarios_Viajes_Programados').doc (data.dni).collection ('Viajes_Inscritos').doc (viaje.id).ref;
     batch.set (step_02, {
       id: viaje.id,
       nombre: viaje.nombre,
       ultima_salida: salida_id
     });
 
-    const step_03 = this.afs.collection ('Usuarios_Viajes_Programados').doc (data.dni).collection ('Viajes_Inscritos').doc (viaje.id).collection ('Salidas').doc (salida_id).ref;    
+    const step_03 = this.afs.collection ('Usuarios_Viajes_Programados').doc (data.dni).collection ('Viajes_Inscritos').doc (viaje.id).collection ('Salidas').doc (salida_id).ref;
     batch.set (step_03, {
       id: salida_id,
       checked: true
@@ -312,14 +316,14 @@ export class DatabaseService {
       genero: data.genero
     });
 
-    const step_02 = this.afs.collection ('Usuarios_Viajes_Programados').doc (data.dni).collection ('Viajes_Inscritos').doc (viaje.id).ref;    
+    const step_02 = this.afs.collection ('Usuarios_Viajes_Programados').doc (data.dni).collection ('Viajes_Inscritos').doc (viaje.id).ref;
     batch.set (step_02, {
       id: viaje.id,
       nombre: viaje.nombre,
       ultima_salida: salida_id
     });
 
-    const step_03 = this.afs.collection ('Usuarios_Viajes_Programados').doc (data.dni).collection ('Viajes_Inscritos').doc (viaje.id).collection ('Salidas').doc (salida_id).ref;    
+    const step_03 = this.afs.collection ('Usuarios_Viajes_Programados').doc (data.dni).collection ('Viajes_Inscritos').doc (viaje.id).collection ('Salidas').doc (salida_id).ref;
     batch.set (step_03, {
       id: salida_id,
       checked: true
@@ -412,5 +416,69 @@ export class DatabaseService {
     return this.afs.collection ('TransparenciaCategorias').doc (data.id).update ({
       nombre: data.nombre
     });
+  }
+
+  getProvincias () {
+    return this.afs.collection ('Provincias').valueChanges ();
+  }
+
+  getProvinciasDistritos () {
+    const collection = this.afs.collection ('Provincias');
+
+    return collection.snapshotChanges ().pipe (map (refReferencias => {
+      if (refReferencias.length > 0) {
+        return refReferencias.map (refReferencia => {
+          const data: any = refReferencia.payload.doc.data();
+          return this.getDistritosByProvincias (data.id).pipe (map (distritos => Object.assign ({}, { data, distritos })));
+        });
+      }
+    })).mergeMap (observables => {
+      if (observables) {
+        return combineLatest(observables);
+      } else {
+        return of([]);
+      }
+    });
+  }
+
+  getDistritosByProvincias (id: string) {
+    return this.afs.collection ('Provincias').doc (id).collection ('Distritos').valueChanges ();
+  }
+
+  async addHotel (data: any) {
+    data.id = this.afs.createId ();
+
+    let batch = this.afs.firestore.batch ();
+
+    const step_01 = this.afs.collection ('Alojamientos').doc (data.id).ref;
+
+    batch.set (step_01, data);
+
+    return await batch.commit ();
+  }
+
+  async addAgencia (data: any) {
+    data.id = this.afs.createId ();
+
+    let batch = this.afs.firestore.batch ();
+
+    const step_01 = this.afs.collection ('Agencias').doc (data.id).ref;
+
+    batch.set (step_01, data);
+
+    return await batch.commit ();
+  }
+
+  getAgenciaTipo_Clasificaciones () {
+    return this.afs.collection ('AgenciaTipo_Clasificaciones', ref => ref.orderBy ('date_added')).valueChanges ();
+  }
+
+  getModalidad_Turismo () {
+    return this.afs.collection ('Modalidad_Turismo', ref => ref.orderBy ('date_added')).valueChanges ();
+  }
+
+  getTipos_Turismo () {
+    return this.afs.collection ('Tipos_Turismo').valueChanges ();
+
   }
 }

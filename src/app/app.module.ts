@@ -8,7 +8,7 @@ import { FooterComponent } from './tema/footer/footer.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -39,10 +39,26 @@ import { SlugifyPipe } from './pipe/slugify.pipe';
 import { TitleService } from "../app/services/title.service";
 import { EventoDetalleArtesaniaModule } from './tema/evento-detalle-artesania/evento-detalle-artesania.module';
 import { HttpClientModule } from '@angular/common/http';
-import {MatDialogModule} from "@angular/material";
+import {
+  MatDialogModule,
+  MatRadioModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatCheckboxModule,
+  MatButtonModule
+} from "@angular/material";
+import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+
 import { ViajeProgramadoDialogComponent } from './dialogs/viaje-programado/viaje-programado-dialog.component';
 import { ImagenUbigeoComponent } from './dialogs/imagen-ubigeo/imagen-ubigeo.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { RegistroGeneralComponent } from './tema/registro-general/registro-general.component';
+import { PopupRegistroComponent } from './popup-registro/popup-registro.component';
+import { RegistroFinalizadoComponent } from './tema/registro-finalizado/registro-finalizado.component';
+import { RegistroAlojamientoComponent } from './tema/registro-alojamiento/registro-alojamiento.component';
+import { RegistroAgenciaComponent } from './tema/registro-agencia/registro-agencia.component';
+import { RegistroAgenciaDigitalComponent } from './tema/registro-agencia-digital/registro-agencia-digital.component';
 
 @NgModule({
   declarations: [
@@ -52,11 +68,23 @@ import { NgxSpinnerModule } from "ngx-spinner";
     FooterComponent,
     SlugifyPipe,
     ViajeProgramadoDialogComponent,
-    ImagenUbigeoComponent
+    ImagenUbigeoComponent,
+    RegistroGeneralComponent,
+    PopupRegistroComponent,
+    RegistroFinalizadoComponent,
+    RegistroAlojamientoComponent,
+    RegistroAgenciaComponent,
+    RegistroAgenciaDigitalComponent
   ],
   imports: [
     BrowserModule,
     MatDialogModule,
+    MatRadioModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'dirceturcusco'),
     AngularFirestoreModule,
@@ -94,9 +122,16 @@ import { NgxSpinnerModule } from "ngx-spinner";
     NgxSpinnerModule
   ],
   providers: [
-    TitleService
+    TitleService,
+    {
+      provide: LocationStrategy, useClass: PathLocationStrategy
+    }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ViajeProgramadoDialogComponent, ImagenUbigeoComponent]
+  entryComponents: [
+    ViajeProgramadoDialogComponent,
+    ImagenUbigeoComponent,
+    PopupRegistroComponent
+  ]
 })
 export class AppModule { }

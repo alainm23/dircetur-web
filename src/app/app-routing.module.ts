@@ -27,12 +27,22 @@ import { AgenciaCartillaComponent } from './tema/agencia-cartilla/agencia-cartil
 import { ViajeProgramadoComponent } from './tema/viaje-programado/viaje-programado.component';
 import { ViajeRuralComponent } from './tema/viaje-rural/viaje-rural.component';
 import { EventoDetalleArtesaniaComponent } from './tema/evento-detalle-artesania/evento-detalle-artesania.component';
+import { RegistroGeneralComponent } from './tema/registro-general/registro-general.component';
+import { RegistroAlojamientoComponent } from './tema/registro-alojamiento/registro-alojamiento.component';
+import { RegistroAgenciaComponent } from './tema/registro-agencia/registro-agencia.component';
+import { RegistroAgenciaDigitalComponent } from './tema/registro-agencia-digital/registro-agencia-digital.component';
+import { RegistroFinalizadoComponent } from './tema/registro-finalizado/registro-finalizado.component';
 
 const routes: Routes = [
   { path: 'inicio', component: HomeComponent,  data: {title: "Inicio"}},
   { path: 'home', component: HomeComponent,  data: {title: "Home"}},
   { path: 'sobre-nosotros', component: ContenidoComponent, data: {title: "Sobre Nosotros"}},
   { path: 'about-us', component: ContenidoComponent, data: {title: "About Us"}},
+  { path: 'registro-general', component: RegistroGeneralComponent, data: {title: "Registro"}},
+  { path: 'registro-alojamiento', component: RegistroAlojamientoComponent, data: {title: "Registro Alojamiento"}},
+  { path: 'registro-agencia', component: RegistroAgenciaComponent, data: {title: "Registro Alojamiento"}},
+  { path: 'registro-agencia-digital', component: RegistroAgenciaDigitalComponent, data: {title: "Registro Agencia"}},
+  { path: 'registro-finalizado', component: RegistroFinalizadoComponent, data: {title: "Registro Finalizado"}},
   { path: 'transparencia-institucional', component: TransparenciainstitucionalComponent, data: {title: "Transparencia Institucional"}},
   { path: 'circuitos-turisticos', component: CircuitosturisticosComponent, data: {title: "Circuitos Turisticos"}},
   { path: 'boleto-turistico', component: BoletoturisticoComponent, data: {title: "Boleto Turistico"}},
@@ -61,11 +71,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  // imports: [RouterModule.forRoot(routes, { useHash: true })],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 
 export class AppRoutingModule {
-
-  
- }
+}

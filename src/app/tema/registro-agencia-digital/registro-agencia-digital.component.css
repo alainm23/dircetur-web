@@ -1,0 +1,61 @@
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.content {
+  padding: 125px;
+}
+
+.form-content {
+  padding: 30px;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,.2);
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: 4px;
+  padding-left: 0px;
+}
+
+mat-checkbox-layout {
+  white-space: normal !important;
+}
+
+.header-title {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.btn-leer-altura{
+  font: Heavy 18px/33px Avenir;
+  color: #fff;
+  text-align: center;
+  background-color:  #3E729A ;
+  border: 1px solid #707070;
+  border-radius: 15px;
+  opacity: 1;
+  font-size: 13px;
+  min-width: 140px;
+  height: 41px;
+}
+
+
+.check-label {
+  display: flex;
+}
+
+.check-check {
+  margin-top: 5px; margin-right: 6px;
+}
+

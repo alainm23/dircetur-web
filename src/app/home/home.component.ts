@@ -6,6 +6,8 @@ import * as moment from 'moment';
 import * as $ from 'jquery';
 import { SlugifyPipe } from '../../app/pipe/slugify.pipe';
 import { UtilsService } from '../services/utils.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { PopupRegistroComponent } from '../popup-registro/popup-registro.component';
 
 // AlgoliaSearch’
 const algoliasearch = require('algoliasearch');
@@ -49,12 +51,14 @@ export class HomeComponent implements OnInit {
   algolia_index: any;
   search_term: string = "";
   busqueda_items: any [] = [];
+  popup_registro: any = null;
   constructor(public db:DatabaseService,
               public route: Router,
               private slugifyPipe: SlugifyPipe,
+              private matDialog: MatDialog,
               public utils: UtilsService) { }
 
-    init() {
+    init () {
       if (window['YT']) {
         this.createPlayer();
         return;
@@ -72,6 +76,8 @@ export class HomeComponent implements OnInit {
     }
 
     ver_busqueda (item: any) {
+      console.log (item);
+
       if (item.tipo === 'agencia') {
         this.route.navigate (['agencia-cartilla', 'agencia', item.objectID]);
       } else if (item.tipo === 'alojamiento') {
@@ -101,10 +107,24 @@ export class HomeComponent implements OnInit {
       }
     }
 
+    openDialog() {
+      if (this.popup_registro === null) {
+        this.popup_registro = this.matDialog.open (
+          PopupRegistroComponent, {
+          hasBackdrop: true,
+          panelClass: 'my-class'
+        });
+      }
+    }
+
     ngOnInit() {
       this.init();
       AOS.init();
       this.initalgolia ();
+
+      setTimeout (() => {
+        this.openDialog ();
+      }, 1000 * 4);
 
       this.sus2=this.db.getCatBlogHome().subscribe ((res:any)=>{
         this.db.getBlogporCat(res.home_categoria_seleccionado_1).subscribe((res1: any [])=>{

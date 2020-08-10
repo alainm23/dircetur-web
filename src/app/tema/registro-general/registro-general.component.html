@@ -1,0 +1,1000 @@
+<div class="content">
+  <h2 style="text-align: center;">Registro de proveedores de servicio</h2>
+  <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="form_seleccionado" (change)="radioChange ()">
+    <div class="row justify-content-center">
+      <div class="col-4 justify-content-center">
+        <mat-radio-button class="example-radio-button" value="0">
+          Establecimiento de hospedaje
+        </mat-radio-button>
+      </div>
+      <div class="col-4 justify-content-center text-center">
+        <mat-radio-button class="example-radio-button" value="1">
+          Agencia de viaje de turismo
+        </mat-radio-button>
+      </div>
+      <div class="col-4 justify-content-center">
+        <mat-radio-button class="example-radio-button" value="2">
+          Agencia de viaje de turismo (Canal digital)
+        </mat-radio-button>
+      </div>
+    </div>
+  </mat-radio-group>
+
+  <div *ngIf="form_seleccionado === '0'">
+    <form [formGroup]="hospedaje_form">
+    <div><p class="header-title">I. INFORMACIÓN DEL ESTABLECIMIENTO</p></div>
+    <div class="form-content">
+      <mat-form-field class="example-full-width">
+        <mat-label>Razon social</mat-label>
+        <input matInput type="text" formControlName="razon_social">
+      </mat-form-field>
+
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="example-full-width">
+            <mat-label>Nombre Comercial</mat-label>
+            <input matInput type="text" formControlName="nombre_comercial">
+          </mat-form-field>
+        </div>
+
+        <div class="col-6">
+          <mat-form-field class="example-full-width">
+            <mat-label>N° de RUC</mat-label>
+            <input matInput type="text" formControlName="ruc">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Direccion completa</mat-label>
+        <input matInput type="text" formControlName="direccion">
+      </mat-form-field>
+
+      <!-- <div class="row">
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Numero</mat-label>
+            <input matInput type="text" formControlName="razon_social">
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Interior</mat-label>
+            <input matInput type="text" formControlName="razon_social">
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Localidad</mat-label>
+            <input matInput type="text" formControlName="razon_social">
+          </mat-form-field>
+        </div>
+      </div> -->
+
+      <div class="row">
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Departamento</mat-label>
+            <input matInput type="text" value="Cusco" [disabled]="true">
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Provincia</mat-label>
+            <mat-select formControlName="provincia" (selectionChange)="provinciaChanged ($event.value)">
+              <mat-option *ngFor="let item of provincias" [value]="item">
+                {{ item.nombre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Distrito</mat-label>
+            <mat-select formControlName="distrito">
+              <mat-option *ngFor="let item of distritos" [value]="item">
+                {{ item.nombre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- <div class="row">
+        <div class="col-6">
+          <mat-form-field class="example-full-width">
+            <mat-label>Direccion del Establecimiento</mat-label>
+            <input matInput type="text" formControlName="razon_social">
+          </mat-form-field>
+        </div>
+
+        <div class="col-6">
+          <mat-form-field class="example-full-width">
+            <mat-label>Numero</mat-label>
+            <input matInput type="text" formControlName="razon_social">
+          </mat-form-field>
+        </div>
+      </div> -->
+
+      <div class="row">
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Pagina Web</mat-label>
+            <input matInput type="text" formControlName="pagina_web">
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" formControlName="correo">
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Telefono</mat-label>
+            <input matInput type="text" formControlName="telefono">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Representante Legal</mat-label>
+            <input matInput type="text" formControlName="representante_nombre">
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Doc. Identidad</mat-label>
+            <mat-select formControlName="representante_tdoc">
+              <mat-option value="DNI">DNI</mat-option>
+              <mat-option value="CE">C.E</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>N° Doc. Identidad</mat-label>
+            <input matInput type="text" formControlName="representante_ndoc">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Fecha inicio de operaciones</mat-label>
+            <input matInput type="date" formControlName="fecha_ins">
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>N° Licencia de Funcionamiento</mat-label>
+            <input matInput type="text" formControlName="numero_certificado">
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Fecha de expedicion</mat-label>
+            <input matInput type="date" formControlName="fecha_exp">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <div><p class="header-title">II. REQUISITOS MINIMOS</p></div>
+    <div class="form-content">
+      <div><p style="margin-bottom: 0px; opacity: 0.7;">A. REQUISITOS MINIMOS DE INFRAESTRUCTURA</p></div>
+      <div class="row">
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>N° de Habitaciones (minimo 6)</mat-label>
+            <input matInput type="number" formControlName="numero_habitaciones">
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Ingreso diferenciado para huespedes y personal de servicio</mat-label>
+            <input matInput type="text" formControlName="ingreso_diferenciado">
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>N° de Pisos</mat-label>
+            <input matInput type="number" formControlName="numero_pisos">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Numero de personal ocupado</mat-label>
+            <input matInput type="number" formControlName="numero_personal">
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Numero de camas</mat-label>
+            <input matInput type="number" formControlName="numero_camas">
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+        </div>
+      </div>
+
+      <div><p style="margin-bottom: 0px; opacity: 0.7;">EL ESTABLECIMIENTO CUENTA CON:</p></div>
+      <div class="row">
+        <div class="col-6">
+          <label class="check-label">
+            <input formControlName="req_min_inf_01" class="check-check" type="checkbox"/>
+            Area de recepcion y consejeria
+          </label>
+
+          <label class="check-label">
+            <input formControlName="req_min_inf_02" class="check-check" type="checkbox"/>
+            El area de habitaciones (incluye el area del closet guardarropa) tiene como minimo 6m
+          </label>
+
+          <label class="check-label">
+            <input formControlName="req_min_inf_03" class="check-check" type="checkbox"/>
+            El area de total de los SS.HH. privados o comunes tiene como minimo 2m
+          </label>
+
+          <label class="check-label">
+            <input formControlName="req_min_inf_04" class="check-check" type="checkbox"/>
+            Lo sericios higienicos: Cuentan con pisos y paredes de material impermeable, el revestimiento de la pared tiene una altura minima de 1.80m.
+          </label>
+
+          <label class="check-label">
+            <input formControlName="req_min_inf_05" class="check-check" type="checkbox"/>
+            Contar con un ascensor a partir de (4) o mas pisos.
+          </label>
+
+          <label class="check-label">
+            <input formControlName="req_min_inf_06" class="check-check" type="checkbox"/>
+            Area de recepcion y consejeria
+          </label>
+        </div>
+        <div class="col-6">
+          <label class="check-label">
+            <input formControlName="req_min_inf_07" class="check-check" type="checkbox"/>
+            La edificacion guarda armonía con el entorno en el que se ubica.
+          </label>
+
+          <label class="check-label">
+            <input formControlName="req_min_inf_08" class="check-check" type="checkbox"/>
+            Accesibilidad para personas con dicapacidad y de las personas adultas mayores, según norma A.120.
+          </label>
+
+          <label class="check-label">
+            <input formControlName="req_min_inf_09" class="check-check" type="checkbox"/>
+            Para el diseño de acceso y salidas de emergencia pasajes de circulacion de personas, escaleras, sistema contra incendios, etc., se a tomado en cuenta la norma A.130, requisitos de seguridad.
+          </label>
+
+          <label class="check-label">
+            <input formControlName="req_min_inf_10" class="check-check" type="checkbox"/>
+            Tabiqueria: Los muros y diviciones interiores, especialemente entre dormitorios cumplen con los requisitos de seguridad del reglamento de edificaciones siendo cumbustibles, higiénicos y de facil limpieza, brindando condiciones de privavidad y alislamiento acústico.
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <div><p style="margin-bottom: 0px; opacity: 0.7;">B. REQUISITOS MINIMOS DE EQUIPAMIENTO</p></div>
+          <label class="check-label">
+            <input formControlName="req_min_eqp_01" class="check-check" type="checkbox"/>
+            Telefono de uso publico (puede ser teléfono fijo de recpeción, celular, dependiendo de la zona y para uso exclusivo del huésped)
+          </label>
+
+          <label class="check-label">
+            <input formControlName="req_min_eqp_02" class="check-check" type="checkbox"/>
+            Botiquin de primeros auxilios segun especificaciones técnicas del ministerio de salud
+          </label>
+
+          <label class="check-label">
+            <input formControlName="req_min_eqp_03" class="check-check" type="checkbox"/>
+            Cuento con sistema que permita tener agua fria y caliente y las 24 horas del dia el cual no es activado por el huésped.
+          </label>
+        </div>
+        <div class="col-6">
+          <div><p style="margin-bottom: 0px; opacity: 0.7;">C. REQUISITOS MINIMOS DE SERVICIO</p></div>
+          <label class="check-label">
+            <input formControlName="req_min_srv_01" class="check-check" type="checkbox"/>
+            Se realiza limpieza diaria de habitaciones y todos los ambientes del establecimiento.
+          </label>
+
+          <label class="check-label">
+            <input formControlName="req_min_srv_02" class="check-check" type="checkbox"/>
+            Brindo servicio de custodia de equipaje.
+          </label>
+
+          <label class="check-label">
+            <input formControlName="req_min_srv_03" class="check-check" type="checkbox"/>
+            El cambio de sabanas y toallas debe ser regular, (el huésped puede solicitar que no se cambies regularmente de acuerdo a criterios amientales y otros)
+          </label>
+          <mat-form-field class="example-full-width">
+            <mat-label>Numero de baños privados</mat-label>
+            <input matInput type="number" formControlName="nro_banios_privados">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Numero de baños comunes</mat-label>
+            <input matInput type="number" formControlName="nro_banios_comunes">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    </form>
+    <br>
+    <div style="text-align: end;">
+      <button [disabled]="!hospedaje_form.valid" class="btn btn-leer-altura" (click)="submit ()" style="cursor: pointer; color: #FFFFFF;">Enviar</button>
+    </div>
+  </div>
+
+  <div *ngIf="form_seleccionado === '1'">
+    <form [formGroup]="agencia_form">
+      <div><p class="header-title">I. INFORMACIÓN DE LA PERSONA TITULAR</p></div>
+      <div class="form-content">
+        <mat-radio-group aria-label="Tipo de persona" formControlName="representante_tipo" (change)="tipo_persona_change ($event.value)">
+          <mat-radio-button value="0">Soy persona natural</mat-radio-button>
+          &nbsp;
+          <mat-radio-button value="1">Soy persona juridica</mat-radio-button>
+        </mat-radio-group>
+
+        <mat-form-field *ngIf="agencia_form.value.representante_tipo === '0'" class="example-full-width">
+          <mat-label>Nombres y Apellidos</mat-label>
+          <input matInput type="text" formControlName="representante_nombre">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="agencia_form.value.representante_tipo === '1'" class="example-full-width">
+          <mat-label>Razon Social</mat-label>
+          <input matInput type="text" formControlName="representante_razon_social">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>N° de RUC</mat-label>
+          <input matInput type="text" formControlName="representante_ruc">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Domicilio Legal</mat-label>
+          <input matInput type="text" formControlName="representante_direccion">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Departamento/Provincia/Distrito</mat-label>
+          <input matInput type="text" formControlName="representante_departamento">
+        </mat-form-field>
+
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field class="example-full-width">
+              <mat-label>Doc. Identidad</mat-label>
+              <mat-select formControlName="representante_tdoc">
+                <mat-option value="DNI">DNI</mat-option>
+                <mat-option value="CE">C.E</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-6">
+            <mat-form-field class="example-full-width">
+              <mat-label>N° Doc. Identidad</mat-label>
+              <input matInput type="text" formControlName="representante_ndoc">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div><p class="header-title">II. INFORMACIÓN DEL ESTABLECIMIENTO</p></div>
+      <div class="form-content">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre Comercial</mat-label>
+          <input matInput type="text" formControlName="nombre_comercial">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Direccion</mat-label>
+          <input matInput type="text" formControlName="direccion">
+        </mat-form-field>
+
+        <div class="row">
+          <!-- <div class="col-4">
+            <mat-form-field class="example-full-width">
+              <mat-label>Departamento</mat-label>
+              <input matInput type="text" formControlName="razon_social">
+            </mat-form-field>
+          </div> -->
+
+          <div class="col-4">
+            <mat-form-field class="example-full-width">
+              <mat-label>Provincia</mat-label>
+              <mat-select formControlName="provincia" (selectionChange)="provinciaChanged ($event.value)">
+                <mat-option *ngFor="let item of provincias" [value]="item">
+                  {{ item.nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-4">
+            <mat-form-field class="example-full-width">
+              <mat-label>Distrito</mat-label>
+              <mat-select formControlName="distrito">
+                <mat-option *ngFor="let item of distritos" [value]="item">
+                  {{ item.nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Telefono</mat-label>
+          <input matInput type="tel" formControlName="telefono">
+        </mat-form-field>
+
+        <mat-form-field style="margin-bottom: -20px;" class="example-full-width">
+          <mat-label>Pagina Web</mat-label>
+          <input matInput type="url" formControlName="pagina_web">
+        </mat-form-field>
+
+        <small>* En caso de que se trate de una agencia de viajes y turismo que también ofrezca y comercialice sus servicios a través de canales digitales, debe presitar el tipo de canal digital que ha implementado.</small>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Correo Electronico</mat-label>
+          <input matInput type="email" formControlName="correo">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Cuenta(s) de Red(es) Social(es)</mat-label>
+          <input matInput type="text" formControlName="cuentas_redes_sociales">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Fecha de Inicio de Operaciones</mat-label>
+          <input matInput type="date" formControlName="fecha_ins">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>N° de Licencia de Funcionamiento</mat-label>
+          <input matInput type="text" formControlName="numero_certificado">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Fecha de Expedicion</mat-label>
+          <input matInput type="date" formControlName="fecha_exp">
+        </mat-form-field>
+      </div>
+      <br>
+      <div><p class="header-title">III. CONDICIONES MINIMAS PARA LA PRESTACION DE SERVICIOS (ANEXO I DEL REGLAMENTO)</p></div>
+      <div class="form-content">
+        <div><p style="margin-bottom: 0px; opacity: 0.7;">Infraestructura</p></div>
+        <label class="check-label">
+          <input formControlName="cond_min_ps_01" class="check-check" type="checkbox"/>
+          Oficina administrativa.
+        </label>
+
+        <label class="check-label">
+          <input formControlName="cond_min_ps_02" class="check-check" type="checkbox"/>
+          Local de libre acceso al público para atender al turista y dedicado a prestar de manera exclusiva al servicio de agencia de viajes y turismo.
+        </label>
+
+        <label class="check-label">
+          <input formControlName="cond_min_ps_03" class="check-check" type="checkbox"/>
+          Independizada de los locales de negocio colindantes.
+        </label>
+        <div><p style="margin-bottom: 0px; opacity: 0.7;">Equipamiento</p></div>
+        <label class="check-label">
+          <input formControlName="cond_min_ps_04" class="check-check" type="checkbox"/>
+          Equipo de cómputo.
+        </label>
+
+        <label class="check-label">
+          <input formControlName="cond_min_ps_05" class="check-check" type="checkbox"/>
+          Conexion a internet y correo electronico.
+        </label>
+
+        <label class="check-label">
+          <input formControlName="cond_min_ps_06" class="check-check" type="checkbox"/>
+          Teléfono.
+        </label>
+
+        <label class="check-label">
+          <input formControlName="cond_min_ps_07" class="check-check" type="checkbox"/>
+          Equipo de impresora y escáner.
+        </label>
+
+        <div><p style="margin-bottom: 0px; opacity: 0.7;">Personal calificado (1)</p></div>
+          <label class="check-label">
+            <input formControlName="cond_min_ps_08" class="check-check" type="checkbox"/>
+            a) Con experiencia minima de un (1) año en actividades turisticas y que haya llevado por lo menos un curso de técnicas de atencion al caliente
+          </label>
+
+          <label class="check-label">
+            <input formControlName="cond_min_ps_09" class="check-check" type="checkbox"/>
+            b) Con formación académica superiór o técnico productiva en materia de turismo.
+          </label>
+        <small>(1) La o las personas que desenpeñen la funcion de atencion directa al turista deben cumplir con la condicion a) o b)</small>
+        <mat-form-field class="example-full-width">
+          <mat-label>Total de personal calificado</mat-label>
+          <input matInput type="number" formControlName="total_personal_calificado">
+        </mat-form-field>
+      </div>
+      <br>
+      <div class="form-content">
+        <mat-radio-group formControlName="canal_digital" aria-label="Select an option">
+          <mat-radio-button value="0">No comercializo mi servicio en canales digitales</mat-radio-button>
+          &nbsp;
+          <mat-radio-button value="1">Comercializo mi servicio en canales digitales</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <br>
+
+      <ng-container *ngIf="agencia_form.value.canal_digital === '0'">
+        <div><p class="header-title">IV. CONDICIONES MINIMAS PARA LA PRESTACION DEL SERVICIO A TRAVÉS DE CANALES DIGITALES (ARTICULO 22 DEL REGLAMENTO) (1)</p></div>
+        <div class="form-content">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <label class="check-label">
+                <input formControlName="cond_min_cd_01" class="check-check" type="checkbox"/>
+                Ser propietario, licenciatario o administrador de canales digitales para la oferta, promocion, comercializacion y, en general, la prestacion de sus servicios, los cuales incluyen los contenidos minimos siguientes:
+              </label>
+
+              <label class="check-label">
+                <input formControlName="cond_min_cd_02" class="check-check" type="checkbox"/>
+                Número de teléfono, dirección y datos de contacto de la agencia de viajes y turismo y correo eletronico, las cuales pueden ser utilizados para asisitir y/o atender y/o asesorar al consumidor.
+              </label>
+
+              <label class="check-label">
+                <input formControlName="cond_min_cd_03" class="check-check" type="checkbox"/>
+                Número de RUC.
+              </label>
+
+              <label class="check-label">
+                <input formControlName="cond_min_cd_04" class="check-check" type="checkbox"/>
+                Razón social o nombres y apellidos, segun corresponde.
+              </label>
+
+              <label class="check-label">
+                <input formControlName="cond_min_cd_05" class="check-check" type="checkbox"/>
+                Nombre comercial.
+              </label>
+
+              <label class="check-label">
+                <input formControlName="cond_min_cd_06" class="check-check" type="checkbox"/>
+                Politica de Proteccion de Datos Personales.
+              </label>
+
+              <label class="check-label">
+                <input formControlName="cond_min_cd_07" class="check-check" type="checkbox"/>
+                Términos y Condiciones de Uso del canal digital, lo que incluye, entre otros aspectos, las politicas de cobro, cancelacion y reembolso.
+              </label>
+
+              <label class="check-label">
+                <input formControlName="cond_min_cd_08" class="check-check" type="checkbox"/>
+                Contancia de inscripcion en el Directorio Nacional de Prestadores de Servicios Turisticos Calificados, cuando esta sea expedida.
+              </label>
+
+              <label class="check-label">
+                <input formControlName="cond_min_cd_09" class="check-check" type="checkbox"/>
+                Versión digital del afiche u otro documento similar, que contenga informacion respecto de las disposiciones legales que sancionan penalmente las conductas vinculadas a las ESNNA, de acuerdo a lascaracteristicas y contenido establecidos por el MINCETUR, asi como mlas que sancionan el hecho de tener relaciones sexuales con menores de edad, sin perjuicio de otras medidas que puedan adoptar con el mismo fin.
+              </label>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <label class="check-label">
+                <input formControlName="cond_min_cd_10" class="check-check" type="checkbox"/>
+                El contenido detallado en el literal a) está publicado empleando un lenguaje claro, sencillo y transparente. Ademas, esta dispuesto de manera que el acceso a los mismos desdela pagina de inicio del canal digital es asequible.
+              </label>
+
+              <label class="check-label">
+                <input formControlName="cond_min_cd_11" class="check-check" type="checkbox"/>
+                Medidas de seguridad y diligencia debida en la interfaz para la compras en linea, lo que incluye las herramientas empleadas para procesar los pagos.
+              </label>
+
+              <label class="check-label">
+                <input formControlName="cond_min_cd_12" class="check-check" type="checkbox"/>
+                medidas tecnicas de proteccion de los datos personales que son recabados a través del canal digital.
+              </label>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <br>
+
+      <div><p class="header-title">V. CLASIFICACIÓN</p></div>
+      <div class="form-content">
+        <mat-form-field class="example-full-width">
+          <mat-label>Clasificacion</mat-label>
+          <mat-select formControlName="clasificacion">
+            <mat-option *ngFor="let item of tipo_clasificaciones" [value]="item">
+              {{ item.nombre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+    <br>
+    <div><p class="header-title">VI. MODALIDAD DE TURISMO</p></div>
+    <div class="form-content">
+      <span class="example-list-section">
+        <ul>
+          <li *ngFor="let item of modalidad_turismo">
+            <mat-checkbox [(ngModel)]="item.checked">
+              {{ item.nombre }}
+            </mat-checkbox>
+          </li>
+        </ul>
+      </span>
+    </div>
+    <br>
+    <div><p class="header-title">VII. TIPO DE TURISMO</p></div>
+    <div class="form-content">
+      <span class="example-list-section">
+        <ul>
+          <li *ngFor="let item of tipos_turismo">
+            <mat-checkbox [(ngModel)]="item.checked">
+              {{ item.nombre }}
+            </mat-checkbox>
+          </li>
+        </ul>
+      </span>
+    </div>
+    <br>
+
+    <div><p class="header-title">VIII. PERSONAL DE TRABAJO</p></div>
+    <div class="form-content">
+      <div *ngFor="let item of personal; let i = index">
+        ({{ i+1 }})
+        <mat-form-field class="example-full-width">
+          <mat-label>Año de nacimiento</mat-label>
+          <input matInput type="date" [(ngModel)]="item.anio_nacimiento">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Genero</mat-label>
+          <mat-select [(ngModel)]="item.genero">
+            <mat-option value="varon">Varon</mat-option>
+            <mat-option value="mujer">Mujer</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button (click)="eliminar_personal (item)">Eliminar</button>
+        <hr>
+      </div>
+      <button (click)="agregar ()">Agregar personal</button>
+    </div>
+    <br>
+    <div style="text-align: end;">
+      <button class="btn btn-leer-altura" (click)="submit ()" style="cursor: pointer; color: #FFFFFF;">Enviar</button>
+    </div>
+  </div>
+
+  <div *ngIf="form_seleccionado === '2'">
+    <form [formGroup]="agencia_digital_form">
+      <div><p class="header-title">I. INFORMACIÓN DE LA PERSONA TITULAR</p></div>
+      <div class="form-content">
+        <mat-radio-group aria-label="Tipo de persona" formControlName="representante_tipo" (change)="tipo_persona_change ($event.value)">
+          <mat-radio-button value="0">Soy persona natural</mat-radio-button>
+          &nbsp;
+          <mat-radio-button value="1">Soy persona juridica</mat-radio-button>
+        </mat-radio-group>
+
+        <mat-form-field *ngIf="agencia_digital_form.value.representante_tipo === '0'" class="example-full-width">
+          <mat-label>Nombres y Apellidos</mat-label>
+          <input matInput type="text" formControlName="representante_nombre">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="agencia_digital_form.value.representante_tipo === '1'" class="example-full-width">
+          <mat-label>Razon Social</mat-label>
+          <input matInput type="text" formControlName="representante_razon_social">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>N° de RUC</mat-label>
+          <input matInput type="text" formControlName="representante_ruc">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Domicilio Legal</mat-label>
+          <input matInput type="text" formControlName="representante_direccion">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Departamento/Provincia/Distrito</mat-label>
+          <input matInput type="text" formControlName="representante_departamento">
+        </mat-form-field>
+
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field class="example-full-width">
+              <mat-label>Doc. Identidad</mat-label>
+              <mat-select formControlName="representante_tdoc">
+                <mat-option value="DNI">DNI</mat-option>
+                <mat-option value="CE">C.E</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-6">
+            <mat-form-field class="example-full-width">
+              <mat-label>N° Doc. Identidad</mat-label>
+              <input matInput type="text" formControlName="representante_ndoc">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div><p class="header-title">II. INFORMACIÓN DEL ESTABLECIMIENTO</p></div>
+      <div class="form-content">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre Comercial</mat-label>
+          <input matInput type="text" formControlName="nombre_comercial">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Direccion</mat-label>
+          <input matInput type="text" formControlName="direccion">
+        </mat-form-field>
+
+        <div class="row">
+          <!-- <div class="col-4">
+            <mat-form-field class="example-full-width">
+              <mat-label>Departamento</mat-label>
+              <input matInput type="text" formControlName="razon_social">
+            </mat-form-field>
+          </div> -->
+
+          <div class="col-4">
+            <mat-form-field class="example-full-width">
+              <mat-label>Provincia</mat-label>
+              <mat-select formControlName="provincia" (selectionChange)="provinciaChanged ($event.value)">
+                <mat-option *ngFor="let item of provincias" [value]="item">
+                  {{ item.nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-4">
+            <mat-form-field class="example-full-width">
+              <mat-label>Distrito</mat-label>
+              <mat-select formControlName="distrito">
+                <mat-option *ngFor="let item of distritos" [value]="item">
+                  {{ item.nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Telefono</mat-label>
+          <input matInput type="tel" formControlName="telefono">
+        </mat-form-field>
+
+        <mat-form-field style="margin-bottom: -20px;" class="example-full-width">
+          <mat-label>Pagina Web</mat-label>
+          <input matInput type="url" formControlName="pagina_web">
+        </mat-form-field>
+
+        <small>* En caso de que se trate de una agencia de viajes y turismo que también ofrezca y comercialice sus servicios a través de canales digitales, debe presitar el tipo de canal digital que ha implementado.</small>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Correo Electronico</mat-label>
+          <input matInput type="email" formControlName="correo">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Cuenta(s) de Red(es) Social(es)</mat-label>
+          <input matInput type="text" formControlName="cuentas_redes_sociales">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Fecha de Inicio de Operaciones</mat-label>
+          <input matInput type="date" formControlName="fecha_ins">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>N° de Licencia de Funcionamiento</mat-label>
+          <input matInput type="text" formControlName="numero_certificado">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Fecha de Expedicion</mat-label>
+          <input matInput type="date" formControlName="fecha_exp">
+        </mat-form-field>
+      </div>
+      <br>
+      <div><p class="header-title">III. CONDICIONES MINIMAS PARA LA PRESTACION DE SERVICIOS (ANEXO I DEL REGLAMENTO)</p></div>
+      <div class="form-content">
+        <div><p style="margin-bottom: 0px; opacity: 0.7;">Infraestructura</p></div>
+        <label class="check-label">
+          <input formControlName="cond_min_ps_01" class="check-check" type="checkbox"/>
+          Oficina administrativa.
+        </label>
+
+        <label class="check-label">
+          <input formControlName="cond_min_ps_02" class="check-check" type="checkbox"/>
+          Local de libre acceso al público para atender al turista y dedicado a prestar de manera exclusiva al servicio de agencia de viajes y turismo.
+        </label>
+
+        <label class="check-label">
+          <input formControlName="cond_min_ps_03" class="check-check" type="checkbox"/>
+          Independizada de los locales de negocio colindantes.
+        </label>
+        <div><p style="margin-bottom: 0px; opacity: 0.7;">Equipamiento</p></div>
+        <label class="check-label">
+          <input formControlName="cond_min_ps_04" class="check-check" type="checkbox"/>
+          Equipo de cómputo.
+        </label>
+
+        <label class="check-label">
+          <input formControlName="cond_min_ps_05" class="check-check" type="checkbox"/>
+          Conexion a internet y correo electronico.
+        </label>
+
+        <label class="check-label">
+          <input formControlName="cond_min_ps_06" class="check-check" type="checkbox"/>
+          Teléfono.
+        </label>
+
+        <label class="check-label">
+          <input formControlName="cond_min_ps_07" class="check-check" type="checkbox"/>
+          Equipo de impresora y escáner.
+        </label>
+
+        <div><p style="margin-bottom: 0px; opacity: 0.7;">Personal calificado (1)</p></div>
+          <label class="check-label">
+            <input formControlName="cond_min_ps_08" class="check-check" type="checkbox"/>
+            a) Con experiencia minima de un (1) año en actividades turisticas y que haya llevado por lo menos un curso de técnicas de atencion al caliente
+          </label>
+
+          <label class="check-label">
+            <input formControlName="cond_min_ps_09" class="check-check" type="checkbox"/>
+            b) Con formación académica superiór o técnico productiva en materia de turismo.
+          </label>
+        <small>(1) La o las personas que desenpeñen la funcion de atencion directa al turista deben cumplir con la condicion a) o b)</small>
+        <mat-form-field class="example-full-width">
+          <mat-label>Total de personal calificado</mat-label>
+          <input matInput type="number" formControlName="total_personal_calificado">
+        </mat-form-field>
+      </div>
+
+      <br>
+
+      <div><p class="header-title">IV. CONDICIONES MINIMAS PARA LA PRESTACION DEL SERVICIO A TRAVÉS DE CANALES DIGITALES (ARTICULO 22 DEL REGLAMENTO) (1)</p></div>
+      <div class="form-content">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <label class="check-label">
+              <input formControlName="cond_min_cd_01" class="check-check" type="checkbox"/>
+              Ser propietario, licenciatario o administrador de canales digitales para la oferta, promocion, comercializacion y, en general, la prestacion de sus servicios, los cuales incluyen los contenidos minimos siguientes:
+            </label>
+
+            <label class="check-label">
+              <input formControlName="cond_min_cd_02" class="check-check" type="checkbox"/>
+              Número de teléfono, dirección y datos de contacto de la agencia de viajes y turismo y correo eletronico, las cuales pueden ser utilizados para asisitir y/o atender y/o asesorar al consumidor.
+            </label>
+
+            <label class="check-label">
+              <input formControlName="cond_min_cd_03" class="check-check" type="checkbox"/>
+              Número de RUC.
+            </label>
+
+            <label class="check-label">
+              <input formControlName="cond_min_cd_04" class="check-check" type="checkbox"/>
+              Razón social o nombres y apellidos, segun corresponde.
+            </label>
+
+            <label class="check-label">
+              <input formControlName="cond_min_cd_05" class="check-check" type="checkbox"/>
+              Nombre comercial.
+            </label>
+
+            <label class="check-label">
+              <input formControlName="cond_min_cd_06" class="check-check" type="checkbox"/>
+              Politica de Proteccion de Datos Personales.
+            </label>
+
+            <label class="check-label">
+              <input formControlName="cond_min_cd_07" class="check-check" type="checkbox"/>
+              Términos y Condiciones de Uso del canal digital, lo que incluye, entre otros aspectos, las politicas de cobro, cancelacion y reembolso.
+            </label>
+
+            <label class="check-label">
+              <input formControlName="cond_min_cd_08" class="check-check" type="checkbox"/>
+              Contancia de inscripcion en el Directorio Nacional de Prestadores de Servicios Turisticos Calificados, cuando esta sea expedida.
+            </label>
+
+            <label class="check-label">
+              <input formControlName="cond_min_cd_09" class="check-check" type="checkbox"/>
+              Versión digital del afiche u otro documento similar, que contenga informacion respecto de las disposiciones legales que sancionan penalmente las conductas vinculadas a las ESNNA, de acuerdo a lascaracteristicas y contenido establecidos por el MINCETUR, asi como mlas que sancionan el hecho de tener relaciones sexuales con menores de edad, sin perjuicio de otras medidas que puedan adoptar con el mismo fin.
+            </label>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <label class="check-label">
+              <input formControlName="cond_min_cd_10" class="check-check" type="checkbox"/>
+              El contenido detallado en el literal a) está publicado empleando un lenguaje claro, sencillo y transparente. Ademas, esta dispuesto de manera que el acceso a los mismos desdela pagina de inicio del canal digital es asequible.
+            </label>
+
+            <label class="check-label">
+              <input formControlName="cond_min_cd_11" class="check-check" type="checkbox"/>
+              Medidas de seguridad y diligencia debida en la interfaz para la compras en linea, lo que incluye las herramientas empleadas para procesar los pagos.
+            </label>
+
+            <label class="check-label">
+              <input formControlName="cond_min_cd_12" class="check-check" type="checkbox"/>
+              medidas tecnicas de proteccion de los datos personales que son recabados a través del canal digital.
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div><p class="header-title">V. CLASIFICACIÓN</p></div>
+      <div class="form-content">
+        <mat-form-field class="example-full-width">
+          <mat-label>Clasificacion</mat-label>
+          <mat-select formControlName="clasificacion">
+            <mat-option *ngFor="let item of tipo_clasificaciones" [value]="item">
+              {{ item.nombre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+    <br>
+    <div><p class="header-title">VI. ODALIDAD DE TURISMO</p></div>
+    <div class="form-content">
+      <span class="example-list-section">
+        <ul>
+          <li *ngFor="let item of modalidad_turismo">
+            <mat-checkbox [(ngModel)]="item.checked">
+              {{ item.nombre }}
+            </mat-checkbox>
+          </li>
+        </ul>
+      </span>
+    </div>
+    <br>
+    <div><p class="header-title">VII. TIPO DE TURISMO</p></div>
+    <div class="form-content">
+      <span class="example-list-section">
+        <ul>
+          <li *ngFor="let item of tipos_turismo">
+            <mat-checkbox [(ngModel)]="item.checked">
+              {{ item.nombre }}
+            </mat-checkbox>
+          </li>
+        </ul>
+      </span>
+    </div>
+    <br>
+    <br>
+    <div style="text-align: end;">
+      <button class="btn btn-leer-altura" (click)="submit ()" style="cursor: pointer; color: #FFFFFF;">Enviar</button>
+    </div>
+  </div>
+</div>

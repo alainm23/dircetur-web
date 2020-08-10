@@ -1,0 +1,12 @@
+.btn-leer-altura {
+  font: Heavy 18px/33px Avenir;
+  color: #fff;
+  text-align: center;
+  background-color:  #3E729A ;
+  border: 1px solid #707070;
+  border-radius: 15px;
+  opacity: 1;
+  font-size: 13px;
+  height: 41px;
+  width: 80%;
+}
