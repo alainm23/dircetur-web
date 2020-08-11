@@ -1,9 +1,15 @@
 <div class="row m-0">
-  <div class="col-md-4 col-sm-12 text-center px-0">
+  <div class="col-12 px-0 d-none d-md-block d-lg-none">
+    <div style="position: relative; width: 100%; color: white; background-color: #3E729A; padding: 4% 6%;">
+      <h3><b>Registrate</b> Aqui</h3>
+      <h3 style="position: absolute; top: 25%; right: 5%;" [mat-dialog-close]="true">X</h3>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-12 text-center px-0 d-none d-md-block">
     <img style="width: 100% !important" src="assets/imagenes/Mapi-form.jpg">
   </div>
   <div class="col-md-8 col-sm-12 px-0">
-    <div style="position: relative; width: 100%; color: white; background-color: #3E729A; padding: 4% 6%;">
+    <div style="position: relative; width: 100%; color: white; background-color: #3E729A; padding: 4% 6%;" class="d-block d-md-none d-lg-block">
       <h3><b>Registrate</b> Aqui</h3>
       <h3 style="position: absolute; top: 25%; right: 5%;" [mat-dialog-close]="true">X</h3>
     </div>
@@ -14,19 +20,38 @@
     </div>
 
     <div class="row m-0">
-      <div class="col-sm-12 col-md-6 col-lg-4 text-center" style="margin-bottom: 10px;">
+      <div class="col-sm-4 col-md-6 col-lg-4 text-center d-block d-md-none d-lg-block" style="margin-bottom: 10px;">
         <button class="btn btn-leer-altura" mat-button [mat-dialog-close]="true" (click)="page ('registro-agencia')">
           Agencia fisica
         </button>
       </div>
 
-      <div class="col-sm-12 col-md-6 col-lg-4 text-center" style="margin-bottom: 10px;">
+      <div class="col-sm-4 col-md-6 col-lg-4 text-center d-block d-md-none d-lg-block" style="margin-bottom: 10px;">
         <button class="btn btn-leer-altura" [mat-dialog-close]="true" (click)="page ('registro-agencia-digital')">
           Agencia digital
         </button>
       </div>
 
-      <div class="col-sm-12 col-md-6 col-lg-4 text-center" style="margin-bottom: 10px;">
+      <div class="col-sm-4 col-md-6 col-lg-4 text-center d-block d-md-none d-lg-block" style="margin-bottom: 10px;">
+        <button class="btn btn-leer-altura" mat-button [mat-dialog-close]="true" (click)="page ('registro-alojamiento')">
+          Hospedaje
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 d-none d-md-block d-lg-none py-4">
+    <div class="row m-0">
+      <div class="col-4">
+        <button class="btn btn-leer-altura" mat-button [mat-dialog-close]="true" (click)="page ('registro-agencia')">
+          Agencia fisica
+        </button>
+      </div>
+      <div class="col-4">
+        <button class="btn btn-leer-altura" [mat-dialog-close]="true" (click)="page ('registro-agencia-digital')">
+          Agencia digital
+        </button>
+      </div>
+      <div class="col-4">
         <button class="btn btn-leer-altura" mat-button [mat-dialog-close]="true" (click)="page ('registro-alojamiento')">
           Hospedaje
         </button>

@@ -10,3 +10,17 @@
   height: 41px;
   width: 80%;
 }
+@media (min-width: 768px)
+{
+  h3
+  {
+    margin-left: 190px;
+  }
+}
+@media (min-width: 1024px)
+{
+  h3
+  {
+    margin-left: 0px;
+  }
+}
