@@ -1,0 +1,53 @@
+#titulo-turismo-detalle{
+	font-family: Black 56px/67px Avenir;
+    font-weight: 700;
+    color: #ffffff !important;
+}
+#subtitulo-font{
+	font-family: Light 56px/53px Avenir;
+    font-weight: 300; 
+}
+.img_registro_finalizar
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.div_finalizar
+{
+    width: 100%;
+    height: 190px;
+}
+.secc_bajar_finalizar
+{
+    margin-top: 140px;
+}
+p
+{
+    color: #D5D5D5;
+}
+.link_inicio
+{
+    background-color: #3E729A;
+    color: #ffffff;
+    border-radius: 15px;
+    width: 130px;
+    border: 1px solid #ffffff;
+}
+.link_inicio:hover
+{
+    background-color: #ffffff;
+    border-color: #3E729A;
+    color: #3E729A;
+}
+@media (min-width: 1024px)
+{
+    .div_finalizar
+    {
+        height: 190px;
+    }
+    .secc_bajar_finalizar
+    {
+        margin-top: 0px;
+    }
+}
