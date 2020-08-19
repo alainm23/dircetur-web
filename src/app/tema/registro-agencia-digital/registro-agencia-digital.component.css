@@ -50,6 +50,9 @@ mat-checkbox-layout {
   height: 41px;
 }
 
+.btn-leer-altura:disabled {
+  opacity: 0.7;
+}
 
 .check-label {
   display: flex;

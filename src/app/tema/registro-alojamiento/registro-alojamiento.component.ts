@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Forms
-import { FormGroup , FormControl, Validators } from '@angular/forms';
+import { FormGroup , FormControl, Validators, FormArray } from '@angular/forms';
 
 // Services
 import { DatabaseService } from '../../../services/database.service';
@@ -23,11 +23,7 @@ export class RegistroAlojamientoComponent implements OnInit {
   hospedaje_form: FormGroup;
   agencia_form: FormGroup;
   agencia_digital_form: FormGroup;
-  personal: any [] = [{
-    id: this.database.createId (),
-    anio_nacimiento: '',
-    genero: ''
-  }];
+  personal: FormArray = new FormArray ([]);
 
   constructor (
     private database: DatabaseService,
@@ -37,23 +33,21 @@ export class RegistroAlojamientoComponent implements OnInit {
   }
 
   agregar () {
-    this.personal.push ({
-      id: this.database.createId (),
-      anio_nacimiento: '',
-      genero: ''
+    const group = new FormGroup ({
+      anio_nacimiento: new FormControl ('', [Validators.required]),
+      genero: new FormControl ('', [Validators.required])
     });
+
+    this.personal.push (group);
   }
 
-  eliminar_personal (item: any) {
-    for (var i = 0; i < this.personal.length; i++) {
-      if (this.personal [i].id === item.id) {
-        this.personal.splice (i, 1);
-      }
-    }
+  eliminar_personal (index: number) {
+    this.personal.removeAt (index);
   }
 
   ngOnInit () {
     this.hospedaje_form = new FormGroup ({
+      registro_nuevo: new FormControl ('0', [Validators.required]),
       razon_social: new FormControl ('', [Validators.required]),
       ruc: new FormControl ('', [Validators.required]),
       nombre_comercial: new FormControl ('', [Validators.required]),
@@ -117,14 +111,8 @@ export class RegistroAlojamientoComponent implements OnInit {
     this.database.getTipos_Turismo ().subscribe ((res: any []) => {
       this.tipos_turismo = res;
     });
-  }
 
-  radioChange () {
-    this.personal = [{
-      id: this.database.createId (),
-      anio_nacimiento: '',
-      genero: ''
-    }];
+    this.agregar ();
   }
 
   provinciaChanged (event: any) {

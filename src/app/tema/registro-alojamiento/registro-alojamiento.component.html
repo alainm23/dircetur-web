@@ -9,8 +9,32 @@
 </ngx-spinner>
 
 <div class="content">
+  <H3 class="text-center">DECLARACION JURADA</H3>
+  <br>
   <form [formGroup]="hospedaje_form">
-    <div><p class="header-title">I. INFORMACIÓN DEL ESTABLECIMIENTO</p></div>
+    <div class="form-content">
+      <mat-radio-group aria-label="Tipo de persona" formControlName="registro_nuevo">
+        <mat-radio-button value="0">Registro nuevo</mat-radio-button>
+        &nbsp;
+        <mat-radio-button value="1">Actualizacion de datos (cuento con constancia de Dircetur)</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <br>
+
+    <div class="form-content" *ngIf="hospedaje_form.value.registro_nuevo === '1'">
+      <mat-form-field class="example-full-width">
+        <mat-label>Fecha de Expedicion</mat-label>
+        <input matInput type="date" formControlName="fecha_exp">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>N° de Licencia de Funcionamiento</mat-label>
+        <input matInput type="text" formControlName="numero_certificado">
+      </mat-form-field>
+      <br>
+    </div>
+
+    <div><p class="header-title">INFORMACIÓN DEL ESTABLECIMIENTO</p></div>
     <div class="form-content">
       <mat-form-field class="example-full-width">
         <mat-label>Razon social</mat-label>
@@ -64,7 +88,7 @@
       <div class="row">
         <div class="col-4">
           <mat-form-field class="example-full-width">
-            <mat-label>Departamento</mat-label>
+            <mat-label>Region</mat-label>
             <input matInput type="text" value="Cusco" [disabled]="true">
           </mat-form-field>
         </div>
@@ -165,14 +189,14 @@
           </mat-form-field>
         </div>
 
-        <div class="col-4">
+        <div class="col-4" *ngIf="hospedaje_form.value.registro_nuevo === '0'">
           <mat-form-field class="example-full-width">
             <mat-label>N° Licencia de Funcionamiento</mat-label>
             <input matInput type="text" formControlName="numero_certificado">
           </mat-form-field>
         </div>
 
-        <div class="col-4">
+        <div class="col-4" *ngIf="hospedaje_form.value.registro_nuevo === '0'">
           <mat-form-field class="example-full-width">
             <mat-label>Fecha de expedicion</mat-label>
             <input matInput type="date" formControlName="fecha_exp">
@@ -182,7 +206,7 @@
     </div>
 
     <br>
-    <div><p class="header-title">II. REQUISITOS MINIMOS</p></div>
+    <div><p class="header-title">REQUISITOS MINIMOS</p></div>
     <div class="form-content">
       <div><p style="margin-bottom: 0px; opacity: 0.7;">A. REQUISITOS MINIMOS DE INFRAESTRUCTURA</p></div>
       <div class="row">
@@ -196,7 +220,7 @@
         <div class="col-4">
           <mat-form-field class="example-full-width">
             <mat-label>Ingreso diferenciado para huespedes y personal de servicio</mat-label>
-            <input matInput type="text" formControlName="ingreso_diferenciado">
+            <input matInput type="number" formControlName="ingreso_diferenciado">
           </mat-form-field>
         </div>
 
@@ -224,6 +248,17 @@
         </div>
 
         <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Numero de baños privados</mat-label>
+            <input matInput type="number" formControlName="nro_banios_privados">
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field class="example-full-width">
+            <mat-label>Numero de baños comunes</mat-label>
+            <input matInput type="number" formControlName="nro_banios_comunes">
+          </mat-form-field>
         </div>
       </div>
 
@@ -253,11 +288,6 @@
           <label class="check-label">
             <input formControlName="req_min_inf_05" class="check-check" type="checkbox"/>
             Contar con un ascensor a partir de (4) o mas pisos.
-          </label>
-
-          <label class="check-label">
-            <input formControlName="req_min_inf_06" class="check-check" type="checkbox"/>
-            Area de recepcion y consejeria
           </label>
         </div>
         <div class="col-6">
@@ -317,16 +347,34 @@
             <input formControlName="req_min_srv_03" class="check-check" type="checkbox"/>
             El cambio de sabanas y toallas debe ser regular, (el huésped puede solicitar que no se cambies regularmente de acuerdo a criterios amientales y otros)
           </label>
-          <mat-form-field class="example-full-width">
-            <mat-label>Numero de baños privados</mat-label>
-            <input matInput type="number" formControlName="nro_banios_privados">
-          </mat-form-field>
-
-          <mat-form-field class="example-full-width">
-            <mat-label>Numero de baños comunes</mat-label>
-            <input matInput type="number" formControlName="nro_banios_comunes">
-          </mat-form-field>
         </div>
+      </div>
+
+      <div><p class="header-title">PERSONAL DE TRABAJO</p></div>
+      <div class="form-content">
+        <div class="row">
+          <div class="col-4" *ngFor="let personal of personal.controls; index as i">
+            <ng-container [formGroup]="personal">
+              <mat-form-field class="example-full-width">
+                <mat-label>Año de nacimiento</mat-label>
+                <input matInput type="date" formControlName="anio_nacimiento">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <mat-label>Genero</mat-label>
+                <mat-select formControlName="genero">
+                  <mat-option value="varon">Varon</mat-option>
+                  <mat-option value="mujer">Mujer</mat-option>
+                  <mat-option value="np">No precisa</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <button (click)="eliminar_personal (i)">Eliminar</button>
+            </ng-container>
+            <hr>
+          </div>
+        </div>
+        <button (click)="agregar ()">Agregar personal</button>
       </div>
     </div>
   </form>

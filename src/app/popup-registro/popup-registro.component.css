@@ -7,9 +7,9 @@
   border-radius: 15px;
   opacity: 1;
   font-size: 13px;
-  height: 41px;
-  width: 80%;
+  width: 100%;
 }
+
 @media (min-width: 768px)
 {
   h3
@@ -22,5 +22,13 @@
   h3
   {
     margin-left: 0px;
+  }
+
+  .div-botones {
+    margin-top: 7%;
+  }
+
+  .css {
+    padding-left: 24px;
   }
 }
