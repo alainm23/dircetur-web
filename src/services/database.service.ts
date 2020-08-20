@@ -458,8 +458,6 @@ export class DatabaseService {
   }
 
   async addAgencia (data: any) {
-    data.id = this.afs.createId ();
-
     let batch = this.afs.firestore.batch ();
 
     const step_01 = this.afs.collection ('Agencias').doc (data.id).ref;

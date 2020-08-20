@@ -8,6 +8,7 @@ import { FooterComponent } from './tema/footer/footer.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -121,7 +122,8 @@ import { RegistroAgenciaDigitalComponent } from './tema/registro-agencia-digital
     ArtesaniaModule,
     HttpClientModule,
     NgxSpinnerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    AngularFireStorageModule
   ],
   providers: [
     TitleService,
