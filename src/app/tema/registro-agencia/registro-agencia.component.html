@@ -133,13 +133,16 @@
       <div class="row">
         <div class="col-6">
           <mat-form-field class="example-full-width">
-            <mat-label>Telefono</mat-label>
+            <mat-label>Telefono celular</mat-label>
             <input matInput type="tel" formControlName="telefono">
           </mat-form-field>
         </div>
 
         <div class="col-6">
-
+          <mat-form-field class="example-full-width">
+            <mat-label>Telefono fijo</mat-label>
+            <input matInput type="tel" formControlName="telefono">
+          </mat-form-field>
         </div>
       </div>
 
@@ -148,7 +151,7 @@
         <input matInput type="url" formControlName="pagina_web">
       </mat-form-field>
 
-      <small>* En caso de que se trate de una agencia de viajes y turismo que también ofrezca y comercialice sus servicios a través de canales digitales, debe presitar el tipo de canal digital que ha implementado.</small>
+      <p style="line-height: 1;" class="mt-2"><small>* En caso de que se trate de una agencia de viajes y turismo que también ofrezca y comercialice sus servicios a través de canales digitales, debe presitar el tipo de canal digital que ha implementado.</small></p>
 
       <mat-form-field class="example-full-width">
         <mat-label>Correo Electronico</mat-label>
@@ -246,9 +249,9 @@
     <br>
     <div class="form-content">
       <mat-radio-group formControlName="canal_digital" aria-label="Select an option">
-        <mat-radio-button value="0">No comercializo mi servicio en canales digitales</mat-radio-button>
+        <mat-radio-button value="0" class="mr-5">Comercializo mi servicio en canales digitales</mat-radio-button>
+        <mat-radio-button value="1">No comercializo mi servicio en canales digitales</mat-radio-button>
         &nbsp;
-        <mat-radio-button value="1">Comercializo mi servicio en canales digitales</mat-radio-button>
       </mat-radio-group>
     </div>
     <br>
@@ -357,21 +360,21 @@
 
       <div>En caso brinde el servicio de transporte turistico con unidades propias:</div>
       <div class="row">
-        <div class="col-4">
+        <div class="col-3">
           <label class="check-label">
             <input formControlName="trans_terres" class="check-check" type="checkbox"/>
             Transporte turístico terrestre
           </label>
         </div>
 
-        <div class="col-4">
+        <div class="col-3">
           <label class="check-label">
             <input formControlName="trans_acuatico" class="check-check" type="checkbox"/>
             Transporte turistico actuático
           </label>
         </div>
 
-        <div class="col-4">
+        <div class="col-6">
           <label class="check-label">
             <input formControlName="trans_arere" class="check-check" type="checkbox"/>
             Transporte aéreo especial en actividades de turismo
@@ -445,12 +448,26 @@
             </mat-select>
           </mat-form-field>
 
-          <button (click)="eliminar_personal (i)">Eliminar</button>
+          <button class="btn_iguales_finales" (click)="eliminar_personal (i)">Eliminar</button>
         </ng-container>
         <hr>
       </div>
     </div>
-    <button (click)="agregar ()">Agregar personal</button>
+    <button class="btn_iguales_finales" (click)="agregar ()">Agregar personal</button>
+  </div>
+  <br>
+  <div><p class="header-title">DECLARACIONES </p></div>
+  <div class="form-content">
+    <div class="row">
+      <div class="col-12">
+        <label class="check-label">
+          <input formControlName="trans_terres" class="check-check" type="checkbox"/>
+          LA PRESENTE DECLARACIÓN JURADA LA REALIZO SEGÚN LO SEÑALADO EN EL NUMERAL 9.2 DEL ARTICULO 9 DEL REGLAMENTO DE AGENCIAS DE VIAJES Y TURISMO, APROBADO MEDIANTE D.S.005-2020- MINCETUR, MANIFESTANDO QUE LOS DATOS SEÑALADO EXPRESAN LA VERDAD Y QUE CONOZCO LAS SANCIONES ADMINISTRATIVAS Y PENALES A QUE HABRA LUGAR EN CASO DE FALSEDAD.<br><br> 
+          *TODOS LOS DATOS CONSIGNADOS, ESTAN SUJETOS A VERTIFICACICÓN Y FISCALIZACIÓN POSTERIOR.
+
+        </label>
+      </div>
+    </div>
   </div>
   <br>
   <div style="text-align: end;">

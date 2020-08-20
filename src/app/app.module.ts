@@ -46,7 +46,8 @@ import {
   MatInputModule,
   MatSelectModule,
   MatCheckboxModule,
-  MatButtonModule
+  MatButtonModule,
+  MatTooltipModule
 } from "@angular/material";
 import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
@@ -119,7 +120,8 @@ import { RegistroAgenciaDigitalComponent } from './tema/registro-agencia-digital
     BlogDetalleModule,
     ArtesaniaModule,
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatTooltipModule
   ],
   providers: [
     TitleService,
