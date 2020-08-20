@@ -16,11 +16,20 @@
   height: 50px;
 }
 
+.p_size_celular
+{
+  font-size: 13px;
+}
+
 @media (min-width: 768px)
 {
   h3
   {
     margin-left: 190px;
+  }
+  .p_size_celular
+  {
+    font-size: 16px;
   }
 }
 @media (min-width: 1024px)

@@ -2,7 +2,10 @@
     <nav class="navbar navbar-expand-lg navbar-light  py-0 pl-0 pl-md-3 pl-lg-4 pl-xl-5 pr-0 pr-md-3 pr-lg-0" style="box-shadow: 0px 3px 6px #00000029;">
       <div class="row m-0" style="width: 100%">
         <div class="col-lg-2 px-xl-0 py-1 py-xl-2 d-flex d-lg-inline">
-          <a class="navbar-brand ml-xl-4" (click)="gohome ()" style="cursor: pointer;">
+          <a class="navbar-brand ml-xl-4 d-block d-xl-none" (click)="gohome ()" style="cursor: pointer;">
+            <img class="ml-xl-4 anchura-logo-menu" src="/assets/imagenes/logomenucusco.png">
+          </a>
+          <a class="navbar-brand ml-xl-4 d-none d-xl-block" (click)="gohome ()" style="cursor: pointer;">
             <img class="ml-xl-4 anchura-logo-menu" [src]="imagenes?.home_imagen_titulo.img">
           </a>
           <button class="navbar-toggler btn-menu-cuadrado py-0 mt-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="height: 2.5rem" (click)="activarMenuinterno ()">

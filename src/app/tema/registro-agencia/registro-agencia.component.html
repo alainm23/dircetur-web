@@ -78,7 +78,7 @@
         </mat-form-field>
 
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-6">
             <mat-form-field class="example-full-width">
               <mat-label>Doc. Identidad</mat-label>
               <mat-select formControlName="representante_tdoc">
@@ -88,7 +88,7 @@
             </mat-form-field>
           </div>
 
-          <div class="col-6">
+          <div class="col-sm-6">
             <mat-form-field class="example-full-width">
               <mat-label>N° Doc. Identidad</mat-label>
               <input matInput type="text" formControlName="representante_ndoc">
@@ -119,14 +119,14 @@
 
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Region</mat-label>
               <input matInput type="text" value="Cusco" [disabled]="true">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Provincia</mat-label>
               <mat-select formControlName="provincia" (selectionChange)="provinciaChanged ($event.value)">
@@ -137,7 +137,7 @@
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Distrito</mat-label>
               <mat-select formControlName="distrito">
@@ -150,14 +150,14 @@
         </div>
 
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-6">
             <mat-form-field class="example-full-width">
               <mat-label>Telefono celular</mat-label>
               <input matInput type="tel" formControlName="telefono">
             </mat-form-field>
           </div>
 
-          <div class="col-6">
+          <div class="col-sm-6">
             <mat-form-field class="example-full-width">
               <mat-label>Telefono fijo</mat-label>
               <input matInput type="tel" formControlName="telefono_fijo">
@@ -183,21 +183,21 @@
         </mat-form-field>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-6 col-xl-3">
             <mat-form-field class="example-full-width">
               <mat-label>Fecha de Inicio de Operaciones</mat-label>
               <input matInput type="date" formControlName="fecha_ins">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-6 col-xl-3">
             <mat-form-field *ngIf="form_01.value.registro_nuevo === '0'" class="example-full-width">
               <mat-label>N° de Licencia de Funcionamiento</mat-label>
               <input matInput type="text" formControlName="numero_certificado">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-xl-6">
             <mat-form-field *ngIf="form_01.value.registro_nuevo === '0'" class="example-full-width">
               <mat-label>Fecha de Expedicion</mat-label>
               <input matInput type="date" formControlName="fecha_exp">
@@ -544,7 +544,7 @@
 
   <!-- <button (click)="export_pdf ()">Descargar</button> -->
 
-  <div style="margin: 24px;" id="mypdf" #mypdf>
+  <div id="mypdf" #mypdf>
     <h3 class="text-center">DECLARACION JURADA</h3>
     <br>
     <form [formGroup]="agencia_form">
@@ -604,7 +604,7 @@
         </mat-form-field>
 
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-6">
             <mat-form-field class="example-full-width">
               <mat-label>Doc. Identidad</mat-label>
               <mat-select formControlName="representante_tdoc">
@@ -614,7 +614,7 @@
             </mat-form-field>
           </div>
 
-          <div class="col-6">
+          <div class="col-sm-6">
             <mat-form-field class="example-full-width">
               <mat-label>N° Doc. Identidad</mat-label>
               <input matInput type="text" formControlName="representante_ndoc">
@@ -639,14 +639,14 @@
         </mat-form-field>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Region</mat-label>
               <input matInput type="text" value="Cusco" [disabled]="true">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Provincia</mat-label>
               <mat-select formControlName="provincia" (selectionChange)="provinciaChanged ($event.value)">
@@ -657,7 +657,7 @@
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Distrito</mat-label>
               <mat-select formControlName="distrito">
@@ -670,7 +670,7 @@
         </div>
 
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-6">
             <mat-form-field class="example-full-width">
               <mat-label>Telefono celular</mat-label>
               <input matInput type="tel" formControlName="telefono">
@@ -703,21 +703,21 @@
         </mat-form-field>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Fecha de Inicio de Operaciones</mat-label>
               <input matInput type="date" formControlName="fecha_ins">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field *ngIf="agencia_form.value.registro_nuevo === '0'" class="example-full-width">
               <mat-label>N° de Licencia de Funcionamiento</mat-label>
               <input matInput type="text" formControlName="numero_certificado">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field *ngIf="agencia_form.value.registro_nuevo === '0'" class="example-full-width">
               <mat-label>Fecha de Expedicion</mat-label>
               <input matInput type="date" formControlName="fecha_exp">
@@ -905,21 +905,21 @@
 
         <div>En caso brinde el servicio de transporte turistico con unidades propias:</div>
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-6 col-xl-3">
             <label class="check-label">
               <input formControlName="trans_terres" class="check-check" type="checkbox"/>
               Transporte turístico terrestre
             </label>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-6 col-xl-3">
             <label class="check-label">
               <input formControlName="trans_acuatico" class="check-check" type="checkbox"/>
               Transporte turistico actuático
             </label>
           </div>
 
-          <div class="col-4">
+          <div class="col-xl-6">
             <label class="check-label">
               <input formControlName="trans_arere" class="check-check" type="checkbox"/>
               Transporte aéreo especial en actividades de turismo
