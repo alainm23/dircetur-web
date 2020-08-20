@@ -6,7 +6,7 @@
         type = "square-spin"
         [fullScreen] = "true">
         <p style="color: white" > Verificando... </p>
-        </ngx-spinner>
+</ngx-spinner>
 <section>
 <div class="container-fluid px-0 mt-5 mt-lg-0">
     <div class="row m-0">
@@ -97,7 +97,7 @@
             <h2 class="titulo-subtitulo-viaje mb-0">{{etiquetas?.viaje_programador_proteccion_titulo}}</h2>
             <h3 class="subtitulo-turi-ruta">{{etiquetas?.viaje_programador_proteccion_subtitulo}}</h3>
             <p class="texto-ruta-turi mt-5 px-3">
-                {{detalle?.proteccion_turista}}    
+                {{detalle?.proteccion_turista}}
             </p>
         </div>
         <div class="col-12 col-lg-6 fondo-azul color-blanco px-3 px-sm-5 py-5 my-lg-5 text-center text-lg-left" >
@@ -135,14 +135,14 @@
         </div>
     </div>
     <div class="col-12 col-md-4 col-lg-3 text-center px-5 px-md-3 py-5 cuadro-derecha mt-md-5 mt-xl-0 sticky-top" style="background-color: #fff;">
-      
+
         <div *ngIf="salida==null else contenido_registro">
             <p class="px-3" style="font-size: 12px;">
                 <strong class="color-05 my-3" id="verificar-text" style="font-size: 16px;">
                     Estimado Usuario
                 </strong>
                 <br><br>
-                Por el momento no tenemos salidas programadas para este viaje. 
+                Por el momento no tenemos salidas programadas para este viaje.
                 <br><br>
                 El ultimo viaje programado por DIRCETUR fue el {{ FormatFechaMensaje (info_principal?.ultimo_viaje_fecha_salida) }} con un total de {{ info_principal?.ultimo_viaje_nro_incritos }} viajeros.
                 <br><br>
@@ -151,7 +151,7 @@
                 Nota: Este servicio es exclusivo para Cusqueños.
             </p>
         </div>
-        <ng-template #contenido_registro> 
+        <ng-template #contenido_registro>
             <div *ngIf="salida.tipo_registro==0">
                 <div *ngIf="estado_form_validar==3">
                     <h5 class="color-05 my-3" id="verificar-text">
@@ -181,7 +181,7 @@
                                 El código no cumple el formato de un Ubigeo deben ser (6 Dígitos).
                             </p>
                         </div>
-                        
+
                         <p class="px-3" style="color : grey; font-size: 12px;">
                             <strong class="color-05" style="font-size: 14px;">¿Porque debo ingresar el código de Ubigeo?</strong> <br><br>
                             Porque gracias a este código, podemos verificar si eres un ciudadano cusqueño, o cual es un requisito para poder acceder a este servicio.
@@ -200,7 +200,7 @@
                             Ya la salida alcanzo su fecha limite de inscripción el dia {{FormatFechaMensaje(salida?.fecha_limite)}}
                         </div>
                     </div>
-                    
+
                 </div>
                 <div *ngIf="estado_form_validar==2">
                     <h5 class="color-05 my-3" id="verificar-text">
@@ -234,7 +234,7 @@
                         <p *ngIf="salida?.estado==1" style="color: black; font-size: 12px;">
                             Usted entrara en la lista de cola de esta Salida.
                         </p>
-                        
+
                         <p class="px-3 msg-alerta" *ngIf="msj_alerta_estado">
                             <strong *ngIf="user_sancionado_estado" style="font-weight: bold; font-size: 16px;">
                                 {{nombre_completo_user_ip}} <br>
@@ -271,7 +271,7 @@
                 </div>
             </div>
         </ng-template>
-        
+
     </div>
     </div>
 </div>

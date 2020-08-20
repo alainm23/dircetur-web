@@ -47,7 +47,9 @@ export class RegistroAgenciaComponent implements OnInit {
 
   cambiar_vista (value: number) {
     this.vista += value;
+    window.scroll (0,0);
   }
+
   agregar () {
     const group = new FormGroup ({
       anio_nacimiento: new FormControl ('', [Validators.required]),
@@ -211,13 +213,14 @@ export class RegistroAgenciaComponent implements OnInit {
     });
 
     this.form_08 = new FormGroup ({
-      asociacion_turismo: new FormControl ('', [Validators.required]),
-      clasificacion_calidad: new FormControl ('', [Validators.required]),
-      trans_terres: new FormControl ('', [Validators.required]),
-      trans_acuatico: new FormControl ('', [Validators.required]),
-      trans_arere: new FormControl ('', [Validators.required]),
-      nro_unidades_sericio: new FormControl ('', [Validators.required]),
-      nro_placas_transporte: new FormControl ('', [Validators.required])
+      asociacion_turismo: new FormControl (''),
+      clasificacion_calidad: new FormControl (''),
+      trans_terres: new FormControl (''),
+      trans_acuatico: new FormControl (''),
+      trans_arere: new FormControl (''),
+      nro_unidades_sericio: new FormControl (''),
+      nro_placas_transporte: new FormControl (''),
+      declaraciones_jurada: new FormControl (false, Validators.compose([ Validators.required, Validators.pattern('true')])),
     });
 
     this.agencia_form = new FormGroup ({
@@ -282,7 +285,8 @@ export class RegistroAgenciaComponent implements OnInit {
       fecha_exp: new FormControl (''),
       numero_certificado: new FormControl (''),
 
-      total_personal_calificado: new FormControl ('', [Validators.required])
+      total_personal_calificado: new FormControl ('', [Validators.required]),
+      declaraciones_jurada: new FormControl (false, Validators.compose([ Validators.required, Validators.pattern('true')]))
     });
 
     this.database.getProvincias ().subscribe ((response: any []) => {
@@ -301,7 +305,7 @@ export class RegistroAgenciaComponent implements OnInit {
       this.tipos_turismo = res;
     });
 
-    this.agregar ();
+    // this.agregar ();
   }
 
   equipo_computo_change (event: any) {
@@ -324,9 +328,10 @@ export class RegistroAgenciaComponent implements OnInit {
     }
   }
 
-  submit () {
+  async submit () {
     this.finalizado = true;
-    this.spinner.show ();
+    await this.spinner.show ();
+    window.scroll (0,0);
 
     this.agencia_form.patchValue (this.form_01.value);
     this.agencia_form.patchValue (this.form_02.value);
@@ -351,19 +356,27 @@ export class RegistroAgenciaComponent implements OnInit {
       return x.checked === true;
     });
 
-    console.log (data);
-    setTimeout(() => {
-      this.export_pdf (data);
-    }, 1000);
+    console.log ('data para enviar', data);
+    this.database.addAgencia (data)
+      .then (async () => {
+        console.log ('data enviada');
+        await this.spinner.hide ();
+        this.export_pdf ();
+        this.router.navigate (["/registro-finalizado", data.correo]);
+      }).catch (async (error: any) => {
+        await this.spinner.hide ();
+        this.finalizado = false;
+        console.log ("Error addAgencia", error);
+      });
   }
 
   validar_form () {
     return this.personal.status === 'INVALID';
   }
 
-  export_pdf (data: any) {
+  export_pdf () {
     let options: any = {
-      margin: 0,
+      margin: [2, 1, 2, 1],
       pagebreak: { mode: ['css', 'legacy'] },
       filename: 'Declaracion Jurada.pdf',
       image: { type: 'jpeg' },
@@ -371,41 +384,6 @@ export class RegistroAgenciaComponent implements OnInit {
     };
 
     const content: Element = document.getElementById ('mypdf');
-
-    html2pdf ().from (content).set (options).toPdf ().output ('blob').then ((file: any) => {
-      const filePath = data.id;
-      const fileRef = this.storage.ref ('/extras/' + filePath + '.pdf');
-      const task = this.storage.upload('/extras/' + filePath +'.pdf', file);
-
-      task.snapshotChanges ().pipe (
-        finalize(async () => {
-          let downloadURL = await fileRef.getDownloadURL ().toPromise();
-          console.log ("downloadURL", downloadURL);
-
-          data.declaracion_url = downloadURL;
-
-          this.database.addAgencia (data)
-            .then (() => {
-              console.log ('data enviada');
-
-              this.form_01.reset ();
-              this.form_02.reset ();
-              this.form_03.reset ();
-              this.form_04.reset ();
-              this.form_05.reset ();
-              this.form_06.reset ();
-              this.form_08.reset ();
-
-              this.agencia_form.reset ();
-              this.router.navigate (["/registro-finalizado"]);
-              this.spinner.hide ();
-            }).catch ((error: any) => {
-              this.spinner.hide ();
-              console.log ("Error addAgencia", error);
-            });
-        })
-      )
-      .subscribe ();
-    });
+    html2pdf ().from (content).set (options).save ();
   }
 }

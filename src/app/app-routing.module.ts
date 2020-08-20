@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'registro-alojamiento', component: RegistroAlojamientoComponent, data: {title: "Registro Alojamiento"}},
   { path: 'registro-agencia', component: RegistroAgenciaComponent, data: {title: "Registro Alojamiento"}},
   { path: 'registro-agencia-digital', component: RegistroAgenciaDigitalComponent, data: {title: "Registro Agencia"}},
-  { path: 'registro-finalizado', component: RegistroFinalizadoComponent, data: {title: "Registro Finalizado"}},
+  { path: 'registro-finalizado/:correo', component: RegistroFinalizadoComponent, data: {title: "Registro Finalizado"}},
   { path: 'transparencia-institucional', component: TransparenciainstitucionalComponent, data: {title: "Transparencia Institucional"}},
   { path: 'circuitos-turisticos', component: CircuitosturisticosComponent, data: {title: "Circuitos Turisticos"}},
   { path: 'boleto-turistico', component: BoletoturisticoComponent, data: {title: "Boleto Turistico"}},

@@ -1,14 +1,14 @@
 <ngx-spinner
-  bdOpacity = 0.4
-  bdColor = "#333"
-  size = "medium"
-  color = "#fff"
-  type = "square-spin"
-  [fullScreen] = "true">
-  <p style="color: white" > Verificando... </p>
+    bdOpacity = 0.4
+    bdColor = "#333"
+    size = "medium"
+    color = "#fff"
+    type = "square-spin"
+    [fullScreen] = "true">
+    <p style="color: white" > Verificando... </p>
 </ngx-spinner>
 
-<div class="content">
+<div class="content" id="content" #content>
   <div *ngIf="!finalizado">
     <div [formGroup]="form_01" *ngIf="vista === 1">
       <div class="form-content">
@@ -61,7 +61,7 @@
           <mat-label>Razon Social</mat-label>
           <input matInput type="text" formControlName="representante_razon_social">
         </mat-form-field>
-        
+
         <mat-form-field class="example-full-width">
           <mat-label>N° de RUC</mat-label>
           <input matInput type="text" formControlName="representante_ruc">
@@ -165,12 +165,12 @@
           </div>
         </div>
 
-        <mat-form-field style="margin-bottom: -20px;" class="example-full-width">
+        <mat-form-field class="example-full-width">
           <mat-label>Pagina Web</mat-label>
           <input matInput type="url" formControlName="pagina_web">
         </mat-form-field>
 
-        <p style="line-height: 1;" class="mt-2"><small>* En caso de que se trate de una agencia de viajes y turismo que también ofrezca y comercialice sus servicios a través de canales digitales, debe presitar el tipo de canal digital que ha implementado.</small></p>
+        <p  class="mt-n3"><small>* Precisar el tipo de de canal digital que ha implementado</small></p>
 
         <mat-form-field class="example-full-width">
           <mat-label>Correo Electronico</mat-label>
@@ -278,6 +278,7 @@
         <button class="btn btn-leer-altura" (click)="cambiar_vista (+1)" [disabled]="!form_04.valid" style="cursor: pointer; color: #FFFFFF;">Siguiente</button>
       </div>
     </div>
+
     <div [formGroup]="form_05" *ngIf="vista === 5">
       <div class="form-content">
         <mat-radio-group formControlName="canal_digital" aria-label="Select an option" (change)="change_canales_digitales ($event.value)">
@@ -446,12 +447,12 @@
                 </mat-select>
               </mat-form-field>
 
-              <button (click)="eliminar_personal (i)">Eliminar</button>
+              <button class="btn_iguales_finales" (click)="eliminar_personal (i)">Eliminar</button>
             </ng-container>
             <hr>
           </div>
         </div>
-        <button (click)="agregar ()">Agregar personal</button>
+        <button class="btn_iguales_finales" (click)="agregar ()">Agregar personal</button>
       </div>
 
       <div style="text-align: end; margin-top: 1rem;">
@@ -506,12 +507,26 @@
           <mat-label>Señalar el número de placas</mat-label>
           <input matInput type="text" formControlName="nro_placas_transporte">
         </mat-form-field>
+      </div>
 
-        <div style="text-align: end; margin-top: 1rem;">
-          <button class="btn btn-leer-altura" (click)="cambiar_vista (-1)" style="cursor: pointer; color: #FFFFFF;">Atras</button>
-          &nbsp;
-          <button class="btn btn-leer-altura" [disabled]="!form_08.valid" (click)="submit ()" style="cursor: pointer; color: #FFFFFF;">Enviar</button>
+      <div class="mt-3"><p class="header-title">DECLARACIONES </p></div>
+      <div class="form-content">
+        <div class="row">
+          <div class="col-12">
+            <label class="check-label">
+              <input formControlName="declaraciones_jurada" class="check-check" type="checkbox"/>
+              LA PRESENTE DECLARACIÓN JURADA LA REALIZO SEGÚN LO SEÑALADO EN EL NUMERAL 9.2 DEL ARTICULO 9 DEL REGLAMENTO DE AGENCIAS DE VIAJES Y TURISMO, APROBADO MEDIANTE D.S.005-2020- MINCETUR, MANIFESTANDO QUE LOS DATOS SEÑALADO EXPRESAN LA VERDAD Y QUE CONOZCO LAS SANCIONES ADMINISTRATIVAS Y PENALES A QUE HABRA LUGAR EN CASO DE FALSEDAD.<br><br>
+              *TODOS LOS DATOS CONSIGNADOS, ESTAN SUJETOS A VERTIFICACICÓN Y FISCALIZACIÓN POSTERIOR.
+
+            </label>
+          </div>
         </div>
+      </div>
+
+      <div style="text-align: end; margin-top: 1rem;">
+        <button class="btn btn-leer-altura" (click)="cambiar_vista (-1)" style="cursor: pointer; color: #FFFFFF;">Atras</button>
+        &nbsp;
+        <button class="btn btn-leer-altura" [disabled]="!form_08.valid" (click)="submit ()" style="cursor: pointer; color: #FFFFFF;">Enviar</button>
       </div>
     </div>
 
@@ -527,7 +542,11 @@
     </div>
   </div>
 
+  <!-- <button (click)="export_pdf ()">Descargar</button> -->
+
   <div *ngIf="finalizado" style="margin: 24px;" id="mypdf" #mypdf>
+    <h3 class="text-center">DECLARACION JURADA</h3>
+    <br>
     <form [formGroup]="agencia_form">
       <div class="form-content">
         <mat-radio-group aria-label="Tipo de persona" formControlName="registro_nuevo">
@@ -604,6 +623,9 @@
         </div>
       </div>
       <br>
+
+      <div class="html2pdf__page-break"></div>
+
       <div><p class="header-title">INFORMACIÓN DEL ESTABLECIMIENTO</p></div>
       <div class="form-content">
         <mat-form-field class="example-full-width">
@@ -615,7 +637,7 @@
           <mat-label>Direccion</mat-label>
           <input matInput type="text" formControlName="direccion">
         </mat-form-field>
-        
+
         <div class="row">
           <div class="col-4">
             <mat-form-field class="example-full-width">
@@ -660,7 +682,7 @@
           </div>
         </div>
 
-        <mat-form-field style="margin-bottom: -20px;" class="example-full-width">
+        <mat-form-field class="example-full-width">
           <mat-label>Pagina Web</mat-label>
           <input matInput type="url" formControlName="pagina_web">
         </mat-form-field>
@@ -701,6 +723,9 @@
         </div>
       </div>
       <br>
+
+      <div class="html2pdf__page-break"></div>
+
       <div><p class="header-title">CONDICIONES MINIMAS PARA LA PRESTACION DE SERVICIOS (ANEXO I DEL REGLAMENTO)</p></div>
       <div class="form-content">
         <div><p style="margin-bottom: 0px; opacity: 0.7;">Infraestructura</p></div>
@@ -760,7 +785,10 @@
           <input matInput type="number" formControlName="total_personal_calificado">
         </mat-form-field>
       </div>
+
+      <div *ngIf="agencia_form.value.canal_digital === '1'" class="html2pdf__page-break"></div>
       <br>
+
       <div class="form-content">
         <mat-radio-group formControlName="canal_digital" aria-label="Select an option">
           <mat-radio-button value="0">No comercializo mi servicio en canales digitales</mat-radio-button>
@@ -772,7 +800,7 @@
 
       <ng-container *ngIf="agencia_form.value.canal_digital === '1'">
         <div><p class="header-title">CONDICIONES MINIMAS PARA LA PRESTACION DEL SERVICIO A TRAVÉS DE CANALES DIGITALES (ARTICULO 22 DEL REGLAMENTO) (1)</p></div>
-        <div class="form-content">
+        <div class="form-content" style="font-size: 14px;">
           <mat-form-field class="example-full-width">
             <mat-label>Canales en los cuales opera</mat-label>
             <input matInput type="number" formControlName="canales_opera">
@@ -819,11 +847,6 @@
                 <input formControlName="cond_min_cd_08" class="check-check" type="checkbox"/>
                 Contancia de inscripcion en el Directorio Nacional de Prestadores de Servicios Turisticos Calificados, cuando esta sea expedida.
               </label>
-
-              <label class="check-label">
-                <input formControlName="cond_min_cd_09" class="check-check" type="checkbox"/>
-                Versión digital del afiche u otro documento similar, que contenga informacion respecto de las disposiciones legales que sancionan penalmente las conductas vinculadas a las ESNNA, de acuerdo a lascaracteristicas y contenido establecidos por el MINCETUR, asi como mlas que sancionan el hecho de tener relaciones sexuales con menores de edad, sin perjuicio de otras medidas que puedan adoptar con el mismo fin. <a href="http://">Descargar</a>
-              </label>
             </div>
 
             <div class="col-sm-12 col-md-6">
@@ -841,12 +864,17 @@
                 <input formControlName="cond_min_cd_12" class="check-check" type="checkbox"/>
                 medidas tecnicas de proteccion de los datos personales que son recabados a través del canal digital.
               </label>
+
+              <label class="check-label">
+                <input formControlName="cond_min_cd_09" class="check-check" type="checkbox"/>
+                Versión digital del afiche u otro documento similar, que contenga informacion respecto de las disposiciones legales que sancionan penalmente las conductas vinculadas a las ESNNA, de acuerdo a lascaracteristicas y contenido establecidos por el MINCETUR, asi como mlas que sancionan el hecho de tener relaciones sexuales con menores de edad, sin perjuicio de otras medidas que puedan adoptar con el mismo fin.
+              </label>
             </div>
           </div>
         </div>
       </ng-container>
 
-      <br>
+      <div class="html2pdf__page-break"></div>
 
       <div><p class="header-title">CLASIFICACIÓN</p></div>
       <div class="form-content">
@@ -907,6 +935,8 @@
       </div>
     </form>
     <br>
+    <div class="html2pdf__page-break"></div>
+
     <div><p class="header-title">MODALIDAD DE TURISMO</p></div>
     <div class="form-content">
       <span class="example-list-section">

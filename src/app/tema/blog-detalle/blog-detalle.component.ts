@@ -24,7 +24,7 @@ imagenes: any;
               public route: Router,
               private activatedRoute: ActivatedRoute,
               public utils: UtilsService,
-              private meta: Meta) { 
+              private meta: Meta) {
     //this.set_tags ();
     utils.idioma.subscribe((nextValue) => {
       /* subscribirme */
@@ -38,31 +38,31 @@ imagenes: any;
     /*
     this.meta.addTags([
       {
-        name: 'twitter:card', 
+        name: 'twitter:card',
         content: 'summary_large_image'
       },
       {
-        name: 'twitter:title', 
+        name: 'twitter:title',
         content: 'Sam Vloeberghs - Freelance Webdeveloper &amp; Software Engineer'
       },
       {
-        name: 'twitter:description', 
+        name: 'twitter:description',
         content: 'Hi there! 👋 Thank you for visiting my website!'
       },
       {
-        name: 'twitter:image', 
+        name: 'twitter:image',
         content: 'https://samvloeberghs.be/assets/share/home.png'
       },
       {
-        name: 'twitter:image:alt', 
+        name: 'twitter:image:alt',
         content: 'Sam Vloeberghs - Freelance Webdeveloper &amp; Software Engineer'
       },
       {
-        name: 'twitter:site', 
+        name: 'twitter:site',
         content: '@samvloeberghs'
       },
       {
-        name: 'twitter:creator', 
+        name: 'twitter:creator',
         content: 'Angular, Meta Service'
       }
     ]);
@@ -88,7 +88,7 @@ imagenes: any;
 
 /* Capturamos el id */
     this.activatedRoute.params.subscribe( params =>{
-      this.db.getBlogByKey(params['id']).subscribe( data => 
+      this.db.getBlogByKey(params['id']).subscribe( data =>
         {
           this.detalle=data;
           console.log('Este es el detalle:',this.detalle);
@@ -106,9 +106,9 @@ imagenes: any;
     {
       return dato [campo+'es'];
     }
-    
+
     return dato [campo + this.utils.ElIdioma];
-  
+
   }
 
   ngOnDestroy(){
