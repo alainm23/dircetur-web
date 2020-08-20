@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {TooltipPosition} from '@angular/material/tooltip';
 
 // Services
 import { Router } from '@angular/router';
@@ -21,4 +23,7 @@ export class PopupRegistroComponent implements OnInit {
   page (page: string) {
     this.route.navigate (["/" + page]);
   }
+
+  positionOptions: TooltipPosition[] = ['below', 'above', 'left', 'right'];
+  position = new FormControl(this.positionOptions[0]);
 }
