@@ -22,13 +22,13 @@
 
       <div class="form-content" *ngIf="form_01.value.registro_nuevo === '1'">
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-6">
             <mat-form-field class="example-full-width">
               <mat-label>Fecha de Expedicion</mat-label>
               <input matInput type="date" formControlName="fecha_exp">
             </mat-form-field>
           </div>
-          <div class="col-6">
+          <div class="col-sm-6">
             <mat-form-field class="example-full-width">
               <mat-label>N° de Licencia de Funcionamiento</mat-label>
               <input matInput type="text" formControlName="numero_certificado">
@@ -52,14 +52,14 @@
         </mat-form-field>
 
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-6">
             <mat-form-field class="example-full-width">
               <mat-label>Nombre Comercial</mat-label>
               <input matInput type="text" formControlName="nombre_comercial">
             </mat-form-field>
           </div>
 
-          <div class="col-6">
+          <div class="col-sm-6">
             <mat-form-field class="example-full-width">
               <mat-label>N° de RUC</mat-label>
               <input matInput type="text" formControlName="ruc">
@@ -73,14 +73,14 @@
         </mat-form-field>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Region</mat-label>
               <input matInput type="text" value="Cusco" [disabled]="true">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Provincia</mat-label>
               <mat-select formControlName="provincia" (selectionChange)="provinciaChanged ($event.value)">
@@ -91,7 +91,7 @@
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Distrito</mat-label>
               <mat-select formControlName="distrito">
@@ -104,21 +104,21 @@
         </div>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Pagina Web</mat-label>
               <input matInput type="text" formControlName="pagina_web">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Email</mat-label>
               <input matInput type="text" formControlName="correo">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Telefono</mat-label>
               <input matInput type="text" formControlName="telefono">
@@ -127,14 +127,14 @@
         </div>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Representante Legal</mat-label>
               <input matInput type="text" formControlName="representante_nombre">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Doc. Identidad</mat-label>
               <mat-select formControlName="representante_tdoc">
@@ -144,7 +144,7 @@
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>N° Doc. Identidad</mat-label>
               <input matInput type="text" formControlName="representante_ndoc">
@@ -153,21 +153,21 @@
         </div>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Fecha inicio de operaciones</mat-label>
               <input matInput type="date" formControlName="fecha_ins">
             </mat-form-field>
           </div>
 
-          <div class="col-4" *ngIf="form_01.value.registro_nuevo === '0'">
+          <div class="col-sm-4" *ngIf="form_01.value.registro_nuevo === '0'">
             <mat-form-field class="example-full-width">
               <mat-label>N° Licencia de Funcionamiento</mat-label>
               <input matInput type="text" formControlName="numero_certificado">
             </mat-form-field>
           </div>
 
-          <div class="col-4" *ngIf="form_01.value.registro_nuevo === '0'">
+          <div class="col-sm-4" *ngIf="form_01.value.registro_nuevo === '0'">
             <mat-form-field class="example-full-width">
               <mat-label>Fecha de expedicion</mat-label>
               <input matInput type="date" formControlName="fecha_exp">
@@ -188,21 +188,21 @@
       <div class="form-content" style="font-size: 14px;">
         <div><p style="margin-bottom: 0px; opacity: 0.7;">A. REQUISITOS MINIMOS DE INFRAESTRUCTURA</p></div>
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>N° de Habitaciones (minimo 6)</mat-label>
               <input matInput type="number" formControlName="numero_habitaciones">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Ingreso diferenciado para huespedes y personal de servicio</mat-label>
               <input matInput type="number" formControlName="ingreso_diferenciado">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>N° de Pisos</mat-label>
               <input matInput type="number" formControlName="numero_pisos">
@@ -211,28 +211,28 @@
         </div>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Numero de personal ocupado</mat-label>
               <input matInput type="number" formControlName="numero_personal">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Numero de camas</mat-label>
               <input matInput type="number" formControlName="numero_camas">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Numero de baños privados</mat-label>
               <input matInput type="number" formControlName="nro_banios_privados">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Numero de baños comunes</mat-label>
               <input matInput type="number" formControlName="nro_banios_comunes">
@@ -242,7 +242,7 @@
 
         <div><p style="margin-bottom: 0px; opacity: 0.7;">EL ESTABLECIMIENTO CUENTA CON:</p></div>
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-sm-6">
             <label class="check-label">
               <input formControlName="req_min_inf_01" class="check-check" type="checkbox"/>
               Area de recepcion y consejeria
@@ -292,7 +292,7 @@
         </div>
 
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-sm-6">
             <div><p style="margin-bottom: 0px; opacity: 0.7;">B. REQUISITOS MINIMOS DE EQUIPAMIENTO</p></div>
             <label class="check-label">
               <input formControlName="req_min_eqp_01" class="check-check" type="checkbox"/>
@@ -340,7 +340,7 @@
       <div><p class="header-title">PERSONAL DE TRABAJO</p></div>
       <div class="form-content">
         <div class="row">
-          <div class="col-4" *ngFor="let personal of personal.controls; index as i">
+          <div class="col-sm-4" *ngFor="let personal of personal.controls; index as i">
             <ng-container [formGroup]="personal">
               <mat-form-field class="example-full-width">
                 <mat-label>Año de nacimiento</mat-label>
@@ -407,7 +407,7 @@
 
   <!-- <button (click)="export_pdf ()">Descargar</button> -->
 
-  <div style="margin: 24px;" id="mypdf" #mypdf>
+  <div id="mypdf" #mypdf>
     <H3 class="text-center">DECLARACION JURADA</H3>
     <br>
     <form [formGroup]="hospedaje_form">
@@ -441,14 +441,14 @@
         </mat-form-field>
 
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-6">
             <mat-form-field class="example-full-width">
               <mat-label>Nombre Comercial</mat-label>
               <input matInput type="text" formControlName="nombre_comercial">
             </mat-form-field>
           </div>
 
-          <div class="col-6">
+          <div class="col-sm-6">
             <mat-form-field class="example-full-width">
               <mat-label>N° de RUC</mat-label>
               <input matInput type="text" formControlName="ruc">
@@ -462,14 +462,14 @@
         </mat-form-field>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Region</mat-label>
               <input matInput type="text" value="Cusco" [disabled]="true">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Provincia</mat-label>
               <mat-select formControlName="provincia" (selectionChange)="provinciaChanged ($event.value)">
@@ -480,7 +480,7 @@
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Distrito</mat-label>
               <mat-select formControlName="distrito">
@@ -493,21 +493,21 @@
         </div>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Pagina Web</mat-label>
               <input matInput type="text" formControlName="pagina_web">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Email</mat-label>
               <input matInput type="text" formControlName="correo">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Telefono</mat-label>
               <input matInput type="text" formControlName="telefono">
@@ -516,14 +516,14 @@
         </div>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Representante Legal</mat-label>
               <input matInput type="text" formControlName="representante_nombre">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Doc. Identidad</mat-label>
               <mat-select formControlName="representante_tdoc">
@@ -533,7 +533,7 @@
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>N° Doc. Identidad</mat-label>
               <input matInput type="text" formControlName="representante_ndoc">
@@ -542,21 +542,21 @@
         </div>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Fecha inicio de operaciones</mat-label>
               <input matInput type="date" formControlName="fecha_ins">
             </mat-form-field>
           </div>
 
-          <div class="col-4" *ngIf="hospedaje_form.value.registro_nuevo === '0'">
+          <div class="col-sm-4" *ngIf="hospedaje_form.value.registro_nuevo === '0'">
             <mat-form-field class="example-full-width">
               <mat-label>N° Licencia de Funcionamiento</mat-label>
               <input matInput type="text" formControlName="numero_certificado">
             </mat-form-field>
           </div>
 
-          <div class="col-4" *ngIf="hospedaje_form.value.registro_nuevo === '0'">
+          <div class="col-sm-4" *ngIf="hospedaje_form.value.registro_nuevo === '0'">
             <mat-form-field class="example-full-width">
               <mat-label>Fecha de expedicion</mat-label>
               <input matInput type="date" formControlName="fecha_exp">
@@ -571,21 +571,21 @@
       <div class="form-content" style="font-size: 14px;">
         <div><p style="margin-bottom: 0px; opacity: 0.7;">A. REQUISITOS MINIMOS DE INFRAESTRUCTURA</p></div>
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>N° de Habitaciones (minimo 6)</mat-label>
               <input matInput type="number" formControlName="numero_habitaciones">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Ingreso diferenciado para huespedes y personal de servicio</mat-label>
               <input matInput type="number" formControlName="ingreso_diferenciado">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>N° de Pisos</mat-label>
               <input matInput type="number" formControlName="numero_pisos">
@@ -594,28 +594,28 @@
         </div>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Numero de personal ocupado</mat-label>
               <input matInput type="number" formControlName="numero_personal">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Numero de camas</mat-label>
               <input matInput type="number" formControlName="numero_camas">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Numero de baños privados</mat-label>
               <input matInput type="number" formControlName="nro_banios_privados">
             </mat-form-field>
           </div>
 
-          <div class="col-4">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Numero de baños comunes</mat-label>
               <input matInput type="number" formControlName="nro_banios_comunes">
@@ -625,7 +625,7 @@
 
         <div><p style="margin-bottom: 0px; opacity: 0.7;">EL ESTABLECIMIENTO CUENTA CON:</p></div>
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-6">
             <label class="check-label">
               <input formControlName="req_min_inf_01" class="check-check" type="checkbox"/>
               Area de recepcion y consejeria
@@ -656,7 +656,7 @@
               La edificacion guarda armonía con el entorno en el que se ubica.
             </label>
           </div>
-          <div class="col-6">
+          <div class="col-sm-6">
             <label class="check-label">
               <input formControlName="req_min_inf_08" class="check-check" type="checkbox"/>
               Accesibilidad para personas con dicapacidad y de las personas adultas mayores, según norma A.120.
@@ -675,7 +675,7 @@
         </div>
 
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-6">
             <div><p style="margin-bottom: 0px; opacity: 0.7;">B. REQUISITOS MINIMOS DE EQUIPAMIENTO</p></div>
             <label class="check-label">
               <input formControlName="req_min_eqp_01" class="check-check" type="checkbox"/>
@@ -692,7 +692,7 @@
               Cuento con sistema que permita tener agua fria y caliente y las 24 horas del dia el cual no es activado por el huésped.
             </label>
           </div>
-          <div class="col-6">
+          <div class="col-sm-6">
             <div><p style="margin-bottom: 0px; opacity: 0.7;">C. REQUISITOS MINIMOS DE SERVICIO</p></div>
             <label class="check-label">
               <input formControlName="req_min_srv_01" class="check-check" type="checkbox"/>
