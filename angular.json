@@ -37,6 +37,7 @@
               "src/assets/js/flickity.min.js",
               "src/assets/js/amazingslider.js",
               "src/assets/js/propio.js"
+
             ]
           },
           "configurations": {

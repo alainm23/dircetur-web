@@ -15,7 +15,7 @@ export const environment = {
     authDomain: "dirceturcuscoapp.firebaseapp.com",
     databaseURL: "https://dirceturcuscoapp.firebaseio.com",
     projectId: "dirceturcuscoapp",
-    storageBucket: "",
+    storageBucket: "dirceturcuscoapp.appspot.com",
     messagingSenderId: "22208929829",
     appId: "1:22208929829:web:6458a99980863c7b8c9fcc",
     measurementId: "G-C697355QSN"
