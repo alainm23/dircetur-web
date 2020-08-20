@@ -19,7 +19,7 @@
 </ngx-spinner>
 
 <div class="content">
-  <div *ngIf="!finalizado">
+  <div>
     <div [formGroup]="form_01" *ngIf="vista === 1">
       <div><p class="header-title">INFORMACIÓN DE LA PERSONA TITULAR</p></div>
       <div class="form-content">
@@ -436,7 +436,7 @@
 
   <!-- <button (click)="export_pdf ()">Descargar</button> -->
 
-  <div *ngIf="finalizado" style="margin: 24px;" id="mypdf" #mypdf>
+  <div style="margin: 24px;" id="mypdf" #mypdf>
     <h3 class="text-center">DECLARACION JURADA</h3>
     <br>
 
