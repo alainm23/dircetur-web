@@ -61,7 +61,7 @@
           <mat-label>Razon Social</mat-label>
           <input matInput type="text" formControlName="representante_razon_social">
         </mat-form-field>
-
+        
         <mat-form-field class="example-full-width">
           <mat-label>N° de RUC</mat-label>
           <input matInput type="text" formControlName="representante_ruc">
@@ -276,7 +276,6 @@
         <button class="btn btn-leer-altura" (click)="cambiar_vista (+1)" [disabled]="!form_04.valid" style="cursor: pointer; color: #FFFFFF;">Siguiente</button>
       </div>
     </div>
-
     <div [formGroup]="form_05" *ngIf="vista === 5">
       <div class="form-content">
         <mat-radio-group formControlName="canal_digital" aria-label="Select an option" (change)="change_canales_digitales ($event.value)">
@@ -614,7 +613,7 @@
           <mat-label>Direccion</mat-label>
           <input matInput type="text" formControlName="direccion">
         </mat-form-field>
-
+        
         <div class="row">
           <div class="col-4">
             <mat-form-field class="example-full-width">

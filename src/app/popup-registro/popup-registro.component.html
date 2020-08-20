@@ -15,33 +15,33 @@
     </div>
 
     <div style="padding: 4% 6% 0% 6%;">
-      <p class="pr-lg-5">PARA LA ACTUALIZACIÓN E INSCRIPCIÓN DE ESTABLECIMIENTOS DE HOSPEDAJE Y AGENCIAS DE VIAJES EN EL DIRECTORIO DE PRESTADORES DE SERVICIOS TURÍSTICOS.</p>
+      <p class="pr-lg-5">Para la actualización e inscripción de establecimientos de hospedaje y agencias de viajes en el directorio de presentadores de servicios turísticos.</p>
       <p class="div-botones"><b>Seleccione que tipo de prestador de servicios turisticos es:</b></p>
     </div>
 
     <div class="row m-0 css">
       <div class="col-sm-4 col-md-6 col-lg-4 text-left d-block d-md-none d-lg-block" style="margin-bottom: 10px;">
-        <button class="btn btn-leer-altura text-wrap" mat-button [mat-dialog-close]="true" (click)="page ('registro-agencia')">
-          AGENCIA DE VIAJES Y TURISMO FÍSICA
-          <small>(CON LICENCIA DE FUNCIONAMIENTO)</small>
+        <button class="btn btn-leer-altura text-wrap"  [mat-dialog-close]="true" (click)="page ('registro-agencia')" #tooltip="matTooltip"
+        matTooltip="AGENCIA DE VIAJES Y TURISMO FÍSICA (CON LICENCIA DE FUNCIONAMIENTO)">
+          AGENCIA DE VIAJES Y TURISMO FÍSICA<br><small>(CON LICENCIA DE FUNCIONAMIENTO)</small>
         </button>
       </div>
 
       <div class="col-sm-4 col-md-6 col-lg-4 text-left d-block d-md-none d-lg-block" style="margin-bottom: 10px;">
-        <button class="btn btn-leer-altura text-wrap" [mat-dialog-close]="true" (click)="page ('registro-agencia-digital')">
+        <button class="btn btn-leer-altura text-wrap"  [mat-dialog-close]="true" (click)="page ('registro-agencia-digital')">
           AGENCIA DE VIAJES Y TURISMO VIRTUAL
         </button>
       </div>
 
       <div class="col-sm-4 col-md-6 col-lg-4 text-left d-block d-md-none d-lg-block" style="margin-bottom: 10px;">
-        <button class="btn btn-leer-altura text-wrap" mat-button [mat-dialog-close]="true" (click)="page ('registro-alojamiento')">
+        <button class="btn btn-leer-altura text-wrap"  [mat-dialog-close]="true" (click)="page ('registro-alojamiento')">
           ESTABLECIMIENTO DE HOSPEDAJE
         </button>
       </div>
     </div>
 
     <div style="padding: 0% 6% 6% 6%;">
-      <small>* Tramite no valido para categorización de establecimientos de hospedaje, ni modalidades de turismo de aventura y canotaje</small>
+      <p style="line-height: 1;"><small>* Tramite no valido para categorización de establecimientos de hospedaje, ni modalidades de turismo de aventura y canotaje</small></p>
     </div>
   </div>
 

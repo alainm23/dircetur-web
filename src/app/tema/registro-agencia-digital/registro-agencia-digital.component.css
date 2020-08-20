@@ -61,4 +61,13 @@ mat-checkbox-layout {
 .check-check {
   margin-top: 5px; margin-right: 6px;
 }
-
+.btn_iguales_finales
+{
+  background-color: #FF4081;
+  border: 0px;
+  color: #ffff;
+  border-radius: 15px;
+  min-width: 140px;
+  height: 41px;
+  font-size: 13px;
+}

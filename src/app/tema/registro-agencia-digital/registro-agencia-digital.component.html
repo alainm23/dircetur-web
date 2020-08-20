@@ -108,17 +108,27 @@
         </div>
       </div>
 
-      <mat-form-field class="example-full-width">
-        <mat-label>Teléfono celular</mat-label>
-        <input matInput type="tel" formControlName="telefono">
-      </mat-form-field>
+      <div class="row m-0">
+        <div class="col-6 pl-0">
+          <mat-form-field class="example-full-width">
+            <mat-label>Teléfono celular</mat-label>
+            <input matInput type="tel" formControlName="telefono">
+          </mat-form-field>
+        </div>
+        <div class="col-6 pr-0">
+          <mat-form-field class="example-full-width">
+            <mat-label>Teléfono fijo</mat-label>
+            <input matInput type="tel" formControlName="telefono">
+          </mat-form-field>
+        </div>
+      </div>
 
       <mat-form-field class="example-full-width">
         <mat-label>Pagina Web</mat-label>
         <input matInput type="url" formControlName="pagina_web">
       </mat-form-field>
 
-      <small>* Precisar el tipo de de canal digital que ha implementado</small>
+      <p  class="mt-n3"><small>* Precisar el tipo de de canal digital que ha implementado</small></p>
 
       <mat-form-field class="example-full-width">
         <mat-label>Correo Electronico</mat-label>
@@ -198,8 +208,9 @@
 
           <label class="check-label">
             <input formControlName="cond_min_cd_09" class="check-check" type="checkbox"/>
-            Versión digital del afiche u otro documento similar, que contenga informacion respecto de las disposiciones legales que sancionan penalmente las conductas vinculadas a las ESNNA, de acuerdo a lascaracteristicas y contenido establecidos por el MINCETUR, asi como mlas que sancionan el hecho de tener relaciones sexuales con menores de edad, sin perjuicio de otras medidas que puedan adoptar con el mismo fin. <a href="http://">Descargar</a>
+            Versión digital del afiche u otro documento similar, que contenga informacion respecto de las disposiciones legales que sancionan penalmente las conductas vinculadas a las ESNNA, de acuerdo a lascaracteristicas y contenido establecidos por el MINCETUR, asi como mlas que sancionan el hecho de tener relaciones sexuales con menores de edad, sin perjuicio de otras medidas que puedan adoptar con el mismo fin. 
           </label>
+          <p style="margin-left: 20px;"><a href="http://">Descargar PDF</a></p>
         </div>
 
         <div class="col-sm-12 col-md-6">
@@ -249,21 +260,21 @@
 
       <div>En caso brinde el servicio de transporte turistico con unidades propias:</div>
       <div class="row">
-        <div class="col-4">
+        <div class="col-3">
           <label class="check-label">
             <input formControlName="trans_terres" class="check-check" type="checkbox"/>
             Transporte turístico terrestre
           </label>
         </div>
 
-        <div class="col-4">
+        <div class="col-3">
           <label class="check-label">
             <input formControlName="trans_acuatico" class="check-check" type="checkbox"/>
             Transporte turistico actuático
           </label>
         </div>
 
-        <div class="col-4">
+        <div class="col-6">
           <label class="check-label">
             <input formControlName="trans_arere" class="check-check" type="checkbox"/>
             Transporte aéreo especial en actividades de turismo
@@ -337,12 +348,25 @@
             </mat-select>
           </mat-form-field>
 
-          <button (click)="eliminar_personal (i)">Eliminar</button>
+          <button class="btn_iguales_finales" (click)="eliminar_personal (i)">Eliminar</button>
         </ng-container>
         <hr>
       </div>
     </div>
-    <button (click)="agregar ()">Agregar personal</button>
+    <button class="btn_iguales_finales" (click)="agregar ()">Agregar personal</button>
+  </div>
+  <div class="mt-3"><p class="header-title">DECLARACIONES </p></div>
+  <div class="form-content">
+    <div class="row">
+      <div class="col-12">
+        <label class="check-label">
+          <input formControlName="trans_terres" class="check-check" type="checkbox"/>
+          LA PRESENTE DECLARACIÓN JURADA LA REALIZO SEGÚN LO SEÑALADO EN EL NUMERAL 9.2 DEL ARTICULO 9 DEL REGLAMENTO DE AGENCIAS DE VIAJES Y TURISMO, APROBADO MEDIANTE D.S.005-2020- MINCETUR, MANIFESTANDO QUE LOS DATOS SEÑALADO EXPRESAN LA VERDAD Y QUE CONOZCO LAS SANCIONES ADMINISTRATIVAS Y PENALES A QUE HABRA LUGAR EN CASO DE FALSEDAD.<br><br> 
+          *TODOS LOS DATOS CONSIGNADOS, ESTAN SUJETOS A VERTIFICACICÓN Y FISCALIZACIÓN POSTERIOR.
+
+        </label>
+      </div>
+    </div>
   </div>
   <br>
   <div style="text-align: end;">
