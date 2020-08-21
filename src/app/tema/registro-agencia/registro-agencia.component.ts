@@ -359,7 +359,6 @@ export class RegistroAgenciaComponent implements OnInit {
     console.log ('data para enviar', data);
     this.database.addAgencia (data)
       .then (async () => {
-        console.log ('data enviada');
         await this.spinner.hide ();
         this.export_pdf ();
         this.router.navigate (["/registro-finalizado", data.correo]);
