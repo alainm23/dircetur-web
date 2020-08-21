@@ -104,7 +104,7 @@
   }
   @media (min-width: 1200px){
     #fondo-rojo-home{
-      padding-bottom: 40%;
+      padding-bottom: 30%;
       padding-left: 95px;
       padding-right: 95px;
       padding-top: 31.1%;
@@ -112,7 +112,7 @@
   }
   @media (min-width: 1300px){
     #fondo-rojo-home{
-      padding-bottom: 40.5%;
+      padding-bottom: 30%;
       padding-top: 22%;
       margin-top: -5px;
     }  

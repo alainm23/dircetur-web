@@ -20,7 +20,7 @@
 }
 .secc_bajar_finalizar
 {
-    margin-top: 140px;
+    margin-top: 94px;
 }
 p
 {
@@ -39,6 +39,17 @@ p
     background-color: #ffffff;
     border-color: #3E729A;
     color: #3E729A;
+}
+.titulo-turismo-detalle
+{
+    font-size: 30px;
+}
+@media (min-width: 640px)
+{
+    .titulo-turismo-detalle
+    {
+        font-size: 40px;
+    }
 }
 @media (min-width: 1024px)
 {
