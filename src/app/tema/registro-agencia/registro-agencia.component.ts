@@ -168,7 +168,7 @@ export class RegistroAgenciaComponent implements OnInit {
       provincia: new FormControl ('', [Validators.required]),
       distrito: new FormControl ('', [Validators.required]),
       telefono: new FormControl ('', [Validators.required]),
-      telefono_fijo: new FormControl ('', [Validators.required]),
+      telefono_fijo: new FormControl (''),
       pagina_web: new FormControl ('', [Validators.required]),
       correo: new FormControl ('', [Validators.required]),
       cuentas_redes_sociales: new FormControl ('', [Validators.required]),
@@ -232,7 +232,7 @@ export class RegistroAgenciaComponent implements OnInit {
       nombre_comercial: new FormControl ('', [Validators.required]),
       direccion: new FormControl ('', [Validators.required]),
       telefono: new FormControl ('', [Validators.required]),
-      telefono_fijo: new FormControl ('', [Validators.required]),
+      telefono_fijo: new FormControl (''),
       pagina_web: new FormControl ('', [Validators.required]),
       correo: new FormControl ('', [Validators.required]),
       cuentas_redes_sociales: new FormControl ('', [Validators.required]),
@@ -308,7 +308,7 @@ export class RegistroAgenciaComponent implements OnInit {
     // this.agregar ();
   }
 
-  equipo_computo_change (event: any) {
+  equipo_computo_change () {
     if (this.form_04.value.cond_min_ps_04) {
       this.form_04.controls ['cantidad_equipos_computo'].setValidators ([Validators.required]);
     } else {

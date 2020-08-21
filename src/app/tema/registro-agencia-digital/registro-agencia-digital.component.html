@@ -19,7 +19,7 @@
 </ngx-spinner>
 
 <div class="content">
-  <div>
+  <div *ngIf="!finalizado">
     <div [formGroup]="form_01" *ngIf="vista === 1">
       <div><p class="header-title">INFORMACIÓN DE LA PERSONA TITULAR</p></div>
       <div class="form-content">
@@ -87,13 +87,6 @@
           <mat-label>Nombre Comercial</mat-label>
           <input matInput type="text" formControlName="nombre_comercial">
         </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <mat-label>Direccion</mat-label>
-          <input matInput type="text" formControlName="direccion">
-        </mat-form-field>
-
-
 
         <div class="row">
           <div class="col-sm-4">
@@ -166,13 +159,6 @@
               <input matInput type="date" formControlName="fecha_ins">
             </mat-form-field>
           </div>
-
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Fecha de Expedicion</mat-label>
-              <input matInput type="date" formControlName="fecha_exp">
-            </mat-form-field>
-          </div>
         </div>
       </div>
       <div style="text-align: end; margin-top: 1rem;">
@@ -235,7 +221,7 @@
 
               <label class="check-label">
                 <input formControlName="cond_min_cd_09" class="check-check" type="checkbox"/>
-                Versión digital del afiche u otro documento similar, que contenga informacion respecto de las disposiciones legales que sancionan penalmente las conductas vinculadas a las ESNNA, de acuerdo a lascaracteristicas y contenido establecidos por el MINCETUR, asi como mlas que sancionan el hecho de tener relaciones sexuales con menores de edad, sin perjuicio de otras medidas que puedan adoptar con el mismo fin. <a href="http://">Descargar</a>
+                Versión digital del afiche u otro documento similar, que contenga informacion respecto de las disposiciones legales que sancionan penalmente las conductas vinculadas a las ESNNA, de acuerdo a lascaracteristicas y contenido establecidos por el MINCETUR, asi como mlas que sancionan el hecho de tener relaciones sexuales con menores de edad, sin perjuicio de otras medidas que puedan adoptar con el mismo fin.
               </label>
             </div>
 
@@ -436,7 +422,7 @@
 
   <!-- <button (click)="export_pdf ()">Descargar</button> -->
 
-  <div id="mypdf" #mypdf>
+  <div *ngIf="finalizado" id="mypdf" #mypdf>
     <h3 class="text-center">DECLARACION JURADA</h3>
     <br>
 
@@ -500,11 +486,6 @@
         <mat-form-field class="example-full-width">
           <mat-label>Nombre Comercial</mat-label>
           <input matInput type="text" formControlName="nombre_comercial">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <mat-label>Direccion</mat-label>
-          <input matInput type="text" formControlName="direccion">
         </mat-form-field>
 
         <div class="row">
@@ -575,13 +556,6 @@
             <mat-form-field class="example-full-width">
               <mat-label>Fecha de Inicio de Operaciones</mat-label>
               <input matInput type="date" formControlName="fecha_ins">
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Fecha de Expedicion</mat-label>
-              <input matInput type="date" formControlName="fecha_exp">
             </mat-form-field>
           </div>
         </div>

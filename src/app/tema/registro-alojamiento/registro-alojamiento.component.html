@@ -9,7 +9,7 @@
 </ngx-spinner>
 
 <div class="content">
-  <div>
+  <div *ngIf="!finalizado">
     <div [formGroup]="form_01" *ngIf="vista === 1">
       <div class="form-content">
         <mat-radio-group aria-label="Tipo de persona" formControlName="registro_nuevo" (change)="change_tipo_registro ($event.value)">
@@ -407,7 +407,7 @@
 
   <!-- <button (click)="export_pdf ()">Descargar</button> -->
 
-  <div id="mypdf" #mypdf>
+  <div *ngIf="finalizado" id="mypdf" #mypdf>
     <H3 class="text-center">DECLARACION JURADA</H3>
     <br>
     <form [formGroup]="hospedaje_form">

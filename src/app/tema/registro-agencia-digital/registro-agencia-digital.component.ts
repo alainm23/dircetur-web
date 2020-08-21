@@ -91,16 +91,14 @@ export class RegistroAgenciaDigitalComponent implements OnInit {
 
     this.form_02 = new FormGroup ({
       nombre_comercial: new FormControl ('', [Validators.required]),
-      direccion: new FormControl ('', [Validators.required]),
       provincia: new FormControl ('', [Validators.required]),
       distrito: new FormControl ('', [Validators.required]),
       telefono: new FormControl ('', [Validators.required]),
-      telefono_fijo: new FormControl ('', [Validators.required]),
+      telefono_fijo: new FormControl (''),
       pagina_web: new FormControl ('', [Validators.required]),
       correo: new FormControl ('', [Validators.required]),
       cuentas_redes_sociales: new FormControl ('', [Validators.required]),
-      fecha_ins: new FormControl ('', [Validators.required]),
-      fecha_exp: new FormControl ('', [Validators.required]),
+      fecha_ins: new FormControl ('', [Validators.required])
     });
 
     this.form_03 = new FormGroup ({
@@ -142,9 +140,8 @@ export class RegistroAgenciaDigitalComponent implements OnInit {
       canal_digital: new FormControl ('0'),
       ruc: new FormControl (''),
       nombre_comercial: new FormControl ('', [Validators.required]),
-      direccion: new FormControl ('', [Validators.required]),
       telefono: new FormControl ('', [Validators.required]),
-      telefono_fijo: new FormControl ('', [Validators.required]),
+      telefono_fijo: new FormControl (''),
       pagina_web: new FormControl ('', [Validators.required]),
       correo: new FormControl ('', [Validators.required]),
       cuentas_redes_sociales: new FormControl ('', [Validators.required]),
@@ -194,7 +191,6 @@ export class RegistroAgenciaDigitalComponent implements OnInit {
       nro_placas_transporte: new FormControl (''),
 
       fecha_ins: new FormControl (''),
-      fecha_exp: new FormControl (''),
       numero_certificado: new FormControl (''),
 
       total_personal_calificado: new FormControl ('', [Validators.required]),
@@ -255,7 +251,6 @@ export class RegistroAgenciaDigitalComponent implements OnInit {
     let data: any = this.agencia_form.value;
     data.id = this.database.createId ();
     data.aprobado = false;
-    data.fecha_exp = new Date (data.fecha_exp).toISOString ();
     data.fecha_ins = new Date (data.fecha_ins).toISOString ();
     data.fecha_solicitud = new Date ().toISOString ();
     data.personal = this.personal.value;

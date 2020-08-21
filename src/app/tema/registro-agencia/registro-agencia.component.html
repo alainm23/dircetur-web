@@ -9,7 +9,7 @@
 </ngx-spinner>
 
 <div class="content" id="content" #content>
-  <div>
+  <div *ngIf="!finalizado">
     <div [formGroup]="form_01" *ngIf="vista === 1">
       <div class="form-content">
         <mat-radio-group aria-label="Tipo de persona" formControlName="registro_nuevo" (change)="change_tipo_registro ($event.value)">
@@ -173,7 +173,7 @@
         <p  class="mt-n3"><small>* Precisar el tipo de de canal digital que ha implementado</small></p>
 
         <mat-form-field class="example-full-width">
-          <mat-label>Correo Electronico</mat-label>
+          <mat-label>Correo electronico</mat-label>
           <input matInput type="email" formControlName="correo">
         </mat-form-field>
 
@@ -544,7 +544,7 @@
 
   <!-- <button (click)="export_pdf ()">Descargar</button> -->
 
-  <div id="mypdf" #mypdf>
+  <div *ngIf="finalizado" id="mypdf" #mypdf>
     <h3 class="text-center">DECLARACION JURADA</h3>
     <br>
     <form [formGroup]="agencia_form">
@@ -974,6 +974,21 @@
           </li>
         </ul>
       </span>
+    </div>
+    <br>
+    <div class="html2pdf__page-break"></div>
+    <div class="mt-3"><p class="header-title">DECLARACIONES </p></div>
+    <div class="form-content" [formGroup]="agencia_form">
+      <div class="row">
+        <div class="col-12">
+          <label class="check-label">
+            <input formControlName="declaraciones_jurada" class="check-check" type="checkbox"/>
+            LA PRESENTE DECLARACIÓN JURADA LA REALIZO SEGÚN LO SEÑALADO EN EL NUMERAL 9.2 DEL ARTICULO 9 DEL REGLAMENTO DE AGENCIAS DE VIAJES Y TURISMO, APROBADO MEDIANTE D.S.005-2020- MINCETUR, MANIFESTANDO QUE LOS DATOS SEÑALADO EXPRESAN LA VERDAD Y QUE CONOZCO LAS SANCIONES ADMINISTRATIVAS Y PENALES A QUE HABRA LUGAR EN CASO DE FALSEDAD.<br><br>
+            *TODOS LOS DATOS CONSIGNADOS, ESTAN SUJETOS A VERTIFICACICÓN Y FISCALIZACIÓN POSTERIOR.
+
+          </label>
+        </div>
+      </div>
     </div>
   </div>
 </div>
