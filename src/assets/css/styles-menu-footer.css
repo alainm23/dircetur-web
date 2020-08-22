@@ -141,12 +141,12 @@
 }
 @media(min-width: 1200px){
 	#largo-buscador{
-		width: 75%;
+		width: 95%;
 	}
 }
 @media(min-width: 1300px){
 	#largo-buscador{
-		width: 73%;
+		width: 85%;
 	}
 }
 @media(min-width: 1920px){
@@ -168,6 +168,11 @@
   }
 }
 @media (min-width: 1200px){
+  .dercha-list-menu{
+	margin-left: 0px;
+  }
+}
+@media (min-width: 1300px){
   .dercha-list-menu{
 	margin-left: 30px;
   }
@@ -771,7 +776,7 @@
     -webkit-transition: -webkit-transform 0.35s;
     transition: transform 0.35s;
     -webkit-transform: translate3d(0,100%,0);
-    transform: translate3d(0,178%,0);
+    transform: translate3d(0,200%,0);
 }
 @media (min-width: 375px){
    .animacion-linea{
@@ -795,27 +800,27 @@
 }
 @media (min-width: 768px){
    .animacion-linea{
-    transform: translate3d(0,118%,0);
+    transform: translate3d(0,170%,0);
    } 
 }
 @media (min-width: 812px){
    .animacion-linea{
-    transform: translate3d(0,145%,0);
+    transform: translate3d(0,180%,0);
    } 
 }
 @media (min-width: 823px){
    .animacion-linea{
-    transform: translate3d(0,140%,0);
+    transform: translate3d(0,185%,0);
    } 
 }
 @media (min-width: 854px){
    .animacion-linea{
-    transform: translate3d(0,135%,0);
+    transform: translate3d(0,185%,0);
    } 
 }
 @media (min-width: 1024px){
    .animacion-linea{
-    transform: translate3d(0,170%,0);
+    transform: translate3d(0,175%,0);
     } 
 }
 @media (min-width: 1920px){
@@ -836,7 +841,7 @@
    @media (min-width: 411px){
     .animacion:hover .animacion-linea{
     -webkit-transform: translate3d(0,-100,0);
-    transform: translate3d(0,70%,0);
+    transform: translate3d(0,140%,0);
    }
   }
    @media (min-width: 480px){

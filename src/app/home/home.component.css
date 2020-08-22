@@ -72,8 +72,8 @@
   }
   @media (min-width: 768px){
     #fondo-rojo-home{
-      padding-bottom: 12%;
-      padding-top: 18.5%;
+      padding-bottom: 9%;
+      padding-top: 5%;
      } 
   }
   @media (min-width: 812px){
@@ -98,7 +98,7 @@
     #fondo-rojo-home{
       padding-left: 80px;
       padding-right: 80px;
-      padding-bottom: 25%;
+      padding-bottom: 12%;
       padding-top: 24.5%;
      }  
   }
@@ -263,6 +263,11 @@
       color: #464646;
       opacity: 1;
       font-size: 15px;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      height: 130px;
   }
   .btn-line-backgraound{
       text-align: center;
