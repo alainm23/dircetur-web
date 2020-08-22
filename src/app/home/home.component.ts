@@ -118,6 +118,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
+      console.log ('fecha', moment ().format ('[Cusco, ]DD[ de ]MMMM[ del ]YYYY'));
       this.init();
       AOS.init();
       this.initalgolia ();

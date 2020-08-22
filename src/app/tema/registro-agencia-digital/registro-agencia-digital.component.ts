@@ -137,7 +137,7 @@ export class RegistroAgenciaDigitalComponent implements OnInit {
       registro_nuevo: new FormControl ('0'),
       razon_social: new FormControl (''),
       canales_opera: new FormControl (''),
-      canal_digital: new FormControl ('0'),
+      canal_digital: new FormControl ('1'),
       ruc: new FormControl (''),
       nombre_comercial: new FormControl ('', [Validators.required]),
       telefono: new FormControl ('', [Validators.required]),
