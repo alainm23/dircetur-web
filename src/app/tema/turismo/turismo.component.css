@@ -158,10 +158,17 @@
 	color: #EC494B;
 }
 .img-app-turismo{
-	height: 2rem;
+	height: 3rem;
 	filter: opacity(0);
     -webkit-filter: opacity(0.2);
 	background-color: #fff;
+	border-radius: 5px;
+}
+@media (min-width: 640px)
+{
+	.img-app-turismo{
+		height: 2rem;
+	}
 }
 /*.app-fondo-img::after {
   content:"";

@@ -255,3 +255,16 @@
 	background-color: #3E729A;
 	color: #fafafa;
 }
+.sticky_top
+{
+	position: relative;
+}
+@media(min-width: 1024px)
+{
+	.sticky_top
+	{
+		position: -webkit-sticky;
+  		position: sticky;
+  		top: 0;
+	}
+}

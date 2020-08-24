@@ -73,13 +73,21 @@
 	background: #3E729A;
 	box-shadow: 0px 6px 15px #0000006C;
 	width: 93%;
-    height: 6rem;
+    height: 4rem;
     font-family: Black 28px/26px Avenir;
     color: #fff;
     font-size: 1.25rem;
     font-weight: 600;
     border-radius: 0;
-    line-height: 1;
+	line-height: 1;
+	padding: 0px;
+}
+@media (min-width: 640px)
+{
+	.btn-cuadrado
+	{
+		height: 6rem;
+	}
 }
 .btn-cuadrado:hover{
 	color: #fff;

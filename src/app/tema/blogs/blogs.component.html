@@ -1,4 +1,4 @@
-<section>
+<section class="titulo-phone">
   <div class="container-fluid px-0">
     <div class="row m-0">
       <div class="col-sm-5 px-0">
@@ -13,14 +13,14 @@
 
 <section class="mt-5 mb-5">
   <div class="container px-4">
-    <div class="row">
-      <div class="col-6 col-md-2 col-xl-2 px-1 offset-md-1 offset-lg-2 mb-5">
-        <button [className]="id=='todos' ? 'active-btn btn-blog px-0 py-2' : 'btn-blog px-0 py-2'" class="btn-blog px-0 py-2" (click)="goBlogs (Todos_los_blogs,Todos_los_blogs)">Todos</button>
+    <div class="row justify-content-center">
+      <div class="col-6 col-md-3 col-lg-3 px-1 mb-3 mb-md-5 text-center">
+        <button [className]="id=='todos' ? 'active-btn btn-blog px-0 px-lg-3 py-2' : 'btn-blog px-0 px-lg-3 py-2'" class="btn-blog px-0 px-lg-3 py-2" (click)="goBlogs (Todos_los_blogs,Todos_los_blogs)">Todos</button>
       </div>
-      <div class="col-6 col-md-2 col-xl-2 px-1 mb-5" *ngFor="let categoria of Categorias">
-        <button  [className]="id==categoria.id ? 'active-btn btn-blog px-0 py-2' : 'btn-blog px-0 py-2'" (click)="goBlogs (categoria.nombre,categoria.id)">{{categoria.nombre}}</button>
+      <div class="col-6 col-md-3 col-lg-3 px-1 mb-3 mb-md-5 text-center" *ngFor="let categoria of Categorias">
+        <button  [className]="id==categoria.id ? 'active-btn btn-blog px-0 px-lg-3 py-2' : 'btn-blog px-0 px-lg-3 py-2'" (click)="goBlogs (categoria.nombre,categoria.id)">{{categoria.nombre}}</button>
       </div>
-      <div class="col-12" *ngIf="Blogs.length>0;else mensaje_blogs">
+      <div class="col-12 mt-3 mt-md-0" *ngIf="Blogs.length>0;else mensaje_blogs">
           <div class="col-12 px-0 mb-2" style="box-shadow: 0px 3px 6px #00000029;" *ngFor="let blog of Blogs">
             <div class="row m-0">
               <div *ngIf="blog?.imagen==''" class="col-12 col-lg-2 col-xl-2 px-0 img-blog-list" [ngStyle]="{'background-image': 'url('+ url_img_blog +')'}">
@@ -46,7 +46,7 @@
           </div>
       </div>
       <ng-template #mensaje_blogs>
-        <div class="row m-0 ml-5">
+        <div class="row m-0 text-center">
           <h5 class="titulo-todo">
             Sin articulos disponibles.
           </h5>
