@@ -447,24 +447,11 @@ export class DatabaseService {
 
   async addHotel (data: any) {
     data.id = this.afs.createId ();
-
-    let batch = this.afs.firestore.batch ();
-
-    const step_01 = this.afs.collection ('Alojamientos').doc (data.id).ref;
-
-    batch.set (step_01, data);
-
-    return await batch.commit ();
+    this.afs.collection ('Alojamientos').doc (data.id).set (data);
   }
 
   async addAgencia (data: any) {
-    let batch = this.afs.firestore.batch ();
-
-    const step_01 = this.afs.collection ('Agencias').doc (data.id).ref;
-
-    batch.set (step_01, data);
-
-    return await batch.commit ();
+    return this.afs.collection ('Agencias').doc (data.id).set (data);
   }
 
   getAgenciaTipo_Clasificaciones () {

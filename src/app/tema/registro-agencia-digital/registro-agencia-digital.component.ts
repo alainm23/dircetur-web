@@ -249,6 +249,7 @@ export class RegistroAgenciaDigitalComponent implements OnInit {
     this.agencia_form.patchValue (this.form_06.value);
 
     let data: any = this.agencia_form.value;
+    data.solo_digital = true;
     data.id = this.database.createId ();
     data.aprobado = false;
     data.fecha_ins = new Date (data.fecha_ins).toISOString ();
@@ -262,20 +263,11 @@ export class RegistroAgenciaDigitalComponent implements OnInit {
       return x.checked === true;
     });
 
-    console.log ('data para enviar', data);
     this.database.addAgencia (data)
       .then (async () => {
         console.log ('data enviada');
         await this.spinner.hide ();
         this.export_pdf ();
-        // this.form_01.reset ();
-        // this.form_02.reset ();
-        // this.form_03.reset ();
-        // this.form_04.reset ();
-        // this.form_05.reset ();
-        // this.form_06.reset ();
-        // this.form_08.reset ();
-        // this.agencia_form.reset ();
         this.router.navigate (["/registro-finalizado", data.correo]);
       }).catch (async (error: any) => {
         await this.spinner.hide ();
