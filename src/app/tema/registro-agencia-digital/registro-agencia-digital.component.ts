@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import * as html2pdf from 'html2pdf.js';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-registro-agencia-digital',
@@ -41,7 +42,8 @@ export class RegistroAgenciaDigitalComponent implements OnInit {
     private database: DatabaseService,
     private spinner: NgxSpinnerService,
     private router: Router,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private dialog: MatDialog
   ) {
   }
 
@@ -96,7 +98,7 @@ export class RegistroAgenciaDigitalComponent implements OnInit {
       telefono: new FormControl ('', [Validators.required]),
       telefono_fijo: new FormControl (''),
       pagina_web: new FormControl ('', [Validators.required]),
-      correo: new FormControl ('', [Validators.required]),
+      correo: new FormControl ('', [Validators.required, Validators.email]),
       cuentas_redes_sociales: new FormControl ('', [Validators.required]),
       fecha_ins: new FormControl ('', [Validators.required])
     });
@@ -252,7 +254,11 @@ export class RegistroAgenciaDigitalComponent implements OnInit {
     data.solo_digital = true;
     data.id = this.database.createId ();
     data.aprobado = false;
-    data.fecha_ins = new Date (data.fecha_ins).toISOString ();
+
+    if (data.fecha_ins !== '') {
+      data.fecha_ins = new Date (data.fecha_ins).toISOString ();
+    }
+
     data.fecha_solicitud = new Date ().toISOString ();
     data.personal = this.personal.value;
     data.modalidad_turismo = this.modalidad_turismo.filter ((x: any) => {
@@ -265,7 +271,6 @@ export class RegistroAgenciaDigitalComponent implements OnInit {
 
     this.database.addAgencia (data)
       .then (async () => {
-        console.log ('data enviada');
         await this.spinner.hide ();
         this.export_pdf ();
         this.router.navigate (["/registro-finalizado", data.correo]);
@@ -291,5 +296,13 @@ export class RegistroAgenciaDigitalComponent implements OnInit {
 
     const content: Element = document.getElementById ('mypdf');
     html2pdf ().from (content).set (options).save ();
+  }
+
+  async validar_correo (dialog: any) {
+    if (await this.database.is_email_valid (this.form_02.value.correo) === undefined) {
+      this.cambiar_vista (+1);
+    } else {
+      this.dialog.open(dialog);
+    }
   }
 }

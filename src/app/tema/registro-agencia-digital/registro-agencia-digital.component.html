@@ -8,6 +8,16 @@
   <p style="color: white" > Verificando... </p>
 </ngx-spinner>
 
+<ng-template #myDialog>
+  <h1 mat-dialog-title>¡Upss!</h1>
+  <div style="margin-bottom: 1rem;" mat-dialog-content>
+    El correo <i><b>{{ form_02.value.correo }}</b></i> ya se encuentra en uso, pruebe con uno nuevo.
+  </div>
+  <div mat-dialog-actions>
+    <button class="btn btn-leer-altura"mat-dialog-close>Ok</button>
+  </div>
+</ng-template>
+
 <ngx-spinner
   bdOpacity = 0.4
   bdColor = "#333"
@@ -30,34 +40,34 @@
         </mat-radio-group>
 
         <mat-form-field *ngIf="form_01.value.representante_tipo === '0'" class="example-full-width">
-          <mat-label>Nombres y Apellidos</mat-label>
+          <mat-label>Nombres y Apellidos <span style="color: red">*</span></mat-label>
           <input matInput type="text" formControlName="representante_nombre">
         </mat-form-field>
 
         <mat-form-field *ngIf="form_01.value.representante_tipo === '1'" class="example-full-width">
-          <mat-label>Razon Social</mat-label>
+          <mat-label>Razon Social <span style="color: red">*</span></mat-label>
           <input matInput type="text" formControlName="representante_razon_social">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <mat-label>N° de RUC</mat-label>
+          <mat-label>N° de RUC <span style="color: red">*</span></mat-label>
           <input matInput type="text" formControlName="representante_ruc">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <mat-label>Domicilio Legal</mat-label>
+          <mat-label>Domicilio Legal <span style="color: red">*</span></mat-label>
           <input matInput type="text" formControlName="representante_direccion">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <mat-label>Region/Provincia/Distrito</mat-label>
+          <mat-label>Region/Provincia/Distrito <span style="color: red">*</span></mat-label>
           <input matInput type="text" formControlName="representante_departamento">
         </mat-form-field>
 
         <div class="row">
           <div class="col-sm-6">
             <mat-form-field class="example-full-width">
-              <mat-label>Doc. Identidad</mat-label>
+              <mat-label>Doc. Identidad <span style="color: red">*</span></mat-label>
               <mat-select formControlName="representante_tdoc">
                 <mat-option value="DNI">DNI</mat-option>
                 <mat-option value="CE">C.E</mat-option>
@@ -67,7 +77,7 @@
 
           <div class="col-sm-6">
             <mat-form-field class="example-full-width">
-              <mat-label>N° Doc. Identidad</mat-label>
+              <mat-label>N° Doc. Identidad <span style="color: red">*</span></mat-label>
               <input matInput type="text" formControlName="representante_ndoc">
             </mat-form-field>
           </div>
@@ -84,21 +94,21 @@
       <div><p class="header-title">INFORMACIÓN DEL ESTABLECIMIENTO</p></div>
       <div class="form-content">
         <mat-form-field class="example-full-width">
-          <mat-label>Nombre Comercial</mat-label>
+          <mat-label>Nombre Comercial <span style="color: red">*</span></mat-label>
           <input matInput type="text" formControlName="nombre_comercial">
         </mat-form-field>
 
         <div class="row">
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Region</mat-label>
+              <mat-label>Region <span style="color: red">*</span></mat-label>
               <input matInput type="text" value="Cusco" [disabled]="true">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Provincia</mat-label>
+              <mat-label>Provincia <span style="color: red">*</span></mat-label>
               <mat-select formControlName="provincia" (selectionChange)="provinciaChanged ($event.value)">
                 <mat-option *ngFor="let item of provincias" [value]="item">
                   {{ item.nombre }}
@@ -109,7 +119,7 @@
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Distrito</mat-label>
+              <mat-label>Distrito <span style="color: red">*</span></mat-label>
               <mat-select formControlName="distrito">
                 <mat-option *ngFor="let item of distritos" [value]="item">
                   {{ item.nombre }}
@@ -122,7 +132,7 @@
         <div class="row">
           <div class="col-sm-6">
             <mat-form-field class="example-full-width">
-              <mat-label>Telefono celular</mat-label>
+              <mat-label>Telefono celular <span style="color: red">*</span></mat-label>
               <input matInput type="tel" formControlName="telefono">
             </mat-form-field>
           </div>
@@ -136,26 +146,26 @@
         </div>
 
         <mat-form-field class="example-full-width">
-          <mat-label>Pagina Web</mat-label>
+          <mat-label>Pagina Web <span style="color: red">*</span></mat-label>
           <input matInput type="url" formControlName="pagina_web">
         </mat-form-field>
 
         <p  class="mt-n3"><small>* Precisar el tipo de de canal digital que ha implementado</small></p>
 
         <mat-form-field class="example-full-width">
-          <mat-label>Correo Electronico</mat-label>
+          <mat-label>Correo Electronico <span style="color: red">*</span></mat-label>
           <input matInput type="email" formControlName="correo">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <mat-label>Enlaces de redes sociales</mat-label>
-          <input matInput type="text" formControlName="cuentas_redes_sociales">
+          <mat-label>Enlaces de redes sociales <span style="color: red">*</span></mat-label>
+          <textarea matInput type="text" formControlName="cuentas_redes_sociales"></textarea>
         </mat-form-field>
 
         <div class="row">
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Fecha de Inicio de Operaciones</mat-label>
+              <mat-label>Fecha de Inicio de Operaciones <span style="color: red">*</span></mat-label>
               <input matInput type="date" formControlName="fecha_ins">
             </mat-form-field>
           </div>
@@ -164,7 +174,7 @@
       <div style="text-align: end; margin-top: 1rem;">
         <button class="btn btn-leer-altura" (click)="cambiar_vista (-1)" style="cursor: pointer; color: #FFFFFF;">Atras</button>
         &nbsp;
-        <button class="btn btn-leer-altura" (click)="cambiar_vista (+1)" [disabled]="!form_02.valid" style="cursor: pointer; color: #FFFFFF;">Siguiente</button>
+        <button class="btn btn-leer-altura" (click)="validar_correo (myDialog)" [disabled]="!form_02.valid" style="cursor: pointer; color: #FFFFFF;">Siguiente</button>
       </div>
     </div>
 
@@ -256,7 +266,7 @@
       <div><p class="header-title">CLASIFICACIÓN</p></div>
       <div [formGroup]="form_04" class="form-content">
         <mat-form-field class="example-full-width">
-          <mat-label>Clasificacion</mat-label>
+          <mat-label>Clasificacion <span style="color: red">*</span></mat-label>
           <mat-select formControlName="clasificacion">
             <mat-option *ngFor="let item of tipo_clasificaciones" [value]="item">
               {{ item.nombre }}
@@ -311,15 +321,15 @@
       <div><p class="header-title">PERSONAL DE TRABAJO</p></div>
       <div class="form-content">
         <div class="row">
-          <div class="col-sm-4" *ngFor="let personal of personal.controls; index as i">
+          <div class="col-sm-12" *ngFor="let personal of personal.controls; index as i">
             <ng-container [formGroup]="personal">
               <mat-form-field class="example-full-width">
-                <mat-label>Año de nacimiento</mat-label>
+                <mat-label>Año de nacimiento <span style="color: red">*</span></mat-label>
                 <input matInput type="date" formControlName="anio_nacimiento">
               </mat-form-field>
 
               <mat-form-field class="example-full-width">
-                <mat-label>Genero</mat-label>
+                <mat-label>Genero <span style="color: red">*</span></mat-label>
                 <mat-select formControlName="genero">
                   <mat-option value="varon">Varon</mat-option>
                   <mat-option value="mujer">Mujer</mat-option>
@@ -327,7 +337,7 @@
                 </mat-select>
               </mat-form-field>
 
-              <button class="btn_iguales_finales" (click)="eliminar_personal (i)">Eliminar</button>
+              <button class="btn_iguales_finales" *ngIf="i !== 0" (click)="eliminar_personal (i)">Eliminar</button>
             </ng-container>
             <hr>
           </div>
@@ -397,7 +407,6 @@
               <input formControlName="declaraciones_jurada" class="check-check" type="checkbox"/>
               LA PRESENTE DECLARACIÓN JURADA LA REALIZO SEGÚN LO SEÑALADO EN EL NUMERAL 9.2 DEL ARTICULO 9 DEL REGLAMENTO DE AGENCIAS DE VIAJES Y TURISMO, APROBADO MEDIANTE D.S.005-2020- MINCETUR, MANIFESTANDO QUE LOS DATOS SEÑALADO EXPRESAN LA VERDAD Y QUE CONOZCO LAS SANCIONES ADMINISTRATIVAS Y PENALES A QUE HABRA LUGAR EN CASO DE FALSEDAD.<br><br>
               *TODOS LOS DATOS CONSIGNADOS, ESTAN SUJETOS A VERTIFICACICÓN Y FISCALIZACIÓN POSTERIOR.
-
             </label>
           </div>
         </div>

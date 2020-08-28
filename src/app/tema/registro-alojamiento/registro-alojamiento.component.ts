@@ -8,6 +8,7 @@ import { DatabaseService } from '../../../services/database.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { Router } from '@angular/router';
 import * as html2pdf from 'html2pdf.js';
+import { MatDialog } from '@angular/material';
 @Component({
   selector: 'app-registro-alojamiento',
   templateUrl: './registro-alojamiento.component.html',
@@ -34,7 +35,8 @@ export class RegistroAlojamientoComponent implements OnInit {
   constructor (
     private database: DatabaseService,
     private spinner: NgxSpinnerService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {
   }
 
@@ -93,7 +95,7 @@ export class RegistroAlojamientoComponent implements OnInit {
       provincia: new FormControl ('', [Validators.required]),
       distrito: new FormControl ('', [Validators.required]),
       pagina_web: new FormControl (''),
-      correo: new FormControl ('', [Validators.required]),
+      correo: new FormControl ('', [Validators.required, Validators.email]),
       telefono: new FormControl ('', [Validators.required]),
       representante_nombre: new FormControl ('', [Validators.required]),
       representante_tdoc: new FormControl ('', [Validators.required]),
@@ -104,7 +106,7 @@ export class RegistroAlojamientoComponent implements OnInit {
     })
 
     this.form_03 = new FormGroup ({
-      numero_habitaciones: new FormControl ('', [Validators.required]),
+      numero_habitaciones: new FormControl ('', [Validators.required, Validators.min (6)]),
       ingreso_diferenciado: new FormControl ('', [Validators.required]),
       numero_pisos: new FormControl ('', [Validators.required]),
       numero_personal: new FormControl ('', [Validators.required]),
@@ -203,10 +205,7 @@ export class RegistroAlojamientoComponent implements OnInit {
   }
 
   provinciaChanged (event: any) {
-    console.log (event);
     if (event !== null || event !== undefined) {
-      // this.esta_distritos_cargando = true;
-      console.log (event);
       this.database.getDistritosByProvincias (event.id).subscribe ((response: any []) => {
         this.distritos = response;
       }, (error: any) => {
@@ -227,27 +226,31 @@ export class RegistroAlojamientoComponent implements OnInit {
 
     let data: any = this.hospedaje_form.value;
     data.aprobado = false;
-    data.fecha_exp = new Date (data.fecha_exp).toISOString ();
-    data.fecha_ins = new Date (data.fecha_ins).toISOString ();
+
+    if (data.fecha_exp !== '') {
+      data.fecha_exp = new Date (data.fecha_exp).toISOString ();
+    }
+
+    if (data.fecha_ins !== '') {
+      data.fecha_ins = new Date (data.fecha_ins).toISOString ();
+    }
+
     data.fecha_solicitud = new Date ().toISOString ();
     data.personal = this.personal.value;
 
-    console.log ('data para enviar', data);
     this.database.addHotel (data)
       .then (async () => {
-        console.log ('data enviada');
         await this.spinner.hide ();
         this.export_pdf ();
         this.router.navigate (["/registro-finalizado", data.correo]);
       }).catch (async (error: any) => {
         await this.spinner.hide ();
         this.finalizado = false;
-        console.log ("Error addAgencia", error);
+        console.log ("Error addHotel", error);
       });
   }
 
   tipo_persona_change (event: any) {
-    console.log (event);
     if (event === '0') {
       this.agencia_form.controls ['representante_razon_social'].setValidators ([Validators.required]);
       this.agencia_form.controls ['representante_nombre'].setValidators ([]);
@@ -272,5 +275,13 @@ export class RegistroAlojamientoComponent implements OnInit {
 
   validar_form () {
     return this.personal.status === 'INVALID';
+  }
+
+  async validar_correo (dialog: any) {
+    if (await this.database.is_email_valid (this.form_02.value.correo) === undefined) {
+      this.cambiar_vista (+1);
+    } else {
+      this.dialog.open(dialog);
+    }
   }
 }

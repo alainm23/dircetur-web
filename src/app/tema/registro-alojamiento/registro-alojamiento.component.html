@@ -8,6 +8,16 @@
   <p style="color: white" > Verificando... </p>
 </ngx-spinner>
 
+<ng-template #myDialog>
+  <h1 mat-dialog-title>¡Upss!</h1>
+  <div style="margin-bottom: 1rem;" mat-dialog-content>
+    El correo <i><b>{{ form_02.value.correo }}</b></i> ya se encuentra en uso, pruebe con uno nuevo.
+  </div>
+  <div mat-dialog-actions>
+    <button class="btn btn-leer-altura"mat-dialog-close>Ok</button>
+  </div>
+</ng-template>
+
 <div class="content">
   <div *ngIf="!finalizado">
     <div [formGroup]="form_01" *ngIf="vista === 1">
@@ -24,13 +34,13 @@
         <div class="row">
           <div class="col-sm-6">
             <mat-form-field class="example-full-width">
-              <mat-label>Fecha de Expedicion</mat-label>
+              <mat-label>Fecha de Expedicion <span style="color: red">*</span></mat-label>
               <input matInput type="date" formControlName="fecha_exp">
             </mat-form-field>
           </div>
           <div class="col-sm-6">
             <mat-form-field class="example-full-width">
-              <mat-label>N° de Licencia de Funcionamiento</mat-label>
+              <mat-label>N° de Licencia de Funcionamiento <span style="color: red">*</span></mat-label>
               <input matInput type="text" formControlName="numero_certificado">
             </mat-form-field>
           </div>
@@ -47,42 +57,42 @@
       <div><p class="header-title">INFORMACIÓN DEL ESTABLECIMIENTO</p></div>
       <div class="form-content">
         <mat-form-field class="example-full-width">
-          <mat-label>Razon social</mat-label>
+          <mat-label>Razon social <span style="color: red">*</span></mat-label>
           <input matInput type="text" formControlName="razon_social">
         </mat-form-field>
 
         <div class="row">
           <div class="col-sm-6">
             <mat-form-field class="example-full-width">
-              <mat-label>Nombre Comercial</mat-label>
+              <mat-label>Nombre Comercial <span style="color: red">*</span></mat-label>
               <input matInput type="text" formControlName="nombre_comercial">
             </mat-form-field>
           </div>
 
           <div class="col-sm-6">
             <mat-form-field class="example-full-width">
-              <mat-label>N° de RUC</mat-label>
+              <mat-label>N° de RUC <span style="color: red">*</span></mat-label>
               <input matInput type="text" formControlName="ruc">
             </mat-form-field>
           </div>
         </div>
 
         <mat-form-field class="example-full-width">
-          <mat-label>Direccion completa</mat-label>
+          <mat-label>Direccion completa <span style="color: red">*</span></mat-label>
           <input matInput type="text" formControlName="direccion">
         </mat-form-field>
 
         <div class="row">
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Region</mat-label>
+              <mat-label>Region <span style="color: red">*</span></mat-label>
               <input matInput type="text" value="Cusco" [disabled]="true">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Provincia</mat-label>
+              <mat-label>Provincia <span style="color: red">*</span></mat-label>
               <mat-select formControlName="provincia" (selectionChange)="provinciaChanged ($event.value)">
                 <mat-option *ngFor="let item of provincias" [value]="item">
                   {{ item.nombre }}
@@ -93,7 +103,7 @@
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Distrito</mat-label>
+              <mat-label>Distrito <span style="color: red">*</span></mat-label>
               <mat-select formControlName="distrito">
                 <mat-option *ngFor="let item of distritos" [value]="item">
                   {{ item.nombre }}
@@ -106,21 +116,21 @@
         <div class="row">
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Pagina Web</mat-label>
+              <mat-label>Pagina Web <span style="color: red">*</span></mat-label>
               <input matInput type="text" formControlName="pagina_web">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Email</mat-label>
+              <mat-label>Email <span style="color: red">*</span></mat-label>
               <input matInput type="text" formControlName="correo">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Telefono</mat-label>
+              <mat-label>Telefono <span style="color: red">*</span></mat-label>
               <input matInput type="text" formControlName="telefono">
             </mat-form-field>
           </div>
@@ -129,14 +139,14 @@
         <div class="row">
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Representante Legal</mat-label>
+              <mat-label>Representante Legal <span style="color: red">*</span></mat-label>
               <input matInput type="text" formControlName="representante_nombre">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Doc. Identidad</mat-label>
+              <mat-label>Doc. Identidad <span style="color: red">*</span></mat-label>
               <mat-select formControlName="representante_tdoc">
                 <mat-option value="DNI">DNI</mat-option>
                 <mat-option value="CE">C.E</mat-option>
@@ -146,7 +156,7 @@
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>N° Doc. Identidad</mat-label>
+              <mat-label>N° Doc. Identidad <span style="color: red">*</span></mat-label>
               <input matInput type="text" formControlName="representante_ndoc">
             </mat-form-field>
           </div>
@@ -155,21 +165,21 @@
         <div class="row">
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Fecha inicio de operaciones</mat-label>
+              <mat-label>Fecha inicio de operaciones <span style="color: red">*</span></mat-label>
               <input matInput type="date" formControlName="fecha_ins">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4" *ngIf="form_01.value.registro_nuevo === '0'">
             <mat-form-field class="example-full-width">
-              <mat-label>N° Licencia de Funcionamiento</mat-label>
+              <mat-label>N° Licencia de Funcionamiento <span style="color: red">*</span></mat-label>
               <input matInput type="text" formControlName="numero_certificado">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4" *ngIf="form_01.value.registro_nuevo === '0'">
             <mat-form-field class="example-full-width">
-              <mat-label>Fecha de expedicion</mat-label>
+              <mat-label>Fecha de expedicion <span style="color: red">*</span></mat-label>
               <input matInput type="date" formControlName="fecha_exp">
             </mat-form-field>
           </div>
@@ -179,7 +189,7 @@
       <div style="text-align: end; margin-top: 1rem;">
         <button class="btn btn-leer-altura" (click)="cambiar_vista (-1)" style="cursor: pointer; color: #FFFFFF;">Atras</button>
         &nbsp;
-        <button class="btn btn-leer-altura" (click)="cambiar_vista (+1)" [disabled]="!form_02.valid" style="cursor: pointer; color: #FFFFFF;">Siguiente</button>
+        <button class="btn btn-leer-altura" (click)="validar_correo (myDialog)" [disabled]="!form_02.valid" style="cursor: pointer; color: #FFFFFF;">Siguiente</button>
       </div>
     </div>
 
@@ -190,21 +200,21 @@
         <div class="row">
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>N° de Habitaciones (minimo 6)</mat-label>
-              <input matInput type="number" formControlName="numero_habitaciones">
+              <mat-label>N° de Habitaciones (minimo 6) <span style="color: red">*</span></mat-label>
+              <input matInput type="number" min="6" formControlName="numero_habitaciones">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Ingreso diferenciado para huespedes y personal de servicio</mat-label>
+              <mat-label>Ingreso diferenciado para huespedes y personal de servicio <span style="color: red">*</span></mat-label>
               <input matInput type="number" formControlName="ingreso_diferenciado">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>N° de Pisos</mat-label>
+              <mat-label>N° de Pisos <span style="color: red">*</span></mat-label>
               <input matInput type="number" formControlName="numero_pisos">
             </mat-form-field>
           </div>
@@ -213,14 +223,14 @@
         <div class="row">
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Numero de personal ocupado</mat-label>
+              <mat-label>Numero de personal ocupado <span style="color: red">*</span></mat-label>
               <input matInput type="number" formControlName="numero_personal">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Numero de camas</mat-label>
+              <mat-label>Numero de camas <span style="color: red">*</span></mat-label>
               <input matInput type="number" formControlName="numero_camas">
             </mat-form-field>
           </div>
@@ -340,15 +350,15 @@
       <div><p class="header-title">PERSONAL DE TRABAJO</p></div>
       <div class="form-content">
         <div class="row">
-          <div class="col-sm-4" *ngFor="let personal of personal.controls; index as i">
+          <div class="col-sm-12" *ngFor="let personal of personal.controls; index as i">
             <ng-container [formGroup]="personal">
               <mat-form-field class="example-full-width">
-                <mat-label>Año de nacimiento</mat-label>
+                <mat-label>Año de nacimiento <span style="color: red">*</span></mat-label>
                 <input matInput type="date" formControlName="anio_nacimiento">
               </mat-form-field>
 
               <mat-form-field class="example-full-width">
-                <mat-label>Genero</mat-label>
+                <mat-label>Genero <span style="color: red">*</span></mat-label>
                 <mat-select formControlName="genero">
                   <mat-option value="varon">Varon</mat-option>
                   <mat-option value="mujer">Mujer</mat-option>
@@ -356,7 +366,7 @@
                 </mat-select>
               </mat-form-field>
 
-              <button class="btn_iguales_finales" (click)="eliminar_personal (i)">Eliminar</button>
+              <button class="btn_iguales_finales" *ngIf="i !== 0" (click)="eliminar_personal (i)">Eliminar</button>
             </ng-container>
             <hr>
           </div>

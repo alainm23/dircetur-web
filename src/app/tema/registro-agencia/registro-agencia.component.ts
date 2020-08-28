@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, TemplateRef } from '@angular/core';
 
 // Forms
 import { FormGroup , FormControl, Validators, FormArray } from '@angular/forms';
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import * as html2pdf from 'html2pdf.js';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-registro-agencia',
@@ -41,7 +42,8 @@ export class RegistroAgenciaComponent implements OnInit {
     private database: DatabaseService,
     private spinner: NgxSpinnerService,
     private router: Router,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private dialog: MatDialog
   ) {
   }
 
@@ -170,7 +172,7 @@ export class RegistroAgenciaComponent implements OnInit {
       telefono: new FormControl ('', [Validators.required]),
       telefono_fijo: new FormControl (''),
       pagina_web: new FormControl ('', [Validators.required]),
-      correo: new FormControl ('', [Validators.required]),
+      correo: new FormControl ('', [Validators.required, Validators.email]),
       cuentas_redes_sociales: new FormControl ('', [Validators.required]),
       fecha_ins: new FormControl ('', [Validators.required]),
       numero_certificado: new FormControl ('', [Validators.required]),
@@ -234,7 +236,7 @@ export class RegistroAgenciaComponent implements OnInit {
       telefono: new FormControl ('', [Validators.required]),
       telefono_fijo: new FormControl (''),
       pagina_web: new FormControl ('', [Validators.required]),
-      correo: new FormControl ('', [Validators.required]),
+      correo: new FormControl ('', [Validators.required, Validators.email]),
       cuentas_redes_sociales: new FormControl ('', [Validators.required]),
       provincia: new FormControl ('', [Validators.required]),
       distrito: new FormControl ('', [Validators.required]),
@@ -305,7 +307,7 @@ export class RegistroAgenciaComponent implements OnInit {
       this.tipos_turismo = res;
     });
 
-    // this.agregar ();
+    this.agregar ();
   }
 
   equipo_computo_change () {
@@ -344,8 +346,15 @@ export class RegistroAgenciaComponent implements OnInit {
     let data: any = this.agencia_form.value;
     data.id = this.database.createId ();
     data.aprobado = false;
-    data.fecha_exp = new Date (data.fecha_exp).toISOString ();
-    data.fecha_ins = new Date (data.fecha_ins).toISOString ();
+
+    if (data.fecha_exp !== '') {
+      data.fecha_exp = new Date (data.fecha_exp).toISOString ();
+    }
+
+    if (data.fecha_ins !== '') {
+      data.fecha_ins = new Date (data.fecha_ins).toISOString ();
+    }
+
     data.fecha_solicitud = new Date ().toISOString ();
     data.personal = this.personal.value;
     data.modalidad_turismo = this.modalidad_turismo.filter ((x: any) => {
@@ -356,7 +365,6 @@ export class RegistroAgenciaComponent implements OnInit {
       return x.checked === true;
     });
 
-    console.log ('data para enviar', data);
     this.database.addAgencia (data)
       .then (async () => {
         await this.spinner.hide ();
@@ -384,5 +392,13 @@ export class RegistroAgenciaComponent implements OnInit {
 
     const content: Element = document.getElementById ('mypdf');
     html2pdf ().from (content).set (options).save ();
+  }
+
+  async validar_correo (dialog: any) {
+    if (await this.database.is_email_valid (this.form_03.value.correo) === undefined) {
+      this.cambiar_vista (+1);
+    } else {
+      this.dialog.open(dialog);
+    }
   }
 }

@@ -464,6 +464,9 @@ export class DatabaseService {
 
   getTipos_Turismo () {
     return this.afs.collection ('Tipos_Turismo').valueChanges ();
+  }
 
+  is_email_valid (email: string) {
+    return this.afs.collection ('Correos_Usados').doc (email).valueChanges ().pipe(first()).toPromise();
   }
 }

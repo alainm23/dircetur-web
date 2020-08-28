@@ -1,0 +1,142 @@
+.fondo-azul-artesania{
+	background-color: #3E729A;
+	border: 1px solid #707070;
+}
+.color-blanco-artesania{
+	color: #fff;
+}
+.titulo-artesania{
+	font-family: Black 56px/67px Avenir;
+	text-transform: capitalize;
+}
+.subtitulo-artesania{
+	font-family: Light 56px/53px Avenir;
+	text-transform: capitalize;
+	font-weight: 300;
+}
+.texto-artesania{
+	font-family: Light 28px/36px Avenir;
+	font-weight: 300;
+}
+.color-65-artesania{
+	color: #656565;
+}
+.color-81-artesania{
+	color: #818181;
+}
+.subtitulo-general{
+	font-family: Black 56px/60px Avenir;
+    letter-spacing: 0.95px;
+    font-weight: 700;
+}
+.subtitulo-pequeño-general{
+	font-family: Light 44px/45px Avenir;
+    letter-spacing: 0.75px;
+    font-weight: 300;
+}
+.img-in-altura{
+	width: 50px;
+	height: 50px;
+}
+.subtitulo-incribir{
+	font-family: Light 24px/34px Avenir;
+	font-weight: 300;
+}
+.fondo-EF-artesania{
+	background-color: #EFEFEF;
+}
+.btn-descargar-artesania{
+	font-family: Medium 18px/27px Avenir;
+	color: #fff;
+	background-color: #3E729A;
+	box-shadow: 0px 3px 6px #00000029;
+    border-radius: 16px;
+    font-size: 14px;
+}
+.btn-descargar-artesania:hover{
+	color:#3E729A;
+    background-color: #fff;
+}
+.btn-ingresar-artesania{
+	font-family: Book 30px/56px Avenir;
+	color: #505050;
+	font-weight: 400;
+	box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #BABABA;
+    border-radius: 20px;
+    background-color: #fff;    
+}
+.btn-ingresar-artesania:hover{
+	background-color: #505050;
+	color: #fff;
+}
+#fondo-lineas{
+	background-image: url('../imagenes/fondo-artesania.png');
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover;
+}
+@media(min-width: 1200px){
+	#fondo-lineas{
+		background-size: 100%;
+	}
+}
+#fondo-negro{
+	background-color: #00000099;
+
+}
+.subtitulos-catalogos{
+	font-family: Black 28px/29px Avenir;
+	text-shadow: 2px 2px 15px #000000E3;
+	font-weight: 700;
+	font-size: 1.15rem;
+	line-height: 1;
+	margin-top: -60px;
+}
+.btn-ver-catalogo{
+	box-shadow: 0px 3px 20px #00000052;
+    border: 1px solid #BABABA;
+    border-radius: 20px;
+    background-color: #fff;
+    font: Black 28px/35px Avenir;
+    color: #505050;
+    font-weight: 700;
+    width: 100%;
+}
+.btn-ver-catalogo:hover{
+	background-color: #505050;
+	color: #fff;
+}
+.cal-subtitulo{
+	font-size: 2.4rem;
+}
+.subtitulo-azul-artesania{
+  font-family: Black 22px/35px Avenir;
+  font-weight: 800
+}
+.color-zul-artesania{
+	color: #3E729A;
+}
+.colo-22{
+	color: #222222;
+}
+.entre-espaciados-artesania{
+	line-height: 1.3;
+}
+.ins-re-artesania{
+	font-family:Black 28px/35px Avenir;
+	font-weight: 800;
+}
+.btn-requesitos-artesania{
+	font: Light 24px/36px Avenir;
+    letter-spacing: 0;
+    color: #222222;  
+    font-weight: 500;  
+}
+.btn-requesitos-artesania:focus{
+	color: #3E729A;
+	font-weight: 700;
+}
+.ancho-col-artesania{
+	height: 21rem;
+}
