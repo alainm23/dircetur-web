@@ -92,7 +92,7 @@ export class HomeComponent implements OnInit {
     search_changed () {
       console.log (this.search_term);
       if (this.search_term != "") {
-        this.algolia_index.search({
+        this.algolia_index.search ({
           query: this.search_term
           //attributesToRetrieve: ['primary_text', 'secondary_text', 'id', 'type', "avatar"]
         }).then((data: any)=>{

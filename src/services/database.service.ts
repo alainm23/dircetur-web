@@ -419,7 +419,7 @@ export class DatabaseService {
   }
 
   getProvincias () {
-    return this.afs.collection ('Provincias').valueChanges ();
+    return this.afs.collection ('Provincias', ref => ref.orderBy ('nombre')).valueChanges ();
   }
 
   getProvinciasDistritos () {
@@ -442,16 +442,46 @@ export class DatabaseService {
   }
 
   getDistritosByProvincias (id: string) {
-    return this.afs.collection ('Provincias').doc (id).collection ('Distritos').valueChanges ();
+    return this.afs.collection ('Provincias').doc (id).collection ('Distritos', ref => ref.orderBy ('nombre')).valueChanges ();
   }
 
   async addHotel (data: any) {
+    let batch = this.afs.firestore.batch ();
     data.id = this.afs.createId ();
-    this.afs.collection ('Alojamientos').doc (data.id).set (data);
+
+    const step_1 = this.afs.collection ('Alojamientos').doc (data.id).ref;
+    batch.set (step_1, data);
+
+    const step_2 = this.afs.collection ('Correos_Usados').doc (data.correo).ref;
+    batch.set (step_2, {
+      'id': data.correo
+    });
+
+    const step_3 = this.afs.collection ('RUC_Usados').doc (data.ruc).ref;
+    batch.set (step_3, {
+      'id': data.ruc
+    });
+
+    return await batch.commit ();
   }
 
   async addAgencia (data: any) {
-    return this.afs.collection ('Agencias').doc (data.id).set (data);
+    let batch = this.afs.firestore.batch ();
+
+    const step_1 = this.afs.collection ('Agencias').doc (data.id).ref;
+    batch.set (step_1, data);
+
+    const step_2 = this.afs.collection ('Correos_Usados').doc (data.correo).ref;
+    batch.set (step_2, {
+      'id': data.correo
+    });
+
+    const step_3 = this.afs.collection ('RUC_Usados').doc (data.representante_ruc).ref;
+    batch.set (step_3, {
+      'id': data.representante_ruc
+    });
+
+    return await batch.commit ();
   }
 
   getAgenciaTipo_Clasificaciones () {
@@ -468,5 +498,17 @@ export class DatabaseService {
 
   is_email_valid (email: string) {
     return this.afs.collection ('Correos_Usados').doc (email).valueChanges ().pipe(first()).toPromise();
+  }
+
+  is_ruc_valid (ruc: number) {
+    return this.afs.collection ('RUC_Usados').doc (ruc.toString ()).valueChanges ().pipe(first()).toPromise();
+  }
+
+  get_prestadores_estadisticas () {
+    return this.afs.collection ('PrestadoresPreferencias').doc ('preferencias').valueChanges ();
+  }
+
+  get_alojamiento_clasi () {
+    return this.afs.collection ('HotelTipo_Clasificaciones').valueChanges ();
   }
 }

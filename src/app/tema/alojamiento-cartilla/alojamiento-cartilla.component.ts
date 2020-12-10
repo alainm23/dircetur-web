@@ -22,12 +22,13 @@ export class AlojamientoCartillaComponent implements OnInit {
 
   algolia_index: any;
   search_term: string = "";
+  estadisticas: any;
   constructor(private database: DatabaseService,
               public route: Router,
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    window.scrollTo(0, 0);    
+    window.scrollTo(0, 0);
     this.initalgolia ();
 
     this.activatedRoute.params.subscribe ((params: any) =>{
@@ -39,8 +40,14 @@ export class AlojamientoCartillaComponent implements OnInit {
           res.visible = true;
           res.tipo = 'alojamiento';
           this.items.push (res);
+
+          console.log (res);
         });
       }
+
+      this.database.get_prestadores_estadisticas ().subscribe ((res: any) => {
+        this.estadisticas = res;
+      });
     });
   }
 
@@ -57,8 +64,11 @@ export class AlojamientoCartillaComponent implements OnInit {
         //filters: 'tipo:"agencia"'
       }).then((data: any)=>{
         console.log ('algolia_search', data);
-        this.items = [];  
+        this.items = [];
         if (data.hits.length > 0) {
+          data.hits.forEach ((element: any) => {
+            element.nombre_comercial = element.nombre;
+          });
           this.items = data.hits;
         }
       });
@@ -95,11 +105,13 @@ export class AlojamientoCartillaComponent implements OnInit {
           item.fecha_ins = res.fecha_ins;
 
           item.direccion = res.direccion;
-          item.clasificacion_nombre = res.clasificacion.nombre;
-          item.modalidades = res.modalidad_turismo;
-          item.tipos = res.tipos_turismo;
-          item.servicios_complementarios = res.servicios_complementarios;
-          
+          item.nro_certificado = res.nro_certificado;
+          item.fecha_solicitud = res.fecha_solicitud;
+          // item.clasificacion_nombre = res.clasificacion.nombre;
+          // item.modalidades = res.modalidad_turismo;
+          // item.tipos = res.tipos_turismo;
+          // item.servicios_complementarios = res.servicios_complementarios;
+
           item.cargado = true;
 
           console.log (item);
@@ -108,7 +120,25 @@ export class AlojamientoCartillaComponent implements OnInit {
     }
   }
 
-  getDate (date: string) {
-    return moment (date).format('ll');
+  getDate (date: string, format: string="") {
+    return moment (date, format).format ('ll');
+  }
+
+  get_certificado (item: any) {
+    return 'N° ' + this.pad (item.nro_certificado, 4) + '-' + moment (item.fecha_aprobado, "DD/MM/YYYY").format ('YYYY') + ' EH – GR / DIRCETUR';
+  }
+
+  pad (num: number, size: number) {
+    let s = num + "";
+    while (s.length < size) s = "0" + s;
+    return s;
+  }
+
+  go_web (web: string) {
+    if (web.trim () !== '') {
+      if (web.trim ().indexOf ('http') > -1) {
+        window.open (web, '_blank');
+      }
+    }
   }
 }

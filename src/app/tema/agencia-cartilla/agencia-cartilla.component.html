@@ -10,7 +10,7 @@
             <h1 class="titulo-cartilla">Agencias de turismo</h1>
         </div>
         <div class="col-12 mt-4">
-            <h2 class="cantidad-subtitulo mb-0">724</h2>
+            <h2 class="cantidad-subtitulo mb-0">{{ estadisticas?.agencia_cantidad }}</h2>
             <p class="autorizados-cartilla"><small>Agencias en supervisadas</small></p>
         </div>
         </div>
@@ -35,12 +35,12 @@
         <div class="col-12 mt-4">
         <h5 class="color-81-cartilla texto-cartilla">Resultados de búsqueda</h5>
         </div>
-        
+
         <div class="col-12 mt-3">
           <div *ngFor="let item of items">
             <div *ngIf="item.tipo === 'agencia'">
               <button (click)="visible_toggled (item)" class="btn py-1 px-2 px-sm-3 px-md-5 px-lg-3 px-xl-5">{{ item.nombre_comercial }}</button>
-      
+
               <div *ngIf="item.visible" class="panel px-5 px-sm-3 px-md-5 px-lg-3 px-xl-5 py-4 mb-4">
                   <div class="row m-0">
                   <!--<div class="col-12 px-0">
@@ -51,17 +51,17 @@
                       <div class="row m-0">
                       <div class="col-12 col-sm-6 px-0">
                           <ul class="list-unstyled mb-0">
-                              <li><span class="color-list-contac-titulo mr-1">Teléfono:</span><a class="color-azul-list-contac" href="">{{ item?.telefono }}</a></li>
-                              <li><span class="color-list-contac-titulo mr-1">E-Mail:</span><a class="color-azul-list-contac" href="">{{ item?.correo }}</a></li>
-                              <li><span class="color-list-contac-titulo mr-1">Página Web:</span><a class="color-azul-list-contac" href="">{{ item?.pagina_web }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Teléfono:</span><a class="color-azul-list-contac">{{ item?.telefono }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">E-Mail:</span><a class="color-azul-list-contac" [href]="'mailto: ' + item?.correo">{{ item?.correo }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Página Web:</span><a class="color-azul-list-contac" href="javascript:void(0)" (click)="go_web (item?.pagina_web)">{{ item?.pagina_web }}</a></li>
                           </ul>
                       </div>
                       <div class="col-sm-6 px-0">
-                          <ul class="list-unstyled mb-0">
+                          <!-- <ul class="list-unstyled mb-0">
                               <li><span class="color-list-contac-titulo mr-1">Repre. Legal:</span><a class="color-azul-list-contac" href="">{{ item?.representante_nombre }}</a></li>
                               <li><span class="color-list-contac-titulo mr-1">Correo:</span><a class="color-azul-list-contac" href="">{{ item?.representante_correo }}</a></li>
                               <li><span class="color-list-contac-titulo mr-1">Teléfono:</span><a class="color-azul-list-contac" href="">{{ item?.representante_telefono }}</a></li>
-                          </ul>
+                          </ul> -->
                       </div>
                       </div>
                   </div>
@@ -69,10 +69,10 @@
                       <div class="row m-0">
                       <div class="col-sm-6 px-0">
                           <ul class="list-unstyled mb-0">
-                              <li><span class="color-list-contac-titulo mr-1">Clasificacion:</span><a class="color-azul-list-contac" href="">{{ item?.clasificacion_nombre }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Clasificacion:</span><a class="color-azul-list-contac">{{ item?.clasificacion?.nombre }}</a></li>
                               <li><span class="color-list-contac-titulo mr-1">Modalidad turismo:</span>
                                 <ul>
-                                  <li style="list-style-type: disc;" *ngFor="let item of item.modalidades">
+                                  <li style="list-style-type: disc;" *ngFor="let item of item.modalidad_turismo">
                                     {{ item.nombre }}
                                   </li>
                                 </ul>
@@ -80,23 +80,23 @@
 
                               <li><span class="color-list-contac-titulo mr-1">Tipo de turismo:</span>
                                 <ul>
-                                  <li style="list-style-type: disc;" *ngFor="let item of item.tipos">
+                                  <li style="list-style-type: disc;" *ngFor="let item of item.tipos_turismo">
                                     {{ item.nombre }}
                                   </li>
                                 </ul>
                               </li>
 
-                              <li><span class="color-list-contac-titulo mr-1">Nro. Certificado:</span><a class="color-azul-list-contac" href="">{{ item?.numero_certificado }}</a></li>
-                              <li><span class="color-list-contac-titulo mr-1">Fecha de Expedición:</span><a class="color-azul-list-contac" href="">{{ getDate (item?.fecha_exp) }}</a></li>
-                              <li><span class="color-list-contac-titulo mr-1">Última fiscalización:</span><a class="color-azul-list-contac" href="">{{ getDate (item?.fecha_ins) }}</a></li>
-                              <li class="mt-4"><span class="color-list-contac-titulo mr-1">Servicio com:</span><a class="color-azul-list-contac" href="">{{ item?.servicios_complementarios }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Nro. Certificado:</span><a class="color-azul-list-contac">{{ get_certificado (item) }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Fecha de Expedición:</span><a class="color-azul-list-contac">{{ getDate (item?.fecha_aprobado, "DD/MM/YYYY") }}</a></li>
+                              <!-- <li><span class="color-list-contac-titulo mr-1">Última fiscalización:</span><a class="color-azul-list-contac">{{ getDate (item?.fecha_ins) }}</a></li> -->
+                              <!-- <li class="mt-4"><span class="color-list-contac-titulo mr-1">Servicio com:</span><a class="color-azul-list-contac" href="">{{ item?.servicios_complementarios }}</a></li> -->
                           </ul>
                       </div>
                       <div class="col-sm-6 px-0">
                           <ul class="list-unstyled mb-0">
-                              <li><span class="color-list-contac-titulo mr-1">Razon social:</span><a class="color-azul-list-contac" href="">{{ item?.razon_social }}</a></li>
-                              <li><span class="color-list-contac-titulo mr-1">RUC:</span><a class="color-azul-list-contac" href="">{{ item?.ruc }}</a></li>
-                              <li><span class="color-list-contac-titulo mr-1">Dirección:</span><a class="color-azul-list-contac" href="">{{ item?.direccion }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Razon social:</span><a class="color-azul-list-contac">{{ item?.representante_razon_social }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">RUC:</span><a class="color-azul-list-contac">{{ item?.representante_ruc }}</a></li>
+                              <li><span class="color-list-contac-titulo mr-1">Dirección:</span><a class="color-azul-list-contac">{{ item?.direccion }}</a></li>
                           </ul>
                       </div>
                       <!--div class="col-12 text-right my-4">
@@ -108,7 +108,7 @@
                       <h3 class="subtitulo-descripcion color-65-cartilla">Sanciones</h3>
                   </div> -->
                   <div class="col-12 px-0 mt-4">
-                      <div class="row m-0">
+                      <!-- <div class="row m-0">
                       <div class="col-6 col-sm-2 px-0">
                           <div class="row m-0">
                           <div class="col-12 px-0 border-list-cartilla pb-1">
@@ -148,7 +148,7 @@
                           </div>
                           </div>
                       </div>
-                      </div>
+                      </div> -->
                   </div>
                   </div>
               </div>

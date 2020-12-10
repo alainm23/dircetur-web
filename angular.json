@@ -36,8 +36,8 @@
               "node_modules/jquery/dist/jquery.min.js",
               "src/assets/js/flickity.min.js",
               "src/assets/js/amazingslider.js",
-              "src/assets/js/propio.js"
-
+              "src/assets/js/propio.js",
+              "node_modules/jspdf/dist/jspdf.min.js"
             ]
           },
           "configurations": {
@@ -108,7 +108,8 @@
               "node_modules/jquery/dist/jquery.min.js",
               "src/assets/js/flickity.min.js",
               "src/assets/js/amazingslider.js",
-              "src/assets/js/propio.js"
+              "src/assets/js/propio.js",
+              "node_modules/jspdf/dist/jspdf.min.js"
             ]
           }
         },

@@ -88,6 +88,7 @@ mat-checkbox-layout {
 .step.finish {
   background-color: #4CAF50;
 }
+
 .content {
   padding-bottom: 125px;
   padding-top: 120px;
@@ -96,7 +97,7 @@ mat-checkbox-layout {
 }
 @media (min-width: 640px)
 {
-  .content 
+  .content
   {
     padding-bottom: 125px;
     padding-top: 130px;
@@ -106,7 +107,7 @@ mat-checkbox-layout {
 }
 @media (min-width: 768px)
 {
-  .content 
+  .content
   {
     padding-bottom: 125px;
     padding-top: 150px;
@@ -116,7 +117,7 @@ mat-checkbox-layout {
 }
 @media (min-width: 1024px)
 {
-  .content 
+  .content
   {
     padding-bottom: 125px;
     padding-top: 60px;
@@ -126,7 +127,7 @@ mat-checkbox-layout {
 }
 @media (min-width: 1200px)
 {
-  .content 
+  .content
   {
     padding-bottom: 125px;
     padding-top: 125px;

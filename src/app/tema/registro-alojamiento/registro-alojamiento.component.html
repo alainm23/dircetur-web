@@ -8,10 +8,24 @@
   <p style="color: white" > Verificando... </p>
 </ngx-spinner>
 
-<ng-template #myDialog>
-  <h1 mat-dialog-title>¡Upss!</h1>
+<ng-template #myDialogError>
+  <h1 mat-dialog-title>¡Lo sentimos! Se produjo un error. Póngase en contacto con el administrador para obtener más información.</h1>
   <div style="margin-bottom: 1rem;" mat-dialog-content>
+    {{ error_message }}
+  </div>
+  <div mat-dialog-actions>
+    <button class="btn btn-leer-altura"mat-dialog-close>Ok</button>
+  </div>
+</ng-template>
+
+<ng-template #myDialog>
+  <h1 mat-dialog-title>¡Lo sentimos!</h1>
+  <div *ngIf="correo_valido !== undefined" style="margin-bottom: 1rem;" mat-dialog-content>
     El correo <i><b>{{ form_02.value.correo }}</b></i> ya se encuentra en uso, pruebe con uno nuevo.
+  </div>
+
+  <div *ngIf="ruc_valido !== undefined" style="margin-bottom: 1rem;" mat-dialog-content>
+    El N° de RUC <i><b>{{ form_02.value.ruc }}</b></i> ya se encuentra en uso, pruebe con uno nuevo.
   </div>
   <div mat-dialog-actions>
     <button class="btn btn-leer-altura"mat-dialog-close>Ok</button>
@@ -19,13 +33,18 @@
 </ng-template>
 
 <div class="content">
-  <div *ngIf="!finalizado">
+  <div>
+    <h2 class="text-center">DECLARACIÓN JURADA ALOJAMIENTO
+      <span *ngIf="vista === 2 && form_01.value.registro_nuevo === '0'">- REGISTRO NUEVO</span>
+      <span *ngIf="vista === 2 && form_01.value.registro_nuevo === '1'">- ACTUALIZACION DE DATOS</span>
+    </h2>
+    <br>
     <div [formGroup]="form_01" *ngIf="vista === 1">
       <div class="form-content">
         <mat-radio-group aria-label="Tipo de persona" formControlName="registro_nuevo" (change)="change_tipo_registro ($event.value)">
           <mat-radio-button value="0">Registro nuevo</mat-radio-button>
           &nbsp;
-          <mat-radio-button value="1">Actualizacion de datos (cuento con constancia de Dircetur)</mat-radio-button>
+          <mat-radio-button value="1">Actualización de datos (cuento con constancia de Dircetur)</mat-radio-button>
         </mat-radio-group>
       </div>
       <br>
@@ -33,15 +52,17 @@
       <div class="form-content" *ngIf="form_01.value.registro_nuevo === '1'">
         <div class="row">
           <div class="col-sm-6">
-            <mat-form-field class="example-full-width">
+            <mat-form-field (click)="fecha_exp.open()" class="example-full-width">
               <mat-label>Fecha de Expedicion <span style="color: red">*</span></mat-label>
-              <input matInput type="date" formControlName="fecha_exp">
+              <input readonly="true" matInput formControlName="fecha_exp" [matDatepicker]="fecha_exp">
+              <mat-datepicker-toggle matSuffix [for]="fecha_exp"></mat-datepicker-toggle>
+              <mat-datepicker #fecha_exp disabled="false" ></mat-datepicker>
             </mat-form-field>
           </div>
           <div class="col-sm-6">
             <mat-form-field class="example-full-width">
-              <mat-label>N° de Licencia de Funcionamiento <span style="color: red">*</span></mat-label>
-              <input matInput type="text" formControlName="numero_certificado">
+              <mat-label>Número de constancia de Dircetur <span style="color: red">*</span></mat-label>
+              <input matInput type="number" formControlName="numero_constancia">
             </mat-form-field>
           </div>
         </div>
@@ -57,7 +78,7 @@
       <div><p class="header-title">INFORMACIÓN DEL ESTABLECIMIENTO</p></div>
       <div class="form-content">
         <mat-form-field class="example-full-width">
-          <mat-label>Razon social <span style="color: red">*</span></mat-label>
+          <mat-label>Razón social <span style="color: red">*</span></mat-label>
           <input matInput type="text" formControlName="razon_social">
         </mat-form-field>
 
@@ -71,21 +92,21 @@
 
           <div class="col-sm-6">
             <mat-form-field class="example-full-width">
-              <mat-label>N° de RUC <span style="color: red">*</span></mat-label>
-              <input matInput type="text" formControlName="ruc">
+              <mat-label>N° de RUC (Del establecimiento) <span style="color: red">*</span></mat-label>
+              <input matInput type="text" maxlength="11" minlength="11" formControlName="ruc">
             </mat-form-field>
           </div>
         </div>
 
         <mat-form-field class="example-full-width">
-          <mat-label>Direccion completa <span style="color: red">*</span></mat-label>
+          <mat-label>Dirección completa <span style="color: red">*</span></mat-label>
           <input matInput type="text" formControlName="direccion">
         </mat-form-field>
 
         <div class="row">
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Region <span style="color: red">*</span></mat-label>
+              <mat-label>Región <span style="color: red">*</span></mat-label>
               <input matInput type="text" value="Cusco" [disabled]="true">
             </mat-form-field>
           </div>
@@ -116,22 +137,40 @@
         <div class="row">
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Pagina Web <span style="color: red">*</span></mat-label>
+              <mat-label>Página Web</mat-label>
               <input matInput type="text" formControlName="pagina_web">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Email <span style="color: red">*</span></mat-label>
+              <mat-label>Correo electrónico <span style="color: red">*</span></mat-label>
               <input matInput type="text" formControlName="correo">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Telefono <span style="color: red">*</span></mat-label>
-              <input matInput type="text" formControlName="telefono">
+              <mat-label>Confirmar correo electrónico <span style="color: red">*</span></mat-label>
+              <input matInput type="text" formControlName="confir_correo">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field class="example-full-width">
+              <mat-label>Teléfono celular <span style="color: red">*</span></mat-label>
+              <input matInput type="number" formControlName="telefono">
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4">
+            <mat-form-field class="example-full-width">
+              <mat-label>Clase <span style="color: red">*</span></mat-label>
+              <mat-select formControlName="clase">
+                <mat-option *ngFor="let item of clasificaciones" [value]="item">
+                  {{ item.nombre }}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </div>
         </div>
@@ -147,7 +186,7 @@
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
               <mat-label>Doc. Identidad <span style="color: red">*</span></mat-label>
-              <mat-select formControlName="representante_tdoc">
+              <mat-select (selectionChange)="documentoChanged ($event.value)" formControlName="representante_tdoc">
                 <mat-option value="DNI">DNI</mat-option>
                 <mat-option value="CE">C.E</mat-option>
               </mat-select>
@@ -156,7 +195,7 @@
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>N° Doc. Identidad <span style="color: red">*</span></mat-label>
+              <mat-label>N.° Doc. Identidad <span style="color: red">*</span></mat-label>
               <input matInput type="text" formControlName="representante_ndoc">
             </mat-form-field>
           </div>
@@ -164,23 +203,27 @@
 
         <div class="row">
           <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Fecha inicio de operaciones <span style="color: red">*</span></mat-label>
-              <input matInput type="date" formControlName="fecha_ins">
+            <mat-form-field (click)="fecha_ins.open()" class="example-full-width">
+              <mat-label>Fecha de Inicio de Operaciones <span style="color: red">*</span></mat-label>
+              <input readonly="true" matInput formControlName="fecha_ins" [matDatepicker]="fecha_ins">
+              <mat-datepicker-toggle matSuffix [for]="fecha_ins"></mat-datepicker-toggle>
+              <mat-datepicker #fecha_ins disabled="false" ></mat-datepicker>
             </mat-form-field>
           </div>
 
-          <div class="col-sm-4" *ngIf="form_01.value.registro_nuevo === '0'">
+          <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>N° Licencia de Funcionamiento <span style="color: red">*</span></mat-label>
-              <input matInput type="text" formControlName="numero_certificado">
+              <mat-label>N.° Licencia de Funcionamiento <span style="color: red">*</span></mat-label>
+              <input matInput type="number" formControlName="numero_certificado">
             </mat-form-field>
           </div>
 
-          <div class="col-sm-4" *ngIf="form_01.value.registro_nuevo === '0'">
-            <mat-form-field class="example-full-width">
-              <mat-label>Fecha de expedicion <span style="color: red">*</span></mat-label>
-              <input matInput type="date" formControlName="fecha_exp">
+          <div class="col-sm-4">
+            <mat-form-field (click)="fecha_exp.open()" class="example-full-width">
+              <mat-label>Fecha de Expedicion <span style="color: red">*</span></mat-label>
+              <input readonly="true" matInput formControlName="fecha_exp" [matDatepicker]="fecha_exp">
+              <mat-datepicker-toggle matSuffix [for]="fecha_exp"></mat-datepicker-toggle>
+              <mat-datepicker #fecha_exp disabled="false" ></mat-datepicker>
             </mat-form-field>
           </div>
         </div>
@@ -189,33 +232,37 @@
       <div style="text-align: end; margin-top: 1rem;">
         <button class="btn btn-leer-altura" (click)="cambiar_vista (-1)" style="cursor: pointer; color: #FFFFFF;">Atras</button>
         &nbsp;
-        <button class="btn btn-leer-altura" (click)="validar_correo (myDialog)" [disabled]="!form_02.valid" style="cursor: pointer; color: #FFFFFF;">Siguiente</button>
+        <button class="btn btn-leer-altura" (click)="validar_correo_ruc (myDialog)" [disabled]="form_02.invalid || esta_validando" style="cursor: pointer; color: #FFFFFF;">
+          Siguiente
+          &nbsp;
+          <i class="fa fa-spinner fa-spin" *ngIf="esta_validando"></i>
+        </button>
       </div>
     </div>
 
     <div [formGroup]="form_03" *ngIf="vista === 3">
-      <div><p class="header-title">REQUISITOS MINIMOS</p></div>
+      <div><p class="header-title">REQUISITOS MÍNIMOS</p></div>
       <div class="form-content" style="font-size: 14px;">
-        <div><p style="margin-bottom: 0px; opacity: 0.7;">A. REQUISITOS MINIMOS DE INFRAESTRUCTURA</p></div>
+        <div><p style="margin-bottom: 0px; opacity: 0.7;">A. REQUISITOS MÍNIMOS DE INFRAESTRUCTURA</p></div>
         <div class="row">
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>N° de Habitaciones (minimo 6) <span style="color: red">*</span></mat-label>
+              <mat-label>N.° de Habitaciones (mínimo 6) <span style="color: red">*</span></mat-label>
               <input matInput type="number" min="6" formControlName="numero_habitaciones">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Ingreso diferenciado para huespedes y personal de servicio <span style="color: red">*</span></mat-label>
+              <mat-label>Ingreso diferenciado para huéspedes y personal de servicio <span style="color: red">*</span></mat-label>
               <input matInput type="number" formControlName="ingreso_diferenciado">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>N° de Pisos <span style="color: red">*</span></mat-label>
-              <input matInput type="number" formControlName="numero_pisos">
+              <mat-label>N.° de Pisos <span style="color: red">*</span></mat-label>
+              <input matInput type="number" formControlName="numero_pisos" (ngModelChange)="validar_numero_pisos ()">
             </mat-form-field>
           </div>
         </div>
@@ -223,28 +270,28 @@
         <div class="row">
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Numero de personal ocupado <span style="color: red">*</span></mat-label>
+              <mat-label>Número de personal ocupado <span style="color: red">*</span></mat-label>
               <input matInput type="number" formControlName="numero_personal">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Numero de camas <span style="color: red">*</span></mat-label>
+              <mat-label>Número de camas <span style="color: red">*</span></mat-label>
               <input matInput type="number" formControlName="numero_camas">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Numero de baños privados</mat-label>
+              <mat-label>Número de baños privados</mat-label>
               <input matInput type="number" formControlName="nro_banios_privados">
             </mat-form-field>
           </div>
 
           <div class="col-sm-4">
             <mat-form-field class="example-full-width">
-              <mat-label>Numero de baños comunes</mat-label>
+              <mat-label>Número de baños comunes</mat-label>
               <input matInput type="number" formControlName="nro_banios_comunes">
             </mat-form-field>
           </div>
@@ -255,72 +302,72 @@
           <div class="col-sm-6">
             <label class="check-label">
               <input formControlName="req_min_inf_01" class="check-check" type="checkbox"/>
-              Area de recepcion y consejeria
+              Área de recepción y consejería.
             </label>
 
             <label class="check-label">
               <input formControlName="req_min_inf_02" class="check-check" type="checkbox"/>
-              El area de habitaciones (incluye el area del closet guardarropa) tiene como minimo 6m
+              El área de habitaciones (incluye el área del closet guardarropa) tiene como mínimo 6 m.
             </label>
 
             <label class="check-label">
               <input formControlName="req_min_inf_03" class="check-check" type="checkbox"/>
-              El area de total de los SS.HH. privados o comunes tiene como minimo 2m
+              El área de total de los SS.HH. privados o comunes tiene como mínimo 2 m.
             </label>
 
             <label class="check-label">
               <input formControlName="req_min_inf_04" class="check-check" type="checkbox"/>
-              Lo sericios higienicos: Cuentan con pisos y paredes de material impermeable, el revestimiento de la pared tiene una altura minima de 1.80m.
+              Los servicios higiénicos: Cuentan con pisos y paredes de material impermeable, el revestimiento de la pared tiene una altura mínima de 1.80 m.
             </label>
 
             <label class="check-label">
               <input formControlName="req_min_inf_05" class="check-check" type="checkbox"/>
-              Contar con un ascensor a partir de (4) o mas pisos.
+              Contar con un ascensor a partir de (4) o más pisos.
             </label>
 
             <label class="check-label">
               <input formControlName="req_min_inf_07" class="check-check" type="checkbox"/>
-              La edificacion guarda armonía con el entorno en el que se ubica.
+              La edificación guarda armonía con el entorno en el que se ubica.
             </label>
           </div>
           <div class="col-sm-6">
             <label class="check-label">
               <input formControlName="req_min_inf_08" class="check-check" type="checkbox"/>
-              Accesibilidad para personas con dicapacidad y de las personas adultas mayores, según norma A.120.
+              Accesibilidad para personas con discapacidad y de las personas adultas mayores, según norma A.120.
             </label>
 
             <label class="check-label">
               <input formControlName="req_min_inf_09" class="check-check" type="checkbox"/>
-              Para el diseño de acceso y salidas de emergencia pasajes de circulacion de personas, escaleras, sistema contra incendios, etc., se a tomado en cuenta la norma A.130, requisitos de seguridad.
+              Para el diseño de acceso y salidas de emergencia pasajes de circulación de personas, escaleras, sistema contra incendios, etc., sé ha tomado en cuenta la norma A.130, requisitos de seguridad.
             </label>
 
             <label class="check-label">
               <input formControlName="req_min_inf_10" class="check-check" type="checkbox"/>
-              Tabiqueria: Los muros y diviciones interiores, especialemente entre dormitorios cumplen con los requisitos de seguridad del reglamento de edificaciones siendo cumbustibles, higiénicos y de facil limpieza, brindando condiciones de privavidad y alislamiento acústico.
+              Tabiquería: Los muros y divisiones interiores, especialmente entre dormitorios cumplen con los requisitos de seguridad del reglamento de edificaciones siendo combustibles, higiénicos y de fácil limpieza, brindando condiciones de privacidad y aislamiento acústico.
             </label>
           </div>
         </div>
 
         <div class="row">
           <div class="col-sm-6">
-            <div><p style="margin-bottom: 0px; opacity: 0.7;">B. REQUISITOS MINIMOS DE EQUIPAMIENTO</p></div>
+            <div><p style="margin-bottom: 0px; opacity: 0.7;">B. REQUISITOS MÍNIMOS DE EQUIPAMIENTO</p></div>
             <label class="check-label">
               <input formControlName="req_min_eqp_01" class="check-check" type="checkbox"/>
-              Telefono de uso publico (puede ser teléfono fijo de recpeción, celular, dependiendo de la zona y para uso exclusivo del huésped)
+              Teléfono de uso público (puede ser teléfono fijo de recepción, celular, dependiendo de la zona y para uso exclusivo del huésped).
             </label>
 
             <label class="check-label">
               <input formControlName="req_min_eqp_02" class="check-check" type="checkbox"/>
-              Botiquin de primeros auxilios segun especificaciones técnicas del ministerio de salud
+              Botiquín de primeros auxilios según especificaciones técnicas del ministerio de salud.
             </label>
 
             <label class="check-label">
               <input formControlName="req_min_eqp_03" class="check-check" type="checkbox"/>
-              Cuento con sistema que permita tener agua fria y caliente y las 24 horas del dia el cual no es activado por el huésped.
+              Cuento con sistema que permita tener agua fría y caliente y las 24 horas del día el cual no es activado por el huésped.
             </label>
           </div>
           <div class="col-sm-6">
-            <div><p style="margin-bottom: 0px; opacity: 0.7;">C. REQUISITOS MINIMOS DE SERVICIO</p></div>
+            <div><p style="margin-bottom: 0px; opacity: 0.7;">C. REQUISITOS MÍNIMOS DE SERVICIO</p></div>
             <label class="check-label">
               <input formControlName="req_min_srv_01" class="check-check" type="checkbox"/>
               Se realiza limpieza diaria de habitaciones y todos los ambientes del establecimiento.
@@ -333,7 +380,7 @@
 
             <label class="check-label">
               <input formControlName="req_min_srv_03" class="check-check" type="checkbox"/>
-              El cambio de sabanas y toallas debe ser regular, (el huésped puede solicitar que no se cambies regularmente de acuerdo a criterios amientales y otros)
+              El cambio de sábanas y toallas debe ser regular, (el huésped puede solicitar que no se cambie regularmente de acuerdo a criterios ambientales y otros).
             </label>
           </div>
         </div>
@@ -352,9 +399,11 @@
         <div class="row">
           <div class="col-sm-12" *ngFor="let personal of personal.controls; index as i">
             <ng-container [formGroup]="personal">
-              <mat-form-field class="example-full-width">
+              <mat-form-field (click)="anio_nacimiento.open()" class="example-full-width">
                 <mat-label>Año de nacimiento <span style="color: red">*</span></mat-label>
-                <input matInput type="date" formControlName="anio_nacimiento">
+                <input readonly="true" matInput formControlName="anio_nacimiento" [matDatepicker]="anio_nacimiento">
+                <mat-datepicker-toggle matSuffix [for]="anio_nacimiento"></mat-datepicker-toggle>
+                <mat-datepicker #anio_nacimiento disabled="false" ></mat-datepicker>
               </mat-form-field>
 
               <mat-form-field class="example-full-width">
@@ -388,9 +437,8 @@
           <div class="col-12">
             <label class="check-label">
               <input formControlName="declaraciones_jurada" class="check-check" type="checkbox"/>
-              LA PRESENTE DECLARACIÓN JURADA LA REALIZO SEGÚN LO SEÑALADO EN EL NUMERAL 9.2 DEL ARTICULO 9 DEL REGLAMENTO DE AGENCIAS DE VIAJES Y TURISMO, APROBADO MEDIANTE D.S.005-2020- MINCETUR, MANIFESTANDO QUE LOS DATOS SEÑALADO EXPRESAN LA VERDAD Y QUE CONOZCO LAS SANCIONES ADMINISTRATIVAS Y PENALES A QUE HABRA LUGAR EN CASO DE FALSEDAD.<br><br>
-              *TODOS LOS DATOS CONSIGNADOS, ESTAN SUJETOS A VERTIFICACICÓN Y FISCALIZACIÓN POSTERIOR.
-
+              LA PRESENTE DECLARACIÓN JURADA LA REALIZO SEGÚN LO SEÑALADO EN EL NUMERAL 9.2 DEL ARTICULO 9 DEL REGLAMENTO DE AGENCIAS DE VIAJES Y TURISMO, APROBADO MEDIANTE D.S.001-2015- MINCETUR, MANIFESTANDO QUE LOS DATOS SEÑALADO EXPRESAN LA VERDAD Y QUE CONOZCO LAS SANCIONES ADMINISTRATIVAS Y PENALES A QUE HABRÁ LUGAR EN CASO DE FALSEDAD.<br><br>
+              *TODOS LOS DATOS CONSIGNADOS, ESTÁN SUJETOS A VERIFICACIÓN Y FISCALIZACIÓN POSTERIOR.
             </label>
           </div>
         </div>
@@ -399,7 +447,7 @@
       <div style="text-align: end; margin-top: 1rem;">
         <button class="btn btn-leer-altura" (click)="cambiar_vista (-1)" style="cursor: pointer; color: #FFFFFF;">Atras</button>
         &nbsp;
-        <button class="btn btn-leer-altura" [disabled]="!form_05.valid" (click)="submit ()" style="cursor: pointer; color: #FFFFFF;">Enviar</button>
+        <button class="btn btn-leer-altura" [disabled]="!form_05.valid" (click)="submit (myDialogError)" style="cursor: pointer; color: #FFFFFF;">Enviar</button>
       </div>
     </div>
 
@@ -409,329 +457,6 @@
       <span [className]="vista > 3 ? 'step finish' : vista === 3 ? 'step active' : 'step'"></span>
       <span [className]="vista > 4 ? 'step finish' : vista === 4 ? 'step active' : 'step'"></span>
       <span [className]="vista > 5 ? 'step finish' : vista === 5 ? 'step active' : 'step'"></span>
-      <span [className]="vista > 6 ? 'step finish' : vista === 6 ? 'step active' : 'step'"></span>
-      <span [className]="vista > 7 ? 'step finish' : vista === 7 ? 'step active' : 'step'"></span>
-      <span [className]="vista > 8 ? 'step finish' : vista === 8 ? 'step active' : 'step'"></span>
     </div>
-  </div>
-
-  <!-- <button (click)="export_pdf ()">Descargar</button> -->
-
-  <div *ngIf="finalizado" id="mypdf" #mypdf>
-    <H3 class="text-center">DECLARACION JURADA</H3>
-    <br>
-    <form [formGroup]="hospedaje_form">
-      <div class="form-content">
-        <mat-radio-group aria-label="Tipo de persona" formControlName="registro_nuevo">
-          <mat-radio-button value="0">Registro nuevo</mat-radio-button>
-          &nbsp;
-          <mat-radio-button value="1">Actualizacion de datos (cuento con constancia de Dircetur)</mat-radio-button>
-        </mat-radio-group>
-      </div>
-      <br>
-
-      <div class="form-content" *ngIf="hospedaje_form.value.registro_nuevo === '1'">
-        <mat-form-field class="example-full-width">
-          <mat-label>Fecha de Expedicion</mat-label>
-          <input matInput type="date" formControlName="fecha_exp">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <mat-label>N° de Licencia de Funcionamiento</mat-label>
-          <input matInput type="text" formControlName="numero_certificado">
-        </mat-form-field>
-        <br>
-      </div>
-      <div><p class="header-title">INFORMACIÓN DEL ESTABLECIMIENTO</p></div>
-      <div class="form-content">
-        <mat-form-field class="example-full-width">
-          <mat-label>Razon social</mat-label>
-          <input matInput type="text" formControlName="razon_social">
-        </mat-form-field>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <mat-form-field class="example-full-width">
-              <mat-label>Nombre Comercial</mat-label>
-              <input matInput type="text" formControlName="nombre_comercial">
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-6">
-            <mat-form-field class="example-full-width">
-              <mat-label>N° de RUC</mat-label>
-              <input matInput type="text" formControlName="ruc">
-            </mat-form-field>
-          </div>
-        </div>
-
-        <mat-form-field class="example-full-width">
-          <mat-label>Direccion completa</mat-label>
-          <input matInput type="text" formControlName="direccion">
-        </mat-form-field>
-
-        <div class="row">
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Region</mat-label>
-              <input matInput type="text" value="Cusco" [disabled]="true">
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Provincia</mat-label>
-              <mat-select formControlName="provincia" (selectionChange)="provinciaChanged ($event.value)">
-                <mat-option *ngFor="let item of provincias" [value]="item">
-                  {{ item.nombre }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Distrito</mat-label>
-              <mat-select formControlName="distrito">
-                <mat-option *ngFor="let item of distritos" [value]="item">
-                  {{ item.nombre }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Pagina Web</mat-label>
-              <input matInput type="text" formControlName="pagina_web">
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Email</mat-label>
-              <input matInput type="text" formControlName="correo">
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Telefono</mat-label>
-              <input matInput type="text" formControlName="telefono">
-            </mat-form-field>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Representante Legal</mat-label>
-              <input matInput type="text" formControlName="representante_nombre">
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Doc. Identidad</mat-label>
-              <mat-select formControlName="representante_tdoc">
-                <mat-option value="DNI">DNI</mat-option>
-                <mat-option value="CE">C.E</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>N° Doc. Identidad</mat-label>
-              <input matInput type="text" formControlName="representante_ndoc">
-            </mat-form-field>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Fecha inicio de operaciones</mat-label>
-              <input matInput type="date" formControlName="fecha_ins">
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-4" *ngIf="hospedaje_form.value.registro_nuevo === '0'">
-            <mat-form-field class="example-full-width">
-              <mat-label>N° Licencia de Funcionamiento</mat-label>
-              <input matInput type="text" formControlName="numero_certificado">
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-4" *ngIf="hospedaje_form.value.registro_nuevo === '0'">
-            <mat-form-field class="example-full-width">
-              <mat-label>Fecha de expedicion</mat-label>
-              <input matInput type="date" formControlName="fecha_exp">
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
-      <div class="html2pdf__page-break"></div>
-      <div><p class="header-title">REQUISITOS MINIMOS</p></div>
-      <div class="form-content" style="font-size: 14px;">
-        <div><p style="margin-bottom: 0px; opacity: 0.7;">A. REQUISITOS MINIMOS DE INFRAESTRUCTURA</p></div>
-        <div class="row">
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>N° de Habitaciones (minimo 6)</mat-label>
-              <input matInput type="number" formControlName="numero_habitaciones">
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Ingreso diferenciado para huespedes y personal de servicio</mat-label>
-              <input matInput type="number" formControlName="ingreso_diferenciado">
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>N° de Pisos</mat-label>
-              <input matInput type="number" formControlName="numero_pisos">
-            </mat-form-field>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Numero de personal ocupado</mat-label>
-              <input matInput type="number" formControlName="numero_personal">
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Numero de camas</mat-label>
-              <input matInput type="number" formControlName="numero_camas">
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Numero de baños privados</mat-label>
-              <input matInput type="number" formControlName="nro_banios_privados">
-            </mat-form-field>
-          </div>
-
-          <div class="col-sm-4">
-            <mat-form-field class="example-full-width">
-              <mat-label>Numero de baños comunes</mat-label>
-              <input matInput type="number" formControlName="nro_banios_comunes">
-            </mat-form-field>
-          </div>
-        </div>
-
-        <div><p style="margin-bottom: 0px; opacity: 0.7;">EL ESTABLECIMIENTO CUENTA CON:</p></div>
-        <div class="row">
-          <div class="col-sm-6">
-            <label class="check-label">
-              <input formControlName="req_min_inf_01" class="check-check" type="checkbox"/>
-              Area de recepcion y consejeria
-            </label>
-
-            <label class="check-label">
-              <input formControlName="req_min_inf_02" class="check-check" type="checkbox"/>
-              El area de habitaciones (incluye el area del closet guardarropa) tiene como minimo 6m
-            </label>
-
-            <label class="check-label">
-              <input formControlName="req_min_inf_03" class="check-check" type="checkbox"/>
-              El area de total de los SS.HH. privados o comunes tiene como minimo 2m
-            </label>
-
-            <label class="check-label">
-              <input formControlName="req_min_inf_04" class="check-check" type="checkbox"/>
-              Lo sericios higienicos: Cuentan con pisos y paredes de material impermeable, el revestimiento de la pared tiene una altura minima de 1.80m.
-            </label>
-
-            <label class="check-label">
-              <input formControlName="req_min_inf_05" class="check-check" type="checkbox"/>
-              Contar con un ascensor a partir de (4) o mas pisos.
-            </label>
-
-            <label class="check-label">
-              <input formControlName="req_min_inf_07" class="check-check" type="checkbox"/>
-              La edificacion guarda armonía con el entorno en el que se ubica.
-            </label>
-          </div>
-          <div class="col-sm-6">
-            <label class="check-label">
-              <input formControlName="req_min_inf_08" class="check-check" type="checkbox"/>
-              Accesibilidad para personas con dicapacidad y de las personas adultas mayores, según norma A.120.
-            </label>
-
-            <label class="check-label">
-              <input formControlName="req_min_inf_09" class="check-check" type="checkbox"/>
-              Para el diseño de acceso y salidas de emergencia pasajes de circulacion de personas, escaleras, sistema contra incendios, etc., se a tomado en cuenta la norma A.130, requisitos de seguridad.
-            </label>
-
-            <label class="check-label">
-              <input formControlName="req_min_inf_10" class="check-check" type="checkbox"/>
-              Tabiqueria: Los muros y diviciones interiores, especialemente entre dormitorios cumplen con los requisitos de seguridad del reglamento de edificaciones siendo cumbustibles, higiénicos y de facil limpieza, brindando condiciones de privavidad y alislamiento acústico.
-            </label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <div><p style="margin-bottom: 0px; opacity: 0.7;">B. REQUISITOS MINIMOS DE EQUIPAMIENTO</p></div>
-            <label class="check-label">
-              <input formControlName="req_min_eqp_01" class="check-check" type="checkbox"/>
-              Telefono de uso publico (puede ser teléfono fijo de recpeción, celular, dependiendo de la zona y para uso exclusivo del huésped)
-            </label>
-
-            <label class="check-label">
-              <input formControlName="req_min_eqp_02" class="check-check" type="checkbox"/>
-              Botiquin de primeros auxilios segun especificaciones técnicas del ministerio de salud
-            </label>
-
-            <label class="check-label">
-              <input formControlName="req_min_eqp_03" class="check-check" type="checkbox"/>
-              Cuento con sistema que permita tener agua fria y caliente y las 24 horas del dia el cual no es activado por el huésped.
-            </label>
-          </div>
-          <div class="col-sm-6">
-            <div><p style="margin-bottom: 0px; opacity: 0.7;">C. REQUISITOS MINIMOS DE SERVICIO</p></div>
-            <label class="check-label">
-              <input formControlName="req_min_srv_01" class="check-check" type="checkbox"/>
-              Se realiza limpieza diaria de habitaciones y todos los ambientes del establecimiento.
-            </label>
-
-            <label class="check-label">
-              <input formControlName="req_min_srv_02" class="check-check" type="checkbox"/>
-              Brindo servicio de custodia de equipaje.
-            </label>
-
-            <label class="check-label">
-              <input formControlName="req_min_srv_03" class="check-check" type="checkbox"/>
-              El cambio de sabanas y toallas debe ser regular, (el huésped puede solicitar que no se cambies regularmente de acuerdo a criterios amientales y otros)
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="html2pdf__page-break"></div>
-      <div class="mt-3"><p class="header-title">DECLARACIONES </p></div>
-      <div class="form-content">
-        <div class="row">
-          <div class="col-12">
-            <label class="check-label">
-              <input formControlName="declaraciones_jurada" class="check-check" type="checkbox"/>
-              LA PRESENTE DECLARACIÓN JURADA LA REALIZO SEGÚN LO SEÑALADO EN EL NUMERAL 9.2 DEL ARTICULO 9 DEL REGLAMENTO DE AGENCIAS DE VIAJES Y TURISMO, APROBADO MEDIANTE D.S.005-2020- MINCETUR, MANIFESTANDO QUE LOS DATOS SEÑALADO EXPRESAN LA VERDAD Y QUE CONOZCO LAS SANCIONES ADMINISTRATIVAS Y PENALES A QUE HABRA LUGAR EN CASO DE FALSEDAD.<br><br>
-              *TODOS LOS DATOS CONSIGNADOS, ESTAN SUJETOS A VERTIFICACICÓN Y FISCALIZACIÓN POSTERIOR.
-
-            </label>
-          </div>
-        </div>
-      </div>
-    </form>
   </div>
 </div>

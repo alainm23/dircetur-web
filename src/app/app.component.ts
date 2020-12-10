@@ -19,7 +19,6 @@ export class AppComponent {
     private titleService: TitleService
   ) {
     let lang: string = localStorage.getItem ("idioma");
-    console.log (lang);
 
     if (lang === null || lang === undefined) {
       lang = 'es';
@@ -28,15 +27,20 @@ export class AppComponent {
     localStorage.setItem ("idioma", lang);
     moment.locale (lang);
 
-    router.events.subscribe(val => {
-      if (location.path() == "/home" || location.path() == "" || location.path() == "/") {
-        this.utils.header_visible=false;
+    router.events.subscribe ((val: any) => {
+      console.log ('val', val);
+      console.log ('location', location.path ());
+
+      if (location.path () === '/home' || location.path () === '' || location.path () === '/') {
+        this.utils.header_visible = false;
       } else {
-        this.utils.header_visible=true;
+        this.utils.header_visible = true;
       }
+
       $('.mostrar-menu').hide();
       $('.derecha-menu').css({'transform': 'translate3d(0,0,0)'});
     });
+
     this.titleService.init();
   }
 }

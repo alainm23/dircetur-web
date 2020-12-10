@@ -1,7 +1,7 @@
 .fondo-azul-cartilla{
 	background-color: #3E729A;
 	border: 1px solid #707070;
-	height: 27rem; 
+	height: 27rem;
 	left: 0;
 }
 @media(min-width: 568px){
@@ -135,7 +135,7 @@
 }
 
 .active, .accordion:hover {
-  background-color: #3E729A; 
+  background-color: #3E729A;
   color: #fff;
   border: 1px solid #707070;
 }
@@ -156,7 +156,7 @@
 .color-azul-list-contac{
 	font: Medium 22px/32px Avenir;
     letter-spacing: 0;
-    color: #3E729A;
+    color: #3E729A !important;
     font-weight: 500;
 }
 .color-list-contac-titulo{

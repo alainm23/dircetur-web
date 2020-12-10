@@ -37,11 +37,11 @@ const routes: Routes = [
   { path: 'inicio', component: HomeComponent,  data: {title: "Inicio"}},
   { path: 'home', component: HomeComponent,  data: {title: "Home"}},
   { path: 'sobre-nosotros', component: ContenidoComponent, data: {title: "Sobre Nosotros"}},
-  { path: 'about-us', component: ContenidoComponent, data: {title: "About Us"}},
+  { path: 'about-us', component: ContenidoComponent, data: {title: "Acerca de nosotros"}},
   { path: 'registro-general', component: RegistroGeneralComponent, data: {title: "Registro"}},
   { path: 'registro-alojamiento', component: RegistroAlojamientoComponent, data: {title: "Registro Alojamiento"}},
-  { path: 'registro-agencia', component: RegistroAgenciaComponent, data: {title: "Registro Alojamiento"}},
-  { path: 'registro-agencia-digital', component: RegistroAgenciaDigitalComponent, data: {title: "Registro Agencia"}},
+  { path: 'registro-agencia', component: RegistroAgenciaComponent, data: {title: "Registro Agencia"}},
+  { path: 'registro-agencia-digital', component: RegistroAgenciaDigitalComponent, data: {title: "Registro Agencia Virtual"}},
   { path: 'registro-finalizado/:correo', component: RegistroFinalizadoComponent, data: {title: "Registro Finalizado"}},
   { path: 'transparencia-institucional', component: TransparenciainstitucionalComponent, data: {title: "Transparencia Institucional"}},
   { path: 'circuitos-turisticos', component: CircuitosturisticosComponent, data: {title: "Circuitos Turisticos"}},
@@ -58,8 +58,6 @@ const routes: Routes = [
   { path: 'blogs/:slug/:id', component: BlogsComponent},
   { path: 'viaje-programado/:slug/:id', component: ViajeProgramadoComponent},
   { path: 'viaje-rural/:slug/:id', component: ViajeRuralComponent},
- /* { path: 'eventos', component: EventosComponent},
-  { path: 'proyectos-especiales', component: ProyectosEspecialesComponent},*/
   { path: 'contacto', component: ContactoComponent, data: {title: "Contacto"}},
   { path: 'calendario', component: CalendarioComponent, data: {title: "Calendario"}},
   { path: 'agencia-cartilla/:tipo/:id', component: AgenciaCartillaComponent},
@@ -71,7 +69,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot (routes, { useHash: true })],
   // imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

@@ -48,9 +48,12 @@ import {
   MatSelectModule,
   MatCheckboxModule,
   MatButtonModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from "@angular/material";
 import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { CustomFormsModule } from 'ng2-validation'
 
 import { ViajeProgramadoDialogComponent } from './dialogs/viaje-programado/viaje-programado-dialog.component';
 import { ImagenUbigeoComponent } from './dialogs/imagen-ubigeo/imagen-ubigeo.component';
@@ -123,7 +126,10 @@ import { RegistroAgenciaDigitalComponent } from './tema/registro-agencia-digital
     HttpClientModule,
     NgxSpinnerModule,
     MatTooltipModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    CustomFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     TitleService,
