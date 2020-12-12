@@ -23,9 +23,7 @@
                 <div *ngFor="let faq of Faqs">
                     <button class="accordion-titulo py-2 px-4 my-2 text-capitalize text-left">{{faq.data.pregunta}}<span class="toggle-icon mt-n1"></span></button>
                     <div class="accordion-content py-3 px-4">
-                        <p>
-                            {{faq.data.respuesta}}
-                        </p>
+                      <div [innerHtml]="faq.data.respuesta"></div>
                     </div>
                 </div>
             </div>
@@ -41,9 +39,9 @@
                 <div class="col-12 col-sm-6 pr-0 pl-0 pl-sm-1 mb-2 mb-sm-0">
                     <input class="color-fondo-contac py-3 px-3" type="text" name="" [placeholder]="etiquetas?.contacto_correo">
                 </div>
-                <div class="col-12 col-sm-6 pr-0 pl-0 pl-sm-1 mt-sm-2">
+                <!-- <div class="col-12 col-sm-6 pr-0 pl-0 pl-sm-1 mt-sm-2">
                     <input class="color-fondo-contac py-3 px-3" type="number" name="" [placeholder]="etiquetas?.contacto_correo">
-                </div>
+                </div> -->
                 <div class="col-12 px-0 mt-2">
                     <textarea class="px-3 color-fondo-contac py-3" id="textarea" aria-label="With textarea" [placeholder]="etiquetas?.contacto_mensaje" ></textarea>
                 </div>
@@ -63,7 +61,7 @@
             </div>
         </div>
         </div>
-    </div>  
+    </div>
     </div>
 </div>
 </section>

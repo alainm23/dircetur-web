@@ -10,7 +10,7 @@
                         <h1 class="color-blanco" id="titulo-bole">{{etiquetas?.boleto_tursitico_titulo}}<span id="subtitulo-font"> {{etiquetas?.boleto_tursitico_subtitulo}}</span> </h1>
                 </div>
                 <div class="col-xl-9 pb-lg-5 mb-lg-5 pl-lg-5 text-center text-lg-left color-blanco texto-font" [innerHtml]="etiquetas?.boleto_turistico_descripcion">
-                    
+
                 </div>
             </div>
         </div>
@@ -19,18 +19,18 @@
                         <div class="col-12 mb-md-3 mt-n4 text-center text-lg-left">
                             <h3 class="color-blanco subtitulo-delgado">{{etiquetas?.boleto_turistico_cuanto}}</h3>
                         </div>
-                        <div class="col-md-6 pr-lg-1 pb-2 pb-md-0">
+                        <div class="col-12">
                             <div class="cajaselect" style="padding: 1px 0px; margin-top: 0px;">
                                 <span class="seleccionado" style="margin-top: 0px;">Seleccionar Boleto</span>
                                     <ul class="listaselect">
-                                        <li *ngFor="let boleto of boletos" (click)="calcularBoleto (boleto?.id)">
+                                        <li *ngFor="let boleto of boletos" (click)="calcularBoleto (boleto)">
                                             {{boleto?.titulo}}
                                         </li>
                                     </ul>
                                 <span class="trianguloinf" style="margin-top: 0px;"></span>
                             </div>
                         </div>
-                        <div class="col-md-6 pl-xl-1">
+                        <!-- <div class="col-md-6 pl-xl-1">
                             <div class="cajaselect" style="padding: 1px 0px; margin-top: 0px;">
                                 <span class="seleccionado" style="margin-top: 0px;" id="nacional">Seleccionar</span>
                                     <ul class="listaselect">
@@ -43,7 +43,7 @@
                                     </ul>
                                 <span class="trianguloinf" style="margin-top: 0px;"></span>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-12 text-center py-4">
                             <p class="color-negro mb-0" id="costo-font">{{etiquetas?.boleto_turistico_costo_persona}} {{precio_mostrar}}</p>
                         </div>
@@ -87,7 +87,7 @@
             <h2 class="color-negro subtitulo-delgado">{{etiquetas?.boleto_turistico_condiones}}</h2>
         </div>
         <div [innerHtml]="etiquetas?.boleto_turistico_condiones_descripcion" class="col-xl-8 offset-xl-2 text-center color-negro texto-font mb-0">
-            
+
         </div>
     </div>
 </div>
@@ -104,7 +104,7 @@
             <div style="width: 100%; height: 1px;background-color: #6b6464;"></div>
         </div>
         <div [innerHtml]="etiquetas?.boleto_parciales_descripcion" class="col-sm-8 offset-sm-2 color-negro text-center my-4 texto-font mb-0 ">
-           
+
         </div>
     </div>
 </div>
@@ -151,12 +151,12 @@
         <div class="anchura-20 mb-2" *ngFor="let parque of parques_arqueologicos">
             <div class="row m-0">
                 <div class="col-12 px-0 img-parques-arqueologicos-new" [ngStyle]="{'background-image': 'url('+ parque?.imagen +')'}">
-                    
+
                 </div>
                 <div class="col-12 text-center py-3" style="border: 1px solid #d9d9d9; height: 14rem;">
                     <h6 class="titulo-incluidos">{{parque?.titulo}}</h6>
                     <div class="color-negro texto-incluidos text-parque-arqueologico-alto" [innerHtml]="parque?.detalle">
-                        
+
                     </div>
                 </div>
             </div>
@@ -171,7 +171,7 @@
         <div class="col-12 text-center my-5">
             <h2 class="color-negro subtitulo-delgado">{{etiquetas?.boleto_museos_incluidos}}</h2>
         </div>
-       
+
     </div>
 </div>
 </section>
@@ -184,12 +184,12 @@
                     <div class="col-12 col-sm-4 mb-2 px-0" *ngFor="let museo of museos">
                         <div class="row m-0">
                             <div class="col-12 px-0 img-museos-new" [ngStyle]="{'background-image': 'url('+ museo?.imagen +')'}">
-                    
+
                             </div>
                             <div class="col-12 text-center py-3" style="border: 1px solid #d9d9d9; background-color: #fff; height: 14rem;">
                                 <h6 class="titulo-incluidos">{{museo?.titulo}}</h6>
                                 <div class="color-negro texto-incluidos text-museo-alto" [innerHtml]="museo?.detalle">
-                                    
+
                                 </div>
                             </div>
                         </div>

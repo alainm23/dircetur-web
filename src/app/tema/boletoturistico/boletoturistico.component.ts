@@ -25,7 +25,7 @@ export class BoletoturisticoComponent implements OnInit {
   constructor(
     public db:DatabaseService,
     private utils:UtilsService
-  ) { 
+  ) {
     utils.idioma.subscribe((nextValue) => {
       /* subscribirme */
       this.sus=this.db.getPaginaWebEtiquetas ('boleto_turistico_' + nextValue).subscribe ((res) => {
@@ -36,7 +36,7 @@ export class BoletoturisticoComponent implements OnInit {
 
   ngOnInit() {
     window.scrollTo(0, 0);
-    
+
     /* Idioma */
 
     this.utils.ElIdioma = localStorage.getItem("idioma");
@@ -79,14 +79,14 @@ export class BoletoturisticoComponent implements OnInit {
           lista = $(this).closest("ul"),
           triangulo = $(this).parent().next();
           e.preventDefault();
-          e.stopPropagation();    
+          e.stopPropagation();
           seleccionado.text(texto);
           lista.hide();
           triangulo.removeClass("triangulosup").addClass("trianguloinf");
         }
       $(".cajaselect").click(clickcaja);
       $(".cajaselect").on("click", "li", clickli);
-      }); 
+      });
     });
 
     this.sus4=this.db.getallParquesArqueologicos ().subscribe ((res) => {
@@ -98,20 +98,21 @@ export class BoletoturisticoComponent implements OnInit {
       this.museos = res;
       console.log('Este es el Objeto con los Museos=',this.museos);
     });
-    
+
   }
 
-  calcularBoleto (id:string){
-    this.sus6=this.db.getBoletobyKey(id).subscribe ((res:any) => {
-      this.precio_extranjero=res.precio_extrajero;
-      this.precio_nacional=res.precio_nacional;
-      this.precio_mostrar=this.precio_nacional;
-      $("#nacional").html('Nacional');
-      console.log('Este es el detalle del Boleto seleccionado=',res);
-    });
-    
+  calcularBoleto (dato:any) {
+    console.log (dato);
+    this.precio_mostrar = dato.precio;
+    // this.sus6=this.db.getBoletobyKey(id).subscribe ((res:any) => {
+    //   this.precio_extranjero=res.precio_extrajero;
+    //   this.precio_nacional=res.precio_nacional;
+    //   this.precio_mostrar=this.precio_nacional;
+    //   $("#nacional").html('Nacional');
+    //   console.log('Este es el detalle del Boleto seleccionado=',res);
+    // });
   }
-  
+
   MostrarPrecio (tipo:string){
     if(tipo=="nacional"){
       this.precio_mostrar=this.precio_nacional;

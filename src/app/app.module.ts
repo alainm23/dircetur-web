@@ -64,6 +64,7 @@ import { RegistroFinalizadoComponent } from './tema/registro-finalizado/registro
 import { RegistroAlojamientoComponent } from './tema/registro-alojamiento/registro-alojamiento.component';
 import { RegistroAgenciaComponent } from './tema/registro-agencia/registro-agencia.component';
 import { RegistroAgenciaDigitalComponent } from './tema/registro-agencia-digital/registro-agencia-digital.component';
+import { NuevoComponenteComponent } from './nuevo-componente/nuevo-componente.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { RegistroAgenciaDigitalComponent } from './tema/registro-agencia-digital
     RegistroFinalizadoComponent,
     RegistroAlojamientoComponent,
     RegistroAgenciaComponent,
-    RegistroAgenciaDigitalComponent
+    RegistroAgenciaDigitalComponent,
+    NuevoComponenteComponent
   ],
   imports: [
     BrowserModule,
@@ -141,7 +143,8 @@ import { RegistroAgenciaDigitalComponent } from './tema/registro-agencia-digital
   entryComponents: [
     ViajeProgramadoDialogComponent,
     ImagenUbigeoComponent,
-    PopupRegistroComponent
+    PopupRegistroComponent,
+    NuevoComponenteComponent
   ]
 })
 export class AppModule { }

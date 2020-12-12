@@ -62,6 +62,7 @@
                </li>
 
                <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="http://190.108.89.83/TramiteDircetur2020/mesavirtual" target="_blank" style="cursor: pointer;">Mesa de partes</a></li>
+
                <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdownidiomaMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ idioma }}</a>
                 <div style="width: 11rem;" class="dropdown-menu pt-0 bajar-submenu" aria-labelledby="dropdownidiomaMenu2" id="desplegable-idioma">
                   <div class="color-axul-menu"></div>
@@ -82,7 +83,7 @@
                   <img src="assets/imagenes/logo-horizontal.png" width="100%">
                </div>
                <div class="col-4 mt-2 pr-0">
-                  <img src="assets/imagenes/logoportal.png" width="100%">
+                <img src="assets/imagenes/logoportal.png" width="100%">
                </div>
              </div>
            </div>
@@ -91,6 +92,7 @@
    </div>
 </nav>
 </section>
+
 <section style="position: relative;">
 <!-- Video de Youtube -->
 <div id="imagen-prueba" class="loading-img" style="width: 100%;" >
@@ -255,11 +257,12 @@
 
                   </div>
                   <div class="col-6 offset-3 mt-xl-2">
-                      <button class="btn btn-line-backgraound" (click)="goTurismo ()">{{etiquetas?.home_lineas_turismo_btn}}</button>
+                      <button class="btn btn-line-backgraound" (click)="goTurismo ()">{{etiquetas?.home_lineas_artesania_btn}}</button>
                   </div>
                   </div>
               </div>
           </div>
+
           <div class="col-12 col-sm-6 col-md-4 col-lg-3 order-3 order-lg-0 px-0 animacion mt-lg-3">
               <div class="row m-0">
                   <div class="col-12 px-0">
@@ -278,11 +281,12 @@
 
                   </div>
                   <div class="col-6 offset-3 mt-xl-2">
-                      <button class="btn btn-line-backgraound" (click)="goComercioExterior ()">{{etiquetas?.home_lineas_comercioexterior_btn}}</button>
+                      <button class="btn btn-line-backgraound" (click)="goComercioExterior ()">{{etiquetas?.home_lineas_artesania_btn}}</button>
                   </div>
                   </div>
               </div>
           </div>
+
           <div class="col-12 col-sm-6 col-md-4 col-lg-3 order-4 order-lg-0 px-0 animacion mt-lg-3">
               <div class="row m-0">
                   <div class="col-12 px-0">
@@ -418,64 +422,6 @@
 </section>
 
 <section>
-   <div class="container-fluid p-0">
-       <div class="row m-0">
-           <div class="col-sm-6 col-lg-4 col-xl-3 p-0">
-               <div class="rojo-fondo text-center px-2" id="borde-rojo">
-                   <div class="row m-0">
-                       <div class="col-12">
-                           <h3 class="color-letra-blanco" id="rutas-font-home">{{etiquetas?.home_rutas_titulo}}<span class="ml-1" id="sugeridas-font-home">{{etiquetas?.home_rutas_subtitulo}}</span></h3>
-                       </div>
-                       <div [innerHtml]="etiquetas?.home_rutas_texto" class="col-12 mt-2 color-letra-blanco" id="texto-sugeridas-font">
-
-                       </div>
-                       <div class="col-12 mt-4 mb-3">
-                           <a class="color-letra-blanco" href="" id="ver-rutas-font">{{etiquetas?.home_rutas_link_todas}}</a>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <div class="col-sm-6 col-lg-4 col-xl-3 p-0 animacion-ruta border-imagen" *ngFor="let ruta of Rutas">
-             <div class="row m-0">
-                 <div *ngIf="ruta?.imagen==''" class="col-12 p-0 img-rutas-home" [ngStyle]="{'background-image': 'url('+ url_img_ruta +')'}">
-
-                 </div>
-                 <div *ngIf="ruta?.imagen!=''" class="col-12 p-0 img-rutas-home" [ngStyle]="{'background-image': 'url('+ ruta?.imagen +')'}">
-
-                 </div>
-                 <div class="col-12 p-0 py-2 ocultar-ruta p-0" style="background-color: #FFFFFF;">
-                     <div class="row m-0">
-                       <div class="col-8 p-0 py-2">
-                         <div class="row m-0">
-                           <div class="col-12 text-left p-0 px-2">
-                             <h4 class="ruta-titulo-font mb-0 caracteres-titulo-rutas" [title]="get_value (ruta, 'nombre')">{{ get_value (ruta, 'nombre') }}</h4>
-                           </div>
-                           <div class="col-12 text-left p-0 px-2">
-                             <div class="row">
-                               <div *ngFor="let tag of ruta.tags" class="col-4 text-center">
-                                <p class="my-0 color-cantidad" style="font-size: 11px;">
-                                  {{ tag.nombre }}
-                                </p>
-                               </div>
-                             </div>
-                           </div>
-                           <div class="col-12 text-left p-0 px-2 mt-0">
-                             <p class="ruta-texto-font color-cantidad mb-0">{{ get_value (ruta, 'donde') }}</p>
-                           </div>
-                         </div>
-                       </div>
-                       <div class="col-4 p-0">
-                         <a class="btn btn-explorar-ruta py-4 color-blanco-hover" style="cursor: pointer; color: #FFFFFF;" (click)="verCircuitoTourDetalle (ruta.nombre,ruta.id)">{{etiquetas?.home_rutas_link_explorar}}</a>
-                       </div>
-                     </div>
-                 </div>
-             </div>
-           </div>
-       </div>
-   </div>
-</section>
-
-<section>
   <div class="container-fluid px-0 px-sm-5 py-3 py-sm-5 mt-xl-5">
     <div class="row m-0">
       <div class="col-lg-12 col-xl-4 p-0">
@@ -590,6 +536,64 @@
      </div>
    </div>
  </div>
+</section>
+
+<section>
+  <div class="container-fluid p-0">
+      <div class="row m-0">
+          <div class="col-sm-6 col-lg-4 col-xl-3 p-0">
+              <div class="rojo-fondo text-center px-2" id="borde-rojo">
+                  <div class="row m-0">
+                      <div class="col-12">
+                          <h3 class="color-letra-blanco" id="rutas-font-home">{{etiquetas?.home_rutas_titulo}}<span class="ml-1" id="sugeridas-font-home">{{etiquetas?.home_rutas_subtitulo}}</span></h3>
+                      </div>
+                      <div [innerHtml]="etiquetas?.home_rutas_texto" class="col-12 mt-2 color-letra-blanco" id="texto-sugeridas-font">
+
+                      </div>
+                      <div class="col-12 mt-4 mb-3">
+                          <a class="color-letra-blanco" href="" id="ver-rutas-font">{{etiquetas?.home_rutas_link_todas}}</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 col-xl-3 p-0 animacion-ruta border-imagen" *ngFor="let ruta of Rutas">
+            <div class="row m-0">
+                <div *ngIf="ruta?.imagen==''" class="col-12 p-0 img-rutas-home" [ngStyle]="{'background-image': 'url('+ url_img_ruta +')'}">
+
+                </div>
+                <div *ngIf="ruta?.imagen!=''" class="col-12 p-0 img-rutas-home" [ngStyle]="{'background-image': 'url('+ ruta?.imagen +')'}">
+
+                </div>
+                <div class="col-12 p-0 py-2 ocultar-ruta p-0" style="background-color: #FFFFFF;">
+                    <div class="row m-0">
+                      <div class="col-8 p-0 py-2">
+                        <div class="row m-0">
+                          <div class="col-12 text-left p-0 px-2">
+                            <h4 class="ruta-titulo-font mb-0 caracteres-titulo-rutas" [title]="get_value (ruta, 'nombre')">{{ get_value (ruta, 'nombre') }}</h4>
+                          </div>
+                          <div class="col-12 text-left p-0 px-2">
+                            <div class="row">
+                              <div *ngFor="let tag of ruta.tags" class="col-4 text-center">
+                               <p class="my-0 color-cantidad" style="font-size: 11px;">
+                                 {{ tag.nombre }}
+                               </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 text-left p-0 px-2 mt-0">
+                            <p class="ruta-texto-font color-cantidad mb-0">{{ get_value (ruta, 'donde') }}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-4 p-0">
+                        <a class="btn btn-explorar-ruta py-4 color-blanco-hover" style="cursor: pointer; color: #FFFFFF;" (click)="verCircuitoTourDetalle (get_value (ruta, 'nombre'), ruta.id)">{{etiquetas?.home_rutas_link_explorar}}</a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
 </section>
 
 <section class="pt-5"  id="section-color-fondo">

@@ -8,6 +8,7 @@ import { SlugifyPipe } from '../../app/pipe/slugify.pipe';
 import { UtilsService } from '../services/utils.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PopupRegistroComponent } from '../popup-registro/popup-registro.component';
+import { NuevoComponenteComponent } from '../nuevo-componente/nuevo-componente.component';
 
 // AlgoliaSearch’
 const algoliasearch = require('algoliasearch');
@@ -109,6 +110,12 @@ export class HomeComponent implements OnInit {
 
     openDialog() {
       if (this.popup_registro === null) {
+        // this.popup_registro = this.matDialog.open (
+        //   PopupRegistroComponent, {
+        //   hasBackdrop: true,
+        //   panelClass: 'my-class'
+        // });
+
         this.popup_registro = this.matDialog.open (
           PopupRegistroComponent, {
           hasBackdrop: true,
@@ -388,8 +395,8 @@ export class HomeComponent implements OnInit {
     this.route.navigate (["/blog-detalle/"+this.slugifyPipe.transform (slug)+"/"+id]);
   }
 
-  verCircuitoTourDetalle(slug:string,id:string)
-  {
+  verCircuitoTourDetalle(slug:string,id:string) {
+    console.log (slug, id);
     this.route.navigate (["/circuito-detalle/"+this.slugifyPipe.transform(slug)+"/"+id]);
   }
 
