@@ -30,7 +30,7 @@ export class TransparenciainstitucionalComponent implements OnInit {
    })
    }
 
-  ngOnInit() {
+  ngOnInit () {
     window.scrollTo(0, 0);
     this.utils.ElIdioma = localStorage.getItem("idioma");
 
@@ -45,7 +45,7 @@ export class TransparenciainstitucionalComponent implements OnInit {
     this.sus2=this.db.getPaginaWebEtiquetas ('transparencia_institucional').subscribe ((res) => {
       this.imagenes = res;
     });
-    
+
     $(document).ready(function() {
       function clickcaja(e) {
         var lista = $(this).find("ul"),
@@ -66,7 +66,7 @@ export class TransparenciainstitucionalComponent implements OnInit {
         lista = $(this).closest("ul"),
         triangulo = $(this).parent().next();
         e.preventDefault();
-        e.stopPropagation();    
+        e.stopPropagation();
         seleccionado.text(texto);
         lista.hide();
         triangulo.removeClass("triangulosup").addClass("trianguloinf");
@@ -77,10 +77,11 @@ export class TransparenciainstitucionalComponent implements OnInit {
 
     this.afs.collection ('TransparenciaCategorias').valueChanges ().subscribe ((res: any []) => {
       this.categorias = res;
-      console.log (res);  
+      console.log ('categorias', res);
 
       if (res.length > 0) {
-        this.traer_medios (res [0]);
+        // this.traer_medios (res [0]);
+        this.traer_subcategorias (res [0]);
       }
     });
   }
@@ -98,18 +99,18 @@ export class TransparenciainstitucionalComponent implements OnInit {
     this.categoria_seleccionado = item;
     this.afs.collection ('TransparenciaCategorias').doc (item.id).collection ('Subcategorias').valueChanges ().subscribe ((res: any []) => {
       this.items = res;
-      
+
       $(document).ready(function() {
         $(".accordion-titulo").click(function(e){
           e.preventDefault();
           var contenido=$(this).next(".accordion-content");
-          if(contenido.css("display")=="none"){ //open    
-            contenido.slideDown(0);     
+          if(contenido.css("display")=="none"){ //open
+            contenido.slideDown(0);
             $(this).addClass("open");
           }
-          else{ //close   
+          else{ //close
             contenido.slideUp(0);
-            $(this).removeClass("open");  
+            $(this).removeClass("open");
           }
           });
       });

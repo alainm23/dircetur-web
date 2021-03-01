@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DatabaseService } from '../../../services/database.service';
 import { Router } from '@angular/router';
 import { SlugifyPipe } from '../../../app/pipe/slugify.pipe';
 import { UtilsService } from '../../services/utils.service';
+declare var google: any;
 
 @Component({
   selector: 'app-footer',
@@ -11,18 +12,21 @@ import { UtilsService } from '../../services/utils.service';
   providers: [SlugifyPipe]
 })
 export class FooterComponent implements OnInit {
-Categorias:any;
-sus: any;
-sus2: any;
-sus3: any;
-etiquetas: any;
-imagenes: any;
+  @ViewChild ('map', { static: false }) mapRef: ElementRef;
+  map: any;
+  Categorias:any;
+  sus: any;
+  sus2: any;
+  sus3: any;
+  etiquetas: any;
+  imagenes: any;
+
   constructor(
     public db:DatabaseService,
     public route: Router,
     private slugifyPipe: SlugifyPipe,
     public utils: UtilsService
-  ) { 
+  ) {
     utils.idioma.subscribe((nextValue) => {
       /* subscribirme */
       this.sus=this.db.getPaginaWebEtiquetas ('footer_' + nextValue).subscribe ((res) => {
@@ -31,7 +35,7 @@ imagenes: any;
    })
   }
 
-  ngOnInit() {
+  ngOnInit () {
     this.TraerCategoriasBlogs();
 
     /* Idioma */
@@ -50,7 +54,34 @@ imagenes: any;
       this.imagenes = res;
     });
 
+    setTimeout (() => {
+      this.initMap ();
+    }, 1000);
   }
+
+  initMap () {
+    let point = new google.maps.LatLng (-13.522226696384148, -71.96721645159772);
+
+    const options = {
+      center: point,
+      zoom: 17,
+      disableDefaultUI: true,
+      streetViewControl: false,
+      disableDoubleClickZoom: false,
+      clickableIcons: false,
+      scaleControl: true,
+      mapTypeId: 'roadmap'
+    }
+
+    this.map = new google.maps.Map (this.mapRef.nativeElement, options);
+
+    let marker: any = new google.maps.Marker ({
+      position: point,
+      animation: google.maps.Animation.DROP,
+      map: this.map
+    });
+  }
+
   TraerCategoriasBlogs () {
     this.sus3=this.db.getallCats().subscribe(res=>{
       this.Categorias=res;
@@ -73,11 +104,11 @@ imagenes: any;
   goCircuitosTuristicos () {
     this.route.navigate (["/circuitos-turisticos"]);
   }
-  
+
   goBoletoTuristico () {
     this.route.navigate (["/boleto-turistico"]);
   }
-  
+
   goAppProveedor () {
     this.route.navigate (["/url-app-proveedores-FALTA"]);
   }
@@ -85,7 +116,7 @@ imagenes: any;
   goTurismoRural () {
     this.route.navigate (["/turismo-rural-comunitario"]);
   }
-  
+
   goTurismoSocial () {
     this.route.navigate (["/turismo-social"]);
   }
@@ -93,7 +124,7 @@ imagenes: any;
   goTurismo () {
     this.route.navigate (["/turismo"]);
   }
-  
+
   goComercioExterior () {
     this.route.navigate (["/comercio-exterior"]);
   }

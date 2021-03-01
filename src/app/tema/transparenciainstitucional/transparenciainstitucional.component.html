@@ -44,7 +44,7 @@
           <div class="accordion-container">
             <button class="accordion-titulo py-2 px-4 text-capitalize open text-left">{{ item.nombre }}<span class="toggle-icon mt-n1"></span></button>
             <div [className]="i==0 ? 'accordion-content py-3 px-4 accordeon-desplegado' : 'accordion-content py-3 px-4'">
-              <div class="row m-0" *ngFor="let medio of item.medios">
+              <div class="row m-0" style="padding-top: 6px; padding-bottom: 6px;" *ngFor="let medio of item.medios">
                 <div class="col-12 col-md-9 col-lg-10">
                   <p class="color-letra-descarga-trans">{{ medio.descripcion }}</p>
                 </div>

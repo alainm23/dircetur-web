@@ -15,3 +15,15 @@ mat-checkbox-layout { white-space: normal !important; }
 .my-class .mat-dialog-container{
   padding: 0px;
 }
+
+
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+  display:none;
+}
+
+.gmnoprint div {
+  background:none !important;
+}

@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
       tag.src = 'https://www.youtube.com/iframe_api';
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-      window['onYouTubeIframeAPIReady'] = () => this.createPlayer();
+      window['onYouTubeIframeAPIReady'] = () => this.createPlayer ();
     }
 
     initalgolia () {
@@ -271,7 +271,8 @@ export class HomeComponent implements OnInit {
         let calcular_alto2=calcular_alto/100;
         this.Alto_video=calcular_alto2+300;
       }
-      this.video = 'Mnjpd9qXwdI' //video id
+      // this.video = 'Mnjpd9qXwdI' //video id
+      this.video = 'K9wXDpxXppc';
       this.YT = window['YT'];
       this.reframed = false;
       this.player = new window['YT'].Player('player', {

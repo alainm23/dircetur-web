@@ -56,12 +56,12 @@
                  <div style="width: 13rem;" class="dropdown-menu pt-0 bajar-submenu" aria-labelledby="dropdowniMenu2" id="desplaigable-ingresar">
                    <div class="color-axul-menu"></div>
                    <a class="dropdown-item despliagable-font my-1" href="">{{etiquetas?.home_menu_proveedores}}</a>
-                   <div class="color-megro-menu ml-4"></div>
-                   <a class="dropdown-item despliagable-font my-1" href="">{{etiquetas?.home_menu_municipalidades}}</a>
+                   <!-- <div class="color-megro-menu ml-4"></div> -->
+                   <!-- <a class="dropdown-item despliagable-font my-1" href="">{{etiquetas?.home_menu_municipalidades}}</a> -->
                  </div>
                </li>
 
-               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="http://190.108.89.83/TramiteDircetur2020/mesavirtual" target="_blank" style="cursor: pointer;">Mesa de partes</a></li>
+               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="http://190.108.89.83/tramitedircetur2021/tramite/virtual" target="_blank" style="cursor: pointer;">Mesa de partes</a></li>
 
                <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdownidiomaMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ idioma }}</a>
                 <div style="width: 11rem;" class="dropdown-menu pt-0 bajar-submenu" aria-labelledby="dropdownidiomaMenu2" id="desplegable-idioma">
@@ -186,53 +186,6 @@
 
         </div>
     </div>
-  </div>
-</section>
-
-<section class="mb-5">
-  <div class="container-fluid px-sm-5">
-     <div class="row m-0">
-       <div class="col-12 text-center">
-           <h2 id="subtitulo-noticia-font">{{etiquetas?.home_noticias}}<span class="ml-1" id="suntitulo-dicertur-font">{{etiquetas?.home_dicertur_1}}</span></h2>
-       </div>
-       <div class="col-sm-6 col-xl-3 mt-5 px-0" *ngFor="let blog of Blogs; let i=index">
-           <div class="row m-0" *ngIf="i<4">
-              <div *ngIf="blog?.imagen==''" class="col-12 px-0 img-blog-home" data-aos="flip-left"  data-aos-offset="300" data-aos-easing="ease-in-sine" [ngStyle]="{'background-image': 'url('+ url_img_blog +')'}">
-
-              </div>
-              <div *ngIf="blog?.imagen!=''" class="col-12 px-0 img-blog-home" data-aos="flip-left"  data-aos-offset="300" data-aos-easing="ease-in-sine" [ngStyle]="{'background-image': 'url('+ blog?.imagen +')'}">
-
-              </div>
-               <div class="col-12 mt-2 pl-xl-2 mb-0">
-                   <h3 class="noticias-font mb-0 text-noticia-tituto" [title]="ValidarIdioma (blog,'titulo_')">{{ ValidarIdioma (blog,'titulo_') }}</h3>
-               </div>
-               <div class="col-12 px-0 px-lg-3 px-xl-2">
-                   <div class="row m-0">
-                       <div class="col-6 col-md-2 pl-lg-0  pr-lg-0 ">
-                           <p class="mb-1"><small class="fecha-eventos-font">{{blog.categoria.nombre}}</small></p>
-                       </div>
-                       <div class="col-6 col-md-3 col-xl-3 pl-xl-2 pr-lg-0">
-                           <p class="mb-1"><small class="fecha-eventos-font">{{ formatoFecha1(blog.fecha_creado) }}</small></p>
-                       </div>
-                       <div class="col-12 col-md-7 col-xl-5 pl-lg-0 pl-xl-2 pr-0">
-                           <p class="mb-2 mb-sm-0">
-                             <small class="fecha-eventos-font text-autor-noticias mt-md-1">
-                               {{ blog.autor }}
-                             </small>
-                           </p>
-                       </div>
-                   </div>
-               </div>
-               <div class="col-12 pr-md-4 pl-xl-2 textoeventos-font text-justify text-md-left text-noticia-alto mt-1">
-                 {{ ValidarIdioma (blog,'resumen_') }}
-               </div>
-               <div class="col-12 px-xl-0 my-3">
-                   <a class="btn btn-leer-altura" (click)="BlogDetalle(blog,blog.id)" style="cursor: pointer; color: #FFFFFF;">{{etiquetas?.home_noticias_link_leer}}</a>
-               </div>
-           </div>
-       </div>
-
-     </div>
   </div>
 </section>
 
@@ -508,6 +461,53 @@
         <a class="link-ver-negro" (click)="goCalendario ()" style="cursor: pointer;">{{etiquetas?.home_calendario_link_completo}}</a>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="mb-5">
+  <div class="container-fluid px-sm-5">
+     <div class="row m-0">
+       <div class="col-12 text-center">
+           <h2 id="subtitulo-noticia-font">{{etiquetas?.home_noticias}}<span class="ml-1" id="suntitulo-dicertur-font">{{etiquetas?.home_dicertur_1}}</span></h2>
+       </div>
+       <div class="col-sm-6 col-xl-3 mt-5 px-0" *ngFor="let blog of Blogs; let i=index">
+           <div class="row m-0" *ngIf="i<4">
+              <div *ngIf="blog?.imagen==''" class="col-12 px-0 img-blog-home" data-aos="flip-left"  data-aos-offset="300" data-aos-easing="ease-in-sine" [ngStyle]="{'background-image': 'url('+ url_img_blog +')'}">
+
+              </div>
+              <div *ngIf="blog?.imagen!=''" class="col-12 px-0 img-blog-home" data-aos="flip-left"  data-aos-offset="300" data-aos-easing="ease-in-sine" [ngStyle]="{'background-image': 'url('+ blog?.imagen +')'}">
+
+              </div>
+               <div class="col-12 mt-2 pl-xl-2 mb-0">
+                   <h3 class="noticias-font mb-0 text-noticia-tituto" [title]="ValidarIdioma (blog,'titulo_')">{{ ValidarIdioma (blog,'titulo_') }}</h3>
+               </div>
+               <div class="col-12 px-0 px-lg-3 px-xl-2">
+                   <div class="row m-0">
+                       <div class="col-6 col-md-2 pl-lg-0  pr-lg-0 ">
+                           <p class="mb-1"><small class="fecha-eventos-font">{{blog.categoria.nombre}}</small></p>
+                       </div>
+                       <div class="col-6 col-md-3 col-xl-3 pl-xl-2 pr-lg-0">
+                           <p class="mb-1"><small class="fecha-eventos-font">{{ formatoFecha1(blog.fecha_creado) }}</small></p>
+                       </div>
+                       <div class="col-12 col-md-7 col-xl-5 pl-lg-0 pl-xl-2 pr-0">
+                           <p class="mb-2 mb-sm-0">
+                             <small class="fecha-eventos-font text-autor-noticias mt-md-1">
+                               {{ blog.autor }}
+                             </small>
+                           </p>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-12 pr-md-4 pl-xl-2 textoeventos-font text-justify text-md-left text-noticia-alto mt-1">
+                 {{ ValidarIdioma (blog,'resumen_') }}
+               </div>
+               <div class="col-12 px-xl-0 my-3">
+                   <a class="btn btn-leer-altura" (click)="BlogDetalle(blog,blog.id)" style="cursor: pointer; color: #FFFFFF;">{{etiquetas?.home_noticias_link_leer}}</a>
+               </div>
+           </div>
+       </div>
+
+     </div>
   </div>
 </section>
 
