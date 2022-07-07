@@ -37,7 +37,7 @@
     "instantsearch.js": "^4.0.1",
     "jquery": "^3.5.0",
     "jspdf": "^1.5.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ng2-validation": "^4.2.0",
     "ngx-flickity": "0.0.9",
     "ngx-spinner": "^8.1.0",
